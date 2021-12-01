@@ -1,0 +1,10 @@
+* text eol=lf
+*.* text=auto
+*.css linguist-vendored
+*.scss linguist-vendored
+*.js linguist-vendored
+*.sh  text eol=lf
+*.env.*  text eol=lf
+unzip text eol=lf
+gradlew text eol=lf
+CHANGELOG.md export-ignore

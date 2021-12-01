@@ -1,0 +1,40 @@
+plugins {
+    id "com.github.node-gradle.node" version "2.2.4"
+    id "com.github.ben-manes.versions" version "0.28.0"
+}
+
+apply plugin: 'eclipse'
+
+eclipse {
+    project {
+        name = 'cert-client'
+    }
+}
+
+node {
+    version = '11.10.1'
+    yarnVersion = '1.21.1'
+    download = true
+    npmInstallCommand = "ci"
+}
+
+task jsBuild(type: NpmTask) {
+    args = ["run", "build"]
+}
+
+task jsLint(type: NpmTask) {
+    args = ["run", "lint"]
+}
+
+task jsServe(type: NpmTask) {
+    args = ["run", "serve"]
+}
+
+task clean {
+    delete 'dist'
+}
+
+npmInstall.dependsOn nodeSetup
+jsLint.dependsOn npmInstall
+jsBuild.dependsOn jsLint
+jsServe.dependsOn npmInstall

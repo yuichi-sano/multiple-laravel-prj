@@ -1,0 +1,20 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Http\Resources\Definition\ResultDefinitionInterface;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+
+class DummyClass implements ResultDefinitionInterface
+{
+    public function __construct($resource)
+    {
+        parent::__construct($resource);
+        $this->result = new definition();
+    }
+    public function buildResult()
+    {
+
+    }
+}
