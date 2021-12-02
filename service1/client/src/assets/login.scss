@@ -1,16 +1,15 @@
 /** ログイン **/
 
 #login {
-  background:linear-gradient(90deg,#ffffff 0%,#ffffff 50%,#005aab 50%,#005aab 100%);
   position: relative;
   display: flex;
   flex-direction: row-reverse;
   align-items: stretch;
-  padding: 0 0 80px;
+  padding: 0 0 0px;
 
   > .login_form,
   > .login_info {
-    width: 50%;
+    width: 100%;
     box-sizing: border-box;
   }
 
@@ -101,7 +100,7 @@
   .login_form {
     position: relative;
     padding: 100px 0 0;
-    background: $blue;
+    background: $lightGray;
     color: $white;
     h1 {
       margin-bottom: 10px;
@@ -145,7 +144,7 @@
       margin: 30px auto 0;
       padding: 10px 0 10px 0;
       border: none;
-      background: #ffffff url("/img/icon_btn_arrow.png") no-repeat right 10px center;
+      #background: #ffffff url("/img/icon_btn_arrow.png") no-repeat right 10px center;
       color: #005AAB;
       font-size: 1.25rem;
       text-align: center;

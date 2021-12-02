@@ -27,10 +27,11 @@ services:
         build:
             context: ./service1/client/docker
             dockerfile: Dockerfile
+        image: 'service1-cli'
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
-            - '18080:8080'
+            - '18080:18080'
         volumes:
             - './service1/client:/app/'
             - 'service1-cli-node-modules:/app/node_modules'
@@ -38,7 +39,8 @@ services:
             - sail
         stdin_open: true
         tty: true
-        restart: always
+        environment:
+            - CHOKIDAR_USEPOLLING=true
         depends_on:
             - selenium
     mysql:

@@ -47,7 +47,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background: $blue;
+  background: $lightGray;
   box-sizing: border-box;
   .headerLeft {
     max-width: calc( 100% - 450px );
@@ -277,7 +277,7 @@ header {
     border-radius: 5px;
     overflow: hidden;
     .modal-card-title {
-      background: $blue;
+      background: $lightGray;
       color: $white;
       padding: 5px 10px;
     }
@@ -342,7 +342,7 @@ header {
     width: 100%;
     padding: 0px 0 0px 40px;
     margin: 0 0 20px -40px;
-    color: #005AAB;
+    
     font-size: 1.875rem;
     font-weight: bold;
     svg {
@@ -370,7 +370,7 @@ header {
         color: $green;
       }
       &.c > svg {
-        color: $blue;
+        color: $lightGray;
       }
     }
   }
@@ -398,7 +398,7 @@ header {
     padding-top: 1px;
     border-radius: 4px;
     box-sizing: border-box;
-    background: $blue;
+    background: $lightGray;
     color: $white;
     word-break: keep-all;
     white-space: nowrap;
