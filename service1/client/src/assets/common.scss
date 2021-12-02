@@ -1,0 +1,428 @@
+/** 共通定義 **/
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,body {
+  font-size: 16px;
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, "sans-serif";
+  color: $textBlack;
+  line-height: 1.4;
+  @media screen and ( max-width : 780px ) {
+    font-size: 14px;
+  }
+}
+
+img {
+  vertical-align: bottom;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+button:hover {
+  opacity: 0.9;
+}
+
+select,
+[type="checkbox"],
+[type="redio"] {
+  cursor: pointer;
+}
+
+
+/* header */
+header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: $blue;
+  box-sizing: border-box;
+  .headerLeft {
+    max-width: calc( 100% - 450px );
+    padding: 10px 0;
+    @media screen and ( max-width : 770px ) {
+        width: 320px;
+        max-width: none;
+    }
+    @media screen and ( max-width : 700px ) {
+      margin: 0 auto;
+    }
+    h1 {
+      padding-left: calc( 10% + 30px );
+      background: url("/img/header/icon_jaai.png") no-repeat 24px center;
+      background-size: auto 100%;
+      cursor: pointer;
+      @media screen and ( max-width : 700px ) {
+        padding-left: calc( 10% + 18px );
+        padding-right: 12px;
+        background-position: 12px center;
+      }
+      > * {
+        display: flex;
+        max-width: 100%;
+        align-items: center;
+        > img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  button {
+    display: block;
+    width: 180px;
+    margin: 0 20px 0 0;
+    padding: 5px 0;
+    border: $textBlack solid 1px;
+    text-align: center;
+    background: $white;
+    color: $textBlack;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  a:hover {
+    opacity: 0.9;
+  }
+}
+
+@media screen and ( max-width : 770px ) {
+  .headerRight {
+    box-sizing: border-box;
+    width: calc( 100% - 360px );
+    button {
+      width: calc( 100% - 10px );
+      margin: 0 10px 0 0;
+    }
+  }
+}
+
+@media screen and ( max-width : 640px ) {
+  .headerRight {
+    width: 320px;
+    max-width: 100%;
+    padding: 0 0 10px 10px;
+    margin-left: auto;
+    justify-content: flex-end;
+    button {
+      width: 150px;
+    }
+  }
+}
+
+.headerInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 40px 0 23px;
+  box-sizing: border-box;
+  background: $white;
+  border-bottom: $textBlack solid 1px;
+  @media screen and ( max-width : 640px ) {
+    padding: 0 10px 0 10px;
+  }
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 43px;
+  }
+
+  > div.headerInfoRight {
+    margin-left: auto;
+  }
+
+  .headerInfo_id,
+  .headerInfo_limit {
+    padding: 11px 0 9px;
+  }
+
+  .headerInfo_id {
+    padding-left: 28px;
+    margin-right: 20px;
+    background: url("/img/icon_e.png") no-repeat left;
+    > strong {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  }
+
+  .headerInfo_limit {
+    color: $red;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  button,a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    color: $textBlack;
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1rem;
+    min-height: 24px;
+    &:first-child {
+      margin-left: 0;
+    }
+    &[href*="jaai_outline"] {
+      padding-left: 28px;
+      background: url("/img/icon_ex.png") no-repeat left;
+    }
+    p {
+    }
+    .re {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 24px;
+      padding: 0 10px;
+      background: $red;
+      color: $white;
+      font-size: 0.88rem;
+      line-height: 17px;
+      margin-right: 3px;
+      border-radius: 12px;
+      > span {
+        position: absolute;
+        left: -59px;
+        top: 38px;
+        display: none;
+        width: 150px;
+        padding: 14px 0 10px;
+        background: #e20000;
+        color: $white;
+        font-size: 1.25rem;
+        font-weight: bold;
+        text-align: center;
+        word-break: keep-all;
+        white-space: nowrap;
+        &::before {
+          content: "";
+          position: absolute;
+          left: 20px;
+          bottom: 100%;
+          display: block;
+          width: 0px;
+          height:0px;
+          overflow: hidden;
+          border-style: solid;
+          border-color: transparent #e20000 #e20000 transparent;
+          border-width: 20px 10px;
+          transform-origin: left bottom;
+          transform: rotate(40deg);
+        }
+      }
+    }
+    &:hover {
+      p {
+        text-decoration: underline;
+      }
+      .re {
+        > span {
+          display: block;
+        }
+      }
+    }
+    @media screen and ( max-width : 450px ) {
+      margin-left: 5px;
+      font-size: 3.8vw;
+    }
+  }
+}
+
+/* ===== COLOR ===== */
+.bgWhite {
+  background-color: $white;
+  color: $textBlack;
+}
+.bgBlue {
+  background-color: $blue;
+  color: $white;
+}
+
+.fcBlue {
+  color: $blue;
+}
+/* ===== /COLOR ===== */
+
+
+/* ===== OVERLAY ===== */
+#app {
+  .v--modal-box {
+    position: relative;
+    background: $white;
+    border-radius: 5px;
+    overflow: hidden;
+    .modal-card-title {
+      background: $blue;
+      color: $white;
+      padding: 5px 10px;
+    }
+    .delete {
+      position: absolute;
+      right: 4px;
+      top: 3px;
+      width: 25px;
+      height: 25px;
+      margin: 0;
+      border-radius: 50%;
+      border: none;
+      background: #ff0000;
+      border: #ffffff solid 2px;
+      box-sizing: border-box;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: calc( 50% - 1.5px );
+        width: calc( 100% - 4px );
+        height: 3px;
+        background: #ffffff;
+        overflow: hidden;
+        transform-origin: center;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+    .modal-text {
+      display: flex;
+      justify-content: center;
+      padding: 10px 10px;
+    }
+    .modal-btn {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px 20px;
+      button {
+        margin: 0;
+        width: 47%;
+      }
+    }
+  }
+}
+/* ===== /OVERLAY ===== */
+
+/** studyContents **/
+#app section.studyContents {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px 0 0 40px;
+  padding: 0 0 30px;
+  h2 {
+    position: relative;
+    width: 100%;
+    padding: 0px 0 0px 40px;
+    margin: 0 0 20px -40px;
+    color: #005AAB;
+    font-size: 1.875rem;
+    font-weight: bold;
+    svg {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 32px;
+      height: auto;
+    }
+  }
+  .studyStatus {
+    width: calc( 100% - 482px );
+    p {
+      margin: 10px 0 0 30px;
+      background-repeat: no-repeat;
+      background-position: left top 2px;
+      font-size: 1.25rem;
+      &.p > svg {
+        color: $textBlack;
+      }
+      &.n > svg {
+        color: $red;
+      }
+      &.t > svg {
+        color: $green;
+      }
+      &.c > svg {
+        color: $blue;
+      }
+    }
+  }
+}
+
+/** studyStatusList **/
+#app {
+  .studyStatusList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0 0 0 25px;
+    box-sizing: border-box;
+  }
+
+  .studyStatusList li {
+    margin: 0 0 5px 5px;
+  }
+  .tag {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 82px;
+    height: 30px;
+    padding-top: 1px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: $blue;
+    color: $white;
+    word-break: keep-all;
+    white-space: nowrap;
+    svg {
+      margin: 0px 5px 2px;
+    }
+    &.is-danger {
+      background: $red;
+    }
+    &.is-dark {
+      background: $darkGray;
+    }
+    &.is-light {
+      background: $lightGray;
+    }
+    &.is-success {
+      background: $green;
+      letter-spacing: -2px;
+      font-size: 0.9rem;
+      svg {
+        font-size: 1rem;
+        margin: 0px 0px 3px 5px;
+      }
+    }
+  }
+}
+

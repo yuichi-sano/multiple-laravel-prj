@@ -1,22 +1,19 @@
 # JAAI application Trade Skill Tests Client
 
 - [npm](https://docs.npmjs.com/)
-- [Gradle](https://docs.gradle.org/current/userguide/userguide.html)
 
 ## Usage
 
-- Gradleタスクから起動、静的解析、ビルドを実行します。
+- npmコマンドよりから起動、静的解析、ビルドを実行します。
 
 ### setup
 ```
-$ cd ../
-./gradlew client:npmInstall
+npm install
 ```
 
 ### run
 ```
-$ cd ../
-./gradlew client:jsServe
+npm run serve
 ```
 
 - http://localhost:18080 で起動します。
@@ -29,16 +26,14 @@ $ cd ../
 
 ### lint
 
-```bash
-$ cd ../
-$ ./gradlew client:jsLint
+```
+npm run lint
 ```
 
 ### build
  
-```bash
-$ cd ../
-$ ./gradlew client:clean client:jsBuild
+```
+npm run build
 ```
 
 /dist配下に静的リソースがbuildされます。
