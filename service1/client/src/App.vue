@@ -34,7 +34,7 @@ export default class App extends Vue {
   }
   incompatibleRedirect(): void {
     if (this.isIE()) {
-      location.href = 'https://contents.jaai-e-learning.com/unsupported.html';
+      location.href = 'https://google.com';
     }
   }
 }

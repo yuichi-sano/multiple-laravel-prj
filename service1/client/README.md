@@ -1,4 +1,4 @@
-# JAAI application Trade Skill Tests Client
+# Sample application Trade Skill Tests Client
 
 - [npm](https://docs.npmjs.com/)
 

@@ -61,7 +61,7 @@ header {
     }
     h1 {
       padding-left: calc( 10% + 30px );
-      background: url("/img/header/icon_jaai.png") no-repeat 24px center;
+      //background: url("/img/header/icon.png") no-repeat 24px center;
       background-size: auto 100%;
       cursor: pointer;
       @media screen and ( max-width : 700px ) {
@@ -186,7 +186,7 @@ header {
     &:first-child {
       margin-left: 0;
     }
-    &[href*="jaai_outline"] {
+    &[href*="sample_outline"] {
       padding-left: 28px;
       background: url("/img/icon_ex.png") no-repeat left;
     }

@@ -23,6 +23,24 @@ services:
             - meilisearch
             - selenium
             - postgres
+    service1-cli:
+        build:
+            context: ./service1/client/docker
+            dockerfile: Dockerfile
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        ports:
+            - '18080:8080'
+        volumes:
+            - './service1/client:/app/'
+            - 'service1-cli-node-modules:/app/node_modules'
+        networks:
+            - sail
+        stdin_open: true
+        tty: true
+        restart: always
+        depends_on:
+            - selenium
     mysql:
         image: 'mysql:8.0'
         ports:
@@ -109,3 +127,5 @@ volumes:
     # データベースのデータ保存用Volume
     postgres-data:
         external: true
+    service1-cli-node-modules:
+        driver: local

@@ -16,23 +16,11 @@
     <div class="headerInfo" v-show="loggedIn">
       <div class="headerInfoLeft">
         <p class="headerInfo_id"
-           data-cy="受験番号">あなたの受験番号は「<strong>{{examineeNumber}}</strong>」です</p>
+           data-cy="ようこそ"></p>
         <p class="headerInfo_limit"
-           data-cy="受講期限">動画視聴期限は試験日の前々日17時までとなります</p>
+           data-cy="ようこそ2"></p>
       </div>
       <div class="headerInfoRight">
-        <a href="/pdf/jaai_manual.pdf" target="blank"><p>受講者マニュアル</p></a>
-        <a href="/pdf/jaai_outline.pdf" target="blank"><p>技能検定の流れ</p></a>
-        <button @click="toInquiryForm()"
-                data-cy="お問い合わせ入力ボタン"><p>お問い合わせはこちら</p></button>
-        <button @click="toInquiry()"
-                data-cy="お問い合わせ一覧ボタン">
-          <span class="re" v-show="hasUnreadAnswer || hasUserInquiry" data-cy="ご連絡アイコン">
-            <span data-cy="ご連絡あり">ご連絡あり</span>
-            ご連絡あり
-          </span>
-          <p>お問い合わせ一覧</p>
-        </button>
       </div>
     </div>
   </header>
@@ -84,9 +72,9 @@
 
     get fullTitle(): string {
       if (!this.title) {
-        return 'JAAI';
+        return 'SAMPLE';
       }
-      return 'JAAI | ' + this.title;
+      return 'SAMPLE | ' + this.title;
     }
 
     // method
