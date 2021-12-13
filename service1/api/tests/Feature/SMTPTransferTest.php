@@ -6,18 +6,18 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Artisan;
-use packages\Domain\Basic\Mail\Address;
-use packages\Domain\Basic\Mail\AddressList;
-use packages\Domain\Basic\Mail\Content;
-use packages\Domain\Basic\Mail\Header;
-use packages\Domain\Basic\Mail\Message;
-use packages\Domain\Basic\Mail\Subject;
-use packages\Infrastructure\Transfer\Sample\SampleMailNotice;
-use packages\Infrastructure\Transfer\SMTPSendRequest;
-use packages\Infrastructure\Transfer\SMTPTransfer;
+use packages\domain\basic\mail\Address;
+use packages\domain\basic\mail\AddressList;
+use packages\domain\basic\mail\Content;
+use packages\domain\basic\mail\Header;
+use packages\domain\basic\mail\Message;
+use packages\domain\basic\mail\Subject;
+use packages\infrastructure\transfer\Sample\SampleMailNotice;
+use packages\infrastructure\transfer\SMTPSendRequest;
+use packages\infrastructure\transfer\SMTPTransfer;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Mail;
-use packages\Domain\Basic\Mail\Mail as MailObj;
+use packages\domain\basic\mail\Mail as MailObj;
 class SMTPTransferTest extends TestCase
 {
     public function setUp(): void

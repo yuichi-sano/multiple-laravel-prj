@@ -30,7 +30,7 @@ return [
             'meta'          => env('DOCTRINE_METADATA', 'xml'),
             'connection'    => env('DB_CONNECTION', 'pgsql'),
             'namespaces'    => [
-                'packages\Domain\Model'
+                'packages\domain\model'
             ],
             'paths'         => [
                 base_path('packages/infrastructure/database/xml')

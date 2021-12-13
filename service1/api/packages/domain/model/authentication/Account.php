@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace packages\Domain\Model\Authentication;
+namespace packages\domain\model\authentication;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Support\Arrayable;
@@ -13,7 +13,7 @@ class Account implements  Authenticatable,JWTSubject
 {
     use AuthenticatableTrait;
     private int $id;
-    private string $access_id;
+    private string $accessId;
 
     public function getAuthIdentifierName(): string
     {

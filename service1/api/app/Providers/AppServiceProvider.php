@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Providers;
-use packages\Domain\Model\User\User;
-use packages\Infrastructure\Database\Doctrine as DoctrineRepos;
-use packages\Infrastructure\Database as DatabaseRepos;
+use packages\domain\model\User\User;
+use packages\infrastructure\database\doctrine as DoctrineRepos;
+use packages\infrastructure\database as DatabaseRepos;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,16 +22,24 @@ class AppServiceProvider extends ServiceProvider
     private function registerForInMemory(){
 
         $this->app->bind(
-            \packages\Service\UserGetInterface::class,
-            \packages\Service\UserGetService::class
+            \packages\service\UserGetInterface::class,
+            \packages\service\UserGetService::class
+        );
+        $this->app->bind(
+            \packages\service\authentication\AccessTokenGetInterface::class,
+            \packages\service\authentication\AccessTokenGetService::class
+        );
+        $this->app->bind(
+            \packages\service\authentication\RefreshTokenUpdateInterface::class,
+            \packages\service\authentication\RefreshTokenUpdateService::class
         );
 
     }
     private function registerForMock(){
 
         $this->app->bind(
-            \packages\Service\UserGetInterface::class,
-            \packages\Service\TestUserGetService::class
+            \packages\service\UserGetInterface::class,
+            \packages\service\TestUserGetService::class
         );
 
     }

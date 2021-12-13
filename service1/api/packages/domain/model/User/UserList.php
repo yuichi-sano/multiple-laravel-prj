@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-namespace packages\Domain\Model\User;
+namespace packages\domain\model\User;
 use Ramsey\Collection\Collection;
 
 class UserList extends Collection
@@ -11,7 +11,7 @@ class UserList extends Collection
      */
     public function __construct()
     {
-        parent::__construct(\packages\Domain\Model\User\User::class);
+        parent::__construct(\packages\domain\model\User\User::class);
     }
 
     /**

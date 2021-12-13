@@ -2,19 +2,15 @@
 
 namespace DummyNamespace;
 
-use App\Http\Resources\Definition\ResultDefinitionInterface;
-use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Basic\AbstractJsonResource;
+use App\Http\Resources\Definition\DummyDefinitionName;
 
 
-class DummyClass implements ResultDefinitionInterface
+class DummyClass  extends AbstractJsonResource
 {
-    public function __construct($resource)
+    public static function buildResult(): DummyClass
     {
-        parent::__construct($resource);
-        $this->result = new definition();
-    }
-    public function buildResult()
-    {
-
+        $definition = new DummyDefinitionClass();
+        return new DummyClass($definition);
     }
 }

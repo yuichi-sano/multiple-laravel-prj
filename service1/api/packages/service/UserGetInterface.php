@@ -1,7 +1,7 @@
 <?php
-namespace packages\Service;
-use packages\Domain\Model\User\UserId;
-use packages\Domain\Model\User\User;
+namespace packages\service;
+use packages\domain\model\User\UserId;
+use packages\domain\model\User\User;
 interface UserGetInterface
 {
 /**

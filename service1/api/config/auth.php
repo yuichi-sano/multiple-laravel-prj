@@ -75,7 +75,7 @@ return [
 
         'doctrine-custom' => [
             'driver' => 'doctrine-custom', // laravel-doctrineが提供しているUserProvider
-            'model' => packages\Domain\Model\Authentication\Account::class, // 変更
+            'model' => packages\domain\model\authentication\Account::class, // 変更
         ],
     ],
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace packages\Domain\Model\User;
+namespace packages\domain\model\User;
 
 class Address
 {

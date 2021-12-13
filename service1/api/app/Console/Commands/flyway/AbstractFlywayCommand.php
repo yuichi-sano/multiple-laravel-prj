@@ -104,7 +104,7 @@ abstract class AbstractFlywayCommand extends Command
      * @param bool $test
      * @return string
      */
-    protected function flywayCmdBuild(string $action, string $location, bool $test): string
+    protected function flywayCmdBuild(string $action, string $location, bool $test = false): string
     {
         $commands = [$this->gradleCmd];
         if($action != 'clean'){

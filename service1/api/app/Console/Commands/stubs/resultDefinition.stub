@@ -1,0 +1,18 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Http\Resources\Definition\Basic\ResultDefinitionInterface;
+use App\Http\Resources\Definition\Basic\AbstractResultDefinition;
+
+
+class DummyClass extends AbstractResultDefinition implements ResultDefinitionInterface
+{
+
+    properties
+
+    getters
+
+    setters
+
+}

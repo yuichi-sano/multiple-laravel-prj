@@ -1,6 +1,6 @@
 <?php
 
-namespace packages\Domain\Basic\Mail;
+namespace packages\domain\basic\mail;
 
 use Ramsey\Collection\Collection;
 

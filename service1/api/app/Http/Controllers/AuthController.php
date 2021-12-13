@@ -2,36 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SampleRequest;
-use App\Http\Resources\SampleResource;
-use Illuminate\Contracts\Hashing\Hasher;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Http\Request;
+use App\Exceptions\WebAPIException;
+use App\Http\Requests\Authentication\LoginRequest;
+use App\Http\Resources\Authentication\LoginResource;
 use Illuminate\Routing\Controller as BaseController;
-use packages\Service\UserGetInterface;
+use packages\domain\model\authentication\authorization\AccessTokenFactory;
+use packages\domain\model\authentication\authorization\RefreshTokenFactory;
+use packages\service\UserGetInterface;
 use Illuminate\Support\Facades\Auth;
+
 class AuthController extends BaseController
 {
+    private AccessTokenFactory $accessTokenFactory;
+    private RefreshTokenFactory $refreshTokenFactory;
+
+    public function __construct(AccessTokenFactory $accessTokenFactory,RefreshTokenFactory $refreshTokenFactory,)
+    {
+        $this->accessTokenFactory = $accessTokenFactory;
+        $this->refreshTokenFactory = $refreshTokenFactory;
+
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * @throws WebAPIException
      */
-    public function login(SampleRequest $request, UserGetInterface $userGet)
+    public function login(LoginRequest $request, UserGetInterface $userGet)
     {
 
         //Auth::guard('api')->getProvider()->setHasher(app('md5hash'));
-        if (! $token= Auth::attempt($request->validated())) {
-
-            return response()->json([
-                'Invalid credential'
-            ], 400);
+        if (! Auth::attempt($request->validated())) {
+            throw new WebAPIException('W_0000000',[],500);
         }
-        $ref = Auth::refresh();
-
-        return response()->json([$token,$ref]);
+        $account = Auth::getLastAttempted();
+        $token = $this->accessTokenFactory->create($account);
+        $refreshToken = $this->refreshTokenFactory->create($account);
+        return LoginResource::buildResult($token,$refreshToken);
     }
 
 }

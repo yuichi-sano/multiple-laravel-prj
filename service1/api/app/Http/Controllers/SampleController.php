@@ -9,8 +9,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
-use packages\Domain\Model\User\UserId;
-use packages\Service\UserGetInterface;
+use packages\domain\model\User\UserId;
+use packages\service\UserGetInterface;
 
 class SampleController extends BaseController
 {

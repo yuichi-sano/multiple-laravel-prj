@@ -1,6 +1,6 @@
 <?php
 
-namespace packages\Infrastructure\Transfer;
+namespace packages\infrastructure\transfer;
 
 
 use Illuminate\Mail\Mailable;

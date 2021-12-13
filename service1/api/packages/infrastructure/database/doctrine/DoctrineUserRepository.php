@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace packages\Infrastructure\Database\Doctrine;
+namespace packages\infrastructure\database\doctrine;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
-use packages\Domain\Model\User\User;
-use packages\Domain\Model\User\UserId;
-use packages\Infrastructure\Database\UserRepository;
+use packages\domain\model\User\User;
+use packages\domain\model\User\UserId;
+use packages\infrastructure\database\UserRepository;
 
 class DoctrineUserRepository extends EntityRepository implements UserRepository
 {

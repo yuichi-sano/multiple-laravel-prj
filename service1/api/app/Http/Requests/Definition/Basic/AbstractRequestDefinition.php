@@ -1,16 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Definition;
+namespace App\Http\Requests\Definition\Basic;
 
-class SampleDefinition implements Basic\DefinitionInterface
-{
-    /**
-     * HttpRequestParameter
-     * @var string
-     */
-    protected string $hoge = 'required|numeric';
-    protected string $password = 'required|string';
-    protected string $access_id = 'required|string';
+abstract class AbstractRequestDefinition {
+
     protected array $rules = array();
     protected array $attribute = array();
 
