@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 */
-Route::get('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login']);
 Route::get('/access_token_get', [AccessTokenGetController::class,'index']);
 Route::group(['middleware' => 'api_for_web'], function () {
     Route::get('/sample', [SampleController::class, 'index']);

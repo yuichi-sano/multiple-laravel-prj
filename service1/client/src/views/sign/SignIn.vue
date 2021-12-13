@@ -12,13 +12,13 @@
       <label>
         ログインID
         <input id="accessId"
-               type="tel"
-               inputmode="tel"
+               type="text"
+               inputmode="text"
                class="accessId"
                placeholder="00000"
                maxlength="7"
                v-model="request.accessId"
-               @input="validate()"/>
+               />
       </label>
       <label>
         パスワードを入力してください
@@ -121,7 +121,7 @@
 
     async toMypage(): Promise<void> {
       await this.getAccount();
-      //this.$router.push({name: 'mypage'});
+      this.$router.push({name: 'mypage'});
     }
 
     validate(): void {

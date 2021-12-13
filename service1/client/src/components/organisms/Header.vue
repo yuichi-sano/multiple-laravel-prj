@@ -13,16 +13,6 @@
         </template>
       </ConfirmModal>
     </div>
-    <div class="headerInfo" v-show="loggedIn">
-      <div class="headerInfoLeft">
-        <p class="headerInfo_id"
-           data-cy="ようこそ"></p>
-        <p class="headerInfo_limit"
-           data-cy="ようこそ2"></p>
-      </div>
-      <div class="headerInfoRight">
-      </div>
-    </div>
   </header>
 </template>
 

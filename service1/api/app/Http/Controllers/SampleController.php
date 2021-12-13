@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SampleRequest;
-use App\Http\Resources\SampleResource;
+use App\Http\Requests\Sample\SampleRequest;
+use App\Http\Resources\Sample\SampleResource;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -24,7 +24,7 @@ class SampleController extends BaseController
         //
         $userId = new UserId($request->getHoge());
         $response = $userGet->execute($userId);
-        return SampleResource::buildResult($response);;
+        return SampleResource::buildResult($response);
     }
 
     /**

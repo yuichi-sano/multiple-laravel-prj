@@ -20,9 +20,10 @@ class Cors
         $http_origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : "";
 
         $response
-            ->header("Access-Control-Allow-Origin" , $http_origin)
+            ->header("Access-Control-Allow-Origin" , "http://localhost:18080")
             ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
             ->header('Access-Control-Allow-Headers', 'Content-Type')
+            ->header('Access-Control-Allow-Credentials', 'true')
             ->header('Access-Control-Max-Age', '3600');
         return $response;
     }

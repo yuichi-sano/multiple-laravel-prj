@@ -6,19 +6,12 @@
   padding: 0;
   list-style: none;
 }
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
 
 html,body {
   font-size: 16px;
   font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, "sans-serif";
   color: $textBlack;
-  line-height: 1.4;
-  @media screen and ( max-width : 780px ) {
-    font-size: 14px;
-  }
 }
 
 img {
@@ -102,29 +95,6 @@ header {
   }
 }
 
-@media screen and ( max-width : 770px ) {
-  .headerRight {
-    box-sizing: border-box;
-    width: calc( 100% - 360px );
-    button {
-      width: calc( 100% - 10px );
-      margin: 0 10px 0 0;
-    }
-  }
-}
-
-@media screen and ( max-width : 640px ) {
-  .headerRight {
-    width: 320px;
-    max-width: 100%;
-    padding: 0 0 10px 10px;
-    margin-left: auto;
-    justify-content: flex-end;
-    button {
-      width: 150px;
-    }
-  }
-}
 
 .headerInfo {
   display: flex;
@@ -139,37 +109,6 @@ header {
   @media screen and ( max-width : 640px ) {
     padding: 0 10px 0 10px;
   }
-  > div {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    min-height: 43px;
-  }
-
-  > div.headerInfoRight {
-    margin-left: auto;
-  }
-
-  .headerInfo_id,
-  .headerInfo_limit {
-    padding: 11px 0 9px;
-  }
-
-  .headerInfo_id {
-    padding-left: 28px;
-    margin-right: 20px;
-    background: url("/img/icon_e.png") no-repeat left;
-    > strong {
-      font-size: 1.2em;
-      font-weight: bold;
-    }
-  }
-
-  .headerInfo_limit {
-    color: $red;
-    font-size: 1.2em;
-    font-weight: bold;
-  }
 
   button,a {
     display: flex;
@@ -182,74 +121,6 @@ header {
     border: none;
     padding: 0;
     font-size: 1rem;
-    min-height: 24px;
-    &:first-child {
-      margin-left: 0;
-    }
-    &[href*="sample_outline"] {
-      padding-left: 28px;
-      background: url("/img/icon_ex.png") no-repeat left;
-    }
-    p {
-    }
-    .re {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 24px;
-      padding: 0 10px;
-      background: $red;
-      color: $white;
-      font-size: 0.88rem;
-      line-height: 17px;
-      margin-right: 3px;
-      border-radius: 12px;
-      > span {
-        position: absolute;
-        left: -59px;
-        top: 38px;
-        display: none;
-        width: 150px;
-        padding: 14px 0 10px;
-        background: #e20000;
-        color: $white;
-        font-size: 1.25rem;
-        font-weight: bold;
-        text-align: center;
-        word-break: keep-all;
-        white-space: nowrap;
-        &::before {
-          content: "";
-          position: absolute;
-          left: 20px;
-          bottom: 100%;
-          display: block;
-          width: 0px;
-          height:0px;
-          overflow: hidden;
-          border-style: solid;
-          border-color: transparent #e20000 #e20000 transparent;
-          border-width: 20px 10px;
-          transform-origin: left bottom;
-          transform: rotate(40deg);
-        }
-      }
-    }
-    &:hover {
-      p {
-        text-decoration: underline;
-      }
-      .re {
-        > span {
-          display: block;
-        }
-      }
-    }
-    @media screen and ( max-width : 450px ) {
-      margin-left: 5px;
-      font-size: 3.8vw;
-    }
   }
 }
 
@@ -286,7 +157,6 @@ header {
       right: 4px;
       top: 3px;
       width: 25px;
-      height: 25px;
       margin: 0;
       border-radius: 50%;
       border: none;
@@ -329,100 +199,5 @@ header {
     }
   }
 }
-/* ===== /OVERLAY ===== */
 
-/** studyContents **/
-#app section.studyContents {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 40px 0 0 40px;
-  padding: 0 0 30px;
-  h2 {
-    position: relative;
-    width: 100%;
-    padding: 0px 0 0px 40px;
-    margin: 0 0 20px -40px;
-    
-    font-size: 1.875rem;
-    font-weight: bold;
-    svg {
-      position: absolute;
-      left: 0px;
-      top: 0px;
-      width: 32px;
-      height: auto;
-    }
-  }
-  .studyStatus {
-    width: calc( 100% - 482px );
-    p {
-      margin: 10px 0 0 30px;
-      background-repeat: no-repeat;
-      background-position: left top 2px;
-      font-size: 1.25rem;
-      &.p > svg {
-        color: $textBlack;
-      }
-      &.n > svg {
-        color: $red;
-      }
-      &.t > svg {
-        color: $green;
-      }
-      &.c > svg {
-        color: $lightGray;
-      }
-    }
-  }
-}
-
-/** studyStatusList **/
-#app {
-  .studyStatusList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    padding: 0 0 0 25px;
-    box-sizing: border-box;
-  }
-
-  .studyStatusList li {
-    margin: 0 0 5px 5px;
-  }
-  .tag {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 82px;
-    height: 30px;
-    padding-top: 1px;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background: $lightGray;
-    color: $white;
-    word-break: keep-all;
-    white-space: nowrap;
-    svg {
-      margin: 0px 5px 2px;
-    }
-    &.is-danger {
-      background: $red;
-    }
-    &.is-dark {
-      background: $darkGray;
-    }
-    &.is-light {
-      background: $lightGray;
-    }
-    &.is-success {
-      background: $green;
-      letter-spacing: -2px;
-      font-size: 0.9rem;
-      svg {
-        font-size: 1rem;
-        margin: 0px 0px 3px 5px;
-      }
-    }
-  }
-}
 

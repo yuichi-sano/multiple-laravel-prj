@@ -46,7 +46,7 @@ const router = new Router({
       meta: {requiresAuth: false},
       props: true,
     },
-    /*
+    
     {
       path: '/',
       redirect: '/mypage',
@@ -57,7 +57,7 @@ const router = new Router({
       component: () => import('@/views/mypage/MyPage.vue'),
       meta: {title: 'マイページ', requiresAuth: true},
     },
-    */
+    
     {
       path: '/expire',
       name: 'expire',
