@@ -103,6 +103,10 @@ if [ $# -gt 0 ]; then
         rm -f Vagrantfile
         rm -rf ./database/flyway
         mv ./docker-compose.yml $2.yml
+        cd ..
+        git clone https://github.com/yuichi-sano/simple-vue-cli.git client
+        cd client
+        rm -rf .git
         
     # Share the site...
     elif [ "$1" == "share" ]; then
