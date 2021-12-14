@@ -3,5 +3,5 @@ SCRIPTS_PATH=$(dirname `realpath $0`)
 cd $SCRIPTS_PATH
 SERVICE=`basename $0`
 SERVICE_PATH="$SERVICE/api/"
-cd $SERVICE_PATH
+cd ../$SERVICE_PATH
 ./vendor/bin/sail $@
