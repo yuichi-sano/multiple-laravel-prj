@@ -1,5 +1,5 @@
 {
-  "name": "jaai-tst",
+  "name": "service1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
