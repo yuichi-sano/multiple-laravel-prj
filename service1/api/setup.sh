@@ -38,8 +38,10 @@ for item in "${!ITEMS[@]}"; do
   if [ -n "$PARAM"  ] ; then
     #docker-compose.ymlファイル更新
     if [[ "$item" == "APP_SERVICE=" ]]; then
-      sed -e "s/laravel.test/${PARAM}/" ./docker-compose.yml > tmpfile2
-      mv tmpfile2 ./docker-compose.yml
+      if [ -e ./docker-compose.yml ]; then
+        sed -e "s/laravel.test/${PARAM}/" ./docker-compose.yml > tmpfile2
+        mv tmpfile2 ./docker-compose.yml
+      fi
     fi
 
     #対象の項目が何行目にあるか確認。複数行の場合はじめの行を対象
