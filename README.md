@@ -17,7 +17,7 @@
 本資料では、vagrantに関する記述は以上とします。  
 vagrantにて仮想環境が起動したら、ssh接続を実施し  
 
-	cd service1/api/
+	cd /home/sail-mutiple/service1/api/
 	sh setup.sh local service1 localhost
 を実行ください。
 ## ForMac
