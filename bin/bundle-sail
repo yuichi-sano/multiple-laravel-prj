@@ -77,11 +77,12 @@ else
 fi
 
 if [ $# -gt 0 ]; then
-    
+
     # serviceコマンドが存在すればそちらを実行。引数は一個飛ばす
 
     if [ -e $BUNDLE_PATH/$1 ]; then
-        $BUNDLE_PATH/$1 ${@:2} 
+        cd $BUNDLE_PATH
+        $BUNDLE_PATH/$1 ${@:2}
     # add service
     elif [ "$1" == "add_service" ]; then
         if [ "$2" == "add_service" ]; then
@@ -107,7 +108,7 @@ if [ $# -gt 0 ]; then
         git clone https://github.com/yuichi-sano/simple-vue-cli.git client
         cd client
         rm -rf .git
-        
+
     # Share the site...
     elif [ "$1" == "share" ]; then
         shift 1

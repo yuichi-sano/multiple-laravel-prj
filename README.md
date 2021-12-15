@@ -21,6 +21,13 @@ vagrantにて仮想環境が起動したら、ssh接続を実施し
 	sh setup.sh local service1 localhost
 を実行ください。
 ## ForMac
+本PJに同梱されるシェルではrealpathコマンドを使用しています。  
+macでは下記パッケージが必要なのでinstallします。
+    
+    brew install coreutils
+上記は主にbundle-sailというスクリプト実行に必要です。  
+インストールが完了次第後続の手順へ進んでください
+
 	cd service1/api/
 	sh setup.sh local service1 localhost
 を実行ください。

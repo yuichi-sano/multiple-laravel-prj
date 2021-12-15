@@ -49,7 +49,7 @@ for item in "${!ITEMS[@]}"; do
     #envファイル更新
     if [ -z $LINE ]; then
       #１行目にパラメータを追加
-      sed -i "1i${item}=${PARAM}" ./$ENV_NAME
+      sed -i "1i${item}${PARAM}" ./$ENV_NAME
 
     else
       sed ${LINE}d ./$ENV_NAME >> tmpfile3
