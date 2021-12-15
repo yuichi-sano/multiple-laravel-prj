@@ -15,8 +15,9 @@ class AccessTokenGetRequest  extends AbstractFormRequest
     {
         return $attrs;
     }
-    
-    public function toRefreshToken(){
+
+    public function toRefreshToken(): RefreshToken
+    {
         return new RefreshToken($this->refreshToken);
     }
 }
