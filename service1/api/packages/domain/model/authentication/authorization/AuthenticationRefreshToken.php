@@ -49,8 +49,8 @@ class AuthenticationRefreshToken
         return [
             'refreshToken'=>$this->refreshToken->toString(),
             'userId'      =>$this->userId->toInteger(),
-            'signsAt'     => $this->refreshTokenSignsAt->toLocalDateTime(),
-            'expiresAt'   =>$this->refreshTokenExpiresAt->toLocalDateTime(),
+            'signsAt'     => $this->refreshTokenSignsAt->toLocalDateTime()->format('Y-m-d H:i:s'),
+            'expiresAt'   =>$this->refreshTokenExpiresAt->toLocalDateTime()->format('Y-m-d H:i:s'),
         ];
     }
 }
