@@ -36,7 +36,7 @@ class AuthenticationRefreshToken
         );
     }
 
-    public function getRefreshToken(): string {
+    public function getRefreshToken(): RefreshToken {
         return $this->refreshToken;
     }
 

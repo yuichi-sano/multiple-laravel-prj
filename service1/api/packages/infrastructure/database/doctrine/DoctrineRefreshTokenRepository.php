@@ -19,7 +19,7 @@ class DoctrineRefreshTokenRepository extends EntityRepository implements Refresh
     {
         $query = $this->createNativeNamedQuery('findByToken');
         try {
-            $query->setParameters($refreshToken->toString());
+            $query->setParameters([$refreshToken->toString()]);
             return  $query->getSingleResult();
         } catch (NoResultException $e) {
             throw $e;

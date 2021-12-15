@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Authentication;
 
-use App\Http\Resources\Authentication\LoginResource;
+use App\Http\Requests\Authentication\AccessTokenGetRequest;
+use App\Http\Resources\Authentication\AccessTokenGetResource;
 use Illuminate\Routing\Controller as BaseController;
 use packages\domain\model\authentication\authorization\RefreshToken;
 use packages\service\authentication\AccessTokenGetInterface;
@@ -24,12 +25,12 @@ class AccessTokenGetController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index( AccessTokenGetInterface $accessTokenGet): \Illuminate\Http\Response
+    public function index(AccessTokenGetRequest $request, AccessTokenGetInterface $accessTokenGet): AccessTokenGetResource
     {
 
-        $accessToken = $accessTokenGet->execute(new RefreshToken('fdfdfdfd'));
-        $refreshToken = $this->refreshTokenUpdate->execute($accessToken);
-        return LoginResource::buildResult($accessToken,$refreshToken);
+        $accessToken = $accessTokenGet->execute($request->toRefreshToken());
+        $refreshToken = $this->refreshTokenUpdate->execute($request->toRefreshToken());
+        return AccessTokenGetResource::buildResult($accessToken,$refreshToken);
     }
 
 }

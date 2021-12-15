@@ -15,7 +15,7 @@ export default {
 
   async refresh(refreshToken: string): Promise<string> {
     const client = new Client();
-    const response = await client.post('/login', {
+    const response = await client.post('/refresh', {
       refreshToken,
     });
     return response.data.result.accessToken;

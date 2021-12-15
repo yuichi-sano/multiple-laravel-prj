@@ -13,14 +13,23 @@
 
 ## ForWindows
 [Windows環境でのSETUP](./docs/for_win/README.md)
-本資料では、vagrantに関する記述は以上とします。
+本資料では、vagrantに関する記述は以上とします。  
 vagrantにて仮想環境が起動したら、ssh接続を実施し
 setup.shを実行ください。
+
+    sh setup.sh local service1 localhost
 ## ForMac
 setup.shを実行ください。
 
+    sh setup.sh local service1 localhost
+### setup.shについて
+    第一引数: 環境を入力。local,staging,productの3種類を想定しています。
+    第二引数: サービス名称を入力、dockerのコンテナ名にはねます
+    第三引数: URL,開発時点ではlocalhostを指定しておけば問題ないです。
+
 ## Sailの実行
-./vendor/bin/sail up -d
+
+    ./vendor/bin/sail up -d
 にてアプリケーションが起動します。
 ここまででSETUPが完了します。
 
@@ -28,13 +37,65 @@ setup.shを実行ください。
    本PJではDDDの戦略としてクリーンアーキテクトを取り入れています。
    Laravelそれ自体のドキュメントからでは追いづらい部分を本資料で補足していこうと思います。
 ## packagesについて
+    
+    domain
+    infrastructure
+    service
+主に上記3つのレイヤーにそれぞれの責務を預けます。
+
+    infrastructure
+などを例にとると想像しやすいかと思いますが、DBに対する操作、外部との連携、メール送信
+等の責務を任せるようにします。  
+また3つの層が互いに疎結合であるべきで、かつ他のレイヤの責務が混じらないように設計する必要があります。
+※ここがlaravelだとかなり難しい部分があります  
+わかり安い例でいうとdomain層にはビジネスロジックを任せていくことになるわけだが、　　
+domain層の中にDBに関する関心事を放り込まないよう心がけて設計することで実現できます。
+
+
+# 設定済、カスタマイズ済み
+## JWT認証laravel用モジュール
+    Tymon/JWT-Auth
+そのままレールに従った使い方ではないが、Guradなどlaravelのうまみを消しすぎないようなカスタマイズ
+Tokenの作成はFactoryを介して実施することでブラックボックス化をある程度さける。
+## Japanese
+    日本語バリデーション等追加済み
+    laravelの標準的な使い方をしています
+    バリデーションや、例外メッセージ等もここで管理するといいと思います。
+    TODO メール文面をどこにおこうか。
+## MiddleWare
+    tokenAuth
+と命名して、jwt認証ガード一式を登録
+
 
 ## doctorineについて
-### migration
-	Eloquentは廃止しています・。
+	Eloquentは廃止しています
 	doctorine一本なのですが。migrationはそもそもlaravelの機能をつかっていません。
 	mifrationについては後述します。
+    本PJではxmlマッピング形式を利用しさらに
+    NamedNativeQueryにて最小限のファイル構成でdomain層との完全なる疎結合を実現しています。
 
+※DIはDatasourceProvidersに記載していきます。
+
+## hash値
+    laravelがdefaultで操作できるhash値は比較的最近の技術しかなかったので
+    md5,SHA256
+    についてのHash値作成クラスを作成し,hasing.phpのなかでdefault指定が可能な状態にしております。
+    Doctrineのユーザープロバイダには途中でHasherを設定できる状態ではなかったので。
+    こちらも拡張済み
+
+## Exception
+    軽くしか見ていません。
+
+## AccessToken,RefreshToken
+    AccessToken はLogin時に発行されて、適宜クライアントからサーバへリクエストください。
+    RefreshTokenはAccessTokenが無効なときのみ投げつけてください。
+    RefreshTokenはDBに保存してあります。>> TODO 最終整理用
+
+## unitTest
+    laravelに備わっている標準的な単体を実施します。
+    単体、結合では、DBはテスト用に向けています。
+    またテストの度にテスト用DBをクリーン、マイグレーションするような仕組です。
+    普段の開発の邪魔にならないかと思います。
 
 
 
@@ -44,3 +105,20 @@ setup.shを実行ください。
  FlyWayようの各種artisanのカスタマイズは実施済みです。
  用はすべてgradlew経由でmigrationを実施していきます。
 
+    ./vendor/bin/sail artisan flyway:develop
+など
+
+
+
+
+
+#SwaggerとSwagger対応コマンドについて。
+    ./vendor/bin/sail artisan make:swagger-codegen {--tag=} {--force}
+を実行すると、
+    resources\swagger\api.json
+の内容から
+
+    Controller
+    Request
+    Result
+を自動で生成します

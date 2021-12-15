@@ -37,6 +37,11 @@ class RefreshTokenFactory implements StringType
 
     }
 
+    /**
+     * @caution DB上で管理するためトークンの再生成はしていません
+     * @param RefreshToken $refreshToken
+     * @return RefreshToken
+     */
     public function update(RefreshToken $refreshToken): RefreshToken{
         $origin = $this->refreshTokenRepository->findByToken($refreshToken);
         $period = new RefreshTokenExpiresAt($this->now->addMinute(config('jwt.refresh_ttl')));

@@ -3,6 +3,7 @@
 namespace packages\domain\model\authentication\authorization;
 
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use packages\domain\basic\type\StringType;
 use packages\domain\model\authentication\Account;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -27,7 +28,7 @@ class AccessTokenFactory implements StringType
 
     public function createForRefreshToken(RefreshToken $refreshToken): AccessToken{
         //refreshtokenからDBレコードひっぱる
-        $account = new Account();
+        $account =  Auth::guard('api')->getProvider()->findByToken($refreshToken);
 
         $customClaims = $this->getJWTCustomClaims($account);
         $payload = JWTFactory::make($customClaims);

@@ -15,14 +15,6 @@
     },
     "host": "sample.com",
     "basePath": "/",
-    "security": [
-        {
-            "UserLoginId": []
-        },
-        {
-            "AplGuard": []
-        }
-    ],
     "schemes": [
         "https",
         "http"
@@ -33,8 +25,87 @@
                 "tags": [
                     "Authentication"
                 ],
-                "security": [
+                "security": [],
+                "summary": "ログイン認証",
+                "description": "test",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
                 ],
+                "parameters": [
+                    {
+                        "name": "LoginRequest",
+                        "in": "body",
+                        "description": "ログイン認証リクエスト",
+                        "schema": {
+                            "$ref": "#/definitions/LoginDefinition"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ログイン成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/LoginResource"
+                        }
+                    },
+                    "default": {
+                        "description": "ログイン成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/AbstractJsonResource"
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "security": [],
+                "summary": "ログイン認証",
+                "description": "test",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginRequest",
+                        "in": "body",
+                        "description": "ログイン認証リクエスト",
+                        "schema": {
+                            "$ref": "#/definitions/LoginDefinition"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ログイン成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/LoginResource"
+                        }
+                    },
+                    "default": {
+                        "description": "ログイン成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/AbstractJsonResource"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Authentication"
+                ],
+                "security": [],
                 "summary": "ログイン認証",
                 "description": "test",
                 "externalDocs": {
@@ -76,6 +147,9 @@
                     "Sample"
                 ],
                 "security": [
+                    {
+                        "tokenAuth": []
+                    }
                 ],
                 "summary": "Sample",
                 "description": "test",
@@ -288,7 +362,7 @@
         }
     },
     "securityDefinitions": {
-        "Authorization": {
+        "tokenAuth": {
             "type": "apiKey",
             "name": "Authorization",
             "description": "accessToken",

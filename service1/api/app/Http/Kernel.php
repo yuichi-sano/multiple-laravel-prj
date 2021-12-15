@@ -56,12 +56,11 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            'cors',
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-        'api_for_web' => [
+        'tokenAuth' => [
             'auth:jwt-custom',
         ],
     ];
@@ -85,6 +84,5 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         //'jwt_auth'  =>  \Tymon\JWTAuth\Http\Middleware\Authenticate::class,
         //'jwt_refresh' => \Tymon\JWTAuth\Http\Middleware\RefreshToken::class,
-        'cors'      => \App\Http\Middleware\Cors::class,
     ];
 }

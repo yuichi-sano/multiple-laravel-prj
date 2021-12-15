@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'api',
-        'passwords' => 'users',
+        //'passwords' => 'users',
     ],
 
     /*
@@ -36,10 +36,10 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        /*'web' => [
             'driver' => 'session',
             'provider' => 'users',
-        ],
+        ],*/
         'api' => [
             'driver' => 'jwt-custom',
             'provider' => 'doctrine-custom',
@@ -93,7 +93,7 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
-
+    /*
     'passwords' => [
         'users' => [
             'provider' => 'users',
@@ -101,7 +101,7 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-    ],
+    ],*/
 
     /*
     |--------------------------------------------------------------------------
@@ -114,6 +114,6 @@ return [
     |
     */
 
-    'password_timeout' => 10800,
+    //'password_timeout' => 10800,
 
 ];

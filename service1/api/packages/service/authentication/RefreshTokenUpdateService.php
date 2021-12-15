@@ -14,8 +14,8 @@ class RefreshTokenUpdateService implements RefreshTokenUpdateInterface
     {
         $this->refreshTokenFactory = $refreshTokenFactory;
     }
-    public function execute (RefreshToken $refreshToken): void{
-        $this->refreshTokenFactory->update($refreshToken);
+    public function execute (RefreshToken $refreshToken): RefreshToken{
+        return $this->refreshTokenFactory->update($refreshToken);
     }
 
 }

@@ -31,7 +31,7 @@ macでは下記パッケージが必要なのでinstallします。
 	cd service1/api/
 	sh setup.sh local service1 localhost
 を実行ください。
-
+※パーミッションの件確認
 ### setup.shについて
     第一引数: 環境を入力。local,staging,productの3種類を想定しています。
     第二引数: サービス名称を入力、dockerのコンテナ名にはねます
@@ -51,7 +51,7 @@ laravel公式が提供しているsailを少しだけ拡張しています。
 
 にてアプリケーションが起動します。
 
-    sudo ln -s /home/sail-mutiple/bin/bundle-sail bundle-sail
+    sudo ln -s /home/sail-mutiple/bin/bundle-sail /usr/bin/bundle-sail
 など登録しておくとよいと思います。  
 ※基本的には場所を選ばずに実行するようにしております。
 

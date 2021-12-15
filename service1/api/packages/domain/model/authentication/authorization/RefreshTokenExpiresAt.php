@@ -6,11 +6,11 @@ use packages\domain\basic\type\DateTimeType;
 
 class RefreshTokenExpiresAt implements DateTimeType
 {
-    private \DateTime $value;
+    private string $value;
 
     public function __construct(string $value = null)
     {
-        $this->value = new \DateTime($value);
+        $this->value = $value;
     }
 
     public function isEmpty(): bool{
@@ -18,11 +18,11 @@ class RefreshTokenExpiresAt implements DateTimeType
     }
 
     public function toLocalDateTime(): \DateTime {
-        return $this->value;
+        return new \DateTime($this->value);
     }
 
     public function isExpired(): bool{
-        if($this->value < new \DateTime()){
+        if(new \DateTime($this->value) < new \DateTime()){
             return true;
         }
         return false;

@@ -12,11 +12,11 @@ class SampleDefinition extends AbstractRequestDefinition implements DefinitionIn
      */
     
     //ログインID
-    protected string $accessId = '';
+    protected string $accessId = 'required|string';
        
 
     //ログインPASS
-    protected string $password = '';
+    protected string $password = 'required|string';
        
 
     //HOGE

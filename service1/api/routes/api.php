@@ -2,9 +2,13 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SampleController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AccessTokenGetController;
+
+use App\Http\Controllers\Authentication\LoginController;
+use App\Http\Controllers\Authentication\AccessTokenGetController;
+use App\Http\Controllers\Sample\SampleController;
+
+//artisanUseAddPoint
+/** ↑は自動生成に必要です。消さないよう注意ください */
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,9 +24,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 */
-Route::post('/login', [AuthController::class, 'login']);
-Route::get('/access_token_get', [AccessTokenGetController::class,'index']);
-Route::group(['middleware' => 'api_for_web'], function () {
-    Route::get('/sample', [SampleController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/refresh', [AccessTokenGetController::class,'index']);
+Route::group(['middleware' => 'tokenAuth'], function () {
+    Route::get('/samle', [SampleController::class, 'index']);
 });
+
+Route::group(['middleware' => 'tokenAuth'], function () {
+    Route::get('/sample', [SampleController::class,'index']);
+});
+
+//artisanRouteAddPoint
+/** ↑は自動生成に必要です。消さないよう注意ください */
 

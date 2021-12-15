@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Authentication;
 
 use App\Exceptions\WebAPIException;
+use Illuminate\Routing\Controller as BaseController;
+
 use App\Http\Requests\Authentication\LoginRequest;
 use App\Http\Resources\Authentication\LoginResource;
-use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 use packages\domain\model\authentication\authorization\AccessTokenFactory;
 use packages\domain\model\authentication\authorization\RefreshTokenFactory;
 use packages\service\UserGetInterface;
-use Illuminate\Support\Facades\Auth;
 
-class AuthController extends BaseController
+class LoginController extends BaseController
 {
     private AccessTokenFactory $accessTokenFactory;
     private RefreshTokenFactory $refreshTokenFactory;
@@ -41,5 +42,6 @@ class AuthController extends BaseController
         $refreshToken = $this->refreshTokenFactory->create($account);
         return LoginResource::buildResult($token,$refreshToken);
     }
+
 
 }

@@ -46,7 +46,7 @@
                 <query>
                     SELECT
                         refresh_token,
-                        user_id,
+                        user_id as id,
                         signs_at,
                         expires_at
                     FROM sample.user_refresh_tokens

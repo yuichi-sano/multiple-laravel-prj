@@ -14,7 +14,4 @@ class SampleRequest  extends AbstractFormRequest
     {
         return $attrs;
     }
-    public function getHoge(){
-        return 1;
-    }
 }

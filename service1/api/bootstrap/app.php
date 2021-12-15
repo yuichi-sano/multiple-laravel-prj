@@ -20,7 +20,7 @@ $app = new Illuminate\Foundation\Application(
 | 環境によって読み込む.envファイル切り替え
 |--------------------------------------------------------------------------
 */
-
+/*
 switch ($_SERVER['SERVER_NAME'] ?? 'localhost') {
     case 'development.co.jp':
         $app->loadEnvironmentFrom('.env.dev');
@@ -32,6 +32,7 @@ switch ($_SERVER['SERVER_NAME'] ?? 'localhost') {
         $app->loadEnvironmentFrom('.env.prod');
         break;
 }
+*/
 
 /*
 |--------------------------------------------------------------------------
