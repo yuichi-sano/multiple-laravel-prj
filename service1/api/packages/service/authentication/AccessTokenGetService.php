@@ -19,7 +19,7 @@ class AccessTokenGetService implements AccessTokenGetInterface
     }
     public function execute (RefreshToken $refreshToken): AccessToken{
         $account =  Auth::guard('api')->getProvider()->findByToken($refreshToken);
-        return $this->accessTokenFactory->createForRefreshToken($refreshToken);
+        return $this->accessTokenFactory->create($account);
     }
 
 }

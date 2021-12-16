@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Providers;
-use packages\domain\model\authentication\authorization\AuthenticationRefreshToken;
-use packages\domain\model\authentication\authorization\RefreshToken;
-use packages\domain\model\User\User;
-use packages\infrastructure\database\doctrine as DoctrineRepos;
-use packages\infrastructure\database as DatabaseRepos;
+
+use packages\infrastructure\database\doctrine as Doctrine;
+use packages\infrastructure\database as Database;
+use packages\domain\model as DomainModel;
 use Illuminate\Support\ServiceProvider;
 
 class DatasourceServiceProvider extends ServiceProvider
@@ -23,11 +22,14 @@ class DatasourceServiceProvider extends ServiceProvider
 
     private function registerForInMemory(){
 
-        $this->app->bind(DatabaseRepos\UserRepository::class, function($app) {
-            return new DoctrineRepos\DoctrineUserRepository($app['em'], $app['em']->getClassMetaData(User::class));
+        $this->app->bind(DomainModel\User\UserRepository::class, function($app) {
+            return new Doctrine\user\DoctrineUserRepository($app['em'], $app['em']->getClassMetaData(DomainModel\User\User::class));
         });
-        $this->app->bind(DatabaseRepos\RefreshTokenRepository::class, function($app) {
-            return new DoctrineRepos\DoctrineRefreshTokenRepository($app['em'], $app['em']->getClassMetaData(AuthenticationRefreshToken::class));
+        $this->app->bind(
+            DomainModel\authentication\authorization\RefreshTokenRepository::class, function($app) {
+                return new Doctrine\authentication\authorization\DoctrineRefreshTokenRepository(
+                $app['em'], $app['em']->getClassMetaData(DomainModel\authentication\authorization\AuthenticationRefreshToken::class)
+            );
         });
 
     }

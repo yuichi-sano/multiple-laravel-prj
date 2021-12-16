@@ -3,13 +3,11 @@
 namespace packages\domain\model\authentication\authorization;
 
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Auth;
-use packages\domain\basic\type\StringType;
 use packages\domain\model\authentication\Account;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Facades\JWTFactory;
 
-class AccessTokenFactory implements StringType
+class AccessTokenFactory
 {
     protected Carbon $carbon;
     protected $now;
@@ -21,15 +19,6 @@ class AccessTokenFactory implements StringType
     }
 
     public function create(Account $account): AccessToken{
-        $customClaims = $this->getJWTCustomClaims($account);
-        $payload = JWTFactory::make($customClaims);
-        return new AccessToken(JWTAuth::encode($payload)->get());
-    }
-
-    public function createForRefreshToken(RefreshToken $refreshToken): AccessToken{
-        //refreshtokenからDBレコードひっぱる
-        $account =  Auth::guard('api')->getProvider()->findByToken($refreshToken);
-
         $customClaims = $this->getJWTCustomClaims($account);
         $payload = JWTFactory::make($customClaims);
         return new AccessToken(JWTAuth::encode($payload)->get());

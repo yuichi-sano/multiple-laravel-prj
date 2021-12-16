@@ -2,7 +2,7 @@
 namespace packages\service;
 use packages\domain\model\User\UserId;
 use packages\domain\model\User\User;
-use packages\infrastructure\database\UserRepository;
+use packages\domain\model\User\UserRepository;
 
 class UserGetService implements UserGetInterface
 {

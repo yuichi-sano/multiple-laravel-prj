@@ -33,6 +33,10 @@ class AppServiceProvider extends ServiceProvider
             \packages\service\authentication\RefreshTokenUpdateInterface::class,
             \packages\service\authentication\RefreshTokenUpdateService::class
         );
+        $this->app->bind(
+            \packages\service\authentication\AccountAuthenticationInterface::class,
+            \packages\service\authentication\AccountAuthenticationService::class
+        );
 
     }
     private function registerForMock(){

@@ -1,7 +1,5 @@
 <?php
-namespace packages\infrastructure\database;
-use packages\domain\model\authentication\authorization\AuthenticationRefreshToken;
-use packages\domain\model\authentication\authorization\RefreshToken;
+namespace packages\domain\model\authentication\authorization;
 
 interface RefreshTokenRepository {
 	public function save(AuthenticationRefreshToken  $authenticationRefreshToken): void;

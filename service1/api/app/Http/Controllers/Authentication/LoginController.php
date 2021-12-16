@@ -10,18 +10,20 @@ use App\Http\Resources\Authentication\LoginResource;
 use Illuminate\Support\Facades\Auth;
 use packages\domain\model\authentication\authorization\AccessTokenFactory;
 use packages\domain\model\authentication\authorization\RefreshTokenFactory;
+use packages\service\authentication\AccountAuthenticationInterface;
 use packages\service\UserGetInterface;
 
 class LoginController extends BaseController
 {
     private AccessTokenFactory $accessTokenFactory;
     private RefreshTokenFactory $refreshTokenFactory;
+    private AccountAuthenticationInterface $accountAuthentication;
 
-    public function __construct(AccessTokenFactory $accessTokenFactory,RefreshTokenFactory $refreshTokenFactory,)
+    public function __construct(AccessTokenFactory $accessTokenFactory,RefreshTokenFactory $refreshTokenFactory,AccountAuthenticationInterface $accountAuthentication)
     {
         $this->accessTokenFactory = $accessTokenFactory;
         $this->refreshTokenFactory = $refreshTokenFactory;
-
+        $this->accountAuthentication = $accountAuthentication;
     }
 
     /**
@@ -30,7 +32,7 @@ class LoginController extends BaseController
      * @return \Illuminate\Http\Response
      * @throws WebAPIException
      */
-    public function login(LoginRequest $request, UserGetInterface $userGet)
+    public function login(LoginRequest $request)
     {
 
         //Auth::guard('api')->getProvider()->setHasher(app('md5hash'));
@@ -38,9 +40,9 @@ class LoginController extends BaseController
             throw new WebAPIException('W_0000000',[],500);
         }
         $account = Auth::getLastAttempted();
-        $token = $this->accessTokenFactory->create($account);
-        $refreshToken = $this->refreshTokenFactory->create($account);
-        return LoginResource::buildResult($token,$refreshToken);
+        $authedAccount = $this->accountAuthentication->execute($account);
+
+        return LoginResource::buildResult($authedAccount->getAccessToken(),$authedAccount->getRefreshToken());
     }
 
 

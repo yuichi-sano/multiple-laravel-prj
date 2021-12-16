@@ -3,14 +3,12 @@
 namespace packages\domain\model\authentication\authorization;
 
 use Illuminate\Support\Carbon;
-use packages\domain\basic\type\StringType;
 use packages\domain\model\authentication\Account;
 use packages\domain\model\User\UserId;
-use packages\infrastructure\database\RefreshTokenRepository;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Facades\JWTFactory;
 
-class RefreshTokenFactory implements StringType
+class RefreshTokenFactory
 {
     protected Carbon $carbon;
     protected Carbon $now;
@@ -23,18 +21,14 @@ class RefreshTokenFactory implements StringType
         $this->refreshTokenRepository = $refreshTokenRepository;
     }
 
-    public function create(Account $account): RefreshToken{
+    public function create(Account $account): AuthenticationRefreshToken{
         $customClaims = $this->getJWTCustomClaims($account);
         $payload = JWTFactory::make($customClaims);
         $token =  new RefreshToken(JWTAuth::encode($payload)->get());
         $refreshTokenExpiresAt = new RefreshTokenExpiresAt($this->now->addMinute(config('jwt.refresh_ttl')));
-
-        $authenticationRefreshToken = AuthenticationRefreshToken::create(
+        return AuthenticationRefreshToken::create(
             $token, new UserId($account->getId()),  $refreshTokenExpiresAt
         );
-        $this->refreshTokenRepository->save($authenticationRefreshToken);
-        return $token;
-
     }
 
     /**
@@ -42,13 +36,10 @@ class RefreshTokenFactory implements StringType
      * @param RefreshToken $refreshToken
      * @return RefreshToken
      */
-    public function update(RefreshToken $refreshToken): RefreshToken{
+    public function update(RefreshToken $refreshToken): AuthenticationRefreshToken{
         $origin = $this->refreshTokenRepository->findByToken($refreshToken);
         $period = new RefreshTokenExpiresAt($this->now->addMinute(config('jwt.refresh_ttl')));
-
-        $authenticationRefreshToken = $origin->update($period);
-        $this->refreshTokenRepository->save($authenticationRefreshToken);
-        return $authenticationRefreshToken->getRefreshToken();
+        return  $origin->update($period);
     }
 
     /**
