@@ -9,20 +9,20 @@ use App\Http\Resources\Definition\Basic\AbstractResultDefinition;
 class SampleResultDefinitionUser extends AbstractResultDefinition implements ResultDefinitionInterface
 {
 
-    
+
     //ユーザーID
-    protected integer $userId;
-       
+    protected int $userId;
+
 
     //名前
     protected string $name;
-       
+
 
     //登録済み住所
-    protected SampleResultDefinitionUserAddressList $addressList;
-       
+    protected array $addressList;
 
-    
+
+
     /**
      * @return mixed
      */
@@ -30,7 +30,7 @@ class SampleResultDefinitionUser extends AbstractResultDefinition implements Res
     {
         return $this->userId;
     }
-    
+
 
     /**
      * @return mixed
@@ -39,7 +39,7 @@ class SampleResultDefinitionUser extends AbstractResultDefinition implements Res
     {
         return $this->name;
     }
-    
+
 
     /**
      * @return mixed
@@ -48,9 +48,9 @@ class SampleResultDefinitionUser extends AbstractResultDefinition implements Res
     {
         return $this->addressList;
     }
-    
 
-    
+
+
     /**
      * @param mixed userId
      */
@@ -58,7 +58,7 @@ class SampleResultDefinitionUser extends AbstractResultDefinition implements Res
     {
         $this->userId = (int) $userId;
     }
-    
+
 
     /**
      * @param mixed name
@@ -67,7 +67,7 @@ class SampleResultDefinitionUser extends AbstractResultDefinition implements Res
     {
         $this->name = (string) $name;
     }
-    
+
 
     /**
      * @param mixed addressList
@@ -86,6 +86,6 @@ class SampleResultDefinitionUser extends AbstractResultDefinition implements Res
            $this->addAddressList($unit);
         }
     }
-    
+
 
 }

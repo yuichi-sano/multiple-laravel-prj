@@ -10,17 +10,8 @@ class SampleDefinition extends AbstractRequestDefinition implements DefinitionIn
      * HttpRequestParameter
      * @var string
      */
-    
-    //ログインID
-    protected string $accessId = 'required|string';
-       
-
-    //ログインPASS
-    protected string $password = 'required|string';
-       
-
     //HOGE
     protected string $hoge = 'string';
-       
+
 
 }

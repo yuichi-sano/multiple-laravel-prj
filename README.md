@@ -23,7 +23,7 @@ vagrantにて仮想環境が起動したら、ssh接続を実施し
 ## ForMac
 本PJに同梱されるシェルではrealpathコマンドを使用しています。  
 macでは下記パッケージが必要なのでinstallします。
-    
+    brew install bash
     brew install coreutils
 上記は主にbundle-sailというスクリプト実行に必要です。  
 インストールが完了次第後続の手順へ進んでください

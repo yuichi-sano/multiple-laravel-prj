@@ -4,18 +4,22 @@ declare(strict_types=1);
 
 namespace packages\domain\model\User;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 class User
 {
-    private UserId $id;
+    private UserId $userId;
     private string $name;
-    private Address $address;
+    private Addresses $addresses;
+
 
     /**
+     *
      * @return int
      */
-    public function getId(): int
+    public function getUserId(): int
     {
-        return $this->id->value();
+        return $this->userId->toInteger();
     }
 
     /**
@@ -29,13 +33,18 @@ class User
     /**
      * @return Address
      */
-    public function getAddress(): Address
+    public function getAddresses(): Addresses
     {
-        return $this->address;
+        return $this->addresses;
     }
 
     public function hasGrants(): boolean
     {
         return $this->id == 1;
     }
+
+    public  array $collectionKeys = [
+        'userId','name'
+    ];
+
 }

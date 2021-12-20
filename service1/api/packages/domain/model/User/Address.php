@@ -6,19 +6,15 @@ namespace packages\domain\model\User;
 
 class Address
 {
-    private string $street;
 
-    private string $postalCode;
+    private string $prefCode;
 
-    private string $city;
+    private string $zip;
 
-    private string $country;
+    private string $address;
 
-    public function __construct()
-    {
-        $this->street='';
-        $this->postalCode='';
-        $this->city='';
-        $this->country='';
+    public function getAddress(){
+        return $this->address;
     }
+
 }

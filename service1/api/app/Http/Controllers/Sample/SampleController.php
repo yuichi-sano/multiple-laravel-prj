@@ -23,8 +23,12 @@ class SampleController extends BaseController
     public function index(SampleRequest $request, UserGetInterface $userGet)
     {
         //
-        $userId = new UserId($request->getHoge());
+
+        $userId = new UserId(1);
         $response = $userGet->execute($userId);
+
+
+        $addresses = $response->getAddresses();
         return SampleResource::buildResult($response);
     }
 

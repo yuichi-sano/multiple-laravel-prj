@@ -26,9 +26,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 */
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/refresh', [AccessTokenGetController::class,'index']);
-Route::group(['middleware' => 'tokenAuth'], function () {
-    Route::get('/samle', [SampleController::class, 'index']);
-});
 
 Route::group(['middleware' => 'tokenAuth'], function () {
     Route::get('/sample', [SampleController::class,'index']);

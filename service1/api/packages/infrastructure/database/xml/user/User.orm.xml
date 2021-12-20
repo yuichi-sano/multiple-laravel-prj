@@ -6,20 +6,38 @@
         <option name="fixed"/>
       </options>
     </field>
+      <sql-result-set-mappings>
+          <sql-result-set-mapping name="ddd-sample-map">
+              <column-result name="user_id"/>
+              <column-result name="name"/>
+              <column-result name="expires_at"/>
+              <column-result name="zip"/>
+              <column-result name="pref_code"/>
+              <column-result name="address"/>
+          </sql-result-set-mapping>
+      </sql-result-set-mappings>
+
       <embedded
-          name="address"
-          class="packages\domain\model\User\Address"
-          use-column-prefix="false"
-      />
-      <embedded
-          name="id"
+          name="userId"
           class="packages\domain\model\User\UserId"
           use-column-prefix="false"
       />
+
       <named-native-queries>
-          <named-native-query name="ddd-sample" result-class="__CLASS__">
+          <named-native-query name="ddd-sample" result-set-mapping="ddd-sample-map">
               <query>
-                  select 1 as id, 2 as name, 4 as street, 3 as p
+                  SELECT
+                  user_id
+                  ,'' as name
+                  ,password
+                  ,expires_at
+                  ,readonly_flag
+                  ,zip
+                  ,pref_code
+                  ,address
+                  FROM sample.users
+                  JOIN sample.user_addresses USING (user_id)
+
               </query>
           </named-native-query>
       </named-native-queries>

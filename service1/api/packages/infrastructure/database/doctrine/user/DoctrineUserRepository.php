@@ -3,14 +3,14 @@
 declare(strict_types=1);
 
 namespace packages\infrastructure\database\doctrine\user;
-use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
 use packages\domain\model\User\User;
 use packages\domain\model\User\UserId;
 use packages\domain\model\User\UserRepository;
+use packages\infrastructure\database\doctrine\DoctrineRepository;
 
-class DoctrineUserRepository extends EntityRepository implements UserRepository
+class DoctrineUserRepository extends DoctrineRepository implements UserRepository
 {
 
     /**
@@ -21,11 +21,10 @@ class DoctrineUserRepository extends EntityRepository implements UserRepository
     {
         $query = $this->createNativeNamedQuery('ddd-sample');
         try {
-            return $query->getSingleResult();
+            return $this->getSingleGroupingResult($query->getResult());
         } catch (NoResultException $e) {
             throw $e;
         }
-
     }
 
     public function add(User $user): void
