@@ -31,6 +31,12 @@ class DatasourceServiceProvider extends ServiceProvider
                 $app['em'], $app['em']->getClassMetaData(DomainModel\authentication\authorization\AuthenticationRefreshToken::class)
             );
         });
+        $this->app->bind(
+            DomainModel\merchant\MerchantRepository::class, function($app) {
+            return new Doctrine\merchant\DoctrineMerchantRepository(
+                $app['em'], $app['em']->getClassMetaData(DomainModel\merchant\Merchant::class)
+            );
+        });
 
     }
 

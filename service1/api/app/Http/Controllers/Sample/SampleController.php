@@ -7,28 +7,34 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Http\Requests\Sample\SampleRequest;
 use App\Http\Resources\Sample\SampleResource;
 use packages\domain\model\User\UserId;
+use packages\service\merchant\MerchantGetInterface;
 use packages\service\UserGetInterface;
 
 class SampleController extends BaseController
 {
-
-    public function __construct()
+    private MerchantGetInterface $merchantGet;
+    private UserGetInterface $userGet;
+    public function __construct(MerchantGetInterface $merchantGet, UserGetInterface $userGet)
     {
+        $this->merchantGet=$merchantGet;
+        $this->userGet=$userGet;
     }
 
     /**
      * test
      * @param mixed
      */
-    public function index(SampleRequest $request, UserGetInterface $userGet)
+    public function index(SampleRequest $request, MerchantGetInterface $userGet)
     {
         //
 
-        $userId = new UserId(1);
-        $response = $userGet->execute($userId);
+        //$userId = new UserId(1);
+        //$response = $this->userGet->execute($userId);
+        //$response = $this->merchantGet->execute(1);
+        $response = $this->merchantGet->getList();
+        //var_dump($response);
 
 
-        $addresses = $response->getAddresses();
         return SampleResource::buildResult($response);
     }
 

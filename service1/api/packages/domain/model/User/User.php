@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace packages\domain\model\User;
 
-use Doctrine\Common\Collections\ArrayCollection;
-
 class User
 {
     private UserId $userId;
-    private string $name;
+    private UserProfile $userProfile;
     private Addresses $addresses;
 
 
@@ -22,12 +20,13 @@ class User
         return $this->userId->toInteger();
     }
 
+
     /**
-     * @return string
+     * @return Address
      */
-    public function getName(): string
+    public function getUserProfile(): UserProfile
     {
-        return $this->name;
+        return $this->userProfile;
     }
 
     /**

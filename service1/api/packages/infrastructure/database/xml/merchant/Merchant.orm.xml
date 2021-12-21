@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="packages\domain\model\merchant\Merchant">
+      <id name="merchantId"  column="merchant_id">
+      </id>
+      <field name="name" type="string" column="name" length="255" nullable="false"></field>
+      <field name="password" type="string" column="password" length="255" nullable="false"></field>
+      <field name="tel" type="string" column="tel" length="255" nullable="false"></field>
+      <field name="mail" type="string" column="mail" length="255" nullable="false"></field>
+      <field name="zip" type="string" column="zip" length="255" nullable="false"></field>
+      <field name="prefCode" type="string" column="pref_code" length="255" nullable="false"></field>
+      <field name="address" type="string" column="address" length="255" nullable="false"></field>
+      <sql-result-set-mappings>
+          <sql-result-set-mapping name="ddd-sample-map">
+              <column-result name="merchant_id"/>
+              <column-result name="password"/>
+              <column-result name="name"/>
+              <column-result name="tel"/>
+              <column-result name="mail"/>
+              <column-result name="zip"/>
+              <column-result name="pref_code"/>
+              <column-result name="address"/>
+              <column-result name="user_user_id"/>
+              <column-result name="user_user_profile_name"/>
+              <column-result name="user_user_profile_tel"/>
+              <column-result name="user_user_profile_mail"/>
+              <column-result name="user_address_zip"/>
+              <column-result name="user_address_pref_code"/>
+              <column-result name="user_address_address"/>
+          </sql-result-set-mapping>
+      </sql-result-set-mappings>
+
+
+      <named-native-queries>
+          <named-native-query name="ddd-sample" result-set-mapping="ddd-sample-map">
+              <query>
+                  SELECT
+                      merchants.merchant_id,
+                      merchants.password,
+                      merchants.name,
+                      merchants.tel,
+                      merchants.mail,
+                      merchants.zip,
+                      merchants.pref_code,
+                      merchants.address,
+                      users.user_id as user_user_id,
+                      user_profiles.name as user_user_profile_name,
+                      user_profiles.tel as user_user_profile_tel,
+                      user_profiles.mail as user_user_profile_mail,
+                      user_addresses.zip as user_address_zip,
+                      user_addresses.pref_code as user_address_pref_code,
+                      user_addresses.address as user_address_address
+                  FROM sample.merchants
+                  JOIN sample.merchant_x_users ON merchants.merchant_id=merchant_x_users.merchant_id
+                  JOIN sample.users ON users.user_id=merchant_x_users.user_id
+                  JOIN sample.user_profiles ON users.user_id=user_profiles.user_id
+                  JOIN sample.user_addresses ON users.user_id=user_addresses.user_id
+
+              </query>
+          </named-native-query>
+      </named-native-queries>
+  </entity>
+</doctrine-mapping>

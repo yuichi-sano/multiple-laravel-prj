@@ -15,6 +15,6 @@ class UserGetService implements UserGetInterface
 
     public function execute(UserId $userId): User
     {
-        return $this->userRepository->findUser(new UserId(1));
+        //return $this->userRepository->findUser(new UserId(1));
     }
 }

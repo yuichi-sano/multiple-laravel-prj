@@ -37,6 +37,8 @@ return [
                     =>'packages\domain\model\authentication\authorization',
                 base_path('packages/infrastructure/database/xml/user')
                     =>'packages\domain\model\User',
+                base_path('packages/infrastructure/database/xml/merchant')
+                =>'packages\domain\model\merchant',
             ],
             'repository'    => Doctrine\ORM\EntityRepository::class,
             'proxies'       => [

@@ -26,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
             \packages\service\UserGetService::class
         );
         $this->app->bind(
+            \packages\service\merchant\MerchantGetInterface::class,
+            \packages\service\merchant\MerchantGetService::class
+        );
+        $this->app->bind(
             \packages\service\authentication\AccessTokenGetInterface::class,
             \packages\service\authentication\AccessTokenGetService::class
         );
@@ -42,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
     private function registerForMock(){
 
         $this->app->bind(
-            \packages\service\UserGetInterface::class,
+            \packages\service\MerchantGetInterface::class,
             \packages\service\TestUserGetService::class
         );
 

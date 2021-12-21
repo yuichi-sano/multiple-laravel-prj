@@ -17,4 +17,8 @@ class Address
         return $this->address;
     }
 
+    public  array $collectionKeys = [
+        'zip','prefCode','address'
+    ];
+
 }
