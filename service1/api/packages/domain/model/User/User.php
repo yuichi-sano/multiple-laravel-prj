@@ -43,7 +43,7 @@ class User
     }
 
     public  array $collectionKeys = [
-        'userId','name'
+        'userId'
     ];
 
 }

@@ -8,9 +8,9 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\Persistence\Mapping\RuntimeReflectionService;
 use Illuminate\Support\Str;
 use LaravelDoctrine\ORM\Facades\Doctrine;
-use packages\service\helper\TransactionInterface;
+use packages\service\helper\TransactionManagerInterface;
 
-class DoctrineTransactionHelper implements TransactionInterface
+class DoctrineTransactionManager implements TransactionManagerInterface
 {
     private Connection $connection;
     public function __construct(EntityManager $entityManager){

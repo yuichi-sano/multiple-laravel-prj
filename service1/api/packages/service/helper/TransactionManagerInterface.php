@@ -1,6 +1,6 @@
 <?php
 namespace packages\service\helper;
-interface TransactionInterface
+interface TransactionManagerInterface
 {
     /**
      */

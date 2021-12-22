@@ -40,9 +40,9 @@ class AppServiceProvider extends ServiceProvider
             \packages\service\authentication\AccountAuthenticationService::class
         );
         $this->app->singleton(
-            \packages\service\helper\TransactionInterface::class,
+            \packages\service\helper\TransactionManagerInterface::class,
             function($app) {
-                return new \packages\infrastructure\database\doctrine\DoctrineTransactionHelper($app['em']);
+                return new \packages\infrastructure\database\doctrine\DoctrineTransactionManager($app['em']);
             }
         );
 

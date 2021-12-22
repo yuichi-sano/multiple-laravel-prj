@@ -24,20 +24,15 @@ class SampleController extends BaseController
      * test
      * @param mixed
      */
-    public function index(SampleRequest $request, MerchantGetInterface $userGet)
+    public function index(SampleRequest $request)
     {
         //
 
-        //$userId = new UserId(1);
-        //$response = $this->userGet->execute($userId);
+        $userId = new UserId(1);
+        $response = $this->userGet->execute($userId);
         //$response = $this->merchantGet->execute(1);
-        $response = $this->merchantGet->getList();
-        echo '<pre>';
-        var_dump($response);
-        echo  '</pre>';
-        exit;
+        //$response = $this->merchantGet->getList();
         //var_dump($response);
-
 
         return SampleResource::buildResult($response);
     }
