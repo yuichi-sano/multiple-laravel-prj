@@ -25,6 +25,8 @@ class DoctrineUserRepository extends DoctrineRepository implements UserRepositor
         } catch (NoResultException $e) {
             throw $e;
         }
+
+
     }
 
     public function add(User $user): void

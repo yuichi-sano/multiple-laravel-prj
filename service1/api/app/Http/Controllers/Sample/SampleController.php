@@ -32,6 +32,10 @@ class SampleController extends BaseController
         //$response = $this->userGet->execute($userId);
         //$response = $this->merchantGet->execute(1);
         $response = $this->merchantGet->getList();
+        echo '<pre>';
+        var_dump($response);
+        echo  '</pre>';
+        exit;
         //var_dump($response);
 
 

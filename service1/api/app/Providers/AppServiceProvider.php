@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Providers;
-use packages\domain\model\User\User;
-use packages\infrastructure\database\doctrine as DoctrineRepos;
-use packages\infrastructure\database as DatabaseRepos;
 use Illuminate\Support\ServiceProvider;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -40,6 +38,12 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             \packages\service\authentication\AccountAuthenticationInterface::class,
             \packages\service\authentication\AccountAuthenticationService::class
+        );
+        $this->app->singleton(
+            \packages\service\helper\TransactionInterface::class,
+            function($app) {
+                return new \packages\infrastructure\database\doctrine\DoctrineTransactionHelper($app['em']);
+            }
         );
 
     }

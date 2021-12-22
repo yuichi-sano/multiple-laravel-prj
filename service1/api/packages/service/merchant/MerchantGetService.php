@@ -2,14 +2,17 @@
 namespace packages\service\merchant;
 use packages\domain\model\merchant\Merchant;
 use packages\domain\model\merchant\MerchantRepository;
+use packages\service\helper\TransactionInterface;
 
 class MerchantGetService implements MerchantGetInterface
 {
     private MerchantRepository $merchantRepository;
+    private TransactionInterface $transaction;
 
-    public function __construct(MerchantRepository $merchantRepository)
+    public function __construct(MerchantRepository $merchantRepository, TransactionInterface $transaction)
     {
         $this->merchantRepository = $merchantRepository;
+        $this->transaction = $transaction;
     }
 
     public function execute(int $merchantId): Merchant
@@ -19,6 +22,7 @@ class MerchantGetService implements MerchantGetInterface
 
     public function getList(): array
     {
+        //$this->transaction->startTransaction('hoge');
         return $this->merchantRepository->list();
     }
 
