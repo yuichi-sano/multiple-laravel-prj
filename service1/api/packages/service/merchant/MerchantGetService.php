@@ -1,5 +1,6 @@
 <?php
 namespace packages\service\merchant;
+use App\Extension\Support\Facades\TransactionManager;
 use packages\domain\model\merchant\Merchant;
 use packages\domain\model\merchant\MerchantRepository;
 use packages\service\helper\TransactionManagerInterface;
@@ -7,12 +8,10 @@ use packages\service\helper\TransactionManagerInterface;
 class MerchantGetService implements MerchantGetInterface
 {
     private MerchantRepository $merchantRepository;
-    private TransactionManagerInterface $transaction;
 
-    public function __construct(MerchantRepository $merchantRepository, TransactionManagerInterface $transaction)
+    public function __construct(MerchantRepository $merchantRepository)
     {
         $this->merchantRepository = $merchantRepository;
-        $this->transaction = $transaction;
     }
 
     public function execute(int $merchantId): Merchant

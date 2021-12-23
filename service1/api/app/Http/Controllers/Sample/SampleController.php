@@ -29,10 +29,14 @@ class SampleController extends BaseController
         //
 
         $userId = new UserId(1);
-        $response = $this->userGet->execute($userId);
+        //$response = $this->userGet->execute($userId);
         //$response = $this->merchantGet->execute(1);
-        //$response = $this->merchantGet->getList();
+        if($request->getHoge() == 1){
+            $response = $this->merchantGet->execute(1);
+        }
+        $response = $this->merchantGet->getList();
         //var_dump($response);
+
 
         return SampleResource::buildResult($response);
     }
