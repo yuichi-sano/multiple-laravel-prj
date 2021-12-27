@@ -12,16 +12,16 @@
 	wget https://github.com/yuichi-sano/ddd-laravel-doctrine/archive/refs/heads/master.zip a.zip; unzip a.zip
 
 ## ForWindows
-[Windows環境でのSETUP](./docs/for_win/README.md)
-本資料では、vagrantに関する記述は以上とします。  
+[Windows環境でのSETUP](./docs/for_win/README.md)   
+※本資料では、vagrantに関する記述は以上とします。  
 vagrantにて仮想環境が起動したら、ssh接続を実施し
 setup.shを実行ください。
 
-    sh setup.sh local service1 localhost
+    sh ./setup_scripts/setup.sh local service1 localhost
 ## ForMac
 setup.shを実行ください。
 
-    sh setup.sh local service1 localhost
+    sh ./setup_scripts/setup.sh local service1 localhost
 ### setup.shについて
     第一引数: 環境を入力。local,staging,productの3種類を想定しています。
     第二引数: サービス名称を入力、dockerのコンテナ名にはねます

@@ -18,7 +18,7 @@
 vagrantにて仮想環境が起動したら、ssh接続を実施し  
 
 	cd /home/sail-mutiple/service1/api/
-	sh setup.sh local service1 localhost
+	sh ./setup_scripts/setup.sh local service1 localhost
 を実行ください。
 ## ForMac
 本PJに同梱されるシェルではrealpathコマンドを使用しています。  
@@ -29,7 +29,7 @@ macでは下記パッケージが必要なのでinstallします。
 インストールが完了次第後続の手順へ進んでください
 
 	cd service1/api/
-	sh setup.sh local service1 localhost
+	sh ./setup_scripts/setup.sh local service1 localhost
 を実行ください。
 ※パーミッションの件確認
 ### setup.shについて
