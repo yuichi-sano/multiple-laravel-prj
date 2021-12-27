@@ -57,8 +57,8 @@ if [ "$(uname)" == "Darwin" ]; then
     edit_environment 'APP_SERVICE=' $SERVICE_NAME
     edit_environment 'APP_NAME='    $SERVICE_NAME
     edit_environment 'APP_URL='     $APP_URL
-  sh ./for_mac/initial_composer.sh
-  sh ./docker-volume-init.sh
+  sh $DIR/for_mac/initial_composer.sh
+  sh $DIR/docker-volume-init.sh
 elif [ "$(expr substr $(uname -s) 1 5)" == "MINGW" ]; then
   echo Windowsホストは対応していません
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
@@ -100,8 +100,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
       fi
     fi
   done
-  sh ./for_vagrant/initial_composer.sh
-  sh ./docker-volume-init.sh
+  sh $DIR/for_vagrant/initial_composer.sh
+  sh $DIR/docker-volume-init.sh
 else
   echo Unknown OS
 fi
