@@ -41,9 +41,7 @@ class AppServiceProvider extends ServiceProvider
         );
         $this->app->singleton(
             \packages\service\helper\TransactionManagerInterface::class,
-            function($app) {
-                return new \packages\infrastructure\database\doctrine\DoctrineTransactionManager::class;
-            }
+            \packages\infrastructure\database\doctrine\DoctrineTransactionManager::class
         );
 
     }
