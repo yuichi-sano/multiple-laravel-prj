@@ -3,5 +3,5 @@ namespace packages\domain\basic\type;
 
 interface FileType
 {
-    public function toFile(): \File;
+    public function toFile(): \SplFileObject;
 }

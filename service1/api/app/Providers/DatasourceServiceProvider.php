@@ -6,6 +6,7 @@ use packages\infrastructure\database\doctrine as Doctrine;
 use packages\infrastructure\database as Database;
 use packages\domain\model as DomainModel;
 use Illuminate\Support\ServiceProvider;
+use packages\infrastructure\source\external\postalCode\GuzzleZipCodeSourceRepository;
 
 class DatasourceServiceProvider extends ServiceProvider
 {
@@ -37,6 +38,10 @@ class DatasourceServiceProvider extends ServiceProvider
                 $app['em'], $app['em']->getClassMetaData(DomainModel\merchant\Merchant::class)
             );
         });
+        $this->app->bind(
+            DomainModel\zipcode\ZipCodeSourceRepository::class,
+                    GuzzleZipCodeSourceRepository::class
+        );
 
     }
 
