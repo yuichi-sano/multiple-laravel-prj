@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace packages\domain\model\zipcode;
 
+/**
+ * @SEE  https://qiita.com/yhosok/items/bb7fa9ff0254d20ad279
+ * @SEE  https://qiita.com/nanasess/items/0f0aeaa1f72f599b9142
+ * @SEE  https://ken-all.hatenadiary.com/entry/2017/10/21/110657
+ *
+ */
 class ZipCodeFactory
 {
 
@@ -84,7 +90,20 @@ class ZipCodeFactory
     public function isClose($row){
         return (bool)preg_match($this->regexClosedParenthesesKana, $row[5]) || (bool)preg_match($this->regexClosedParentheses, $row[8]);
     }
+
+    /**
+     * @FIXME TO Shiga
+     * @return boolean
+     */
     public function needSplit(){
+
+    }
+
+    /**
+     * @FIXME TO Shiga
+     * @return boolean
+     */
+    public function splitRow($row){
 
     }
     public function isDeprecated(){
