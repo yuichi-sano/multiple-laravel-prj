@@ -93,37 +93,38 @@ class ZipCodeFactory
 
     /**
      * レコードの分割要否を判定する
-     * @return bool
+     * @param  array $row zipcode
+     * @return bool       分割要否
      */
-    public function needSplit($row): bool
+    public function needSplit(array $row): bool
     {
         return (bool)preg_match($this->regexSeparateTownArea, $row[8]);
     }
 
     /**
      * 町域カナの分割要否を判定する
-     * @return bool
+     * @param  array $row zipcode
+     * @return bool       分割要否
      */
-    private function needSplitKana($row): bool
+    private function needSplitKana(array $row): bool
     {
         return (bool)preg_match($this->regexSeparateTownAreaKana, $row[5]);
     }
 
     /**
-     * レコードに記載された、従属する町域の数だけレコードを分割する
-     * 分割する対象は、レコードの町域（カナ）属性の値が下記の形式もの
-     * → メイン町域（従属する町域1、 従属する町域2、 ...従属する町域n）
-     * 従属する町域ごとに、個別のレコードへ分割を行う
-     * @return array
+     * 単一のレコードを複数に分割する
+     * 仕様の詳細は、同ディレクトリ配下にあるREADME.mdを参照してください
+     * @param  array $row zipcode
+     * @return array      分割したzipcodeの配列
      */
-    public function splitRow($row): array
+    public function splitRow(array $row): array
     {
         /* 分割したレコードに設定する値を抽出 */
         $mainTownArea = $this->extractMain($this->regexBeforeParentheses, $row[8]);
         $subTownAreas = $this->extractSub($this->regexInsideParentheses, $row[8], '、');
 
         $mainTownAreaKana = '';
-        $subTownAreaKana = [];
+        $subTownAreaKanas = [];
         // 分割が必要なレコードでも、従属する町域カナは複数存在せず単一の場合がある
         if($this->needSplitKana($row)) {
             $mainTownAreaKana = $this->extractMain($this->regexBeforeParenthesesKana, $row[5]);
@@ -155,19 +156,20 @@ class ZipCodeFactory
 
     /**
      * メインの町域（カナ）を抽出
-     * @return string
+     * @param  string $regex 正規表現
+     * @param  string $str   抽出対象の町域情報
+     * @return string        抽出したメインの町域
      */
-    private function extractMain($regex, $str): string
+    private function extractMain(string $regex, string $str): string
     {
             preg_match($regex, $str, $matchedArray);
-            if(!(bool)preg_match($regex, $str, $matchedArray)){
-                ddd($str. $regex);
-            }
             return $matchedArray[0];
     } 
     /**
      * 従属する町域（カナ）を抽出
-     * @return array
+     * @param  string $regex 正規表現
+     * @param  string $str   抽出対象の町域情報
+     * @return array         抽出した従属する町域の配列
      */
     private function extractSub($regex, $str, $separator): array
     {
@@ -180,20 +182,21 @@ class ZipCodeFactory
 
     /**
      * 分割するレコードのテンプレートを生成する
-     * @return array
+     * @param  array $row テンプレート生成元のzipcode
+     * @return array      テンプレートのzipcode
      */
-    private function generateTemplateRow($row): array
+    private function generateTemplateRow(array $row): array
     {
-        $samePeaceRow = [];
+        $samePieceRow = [];
         foreach($row as $attributeIndex => $attribute){
             // レコード内の、町域属性と町域カナ属性以外は同一の値となる
             if($attributeIndex != 8 && $attributeIndex != 5){
-                $samePeaceRow[$attributeIndex] = $attribute;
+                $samePieceRow[$attributeIndex] = $attribute;
             } else {
-                $samePeaceRow[$attributeIndex] = '';
+                $samePieceRow[$attributeIndex] = '';
             }
         }
-        return $samePeaceRow;
+        return $samePieceRow;
     }
 
     public function isDeprecated(){
