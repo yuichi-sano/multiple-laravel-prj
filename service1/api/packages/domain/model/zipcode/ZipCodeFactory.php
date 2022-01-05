@@ -165,7 +165,6 @@ class ZipCodeFactory
             }
             return $matchedArray[0];
     } 
-
     /**
      * 従属する町域（カナ）を抽出
      * @return array
@@ -173,7 +172,10 @@ class ZipCodeFactory
     private function extractSub($regex, $str, $separator): array
     {
         preg_match($regex, $str, $matchedArray);
-        return explode($separator, $matchedArray[0]);
+        $subArray = explode($separator, $matchedArray[0]);
+        // 分割するレコードの一つに、従属する町名を含めないものが必要になる
+        array_unshift($subArray, '');
+        return $subArray;
     }
 
     /**
