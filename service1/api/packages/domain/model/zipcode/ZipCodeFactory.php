@@ -34,6 +34,7 @@ class ZipCodeFactory
     protected int $ptnNotApplicable = 0;
     protected int $ptnMainSub       = 1;
     protected int $ptnDoubleMain    = 2;
+    protected int $ptnSerialMain    = 3;
 
     // 元データ(ken_all.csv)の属性に紐付いたインデックス
     protected int $idxTownAreaKana = 5;
@@ -116,7 +117,7 @@ class ZipCodeFactory
             $this->regexSeparateTownArea,
             $row[$this->idxTownArea]
         );
-
+        /* TODO 
         preg_match(
             $this->regexParentheses,
             $row[$this->idxTownArea],
@@ -127,7 +128,11 @@ class ZipCodeFactory
 
         // 従属する町域のグループが2つ以上存在する場合がある
         // その場合は分割を自動で行えないため、対象から除外する
-        return ($hasSerial || $hasSeparater) && $subTownAreaNum < 2;
+        return ($hasSerial || $hasSeparater) &&$subTownAreaNum < 2;
+        */
+
+        // 連番と'、'区切りが同時に含まれているものは分割の対象外とする
+        return !($hasSerial && $hasSeparater);
     }
 
     /**
