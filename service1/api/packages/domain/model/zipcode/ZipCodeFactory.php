@@ -33,6 +33,7 @@ class ZipCodeFactory
     // 町域（カナ）の分割パターン
     protected int $ptnNotApplicable = 0;
     protected int $ptnMainSub       = 1;
+    protected int $ptnDoubleMain    = 2;
 
     // 元データ(ken_all.csv)の属性に紐付いたインデックス
     protected int $idxTownAreaKana = 5;
@@ -179,9 +180,12 @@ class ZipCodeFactory
      private function splitTownArea(string $townArea, string $townAreaKana): array
      {
         switch ($this->analyzeSplitPattern($townArea)) {
-        case $this->ptnMainSub:
-            return $this->splitMainSub($townArea, $townAreaKana);
-            break;
+            case $this->ptnMainSub:
+                return $this->splitMainSub($townArea, $townAreaKana);
+                break;
+            case $this->ptnDoubleMain:
+                return $this->splitDoubleMain($townArea, $townAreaKana);
+                break;
         }
     }
 
@@ -227,6 +231,19 @@ class ZipCodeFactory
         }
         return $processed;
     }
+    /**
+     * 町域（カナ）を複数に分割する2つの主パターン
+     * @param  string $townArea     元データの町域情報
+     * @param  string $townAreaKana 元データの町域カナ情報
+     * @return array                分割した町域（カナ）情報
+     */
+    private function splitDoubleMain(string $townArea, string $townAreaKana): array
+    {
+        $processed['townArea']     = explode('、', $townArea);
+        $processed['townAreaKana'] = explode('､', $townAreaKana);
+
+        return $processed;
+    }
 
     /**
      * 町域（カナ）情報がどの分割パターンか判定する
@@ -236,17 +253,15 @@ class ZipCodeFactory
     private function analyzeSplitPattern(string $townArea): int
     {
         $pattern = $this->ptnNotApplicable;
-        // mainSub
+
+        // 主・従属パターン
         if($this->isMainSub($townArea)) {
             return $this->ptnMainSub;
         }
-        /*
-        // doubleMain
-        // TODO 主が2つ存在する
-        if(true) {
+        // 2つの主パターン
+        if($this->isDoubleMain($townArea)) {
             return $this->ptnDoubleMain;
         }
-        */
 
         if($pattern === $this->ptnNotApplicable) {
             abort(500, '無効なデータの検出');
@@ -265,6 +280,21 @@ class ZipCodeFactory
 
         // $parents の要素数が2 -> 括弧が1組のみ存在する
         return $hasMain && $hasParent;
+
+    }
+
+    /**
+     * 町域が2つの主パターンか否かを判定
+     * @param  string $townArea 元データの町域情報
+     * @return bool             2つの主パターン
+     */
+    private function isDoubleMain(string $townArea): bool
+    {
+        $hasSub      = (bool)preg_match($this->regexBeforeParentheses, $townArea);
+        $hasParent   = (bool)preg_match($this->regexParentheses, $townArea);
+        $townAreaNum = count(explode('、', $townArea));
+
+        return !$hasSub && !$hasParent && $townAreaNum === 2;
 
     }
     /**
