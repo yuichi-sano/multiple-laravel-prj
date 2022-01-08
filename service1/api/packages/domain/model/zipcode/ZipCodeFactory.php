@@ -29,6 +29,13 @@ class ZipCodeFactory
     protected string $regexIgnoreInParentheses =  "/[０-９]|^その他$|^丁目$|^番地$|^地階・階層不明$|[０-９]*地割|成田国際空港内|次のビルを除く|^全域$/u";
     protected array  $regexDeprecatedPatternCollection = array("/抜海村バッカイ/u");
 
+    // 町域（カナ）の分割パターン
+    protected int $ptnNotApplicable = 0;
+    protected int $ptnMainSub       = 1;
+
+    // 元データ(ken_all.csv)の属性に紐付いたインデックス
+    protected int $idxTownAreaKana = 5;
+    protected int $idxTownArea     = 8;
 
     //row[8]=町域名称,row[5]=町域名称カナ
     public function create($row): ZipCode
@@ -103,12 +110,12 @@ class ZipCodeFactory
 
     /**
      * 町域カナの分割要否を判定する
-     * @param  array $row zipcode
-     * @return bool       分割要否
+     * @param  string  $townAreaKana 町域カナ情報
+     * @return bool                  分割要否
      */
-    private function needSplitKana(array $row): bool
+    private function needSplitKana(string $townAreaKana): bool
     {
-        return (bool)preg_match($this->regexSeparateTownAreaKana, $row[5]);
+        return (bool)preg_match($this->regexSeparateTownAreaKana, $townAreaKana);
     }
 
     /**
@@ -119,39 +126,123 @@ class ZipCodeFactory
      */
     public function splitRow(array $row): array
     {
-        /* 分割したレコードに設定する値を抽出 */
-        $mainTownArea = $this->extractMain($this->regexBeforeParentheses, $row[8]);
-        $subTownAreas = $this->extractSub($this->regexInsideParentheses, $row[8], '、');
 
-        $mainTownAreaKana = '';
-        $subTownAreaKanas = [];
-        // 分割が必要なレコードでも、従属する町域カナは複数存在せず単一の場合がある
-        if($this->needSplitKana($row)) {
-            $mainTownAreaKana = $this->extractMain($this->regexBeforeParenthesesKana, $row[5]);
-            $subTownAreaKanas = $this->extractSub($this->regexInsideParenthesesKana, $row[5], '､');
-        } else {
-            $mainTownAreaKana = $row[5];
-            $subTownAreaKanas = null;
-        }
+        $splittedTownAreas = $this->splitTownArea(
+            $row[$this->idxTownArea],
+            $row[$this->idxTownAreaKana]
+        );
 
-        /* 抽出した値を元にレコードを分割 */
         $splittedRows = [];
-        foreach($subTownAreas as $areaIndex => $subTownArea){
+        foreach($splittedTownAreas['townArea'] as $index => $townArea){
+
             $splittedRow = $this->generateTemplateRow($row);
 
-            // レコード分割後の町域属性の値は、メインの町域と従属する町域を連結したものになる
-            $splittedRow[8] = $mainTownArea . $subTownArea;
-
-            // レコード分割後の町域カナ属性の値は、従属する町域カナが存在する時だけ連結する
-            if($this->needSplitKana($row)){
-                $splittedRow[5] = $mainTownAreaKana . $subTownAreaKanas[$areaIndex];
-            } else {
-                $splittedRow[5] = $mainTownAreaKana;
-            }
+            $splittedRow[$this->idxTownArea]     = $townArea;
+            $splittedRow[$this->idxTownAreaKana] = $splittedTownAreas['townAreaKana'][$index];
 
             $splittedRows[] = $splittedRow;
         }
+        ddd($splittedRows);
         return $splittedRows;
+    }
+
+    /**
+     * 町域（カナ）を複数に分割する
+     * それぞれの分割パターンに応じた町域（カナ）の分割メソッドを呼び出す
+     * @param  string $townArea     元データの町域情報
+     * @param  string $townAreaKana 元データの町域カナ情報
+     * @return array                分割した町域（カナ）情報
+     */
+     private function splitTownArea(string $townArea, string $townAreaKana): array
+     {
+        switch ($this->analyzeSplitPattern($townArea)) {
+        case $this->ptnMainSub:
+            return $this->splitMainSub($townArea, $townAreaKana);
+            break;
+        }
+    }
+
+    /**
+     * 町域（カナ）を複数に分割する主・従属パターン
+     * @param  string $townArea     元データの町域情報
+     * @param  string $townAreaKana 元データの町域カナ情報
+     * @return array                分割した町域（カナ）情報
+     */
+    private function splitMainSub(string $townArea, string $townAreaKana): array
+    {
+        /* 町域（カナ）の抽出 */
+        $mainTownArea = $this->extractMain(
+            $this->regexBeforeParentheses,
+            $townArea
+        );
+
+        $subTownAreas = $this->extractSub(
+            $this->regexInsideParentheses,
+            $townArea,
+            '、'
+        );
+
+        // 分割が必要なレコードでも、従属する町域カナは複数存在せず単一の場合がある
+        $mainTownAreaKana = $this->needSplitKana($townAreaKana)?
+            $this->extractMain($this->regexBeforeParenthesesKana, $townAreaKana):
+            $townAreaKana;
+
+        $subTownAreaKanas = $this->needSplitKana($townAreaKana)?
+            $this->extractSub($this->regexInsideParenthesesKana, $townAreaKana, '､'):
+            null;
+
+        /* 町域（カナ）の加工 */
+        $processed = ['townArea' => [], 'townAreaKana' => []];
+        foreach($subTownAreas as $index => $subTownArea){
+
+            $processed['townArea'][]     = $mainTownArea . $subTownArea;
+            //分割処理の共通化の都合で、単一の値を配列に格納する場合がある
+            $processed['townAreaKana'][] = is_null($subTownAreaKanas)?
+                $mainTownAreaKana :
+                $mainTownAreaKana . $subTownAreaKanas[$index];
+
+        }
+        return $processed;
+    }
+
+    /**
+     * 町域（カナ）情報がどの分割パターンか判定する
+     * @param  string $ownArea
+     * @return int    分割パターン
+     */
+    private function analyzeSplitPattern(string $townArea): int
+    {
+        $pattern = $this->ptnNotApplicable;
+        // mainSub
+        if($this->isMainSub($townArea)) {
+            return $this->ptnMainSub;
+        }
+        /*
+        // doubleMain
+        // TODO 主が2つ存在する
+        if(true) {
+            return $this->ptnDoubleMain;
+        }
+        */
+
+        if($pattern === $this->ptnNotApplicable) {
+            abort(500, '無効なデータの検出');
+        }
+    }
+
+    /**
+     * 町域が主・従属パターンか否かを判定
+     * @param  string $townArea 元データの町域情報
+     * @return bool             主・従属パターン
+     */
+    private function isMainSub(string $townArea): bool
+    {
+        $hasMain = (bool)preg_match($this->regexBeforeParentheses, $townArea);
+        preg_match($this->regexParentheses, $townArea, $parents);
+
+        // $parents の要素数が2 -> 括弧が1組のみ存在する
+        return $hasMain && count($parents) === 2;
+
     }
 
     /**
