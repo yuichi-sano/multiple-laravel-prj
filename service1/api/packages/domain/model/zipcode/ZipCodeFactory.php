@@ -24,6 +24,7 @@ class ZipCodeFactory
     protected string $regexInsideParenthesesKana = "/(?<=\().*?(?=\))/u";
     protected string $regexSeparateTownArea = "/.*、.*/";
     protected string $regexSeparateTownAreaKana = "/.*､.*/";
+    protected string $regexSerialTownArea = "/.*〜.*/";
     protected string $regexUseInParentheses = "/[０-９]+区/u";
     protected string $regexUseInParenthesesKana =  "/[0-9]+ｸ/u";
     protected string $regexIgnoreInParentheses =  "/[０-９]|^その他$|^丁目$|^番地$|^地階・階層不明$|[０-９]*地割|成田国際空港内|次のビルを除く|^全域$/u";
@@ -105,7 +106,27 @@ class ZipCodeFactory
      */
     public function needSplit(array $row): bool
     {
-        return (bool)preg_match($this->regexSeparateTownArea, $row[8]);
+        $hasSerial = (bool)preg_match(
+            $this->regexSerialTownArea,
+            $row[$this->idxTownArea]
+        );
+
+        $hasSeparater = (bool)preg_match(
+            $this->regexSeparateTownArea,
+            $row[$this->idxTownArea]
+        );
+
+        preg_match(
+            $this->regexParentheses,
+            $row[$this->idxTownArea],
+            $parents
+        );
+        // 括弧が2つにつき1組の従属する町域のグループ
+        $subTownAreaNum = count($parents) / 2;
+
+        // 従属する町域のグループが2つ以上存在する場合がある
+        // その場合は分割を自動で行えないため、対象から除外する
+        return ($hasSerial || $hasSeparater) && $subTownAreaNum < 2;
     }
 
     /**
@@ -115,7 +136,10 @@ class ZipCodeFactory
      */
     private function needSplitKana(string $townAreaKana): bool
     {
-        return (bool)preg_match($this->regexSeparateTownAreaKana, $townAreaKana);
+        return (bool)preg_match(
+            $this->regexSeparateTownAreaKana,
+            $townAreaKana
+        );
     }
 
     /**
@@ -142,7 +166,6 @@ class ZipCodeFactory
 
             $splittedRows[] = $splittedRow;
         }
-        ddd($splittedRows);
         return $splittedRows;
     }
 
@@ -198,7 +221,7 @@ class ZipCodeFactory
             $processed['townArea'][]     = $mainTownArea . $subTownArea;
             //分割処理の共通化の都合で、単一の値を配列に格納する場合がある
             $processed['townAreaKana'][] = is_null($subTownAreaKanas)?
-                $mainTownAreaKana :
+                $mainTownAreaKana:
                 $mainTownAreaKana . $subTownAreaKanas[$index];
 
         }
@@ -237,13 +260,20 @@ class ZipCodeFactory
      */
     private function isMainSub(string $townArea): bool
     {
-        $hasMain = (bool)preg_match($this->regexBeforeParentheses, $townArea);
+        $hasMain   = (bool)preg_match($this->regexBeforeParentheses, $townArea);
+        $hasParent = (bool)preg_match($this->regexParentheses, $townArea);
+
+        // $parents の要素数が2 -> 括弧が1組のみ存在する
+        return $hasMain && $hasParent;
+
+    }
+    /**
+     * 従属する町域のグループが1つだけか判定する
+     * グループが2つ以上存在する場合分割の対象外となる
         preg_match($this->regexParentheses, $townArea, $parents);
 
         // $parents の要素数が2 -> 括弧が1組のみ存在する
         return $hasMain && count($parents) === 2;
-
-    }
 
     /**
      * メインの町域（カナ）を抽出
