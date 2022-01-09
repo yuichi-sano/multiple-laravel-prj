@@ -32,13 +32,15 @@ class ZipCodeFactory
     protected string $regexUseInParentheses = "/[０-９]+区/u";
     protected string $regexUseInParenthesesKana =  "/[0-9]+ｸ/u";
     protected string $regexIgnoreInParentheses =  "/[０-９]|^その他$|^丁目$|^番地$|^地階・階層不明$|[０-９]*地割|成田国際空港内|次のビルを除く|^全域$/u";
+    protected string $regexUnits = "/地割|丁目|番地|区/u";
     protected array  $regexDeprecatedPatternCollection = array("/抜海村バッカイ/u");
 
     // 町域（カナ）の分割パターン
-    protected int $ptnNotApplicable = 0;
-    protected int $ptnMainSub       = 1;
-    protected int $ptnDoubleMain    = 2;
-    protected int $ptnSerialMain    = 3;
+    protected int $ptnNotApplicable  = 0;
+    protected int $ptnMainSub        = 1;
+    protected int $ptnDoubleMain     = 2;
+    protected int $ptnSerialMain     = 3;
+    protected int $ptnMainMultiUnit  = 4;
 
     // 元データ(ken_all.csv)の属性に紐付いたインデックス
     protected int $idxTownAreaKana = 5;
@@ -176,7 +178,6 @@ class ZipCodeFactory
 
             $splittedRows[] = $splittedRow;
         }
-        dd($splittedRows);
         return $splittedRows;
     }
 
@@ -198,6 +199,9 @@ class ZipCodeFactory
                 break;
             case $this->ptnSerialMain:
                 return $this->splitSerialMain($townArea, $townAreaKana);
+                break;
+            case $this->ptnMainMultiUnit;
+                return $this->splitMainMultiUnit($townArea, $townAreaKana);
                 break;
         }
     }
@@ -221,6 +225,8 @@ class ZipCodeFactory
             $townArea,
             '、'
         );
+        // 分割するレコードの一つに、従属する町名を含めないものが必要になる
+        array_unshift($subTownAreas, '');
 
         // 分割が必要なレコードでも、従属する町域カナは複数存在せず単一の場合がある
         $mainTownAreaKana = $this->needSplitKana($townAreaKana)?
@@ -230,6 +236,11 @@ class ZipCodeFactory
         $subTownAreaKanas = $this->needSplitKana($townAreaKana)?
             $this->extractSub($this->regexInsideParenthesesKana, $townAreaKana, '､'):
             null;
+
+        // 分割するレコードの一つに、従属する町名を含めないものが必要になる
+        if(!is_null($subTownAreaKanas)){
+            array_unshift($subTownAreaKanas, '');
+        }
 
         /* 町域（カナ）の加工 */
         $processed = ['townArea' => [], 'townAreaKana' => []];
@@ -309,22 +320,30 @@ class ZipCodeFactory
 
     /**
      * 町域名称（カナ）から連番を除いた前後の情報を抽出する 
-     * @param  string $townAreaKana 町域（カナ）情報
+     * @param  string $townArea 町域（カナ）情報
      * @return array                連番の始点と終点
      */
-    private function exceptTownNumber(string $townAreaKana): array
+    private function exceptTownNumber(string $townArea): array
     {
-        $excepted = [];
 
         // 町域名称     → 全角数字使用
         // 町域名称カナ → 半角数字使用
-        if((bool)preg_match("/[0-9]+/u", $townAreaKana)){
-            preg_match_all("/[^0-9]+/u", $townAreaKana, $excepted);
+        if($this->hasHalfSizeNum($townArea)){
+            preg_match_all("/[^0-9]+/u", $townArea, $excepted);
         } else {
-            preg_match_all("/[^０-９]+/u", $townAreaKana, $excepted);
+            preg_match_all("/[^０-９]+/u", $townArea, $excepted);
         }
-
         return ['before' => $excepted[0][0], 'after' => $excepted[0][1]];
+    }
+
+    /**
+     * 渡された引数に半角数字が使用されているか判定する
+     * @param  string $str 判定する文字列
+     * @return bool        半角数字の有無
+     */
+    private function hasHalfSizeNum(string $str): bool
+    {
+        return (bool)preg_match("/[0-9]+/u", $str);
     }
 
     /**
@@ -361,6 +380,78 @@ class ZipCodeFactory
     }
 
     /**
+     * 町域（カナ）を複数に分割する -> 主と複数の住所単位パターン
+     * `〇〇（n,m丁目）`といったようなデータに対して、
+     * nに住所単位を付与してそれぞれ独立した町域情報に分割する
+     * @param  string $townArea     元データの町域情報
+     * @param  string $townAreaKana 元データの町域カナ情報
+     * @return array                分割した町域（カナ）情報
+     */
+    private function splitMainMultiUnit(string $townArea, string $townAreaKana): array
+    {
+        /* 町域（カナ）の抽出 */
+        $mainTownArea = $this->extractMain(
+            $this->regexBeforeParentheses,
+            $townArea
+        );
+        $subTownAreas = $this->extractSub(
+            $this->regexInsideParentheses,
+            $townArea,
+            '、'
+        );
+
+        $mainTownAreaKana = $this->extractMain(
+            $this->regexBeforeParenthesesKana,
+            $townAreaKana
+        );
+        $subTownAreaKanas = $this->extractSub(
+            $this->regexInsideParenthesesKana,
+            $townAreaKana,
+            '､'
+        );
+
+        /* 住所単位の抽出 */
+        $lastIndex = count($subTownAreas)-1;
+
+        $unitName     = $this->extractUnitName($subTownAreas[$lastIndex]);
+        $unitNameKana = $this->extractUnitName($subTownAreaKanas[$lastIndex]);
+
+        /* 町域（カナ）の加工 */
+        $processed = ['townArea' => [], 'townAreaKana' => []];
+        foreach($subTownAreas as $index => $subTownArea){
+            if($index < $lastIndex) {
+                $processed['townArea'][]     = $mainTownArea
+                                              . $subTownArea
+                                              . $unitName;
+                $processed['townAreaKana'][] = $mainTownAreaKana
+                                              . $subTownAreaKanas[$index]
+                                              . $unitNameKana;
+            } else {
+                $processed['townArea'][]     = $mainTownArea
+                                              . $subTownArea;
+                $processed['townAreaKana'][] = $mainTownAreaKana
+                                              . $subTownAreaKanas[$index];
+            }
+        }
+        return $processed;
+    }
+    /**
+     * 住所区分単位の名称を抽出する
+     * @param  string $townArea 元データの町域名称（カナ）
+     * @return string           抽出した町域名称（カナ）単位
+     */
+    private function extractUnitName(string $townArea): string
+    {
+        $expected = [];
+        if($this->hasHalfSizeNum($townArea)){
+            preg_match("/[^0-9]+/u", $townArea, $extracted);
+        } else {
+            preg_match("/[^０-９]+/u", $townArea, $extracted);
+        }
+        return $extracted[0];
+    }
+
+    /**
      * 町域（カナ）情報がどの分割パターンか判定する
      * @param  string $townArea
      * @return int    分割パターン
@@ -381,6 +472,9 @@ class ZipCodeFactory
         if($this->isSerialMain($townArea)) {
             return $this->ptnSerialMain;
         }
+        if($this->isMainMultiUnit($townArea)) {
+            return $this->ptnMainMultiUnit;
+        }
 
         if($pattern === $this->ptnNotApplicable) {
             abort(500, '無効なデータの検出');
@@ -394,10 +488,16 @@ class ZipCodeFactory
      */
     private function isMainSub(string $townArea): bool
     {
-        $hasMain   = (bool)preg_match($this->regexBeforeParentheses, $townArea);
-        $hasParent = (bool)preg_match($this->regexParentheses, $townArea);
+        $hasMain      = (bool)preg_match($this->regexBeforeParentheses, $townArea);
+        $hasParent    = (bool)preg_match($this->regexParentheses, $townArea);
+        $hasSeparater = (bool)preg_match($this->regexSeparateTownArea, $townArea);
 
-        return $hasMain && $hasParent;
+        // 主・従属パターンは、主と複数の住所単位パターンを包括している
+        // 主と複数の住所単位パターンに該当しないものを主・従属パターンとして処理
+        return $hasMain      &&
+               $hasParent    &&
+               $hasSeparater &&
+               !$this->isMainMultiUnit($townArea);
 
     }
 
@@ -430,6 +530,44 @@ class ZipCodeFactory
 
     }
     /**
+     * 町域が主と複数の住所単位パターンか否か判定
+     * @param  string $townArea 元データの町域情報
+     * @return bool             主と複数の住所単位パターン
+     */
+    private function isMainMultiUnit(string $townArea): bool
+    {
+        $hasMain      = (bool)preg_match($this->regexBeforeParentheses, $townArea);
+        $hasSeparater = (bool)preg_match($this->regexSeparateTownArea, $townArea);
+
+        // TODO 個々の処理をメソッドにしてもよいかも？
+        if($hasMain && $hasSeparater) {
+
+            preg_match($this->regexInsideParentheses, $townArea, $units);
+            $units = explode('、', $units[0]);
+
+            $unitNum = count(explode('、', $townArea));
+
+            $hasUnitName = (bool)preg_match(
+                $this->regexUnits,
+                $units[count($units)-1]
+            );
+
+            $isRemainNumOnly = true;
+            array_pop($units);
+            foreach($units as $remainElement) {
+                $isRemainNumOnly = !(bool)preg_match(
+                    "/[^０-９]+/u",
+                    $remainElement
+                );
+            }
+
+            return $unitNum > 1 && $hasUnitName && $isRemainNumOnly;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * メインの町域（カナ）を抽出
      * @param  string $regex 正規表現
      * @param  string $str   抽出対象の町域情報
@@ -451,8 +589,6 @@ class ZipCodeFactory
     {
         preg_match($regex, $str, $matchedArray);
         $subArray = explode($separator, $matchedArray[0]);
-        // 分割するレコードの一つに、従属する町名を含めないものが必要になる
-        array_unshift($subArray, '');
         return $subArray;
     }
 
