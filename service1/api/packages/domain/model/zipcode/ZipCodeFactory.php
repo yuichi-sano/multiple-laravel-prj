@@ -24,9 +24,9 @@ class ZipCodeFactory
     protected string $regexBeforeParenthesesKana = "/(.*)(?=\()/u";
     protected string $regexInsideParentheses = "/(?<=（).*?(?=）)/u";
     protected string $regexInsideParenthesesKana = "/(?<=\().*?(?=\))/u";
-    protected string $regexSeparateTownArea = "/.*、.*/";
-    protected string $regexSeparateTownAreaKana = "/.*､.*/";
-    protected string $regexSerialTownArea = "/.*〜.*/";
+    protected string $regexSeparateTownArea = "/.*、.*/u";
+    protected string $regexSeparateTownAreaKana = "/.*､.*/u";
+    protected string $regexSerialTownArea = "/.*〜.*/u";
     protected string $regexBeforeSerialTownArea = "/(.*)(?=〜)/u";
     protected string $regexBeforeSerialTownAreaKana = "/(.*)(?=-)/u";
     protected string $regexAfterSerialTownArea = "/(?<=〜).*/u";
@@ -38,12 +38,13 @@ class ZipCodeFactory
     protected array  $regexDeprecatedPatternCollection = array("/抜海村バッカイ/u");
 
     // 町域（カナ）の分割パターン
-    protected int $ptnNotApplicable  = 0;
-    protected int $ptnMainSub        = 1;
-    protected int $ptnDoubleMain     = 2;
-    protected int $ptnSerialMain     = 3;
-    protected int $ptnMainMultiUnit  = 4;
-    protected int $ptnMainSerialUnit = 5;
+    protected int $ptnNotApplicable     = 0;
+    protected int $ptnMainSub           = 1;
+    protected int $ptnDoubleMain        = 2;
+    protected int $ptnSerialMain        = 3;
+    protected int $ptnMainMultiUnit     = 4;
+    protected int $ptnMainSerialUnit    = 5;
+    protected int $ptnMainSubSerialUnit = 6;
 
     // 元データ(ken_all.csv)の属性に紐付いたインデックス
     protected int $idxTownAreaKana = 5;
@@ -117,31 +118,32 @@ class ZipCodeFactory
      */
     public function needSplit(array $row): bool
     {
+        $hasMain   = (bool)preg_match(
+            $this->regexBeforeParentheses,
+            $row[$this->idxTownArea]
+        );
         $hasSerial = (bool)preg_match(
             $this->regexSerialTownArea,
             $row[$this->idxTownArea]
         );
-
         $hasSeparater = (bool)preg_match(
             $this->regexSeparateTownArea,
             $row[$this->idxTownArea]
         );
-        /* TODO
-        preg_match(
-            $this->regexParentheses,
-            $row[$this->idxTownArea],
-            $parents
-        );
-        // 括弧が2つにつき1組の従属する町域のグループ
-        $subTownAreaNum = count($parents) / 2;
 
-        // 従属する町域のグループが2つ以上存在する場合がある
-        // その場合は分割を自動で行えないため、対象から除外する
-        return ($hasSerial || $hasSeparater) &&$subTownAreaNum < 2;
-        */
-
-        // 連番と'、'区切りが同時に含まれているものは分割の対象外とする
-        return !($hasSerial && $hasSeparater);
+        if($hasMain && $hasSerial && $hasSeparater) {
+            // 主の町域と従属する町域と連続する町域が存在する際に、
+            // 主の町域が連続する町域であった場合は分割の対象外となる
+            // 例：種市第１５地割～第２１地割（鹿糠、小路合、緑町、大久保、高取）
+            return !(bool)preg_match(
+                $this->regexSerialTownArea,
+                $this->extractMain(
+                    $this->regexBeforeParentheses,
+                    $row[$this->idxTownArea]
+                )
+            );
+        }
+        return $hasSerial || $hasSeparater;
     }
 
     /**
@@ -207,6 +209,9 @@ class ZipCodeFactory
                 return $this->splitMainMultiUnit($townArea, $townAreaKana);
             case $this->ptnMainSerialUnit;
                 return $this->splitMainSerialUnit($townArea, $townAreaKana);
+                break;
+            case $this->ptnMainSubSerialUnit;
+                return $this->splitMainSubSerialUnit($townArea, $townAreaKana);
                 break;
         }
     }
@@ -330,7 +335,6 @@ class ZipCodeFactory
      */
     private function exceptTownNumber(string $townArea): array
     {
-
         // 町域名称     → 全角数字使用
         // 町域名称カナ → 半角数字使用
         if($this->hasHalfSizeNum($townArea)){
@@ -490,7 +494,6 @@ class ZipCodeFactory
         // 連番の始点終点を抽出
         $serial = $this->extractSerialStartAndEnd($townAreaKana);
 
-        /* 連番の数だけ各種情報と文字列を結合 */
         /* 抽出した情報を元に連番の町域を生成 */
         return $this->generateTownAreaStartToEnd(
             (int)$serial['start'],
@@ -518,7 +521,8 @@ class ZipCodeFactory
             preg_match("/[^０-９]+/u", $townArea, $excepted);
             $isExist = (bool)preg_match("/[^0-9]+/u", $townArea);
         }
-        //従属する町域（カナ）が存在しない場合があるので、そのときは空文字を返却
+
+        //従属する町域（カナ）が存在しない場合がある
         return $isExist? $excepted[0] : '';
     }
 
@@ -536,6 +540,133 @@ class ZipCodeFactory
             preg_match("/[^０-９]+/u", $townArea, $extracted);
         }
         return $extracted[0];
+    }
+
+    /**
+     * 町域（カナ）を複数に分割する -> 主と従属と連続した住所単位パターン
+     * `〇〇（✗✗n〜m丁目、△△町）`といったようなデータに対して、
+     * nとmの間の数値を生成した上で住所単位を付与して独立した町域情報に分割する
+     * 加えて従属した町域も独立した町域情報として分割する
+     * 主・従属パターンと主の連続パターンの複合パターンのため実際の処理は移譲する
+     * @param  string $townArea     元データの町域名称
+     * @param  string $townAreaKana 元データの町域カナ名称
+     * @return array                分割した町域（カナ）名称
+     */
+    private function splitMainSubSerialUnit(string $townArea, string $townAreaKana): array
+    {
+        /* 各情報の抽出 */
+        // カッコ内の従属町域 -> 連続町域（カナ）と複数町域（カナ）に分ける
+        $insideParentheses = $this->extractMain(
+            $this->regexInsideParentheses,
+            $townArea,
+            '、'
+        );
+        $insideParenthesesKana = $this->extractMain(
+            $this->regexInsideParenthesesKana,
+            $townAreaKana,
+            '､'
+        );
+
+        // 連続町域（カナ）
+        $serialUnit       = '';
+        $serialUnitKana   = '';
+        $subTownAreas     = explode('、', $insideParentheses);
+        $subTownAreaKanas = explode('､', $insideParenthesesKana);
+        foreach($subTownAreas as $index => $subTownArea){
+            if((bool)preg_match($this->regexSerialTownArea, $subTownArea)){
+                $serialUnit     = $subTownArea;
+                $serialUnitKana = $subTownAreaKanas[$index];
+            }
+        }
+
+        // 複数町域（カナ）
+        $subTownArea     = str_replace(
+            $serialUnit . '、',
+            '',
+            $insideParentheses
+        );
+        $subTownAreaKana = str_replace( $serialUnitKana . '､',
+            '',
+            $insideParenthesesKana
+        );
+
+        /* 引数として渡すために抽出した情報を再構築 */
+        $splittedTowns[] = [
+            'townArea'     => preg_replace(
+                $this->regexInsideParentheses,
+                $serialUnit,
+                $townArea
+            ),
+            'townAreaKana' => preg_replace(
+                $this->regexInsideParenthesesKana,
+                $serialUnitKana,
+                $townAreaKana
+            )
+        ];
+
+        $splittedTowns[] = [
+            'townArea'     => preg_replace(
+                $this->regexInsideParentheses,
+                $subTownArea,
+                $townArea
+            ) ,
+            'townAreaKana' => preg_replace(
+                $this->regexInsideParenthesesKana,
+                $subTownAreaKana,
+                $townAreaKana
+            )
+        ];
+
+        /* 処理の移譲 */
+        $processedTowns = ['townArea' => [], 'townAreaKana' => []];
+        foreach($splittedTowns as $town) {
+            $hasSerial = (bool)preg_match(
+                $this->regexSerialTownArea,
+                $town['townArea']
+            );
+            $hasSeparater = (bool)preg_match(
+                $this->regexSeparateTownArea,
+                $town['townArea']
+            );
+
+            if($hasSeparater) {
+                $processedTowns = array_merge_recursive(
+                    $processedTowns,
+                    $this->splitMainSub(
+                        $town['townArea'],
+                        $town['townAreaKana']
+                    )
+                );
+            } else if($hasSerial) {
+                $processedTowns = array_merge_recursive(
+                    $processedTowns,
+                    $this->splitMainSerialUnit(
+                        $town['townArea'],
+                        $town['townAreaKana']
+                    )
+                );
+            } else {
+                // $hasSeparaterにも$hasSerialにも該当しない
+                //   -> カッコの中が単一の従属町域
+                // カッコは不要になるので外す
+                $processedTowns = array_merge_recursive(
+                    $processedTowns,
+                    [
+                        'townArea'     => preg_replace(
+                            $this->regexParentheses,
+                            '',
+                            $town['townArea']
+                        ),
+                        'townAreaKana' => preg_replace(
+                            $this->regexParenthesesKana,
+                            '',
+                            $town['townAreaKana']
+                        )
+                    ]
+                );
+            }
+        }
+        return $processedTowns;
     }
 
     /**
@@ -565,9 +696,12 @@ class ZipCodeFactory
         if($this->isMainSerialUnit($townArea)) {
             return $this->ptnMainSerialUnit;
         }
+        if($this->isMainSubSerialUnit($townArea)) {
+            return $this->ptnMainSubSerialUnit;
+        }
 
         if($pattern === $this->ptnNotApplicable) {
-            abort(500, '無効なデータの検出');
+            abort(500, '無効なデータの検出: ' . $townArea);
         }
     }
 
@@ -581,12 +715,14 @@ class ZipCodeFactory
         $hasMain      = (bool)preg_match($this->regexBeforeParentheses, $townArea);
         $hasParent    = (bool)preg_match($this->regexParentheses, $townArea);
         $hasSeparater = (bool)preg_match($this->regexSeparateTownArea, $townArea);
+        $hasSerial    = (bool)preg_match($this->regexSerialTownArea, $townArea);
 
         // 主・従属パターンは、主と複数の住所単位パターンを包括している
         // 主と複数の住所単位パターンに該当しないものを主・従属パターンとして処理
         return $hasMain      &&
                $hasParent    &&
                $hasSeparater &&
+               !$hasSerial   &&
                !$this->isMainMultiUnit($townArea);
 
     }
@@ -671,6 +807,20 @@ class ZipCodeFactory
         $hasUnitName  = (bool)preg_match($this->regexUnits, $townArea);
 
         return $hasMain && !$hasSeparater && $hasSerial && $hasUnitName;
+    }
+
+    /**
+     * 町域が主・従属と連続した住所単位パターンか否か判定
+     * @param  string $townArea 元データの町域情報
+     * @return bool             判定結果
+     */
+    private function isMainSubSerialUnit(string $townArea): bool
+    {
+        $hasMain      = (bool)preg_match($this->regexBeforeParentheses, $townArea);
+        $hasSeparater = (bool)preg_match($this->regexSeparateTownArea, $townArea);
+        $hasSerial    = (bool)preg_match($this->regexSerialTownArea, $townArea);
+        $hasUnitName  = (bool)preg_match($this->regexUnits, $townArea);
+        return $hasMain && $hasSeparater && $hasSerial && $hasUnitName;
     }
 
     /**
