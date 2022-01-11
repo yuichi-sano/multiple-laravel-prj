@@ -24,11 +24,11 @@ class ZipCodeFactory
     protected string $regexInsideParenthesesKana = "/(?<=\().*?(?=\))/u";
     protected string $regexSeparateTownArea = "/.*、.*/u";
     protected string $regexSeparateTownAreaKana = "/.*､.*/u";
-    protected string $regexSerialTownArea = "/.*〜.*/u";
-    protected string $regexBeforeSerialTownArea = "/(.*)(?=〜)/u";
+    protected string $regexSerialTownArea = "/.*[～〜].*/u";
+    protected string $regexBeforeSerialTownArea = "/(.*)(?=[～〜])/u";
     protected string $regexBeforeSerialTownAreaKana = "/(.*)(?=-)/u";
-    protected string $regexAfterSerialTownArea = "/(?<=〜).*/u";
-    protected string $regexAfterSerialTownAreaKana = "/(?<=-).*/u";
+    protected string $regexAfterSerialTownArea = "/(?<=[～〜]).*/u";
+    protected string $regexAfterSerialTownAreaKana = "/(?<=-)[^-]+/u";
     protected string $regexUseInParentheses = "/[０-９]+区/u";
     protected string $regexUseInParenthesesKana =  "/[0-9]+ｸ/u";
     protected string $regexBullets = "/.*・.*/u";
@@ -218,7 +218,6 @@ class ZipCodeFactory
                 return $this->splitSerialMainSub($townArea, $townAreaKana);
                 break;
             default :
-                ddd('unexpected' . $townArea);
         }
     }
 
@@ -320,16 +319,23 @@ class ZipCodeFactory
 
     /**
      * 町域名称カナから連番の始点と終点を抽出する 
-     * @param  string $townAreaKana 町域カナ情報
+     * @param  string $townArea     町域情報
      * @return array                連番の始点と終点
      */
     private function extractSerialStartAndEnd(string $townAreaKana): array
     {
         preg_match($this->regexBeforeSerialTownAreaKana, $townAreaKana, $start);
-        preg_match("/\d{1,}/u", $start[0], $start);
+        // 稀に1-97-116といったような引数が来た場合に97-116が連番に該当する
+        // その際は単純な数値の抽出では対応できない
+        if((bool)preg_match($this->regexAfterSerialTownAreaKana, $start[0])) {
+            preg_match($this->regexAfterSerialTownAreaKana, $start[0], $start);
+        } else{
+            preg_match("/\d{1,}/u", $start[0], $start);// こちらに該当するものが大半
+        }
 
-        preg_match($this->regexAfterSerialTownAreaKana, $townAreaKana, $end);
-        preg_match("/\d{1,}/u", $end[0], $end);
+        // 稀に1-97-116といったような引数が来た場合にpreg_matchでは97しか抽出ができない
+        preg_match_all($this->regexAfterSerialTownAreaKana, $townAreaKana, $end);
+        preg_match("/\d{1,}/u", $end[0][count($end[0])-1], $end);
 
         return ['start' => $start[0], 'end' => $end[0]];
     }
@@ -462,7 +468,6 @@ class ZipCodeFactory
     private function splitMainSerialUnit(string $townArea, string $townAreaKana): array
     {
         /* 町域名称（カナ）を構成する各情報を抽出する */
-
         // 主の町域名称（カナ）
         $mainTownArea     = $this->extractMain(
             $this->regexBeforeParentheses,
@@ -490,16 +495,13 @@ class ZipCodeFactory
         $subTownArea = $this->extractBeforeNum($town[0]);
         preg_match($this->regexBeforeSerialTownAreaKana, $insideParenthesesKana, $town);
         $subTownAreaKana = $this->extractBeforeNum($town[0]);
-
         // 住所区分単位
         preg_match($this->regexAfterSerialTownArea, $insideParentheses, $town);
         $unitName     = $this->extractAfterNum($town[0]);
         preg_match($this->regexAfterSerialTownAreaKana, $insideParenthesesKana, $town);
         $unitNameKana = $this->extractAfterNum($town[0]);
-
         // 連番の始点終点を抽出
         $serial = $this->extractSerialStartAndEnd($townAreaKana);
-
         /* 抽出した情報を元に連番の町域を生成 */
         return $this->generateTownAreaStartToEnd(
             (int)$serial['start'],
@@ -560,18 +562,42 @@ class ZipCodeFactory
      */
     private function extractBeforeNum($townArea): string
     {
-        $isExist = false;
+        $regCharBeforeSerial = "/\D(?=[０-９])/u";  //連番の直前の文字
+        $regStrBeforeChar    = "/.*(?=\D[０-９])/u";//↑ の前の文字列
+        // このメソッドは上記２つの正規表現にマッチした文字列を連結して返すが、
+        // [^０-９]+のような正規表現を使用しないのは、稀に連番とそうじゃない整数を
+        // 区別して返却する必要があるため。
+        // 例： `１－９７`の、`１－`を抽出。`９７`は連番に該当するので削除する。
+        //
+        $regCharBeforeSerialKana = "/\D(?=[0-9])/u";  //連番の直前の文字
+        $regStrBeforeCharKana    = "/.*(?=\D[0-9])/u";//↑ の前の文字列
+        $isExist                 = false;
 
         if($this->hasHalfSizeNum($townArea)){
-            preg_match("/[^0-9]+/u", $townArea, $excepted);
-            $isExist = (bool)preg_match("/[^0-9]+/u", $townArea);
+            $charBeforeSerial = $this->extractMain(
+                $regCharBeforeSerialKana, $townArea
+            );
+            $strBeforeChar    = $this->extractMain(
+                $regStrBeforeCharKana,
+                $townArea
+            );
+
+            $isExist = (bool)preg_match($regCharBeforeSerialKana, $townArea);
         } else {
-            preg_match("/[^０-９]+/u", $townArea, $excepted);
-            $isExist = (bool)preg_match("/[^０-９]+/u", $townArea);
+            $charBeforeSerial = $this->extractMain(
+                $regCharBeforeSerial,
+                $townArea
+            );
+            $strBeforeChar    = $this->extractMain(
+                $regStrBeforeChar,
+                $townArea
+            );
+
+            $isExist = (bool)preg_match($regCharBeforeSerial, $townArea);
         }
 
         //従属する町域（カナ）が存在しない場合がある
-        return $isExist? $excepted[0] : '';
+        return $isExist? $strBeforeChar . $charBeforeSerial : '';
     }
 
     /**
@@ -584,8 +610,15 @@ class ZipCodeFactory
         $expected = [];
         if($this->hasHalfSizeNum($townArea)){
             preg_match("/[^0-9]+/u", $townArea, $extracted);
+            if(!(bool)preg_match("/[^0-9]+/u", $townArea)){
+                // ごく一部単位が存在しない場合があり、そのときは空文字を代入
+                $extracted[0] = '';
+            }
         } else {
             preg_match("/[^０-９]+/u", $townArea, $extracted);
+            if(!(bool)preg_match("/[^０-９]+/u", $townArea)){
+                $extracted[0] = '';
+            }
         }
         return $extracted[0];
     }
@@ -701,12 +734,12 @@ class ZipCodeFactory
                     $processedTowns,
                     [
                         'townArea'     => preg_replace(
-                            $this->regexParentheses,
+                            "/[（）]/u",
                             '',
                             $town['townArea']
                         ),
                         'townAreaKana' => preg_replace(
-                            $this->regexParenthesesKana,
+                            "/[\(\)]/u",
                             '',
                             $town['townAreaKana']
                         )
@@ -800,9 +833,9 @@ class ZipCodeFactory
 
     }
     /**
-     * 町域が2つの主パターンか否かを判定
+     * 町域が連続の主パターンか否かを判定
      * @param  string $townArea 元データの町域情報
-     * @return bool             2つの主パターン
+     * @return bool             連続の主パターン
      */
     private function isSerialMain(string $townArea): bool
     {
@@ -878,6 +911,7 @@ class ZipCodeFactory
                     $townArea
                 )
             );
+            /* ここいらない？ */
             $hasSubUnit    = (bool)preg_match(
                 $this->regexUnits,
                 $this->extractMain(
@@ -885,8 +919,18 @@ class ZipCodeFactory
                     $townArea
                 )
             );
-
-            return !$hasMainSerial && $hasSubSerial && $hasSubUnit;
+            $hasSubTownArea  = (bool)preg_match(
+                $this->regexSerialTownArea,
+                $this->extractMain(
+                    "/[^０-９ー〜]+/u",
+                    $townArea
+                )
+            );
+            /* ここいらない？ */
+            return !$hasMainSerial &&
+                    $hasSubSerial
+                    //ここいらない？&& ($hasSubUnit ||!$hasSubTownArea)
+                    ;
 
         }
         return false;
@@ -943,8 +987,12 @@ class ZipCodeFactory
      */
     private function extractMain(string $regex, string $str): string
     {
-            preg_match($regex, $str, $matchedArray);
-            return $matchedArray[0];
+            if((bool)preg_match($regex, $str)){
+                preg_match($regex, $str, $matchedArray);
+                return $matchedArray[0];
+            } else {
+                return '';
+            }
     }
 
     /**
