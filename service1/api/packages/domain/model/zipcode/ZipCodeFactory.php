@@ -19,9 +19,9 @@ class ZipCodeFactory
     protected string $regexParentheses = "/（(.*)）/u";
     protected string $regexParenthesesKana = "/\\((.*)\\)/u";
     protected string $regexBeforeParentheses = "/(.*)(?=（)/u";
-    protected string $regexBeforeParenthesesKana = "/(.*)(?=\()/u";
-    protected string $regexInsideParentheses = "/(?<=（).*?(?=）)/u";
-    protected string $regexInsideParenthesesKana = "/(?<=\().*?(?=\))/u";
+    protected string $regexBeforeParenthesesKana = "/[^\(]+(?=\()/u";
+    protected string $regexInsideParentheses = "/(?<=（).*(?=）)/u";
+    protected string $regexInsideParenthesesKana = "/(?<=\().*(?=\))/u";
     protected string $regexSeparateTownArea = "/.*、.*/u";
     protected string $regexSeparateTownAreaKana = "/.*､.*/u";
     protected string $regexSerialTownArea = "/.*[～〜].*/u";
@@ -130,6 +130,8 @@ class ZipCodeFactory
             $this->regexSerialTownArea,
             $townArea
         );
+
+
         $hasSeparater = (bool)preg_match(
             $this->regexSeparateTownArea,
             $townArea
@@ -144,9 +146,16 @@ class ZipCodeFactory
                 $townArea
             );
 
-            // $hasSerialBanchiGouに該当するのが
+            //~のあとに町域情報が存在しないものは分割の対象外となる
+            // 例：大前（細原２２５９〜）
+            $hasNotSerialEnd = (bool)preg_match(
+                "/[０-９]+[～〜][、）]?$/u",
+                $townArea
+            );
+            // $hasSerialBanchiGou, $hasNotSerialEndに該当するのが
             // 複数まとめられた町域のうちの1つであれば分割の対象となる
-            return !$hasSerialBanchiGou || count(explode('、', $townArea)) > 1;
+            return (!$hasSerialBanchiGou && !$hasNotSerialEnd) ||
+                   count(explode('、', $townArea)) > 1;
         }
 
         if($hasMain && $hasSerial && $hasSeparater) {
@@ -162,7 +171,6 @@ class ZipCodeFactory
                 )
             );
         }
-
         return $hasSerial || $hasSeparater;
     }
 
@@ -293,7 +301,6 @@ class ZipCodeFactory
             $processed['townAreaKana'][] = is_null($subTownAreaKanas)?
                 $mainTownAreaKana:
                 $mainTownAreaKana . $subTownAreaKanas[$index];
-
         }
         return $processed;
     }
