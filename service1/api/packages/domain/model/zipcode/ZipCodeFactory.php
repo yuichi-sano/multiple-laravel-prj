@@ -41,7 +41,7 @@ class ZipCodeFactory
     // 町域（カナ）の分割パターン
     protected int $ptnNotApplicable     = 0;
     protected int $ptnMainSub           = 1;
-    protected int $ptnDoubleMain        = 2;
+    protected int $ptnMultiMain         = 2;
     protected int $ptnSerialMain        = 3;
     protected int $ptnMainMultiUnit     = 4;
     protected int $ptnMainSerialUnit    = 5;
@@ -231,8 +231,8 @@ class ZipCodeFactory
             case $this->ptnMainSub:
                 return $this->splitMainSub($townArea, $townAreaKana);
                 break;
-            case $this->ptnDoubleMain:
-                return $this->splitDoubleMain($townArea, $townAreaKana);
+            case $this->ptnMultiMain:
+                return $this->splitMultiMain($townArea, $townAreaKana);
                 break;
             case $this->ptnSerialMain:
                 return $this->splitSerialMain($townArea, $townAreaKana);
@@ -311,7 +311,7 @@ class ZipCodeFactory
      * @param  string $townAreaKana 元データの町域カナ情報
      * @return array                分割した町域（カナ）情報
      */
-    private function splitDoubleMain(string $townArea, string $townAreaKana): array
+    private function splitMultiMain(string $townArea, string $townAreaKana): array
     {
         $processed['townArea']     = explode('、', $townArea);
         $processed['townAreaKana'] = explode('､', $townAreaKana);
@@ -787,8 +787,8 @@ class ZipCodeFactory
             return $this->ptnMainSub;
         }
         // 2つの主パターン
-        if($this->isDoubleMain($townArea)) {
-            return $this->ptnDoubleMain;
+        if($this->isMultiMain($townArea)) {
+            return $this->ptnMultiMain;
         }
         // 連番の主パターン
         if($this->isSerialMain($townArea)) {
@@ -846,13 +846,13 @@ class ZipCodeFactory
      * @param  string $townArea 元データの町域情報
      * @return bool             2つの主パターン
      */
-    private function isDoubleMain(string $townArea): bool
+    private function isMultiMain(string $townArea): bool
     {
         $hasSub      = (bool)preg_match($this->regexBeforeParentheses, $townArea);
         $hasParent   = (bool)preg_match($this->regexParentheses, $townArea);
         $townAreaNum = count(explode('、', $townArea));
 
-        return !$hasSub && !$hasParent && $townAreaNum === 2;
+        return !$hasSub && !$hasParent && $townAreaNum > 2;
 
     }
     /**
