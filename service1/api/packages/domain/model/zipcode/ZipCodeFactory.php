@@ -36,6 +36,7 @@ class ZipCodeFactory
     protected string $regexKeyBrackets = "/.*「.*」.*/u";
     protected string $regexIgnoreInParentheses =  "/[０-９]|^その他$|^丁目$|^番地$|^地階・階層不明$|[０-９]*地割|成田国際空港内|次のビルを除く|^全域$/u";
     protected string $regexUnits = "/地割|丁目|番地|区|線|条/u";
+    protected string $regexNotSerialEndNumber = "/[０-９]+(((番地)?[～〜][、）])+|((番地)?[～〜]$))/u";
     protected array  $regexDeprecatedPatternCollection = array("/抜海村バッカイ/u");
 
     // 町域（カナ）の分割パターン
@@ -130,12 +131,23 @@ class ZipCodeFactory
             $this->regexSerialTownArea,
             $townArea
         );
-
-
         $hasSeparater = (bool)preg_match(
             $this->regexSeparateTownArea,
             $townArea
         );
+
+        if($hasMain && $hasSerial && $hasSeparater) {
+            // 主の町域と従属する町域と連続する町域が存在する際に、
+            // 主の町域が連続する町域であった場合は分割の対象外となる
+            // 例：種市第１５地割～第２１地割（鹿糠、小路合、緑町、大久保、高取）
+            return !(bool)preg_match(
+                $this->regexSerialTownArea,
+                $this->extractMain(
+                    $this->regexBeforeParentheses,
+                    $row[$this->idxTownArea]
+                )
+            );
+        }
 
         if($hasSerial){
 
@@ -149,7 +161,7 @@ class ZipCodeFactory
             //~のあとに町域情報が存在しないものは分割の対象外となる
             // 例：大前（細原２２５９〜）
             $hasNotSerialEnd = (bool)preg_match(
-                "/[０-９]+[～〜][、）]?$/u",
+                $this->regexNotSerialEndNumber,
                 $townArea
             );
             // $hasSerialBanchiGou, $hasNotSerialEndに該当するのが
@@ -158,19 +170,6 @@ class ZipCodeFactory
                    count(explode('、', $townArea)) > 1;
         }
 
-        if($hasMain && $hasSerial && $hasSeparater) {
-
-            // 主の町域と従属する町域と連続する町域が存在する際に、
-            // 主の町域が連続する町域であった場合は分割の対象外となる
-            // 例：種市第１５地割～第２１地割（鹿糠、小路合、緑町、大久保、高取）
-            return !(bool)preg_match(
-                $this->regexSerialTownArea,
-                $this->extractMain(
-                    $this->regexBeforeParentheses,
-                    $row[$this->idxTownArea]
-                )
-            );
-        }
         return $hasSerial || $hasSeparater;
     }
 
@@ -808,8 +807,7 @@ class ZipCodeFactory
         }
 
         if($pattern === $this->ptnNotApplicable) {
-            ddd('該当なし' . ' '. $townArea);
-            //abort(500, '無効なデータの検出: ' . $townArea);
+            abort(500, '無効なデータの検出: ' . $townArea);
         }
     }
 
@@ -826,6 +824,10 @@ class ZipCodeFactory
         $hasSerial      = (bool)preg_match($this->regexSerialTownArea, $townArea);
         $hasBullets     = (bool)preg_match($this->regexBullets, $townArea);
         $hasKeyBrackets = (bool)preg_match($this->regexKeyBrackets, $townArea);
+        $hasNotSerialEndNumber = (bool)preg_match(
+             $this->regexNotSerialEndNumber,
+            $townArea
+        );
 
         // 主・従属パターンは、主と複数の住所単位パターンを包括している
         // -> 主と複数の住所単位パターンに該当しないものを主・従属パターンとして処理
@@ -836,7 +838,7 @@ class ZipCodeFactory
         return   $hasMain
               && $hasParent
               && $hasSeparater
-              && (!$hasSerial || $hasBullets || $hasKeyBrackets)
+              && (!$hasSerial || $hasBullets || $hasKeyBrackets || $hasNotSerialEndNumber)
               && !$this->isMainMultiUnit($townArea);
 
     }
@@ -852,7 +854,7 @@ class ZipCodeFactory
         $hasParent   = (bool)preg_match($this->regexParentheses, $townArea);
         $townAreaNum = count(explode('、', $townArea));
 
-        return !$hasSub && !$hasParent && $townAreaNum > 2;
+        return !$hasSub && !$hasParent && $townAreaNum > 1;
 
     }
     /**
@@ -964,12 +966,27 @@ class ZipCodeFactory
      */
     private function isMainSubSerialUnit(string $townArea): bool
     {
-        $hasMain      = (bool)preg_match($this->regexBeforeParentheses, $townArea);
-        $hasSeparater = (bool)preg_match($this->regexSeparateTownArea, $townArea);
-        $hasSerial    = (bool)preg_match($this->regexSerialTownArea, $townArea);
-        $hasUnitName  = (bool)preg_match($this->regexUnits, $townArea);
-        $hasUnitName  = true;
-        return $hasMain && $hasSeparater && $hasSerial && $hasUnitName;
+        $hasMain            = (bool)preg_match(
+            $this->regexBeforeParentheses,
+            $townArea
+        );
+        $hasSeparater       = (bool)preg_match(
+            $this->regexSeparateTownArea,
+            $townArea
+        );
+        $hasSerial          = (bool)preg_match(
+            $this->regexSerialTownArea,
+            $townArea
+        );
+        $hasUnitName        = (bool)preg_match(
+            $this->regexUnits,
+            $townArea
+        );
+        $hasNotSerialEndNumber = (bool)preg_match(
+             $this->regexNotSerialEndNumber,
+            $townArea
+        );
+        return $hasMain && $hasSeparater && $hasSerial && !$hasNotSerialEndNumber;
     }
 
     /**
