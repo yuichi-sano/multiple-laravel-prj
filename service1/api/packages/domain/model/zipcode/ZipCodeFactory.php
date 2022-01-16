@@ -54,18 +54,43 @@ class ZipCodeFactory
     protected int $ptnSerialMainSub     = 7;
 
     // 元データ(ken_all.csv)の属性に紐付いたインデックス
-    protected int $idxTownAreaKana = 5;
-    protected int $idxTownArea     = 8;
-
+    protected int $idxJis                      = 0;
+    protected int $idxZipCode5                 = 1;
+    protected int $idxZipCode                  = 2;
+    protected int $idxPrefectureKana           = 3;
+    protected int $idxCityKana                 = 4;
+    protected int $idxTownAreaKana             = 5;
+    protected int $idxPrefecture               = 6;
+    protected int $idxCity                     = 7;
+    protected int $idxTownArea                 = 8;
+    protected int $idxIsOneTownByMultiZipCode  = 9;
+    protected int $idxIsNeedSmallAreaAddress   = 10;
+    protected int $idxIsChoume                 = 11;
+    protected int $idxIsMultiTownByOnePostCode = 12;
+    protected int $idxUpdated                  = 13;
+    protected int $idxUpdateReason             = 14;
     //row[8]=町域名称,row[5]=町域名称カナ
     public function create($row): ZipCode
     {
         return  new ZipCode(
-            $row[0],$row[1],$row[2],$row[3],$row[4]
-            ,$this->cleanTownAreaKana($row[8],$row[5])
-            ,$row[6],$row[7]
-            ,$this->cleanTownArea($row[8])
-            ,$row[9],$row[10],$row[11],$row[12],$row[13],$row[14]
+            $row[$this->idxJis],
+            $row[$this->idxZipCode5],
+            $row[$this->idxZipCode],
+            $row[$this->idxPrefectureKana],
+            $row[$this->idxCityKana],
+            $this->cleanTownAreaKana(
+                $row[$this->idxTownArea],
+                $row[$this->idxTownAreaKana]
+            ),
+            $row[$this->idxPrefecture],
+            $row[$this->idxCity],
+            $this->cleanTownArea($row[$this->idxTownArea]),
+            $row[$this->idxIsOneTownByMultiZipCode],
+            $row[$this->idxIsNeedSmallAreaAddress],
+            $row[$this->idxIsChoume],
+            $row[$this->idxIsMultiTownByOnePostCode],
+            $row[$this->idxUpdated],
+            $row[$this->idxUpdateReason],
         );
     }
     public function cleanTownArea($townArea){
@@ -112,10 +137,10 @@ class ZipCodeFactory
 
     public function isUnClose($row): bool
     {
-        return (bool)preg_match($this->regexUnClosedParenthesesKana, $row[5]) || (bool)preg_match($this->regexUnClosedParentheses, $row[8]);
+        return (bool)preg_match($this->regexUnClosedParenthesesKana, $row[$this->idxTownAreaKana]) || (bool)preg_match($this->regexUnClosedParentheses, $row[$this->idxTownArea]);
     }
     public function isClose($row){
-        return (bool)preg_match($this->regexClosedParenthesesKana, $row[5]) || (bool)preg_match($this->regexClosedParentheses, $row[8]);
+        return (bool)preg_match($this->regexClosedParenthesesKana, $row[$this->idxTownAreaKana]) || (bool)preg_match($this->regexClosedParentheses, $row[$this->idxTownArea]);
     }
 
     /**
@@ -1099,14 +1124,14 @@ class ZipCodeFactory
         $mergeTownAreaKana=[];
         $mergedRow = [];
         foreach ($mergeRows as $row){
-            $mergeTownArea[] = $row[8];
-            $mergeTownAreaKana[] = $row[5];
+            $mergeTownArea[] = $row[$this->idxTownArea];
+            $mergeTownAreaKana[] = $row[$this->idxTownAreaKana];
             $mergedRow = $row;
         }
         $mergedTownArea  =implode('',$mergeTownArea);
         $mergedTownAreaKana  =implode('',$mergeTownAreaKana);
-        $mergedRow[5] = $mergedTownAreaKana;
-        $mergedRow[8] = $mergedTownArea;
+        $mergedRow[$this->idxTownAreaKana] = $mergedTownAreaKana;
+        $mergedRow[$this->idxTownArea] = $mergedTownArea;
         return $mergedRow;
     }
     public function mergeTownAreaKana(){
