@@ -348,6 +348,7 @@ class SwaggerCodeGenCommand extends GeneratorCommand
     protected function buildClassOne(string $name, $planeName, $resourceType, $tag, array $children = null): string
     {
         $replaceProperties = [];
+        $replaceChildProperty = [];
         $getters = [];
         $setters = [];
         $dependencyDefinition = '';
@@ -364,7 +365,6 @@ class SwaggerCodeGenCommand extends GeneratorCommand
             $swaggerArray = $this->swaggerArr['definitions'][$planeName];
             if (!array_key_exists('properties', $swaggerArray)){
                 echo '$swaggerArray';
-                conttinue;
             }
         }
         foreach($swaggerArray['properties'] as $propertyName => $property){
@@ -376,8 +376,12 @@ class SwaggerCodeGenCommand extends GeneratorCommand
                 continue;
             }
             $propertyType = $property['type'] ;
-            if($property['type'] == 'object' || $property['type'] == 'array'){
+            if($property['type'] == 'object' || ($property['type'] == 'array' && $property['items']['type'] == 'object')){
                 $propertyType = $planeName.self::pascalize($propertyName);
+                if($resourceType == 'requestDefinition'){
+                    $propertyType = $property['type'] == 'array' ? 'collectionObject' : 'object';
+                    $replaceChildProperty[] = "'{$propertyName}' => new ".$planeName.self::pascalize($propertyName)."(),";
+                }
             }
             if($resourceType == 'requestDefinition'){
                 $replaceProperties[] = $this->getValidatePropertyStr($propertyName,$propertyType, $property['description'],$swaggerArray['required']);
@@ -402,6 +406,7 @@ class SwaggerCodeGenCommand extends GeneratorCommand
         }
 
         $this->replaceProperties($stub, implode("\n", $replaceProperties));
+        $this-> replaceChildDefinitions($stub, implode("\n", $replaceChildProperty));
         $this->replaceGetters($stub, implode("\n", $getters));
         $this->replaceSetters($stub, implode("\n", $setters));
 
@@ -442,6 +447,21 @@ class SwaggerCodeGenCommand extends GeneratorCommand
     {
         $stub = str_replace(
             ['properties'],
+            [$names],
+            $stub
+        );
+    }
+
+    /**
+     * プロパティ記載
+     * @param  string  $stub
+     * @param  string  $name
+     * @return $this
+     */
+    protected function replaceChildDefinitions(&$stub, $names)
+    {
+        $stub = str_replace(
+            ['childDefinitions'],
             [$names],
             $stub
         );
@@ -498,7 +518,7 @@ class SwaggerCodeGenCommand extends GeneratorCommand
         $validate_str = implode('|',$validate);
         return "
     //{$description}
-    protected {$type} \${$camel} = '{$validate_str}';
+    protected string \${$camel} = '{$validate_str}';
        ";
     }
 

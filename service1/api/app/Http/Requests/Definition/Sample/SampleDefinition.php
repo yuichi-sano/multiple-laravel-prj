@@ -11,7 +11,19 @@ class SampleDefinition extends AbstractRequestDefinition implements DefinitionIn
      * @var string
      */
     //HOGE
-    protected string $hoge = 'string';
+    protected string $hoge = 'required|string';
+    protected string $child='object';
+    protected string $arraychild='collectionObject';
+    protected string $arraychild2='collectionObject|required';
 
+    /** オーバーライド */
+    public function childDefinition(): array
+    {
+        return [
+            'child'=> new SampleChildDefinition(),
+            'arraychild'=>[new SampleArrayChildDefinition()],
+            'arraychild2'=>[new SampleArrayChildDefinition()]
+        ];
+    }
 
 }

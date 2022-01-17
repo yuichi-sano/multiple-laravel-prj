@@ -12,4 +12,11 @@ class DummyClass extends AbstractRequestDefinition implements DefinitionInterfac
      */
     properties
 
+    /** オーバーライド */
+    public function childDefinition(): array
+    {
+        return [
+            childDefinitions
+        ];
+    }
 }
