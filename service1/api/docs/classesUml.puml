@@ -1,0 +1,392 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+node Laravel #DDDDDD {
+    class FormRequest
+    class JsonResource
+    class Facade
+    class Mailable
+    class Facades\Mail
+    node Extension #FFFFFF {
+        note as LaravelExtension
+           Laravel標準機能を単純に拡張
+           したものをまとめてます。
+           今後も単純にLaravelの機能を
+           拡張する場合このパッケージ内
+           での完結を心がけます。
+        end note
+        package app/Extension{
+
+            package Auth{}
+            package Hasher{}
+            package Provider{}
+            package Support{
+                package Facades{
+                    class TransactionManager extends Facade{
+                        + getFacadeAccessor(): TransactionManagerInterface
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+node "app" {
+
+    node "presentation層" {
+        package "HTTP" {
+            package "Controllers" {
+            note as ControllerNote
+               エンドポイント事に追加されます。
+               HTTPリクエストの種類数に応じて
+               中身の実装関数を追加していきます。
+               コントローラからはService層のみ
+               をコールする事が理想です。
+               domain層の処理を直接呼ぶ必要がある場合は、
+               その処理を一つのServiceに定義できないか検討ください。
+               イメージとしては、
+               一つのControllerないの一つの関数は
+               エンドポイントであるので
+               Requestが必ず渡されます、
+               そのリクエストからDomainを生成し
+               使用したいServiceの引数に渡し、
+               結果をResourceに詰めてreturnします
+               ※実際のルーティング定義はrouter.phpに記載
+            end note
+                class Controller #line:green;back:lightblue{
+                    エンドポイント
+                    コンストラクタインジェクションにてService層をDI
+                    各関数の引数にRequestをDIします。
+                    --
+                    - serviceInterface: ServiceInterface
+                    --
+                    + controllerMethod(Request): Resource
+                }
+            }
+            package "Requests" {
+                note as RequestNote
+                    エンドポイント×Httpリクエストメソッド
+                    の数だけ存在します。
+                    LaravelのFormRequestを継承しているので
+                    連想配列にて全リクエストを処理できますが、
+                    controllerや、Serviceにてリクエストのplain
+                    なデータを操作することを防ぐため、
+                    各Requestクラス内でリクエストパラメータ
+                    をDomainに変換する関数を閉じ込めておくことをお勧めします。
+                    LaravelのValidationを機能させるために
+                    別途Definitionというクラスを用意します。
+                    このDefinitionをRequestに依存させることで、
+                    どのリクエストにはどのようなパラメータ、バリデーションが存在するか
+                    についての見通しをよくします。
+                end note
+                abstract AbstractFormRequest extends FormRequest{
+                    - definition: DefinitionInterface
+                }
+                class Request #line:green;back:lightblue extends AbstractFormRequest {
+                    + toDomainModel(): DomainModel
+                }
+
+                interface DefinitionInterface
+                abstract AbstractRequestDefinition
+                class RequestDefinition #line:green;back:lightblue extends AbstractRequestDefinition implements DefinitionInterface
+            }
+            package "MiddleWare" {
+            note as MiddleWareNote
+                一つのHTTPリクエストが
+                コントローラに到達する前、
+                コントローラによる処理の後
+                どちらにも処理を挟み込むための
+                Laravelの機能です
+                presentation層と扱っていますが
+                基本的なものはそのまま使用しており
+                Laravelのドキュメントから仕様を
+                追うことができます
+
+            end note
+                class Authenticate {
+                    controllerへroutingする前に実施する認証処理を記載します。
+                }
+            }
+            package "Resources" {
+                note as ResourceNote
+                    エンドポイント×Httpリクエストメソッド
+                    の数だけ存在します。
+                    LaravelのJsonResourceを
+                    継承しているので用意にjson
+                    encode、decodeが可能です（この辺りは原則ミドルウェアに任せます）
+                    実装するResourceクラスにはbuildResultなど自身のインスタンスを生成する
+                    関数を用意します。
+                    この関数はcontrollerから呼ばれ、引数にはdomainモデルが渡されることを
+                    期待しています。
+                    別途ResultDefinitionというクラスを用意します。
+                    このResultDefinitionをResourceに依存させ、
+                    buildResultないで、渡されたdomainデータを使いクライアントが望む
+                    viewの構造に生成しなおします。
+                end note
+                abstract AbstractJsonResource extends JsonResource{
+                    - result: ResultDefinitionInterface
+                }
+                class Resource #line:green;back:lightblue extends AbstractJsonResource{
+                    + buildResult(domainModel)::Resource
+                    - (domainModel::DomainModel)
+                }
+                interface ResultDefinitionInterface
+                abstract AbstractResultDefinition
+                class ResultDefinition #line:green;back:lightblue extends AbstractResultDefinition implements ResultDefinitionInterface
+            }
+        }
+    }
+        node "DIコンテナ" {
+            note as DIコンテナNote
+            主な使い方は下記を参考ください
+            https://readouble.com/laravel/8.x/ja/container.html
+            用途によってProviderを分けてはいますが、
+            やっている事の本質は
+            どのクラスもそんなに変わらなく、
+            シンプルにＤＩコンテナとして使用しています。
+            end note
+            package Providers{
+                class AppServiceProvider{
+                    service層の依存関係解決
+                    register()
+                }
+                class DatasourceServiceProvider{
+                    infrastructure層及びdomain層のリポジトリ依存関係解決
+                    register()
+                }
+                class AuthServiceProvider{
+                    認証にまつわる依存関係の解決
+                    boot()
+                }
+            }
+        }
+        node "artisan" {
+                class FlywayCommand{
+                }
+        }
+
+}
+
+package "packages" {
+        note as Package
+           Laravelに極力依存せず
+           ドメイン駆動な開発をする
+           ための構成要素を閉じ込めています。
+           ビジネスロジックの実装において
+           Laravelを意識せず、
+           （PHPっぽさもなるべく排除して）
+           オブジェクト指向にて実装できる
+           ことに重きを置いています
+        end note
+    node "domain層" {
+        package "domain" {
+            note as DomainNote
+               業務知識
+               業務への関心事
+               のみを定義するレイヤー
+            end note
+            package model {
+
+                interface DomainRepository #line:green;back:lightblue
+                class DomainModel #line:green;back:lightblue
+                note as DomainModelNote
+                 業務における概念
+                 を表現します
+                 アプリケーション開発
+                 において最も重要視すべきレイヤです
+                 DB処理等が顕著ですがinfrastructure層の責務と混同
+                 させずに、interfaceのみをこの層に定義します
+                end note
+            }
+            package basic{
+                package mail{
+                    note as BasicMail
+                       メール送信に必要となる
+                       情報群の入れ物オブジェクト
+                    end note
+                    class Address{
+                        - mail: Mail
+                        - personal: string
+                    }
+                    class AddressList
+                    class Content
+                    class Message{
+                        -subject: Subject
+                        -content: Content
+                    }
+                    class Header{
+                        - to: AddressList
+                        - cc: AddressList
+                        - from: Address
+                    }
+                    class Mail
+                    class Subject
+
+                }
+                package type{
+                    note as BasicType
+                       各メインとなるdomainの
+                       メンバ変数が継承
+                       できる基本型を定義します。
+                    end note
+                    interface DateTimeType
+                    interface FileType
+                    interface IntegerType
+                    interface StringType
+                }
+            }
+        }
+    }
+
+    node "service層" {
+        note as ServiceNote
+         実現する機能を定義します。
+         service層からは関連する
+         domain層のみを操作します。
+         infrastructure層や
+         presentation層の操作が
+         必要になる場合の大半は
+         設計に問題があるとみて
+         設計を見直してください。
+        end note
+        package "service" {
+            interface ServiceInterface #line:green;back:lightblue{
+                + serviceMethod(DomainModel)
+            }
+            class ServiceClass #line:green;back:lightblue implements ServiceInterface{
+                - domainRepository: DomainRepository
+            }
+
+            package "helper" {
+                interface TransactionManagerInterface {
+
+                }
+            }
+        }
+    }
+    node "infrastructure層" {
+    note as InfraStructureNote
+             外部技術基盤へデータをexport,importする処理を
+             infrastructure層に閉じ込めます。
+             例えば
+             DB,メール（チャットやSNSなども）送信、外部API通信
+             へ対する処理が該当します
+    end note
+        package "infrastructure" {
+            package "database" {
+                note as InfraStructureDBNote
+                    DBにまつわる実装はこの中に閉じ込めます。
+                    ORM毎にdirを分けるような想定をしています。
+                    laravelですと、Eloquent,Doctrineなどが候補に上がり、
+                    リポジトリパターンに寄り添えるDoctrineをSampleにしています
+                    このUMLではどれを使っても問題ないことを強調するために
+                    ORM~~と表現しています。
+                    ※実際にはこのORMの部分が採用したORMの名前で
+                    実装されることを想定しています。
+                    独自のDaoなどを導入しても良いと思います。
+                end note
+
+                class ORMRepository #line:green;back:lightblue extends AbstractORMRepository implements  DomainRepository
+                abstract AbstractORMRepository
+                class ORMTransactionManager implements TransactionManagerInterface
+            }
+            package "source" {
+
+            }
+            package "transfer" {
+                interface MailTransfer{
+                    + send(request: SMTPSendRequest)
+                }
+                class SMTPTransfer implements MailTransfer{
+                    + send(request: SMTPSendRequest)
+                }
+                class SMTPSendRequest{
+                    - header: Header
+                    - message: Message
+                    - mailable: Mailable
+                }
+            }
+
+        }
+    }
+}
+
+
+database "Docker-RDBMS" #DDDDDD{
+  folder "APL-DB" {
+    note "DBtable群" as Tables
+  }
+  folder "APL-TestDB" {
+    note "TestDBtable群" as TestTables
+  }
+
+}
+node "migration-tool" #DDDDDD{
+   package "flyway" {
+       class FlywayMain {
+       }
+   }
+}
+
+note "APL-Migration" as Migration
+note "APL-TestMigration" as TestMigration
+
+Controller::controllerMethod -[#green,dashed,thickness=4]-> Request
+Controller::controllerMethod -[#green,dashed,thickness=4]-> Resource
+Request::definition -[#green,dashed,thickness=4]-> RequestDefinition
+Resource::buildResult -[#green,dashed,thickness=4]-> DomainModel
+Request::toDomainModel --> DomainModel: use
+Resource --> ResultDefinition: use
+AbstractFormRequest::definition -[#green,dashed,thickness=4]-> DefinitionInterface
+AbstractJsonResource::result -[#green,dashed,thickness=4]-> ResultDefinitionInterface
+
+TransactionManager::getFacadeAccessor  -[#green,dashed,thickness=4]-> TransactionManagerInterface
+
+
+
+
+
+AppServiceProvider <-[#blue,plain,thickness=2]- ServiceInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ServiceClass: 対応実装クラス取り込み
+AppServiceProvider <-[#blue,plain,thickness=2]- TransactionManagerInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ORMTransactionManager: 対応実装クラス取り込み
+
+
+DatasourceServiceProvider <-[#blue,plain,thickness=2]- DomainRepository: 依存IF取り込み
+DatasourceServiceProvider <-[#blue,dotted,thickness=4]- ORMRepository: 対応実装クラス取り込み
+
+
+FlywayCommand --> FlywayMain
+FlywayMain .. Migration
+FlywayMain .. TestMigration
+Migration .. Tables
+TestMigration .. TestTables
+
+Controller::serviceInterface -[#green,dashed,thickness=4]-> ServiceInterface
+ServiceClass::domainRepository -[#green,dashed,thickness=4]-> DomainRepository
+ServiceInterface::serviceMethod -[#green,dashed,thickness=4]-> DomainModel
+ServiceClass-->TransactionManager: use
+ORMRepository -- Tables
+ORMRepository -- TestTables
+
+ORMTransactionManager -- Tables
+ORMTransactionManager -- TestTables
+
+MailTransfer::send -[#green,dashed,thickness=4]-> SMTPSendRequest
+SMTPTransfer::send -[#red,plain,thickness=3]-> Facades\Mail :メール送信内部ロジックはLaravelにまかせる
+SMTPSendRequest::mailable -[#green,dashed,thickness=4]-> Mailable
+SMTPSendRequest::message -[#green,dashed,thickness=4]-> Message
+SMTPSendRequest::header -[#green,dashed,thickness=4]-> Header
+Address::mail-[#green,dashed,thickness=4]-> Mail
+AddressList-[#green,dashed,thickness=4]-> Address
+Message::content-[#green,dashed,thickness=4]->Content
+Message::subject-[#green,dashed,thickness=4]->Subject
+Header::to-[#green,dashed,thickness=4]->AddressList
+Header::cc-[#green,dashed,thickness=4]->AddressList
+Header::from-[#green,dashed,thickness=4]->Address
+
+
+
+
+@enduml

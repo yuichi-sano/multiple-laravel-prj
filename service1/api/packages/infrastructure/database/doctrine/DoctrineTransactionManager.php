@@ -38,6 +38,7 @@ class DoctrineTransactionManager implements TransactionManagerInterface
     public static function wrapInTransaction(callable $func): void{
         EntityManager::wrapInTransaction($func);
     }
+
     public static function close(): void{
         EntityManager::close();
     }

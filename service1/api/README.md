@@ -84,12 +84,17 @@ Tokenの作成はFactoryを介して実施することでブラックボック�
     こちらも拡張済み
 
 ## Exception
-    軽くしか見ていません。
+    Validationexceptionを定義済みです。  
+    WebAPIExceptionも定義ずみです。
+    他に指定が無ければvalidationError時にはValidationExceptionをthrowするようにハンドルされています。
 
 ## AccessToken,RefreshToken
     AccessToken はLogin時に発行されて、適宜クライアントからサーバへリクエストください。
     RefreshTokenはAccessTokenが無効なときのみ投げつけてください。
-    RefreshTokenはDBに保存してあります。>> TODO 最終整理用
+    RefreshTokenはDBに保存してあります。
+    ※こちらは開発するアプリケーションの仕様によりますので適宜変更ください
+    Laravelのように極力ブラックボックス化しないような実装となっており、packagesないで変更が可能な作りになっております。
+
 
 ## unitTest
     laravelに備わっている標準的な単体を実施します。

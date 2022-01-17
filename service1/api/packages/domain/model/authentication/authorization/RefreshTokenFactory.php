@@ -25,7 +25,7 @@ class RefreshTokenFactory
         $customClaims = $this->getJWTCustomClaims($account);
         $payload = JWTFactory::make($customClaims);
         $token =  new RefreshToken(JWTAuth::encode($payload)->get());
-        $refreshTokenExpiresAt = new RefreshTokenExpiresAt($this->now->addMinute(config('jwt.refresh_ttl')));
+        $refreshTokenExpiresAt = new RefreshTokenExpiresAt($this->now->copy()->addMinute(config('jwt.refresh_ttl')));
         return AuthenticationRefreshToken::create(
             $token, new UserId($account->getId()),  $refreshTokenExpiresAt
         );
@@ -38,7 +38,7 @@ class RefreshTokenFactory
      */
     public function update(RefreshToken $refreshToken): AuthenticationRefreshToken{
         $origin = $this->refreshTokenRepository->findByToken($refreshToken);
-        $period = new RefreshTokenExpiresAt($this->now->addMinute(config('jwt.refresh_ttl')));
+        $period = new RefreshTokenExpiresAt($this->now->copy()->addMinute(config('jwt.refresh_ttl')));
         return  $origin->update($period);
     }
 
@@ -52,7 +52,7 @@ class RefreshTokenFactory
         $data = [
             'sub' => $account->getId(),
             'iat' => $this->now->timestamp,
-            'exp' => $this->now->addMinute(config('jwt.refresh_ttl'))->timestamp
+            'exp' => $this->now->copy()->addMinute(config('jwt.refresh_ttl'))->timestamp
         ];
 
         return JWTFactory::customClaims($data);

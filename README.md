@@ -1,4 +1,4 @@
-# DDD-Laravel-Doctorine
+# DDD-Laravel-Doctrine
 
 # SetUp
 ## git clone
@@ -50,10 +50,10 @@ laravel公式が提供しているsailを少しだけ拡張しています。
 	./bin/bundle-sail up -d 
 
 にてアプリケーションが起動します。
-
+### BundleSailコマンドを登録
     sudo ln -s /home/sail-mutiple/bin/bundle-sail /usr/bin/bundle-sail
-など登録しておくとよいと思います。  
-※基本的には場所を選ばずに実行するようにしております。
+などで登録しておくとよいと思います。  
+※場所を選ばずに実行可能なスクリプトにしております。
 
 ここまででSETUPが完了します。
 ### SETUP-TIPS
@@ -67,7 +67,7 @@ laravel公式が提供しているsailを少しだけ拡張しています。
 http://localhost:18080/
 
 からclient画面を確認できます。  
-またlaraveアプリは下記で動作します。
+またlaravelアプリは下記で動作します。
 
 http://localhost:5080/
 
@@ -102,7 +102,6 @@ bundle-sail に追加用のスクリプトを用意しています。
 
 #TIP 
 サービス追加時
-
 	https://github.com/yuichi-sano/ddd-laravel-doctrine
 のソースコードを落としてきます。
 その後、各種設定を行ったのち
