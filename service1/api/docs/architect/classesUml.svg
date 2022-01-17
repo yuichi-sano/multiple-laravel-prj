@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="2351px" preserveAspectRatio="none" style="width:8583px;height:2351px;background:#FFFFFF;" version="1.1" viewBox="0 0 8583 2351" width="8583px" zoomAndPan="magnify"><defs><filter height="300%" id="f1d752shqru3x0" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[694f54aa890631db6f50c9283d3664df]
+cluster Laravel--><polygon fill="#DDDDDD" filter="url(#f1d752shqru3x0)" points="3154.5,989,3164.5,979,4172.5,979,4172.5,1550,4162.5,1560,3154.5,1560,3154.5,989" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="4162.5" x2="4172.5" y1="989" y2="979"/><line style="stroke:#000000;stroke-width:1.5;" x1="3154.5" x2="4162.5" y1="989" y2="989"/><line style="stroke:#000000;stroke-width:1.5;" x1="4162.5" x2="4162.5" y1="989" y2="1560"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="52" x="3633.5" y="1006.5332">Laravel</text><!--MD5=[d09759c48e14cc40f43e1b5c9093e1a9]
+cluster Extension--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="3178.5,1216,3188.5,1206,4148.5,1206,4148.5,1526,4138.5,1536,3178.5,1536,3178.5,1216" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="4138.5" x2="4148.5" y1="1216" y2="1206"/><line style="stroke:#000000;stroke-width:1.5;" x1="3178.5" x2="4138.5" y1="1216" y2="1216"/><line style="stroke:#000000;stroke-width:1.5;" x1="4138.5" x2="4138.5" y1="1216" y2="1536"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="70" x="3624.5" y="1233.5332">Extension</text><!--MD5=[ebddfc288ecc7199fc36003690564e1d]
+cluster app/Extension--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="3416.5,1255,3522.5,1255,3529.5,1278.6094,4124.5,1278.6094,4124.5,1512,3416.5,1512,3416.5,1255" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="3416.5" x2="3529.5" y1="1278.6094" y2="1278.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="100" x="3420.5" y="1271.5332">app/Extension</text><!--MD5=[d19d31fbbeff6e993dfb0b0ab55cabdc]
+cluster Support--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="3722.5,1299,3784.5,1299,3791.5,1322.6094,4100.5,1322.6094,4100.5,1488,3722.5,1488,3722.5,1299" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="3722.5" x2="3791.5" y1="1322.6094" y2="1322.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="56" x="3726.5" y="1315.5332">Support</text><!--MD5=[d554ca5e465a93334ea2de02ad32dc2d]
+cluster Facades--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="3746.5,1343,3811.5,1343,3818.5,1366.6094,4076.5,1366.6094,4076.5,1464,3746.5,1464,3746.5,1343" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="3746.5" x2="3818.5" y1="1366.6094" y2="1366.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="59" x="3750.5" y="1359.5332">Facades</text><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="4196.5,16,4206.5,6,8435.5,6,8435.5,1146,8425.5,1156,4196.5,1156,4196.5,16" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="8425.5" x2="8435.5" y1="16" y2="6"/><line style="stroke:#000000;stroke-width:1.5;" x1="4196.5" x2="8425.5" y1="16" y2="16"/><line style="stroke:#000000;stroke-width:1.5;" x1="8425.5" x2="8425.5" y1="16" y2="1156"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="26" x="6299" y="33.5332">app</text><!--MD5=[001befb245ef55d2310db5270ef9ffe7]
+cluster presentation層--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="5491.5,65,5501.5,55,8411.5,55,8411.5,1122,8401.5,1132,5491.5,1132,5491.5,65" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="8401.5" x2="8411.5" y1="65" y2="55"/><line style="stroke:#000000;stroke-width:1.5;" x1="5491.5" x2="8401.5" y1="65" y2="65"/><line style="stroke:#000000;stroke-width:1.5;" x1="8401.5" x2="8401.5" y1="65" y2="1132"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="104" x="6895.5" y="82.5332">presentation層</text><!--MD5=[e6e61d846f7ebc290f4b7ed94825158d]
+cluster HTTP--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="5515.5,104,5556.5,104,5563.5,127.6094,8387.5,127.6094,8387.5,1108,5515.5,1108,5515.5,104" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="5515.5" x2="5563.5" y1="127.6094" y2="127.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="35" x="5519.5" y="120.5332">HTTP</text><!--MD5=[ed1d20ea533a2a0e7df5ba3c35e56ced]
+cluster Controllers--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="6931.5,148,7016.5,148,7023.5,171.6094,7644.5,171.6094,7644.5,455,6931.5,455,6931.5,148" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6931.5" x2="7023.5" y1="171.6094" y2="171.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="79" x="6935.5" y="164.5332">Controllers</text><!--MD5=[d1b54a43847f8f120cb0b6ed728295e7]
+cluster Requests--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="7668.5,164,7741.5,164,7748.5,187.6094,8363.5,187.6094,8363.5,1084,7668.5,1084,7668.5,164" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="7668.5" x2="7748.5" y1="187.6094" y2="187.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="67" x="7672.5" y="180.5332">Requests</text><!--MD5=[713d0b96ba92159e77cfefb638d9dd89]
+cluster MiddleWare--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="6288.5,188.5,6378.5,188.5,6385.5,212.1094,6907.5,212.1094,6907.5,414.5,6288.5,414.5,6288.5,188.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6288.5" x2="6385.5" y1="212.1094" y2="212.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="84" x="6292.5" y="205.0332">MiddleWare</text><!--MD5=[8a76c85c9bda36b8961814e40de163a2]
+cluster Resources--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="5539.5,164,5621.5,164,5628.5,187.6094,6264.5,187.6094,6264.5,1084,5539.5,1084,5539.5,164" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="5539.5" x2="5628.5" y1="187.6094" y2="187.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="76" x="5543.5" y="180.5332">Resources</text><!--MD5=[34913efed9209dfb6ec19ee2fe20acac]
+cluster DIコンテナ--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="4404.5,198.5,4414.5,188.5,5467.5,188.5,5467.5,379.5,5457.5,389.5,4404.5,389.5,4404.5,198.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="5457.5" x2="5467.5" y1="198.5" y2="188.5"/><line style="stroke:#000000;stroke-width:1.5;" x1="4404.5" x2="5457.5" y1="198.5" y2="198.5"/><line style="stroke:#000000;stroke-width:1.5;" x1="5457.5" x2="5457.5" y1="198.5" y2="389.5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="70" x="4897" y="216.0332">DIコンテナ</text><!--MD5=[46d1235180ad9d6d621a9bea424853f2]
+cluster Providers--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="4749.5,237.5,4824.5,237.5,4831.5,261.1094,5443.5,261.1094,5443.5,365.5,4749.5,365.5,4749.5,237.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="4749.5" x2="4831.5" y1="261.1094" y2="261.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="69" x="4753.5" y="254.0332">Providers</text><!--MD5=[00927d5a59865972079ca8e98dfe52f1]
+cluster artisan--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="4220.5,256.5,4230.5,246.5,4380.5,246.5,4380.5,341.5,4370.5,351.5,4220.5,351.5,4220.5,256.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="4370.5" x2="4380.5" y1="256.5" y2="246.5"/><line style="stroke:#000000;stroke-width:1.5;" x1="4220.5" x2="4370.5" y1="256.5" y2="256.5"/><line style="stroke:#000000;stroke-width:1.5;" x1="4370.5" x2="4370.5" y1="256.5" y2="351.5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="48" x="4272.5" y="274.0332">artisan</text><!--MD5=[82a3c10cfc5417650ef2e1677f96fd32]
+cluster packages--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="472.5,505,545.5,505,552.5,528.6094,3110.5,528.6094,3110.5,2344.5,472.5,2344.5,472.5,505" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="472.5" x2="552.5" y1="528.6094" y2="528.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="67" x="476.5" y="521.5332">packages</text><!--MD5=[8d272da6facad7f463cf1d87ec6a0c45]
+cluster domain層--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="939.5,1603,949.5,1593,2990.5,1593,2990.5,2310.5,2980.5,2320.5,939.5,2320.5,939.5,1603" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="2980.5" x2="2990.5" y1="1603" y2="1593"/><line style="stroke:#000000;stroke-width:1.5;" x1="939.5" x2="2980.5" y1="1603" y2="1603"/><line style="stroke:#000000;stroke-width:1.5;" x1="2980.5" x2="2980.5" y1="1603" y2="2320.5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="65" x="1928.5" y="1620.5332">domain層</text><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="963.5,1642,1020.5,1642,1027.5,1665.6094,2966.5,1665.6094,2966.5,2296.5,963.5,2296.5,963.5,1642" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="963.5" x2="1027.5" y1="1665.6094" y2="1665.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="51" x="967.5" y="1658.5332">domain</text><!--MD5=[5d4cd377749310b66bf14896f5cd8d9b]
+cluster model--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="2273.5,1723.5,2322.5,1723.5,2329.5,1747.1094,2942.5,1747.1094,2942.5,1883.5,2273.5,1883.5,2273.5,1723.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="2273.5" x2="2329.5" y1="1747.1094" y2="1747.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="43" x="2277.5" y="1740.0332">model</text><!--MD5=[a3cf33ee30543ff452517fd76c08fbef]
+cluster basic--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="1159.5,1686,1202.5,1686,1209.5,1709.6094,2249.5,1709.6094,2249.5,2272.5,1159.5,2272.5,1159.5,1686" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1159.5" x2="1209.5" y1="1709.6094" y2="1709.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="37" x="1163.5" y="1702.5332">basic</text><!--MD5=[4c204d13829c93163e9e8df1eed16624]
+cluster mail--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="1692.5,1730,1726.5,1730,1733.5,1753.6094,2225.5,1753.6094,2225.5,2248.5,1692.5,2248.5,1692.5,1730" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1692.5" x2="1733.5" y1="1753.6094" y2="1753.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="28" x="1696.5" y="1746.5332">mail</text><!--MD5=[3d755a8e79ee953feccbf2e6a25fa9eb]
+cluster type--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="1183.5,1748,1219.5,1748,1226.5,1771.6094,1668.5,1771.6094,1668.5,1994.5,1183.5,1994.5,1183.5,1748" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1183.5" x2="1226.5" y1="1771.6094" y2="1771.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="30" x="1187.5" y="1764.5332">type</text><!--MD5=[51cb01ded0fda53bfd37a17d2c369077]
+cluster service層--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="2366.5,559,2376.5,549,3086.5,549,3086.5,1108.5,3076.5,1118.5,2366.5,1118.5,2366.5,559" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="3076.5" x2="3086.5" y1="559" y2="549"/><line style="stroke:#000000;stroke-width:1.5;" x1="2366.5" x2="3076.5" y1="559" y2="559"/><line style="stroke:#000000;stroke-width:1.5;" x1="3076.5" x2="3076.5" y1="559" y2="1118.5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="67" x="2689" y="576.5332">service層</text><!--MD5=[7579d5565d2521d5936cec86ed3dadee]
+cluster service--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="2595.5,598,2654.5,598,2661.5,621.6094,3062.5,621.6094,3062.5,1094.5,2595.5,1094.5,2595.5,598" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="2595.5" x2="2661.5" y1="621.6094" y2="621.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="53" x="2599.5" y="614.5332">service</text><!--MD5=[be48e98a4ad7f5f2a1ba2465e5010d2c]
+cluster helper--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="2814.5,642,2866.5,642,2873.5,665.6094,3038.5,665.6094,3038.5,742,2814.5,742,2814.5,642" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="2814.5" x2="2873.5" y1="665.6094" y2="665.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="46" x="2818.5" y="658.5332">helper</text><!--MD5=[57cb74a4dbb58b5f67b4374820a380f1]
+cluster infrastructure層--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="509.5,846.5,519.5,836.5,2342.5,836.5,2342.5,1515,2332.5,1525,509.5,1525,509.5,846.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="2332.5" x2="2342.5" y1="846.5" y2="836.5"/><line style="stroke:#000000;stroke-width:1.5;" x1="509.5" x2="2332.5" y1="846.5" y2="846.5"/><line style="stroke:#000000;stroke-width:1.5;" x1="2332.5" x2="2332.5" y1="846.5" y2="1525"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="111" x="1366.5" y="864.0332">infrastructure層</text><!--MD5=[77349be1bd27b81b697a0f9b3aded3c8]
+cluster infrastructure--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="895.5,885.5,998.5,885.5,1005.5,909.1094,2318.5,909.1094,2318.5,1501,895.5,1501,895.5,885.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="895.5" x2="1005.5" y1="909.1094" y2="909.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="97" x="899.5" y="902.0332">infrastructure</text><!--MD5=[db65ce44d5e360fb4ec835f941dc7573]
+cluster database--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="1000.5,929.5,1070.5,929.5,1077.5,953.1094,1837.5,953.1094,1837.5,1453.5,1000.5,1453.5,1000.5,929.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1000.5" x2="1077.5" y1="953.1094" y2="953.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="64" x="1004.5" y="946.0332">database</text><!--MD5=[925068ebd9f1a75b02f5784eea37da0d]
+cluster transfer--><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="1861.5,973.5,1923.5,973.5,1930.5,997.1094,2294.5,997.1094,2294.5,1477,1861.5,1477,1861.5,973.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1861.5" x2="1930.5" y1="997.1094" y2="997.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="56" x="1865.5" y="990.0332">transfer</text><!--MD5=[801b06d5533e2bf22895337ee9907ce8]
+cluster Docker-RDBMS--><path d="M126.5,1715.5 C126.5,1705.5 287.5,1705.5 287.5,1705.5 C287.5,1705.5 448.5,1705.5 448.5,1715.5 L448.5,1856.5 C448.5,1866.5 287.5,1866.5 287.5,1866.5 C287.5,1866.5 126.5,1866.5 126.5,1856.5 L126.5,1715.5 " fill="#DDDDDD" filter="url(#f1d752shqru3x0)" style="stroke:#000000;stroke-width:1.5;"/><path d="M126.5,1715.5 C126.5,1725.5 287.5,1725.5 287.5,1725.5 C287.5,1725.5 448.5,1725.5 448.5,1715.5 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="107" x="234" y="1742.0332">Docker-RDBMS</text><!--MD5=[2d3d1c48ebacbf5b66eaacad96f1716c]
+cluster APL-DB--><polygon fill="#DDDDDD" filter="url(#f1d752shqru3x0)" points="150.5,1764.5,207.5,1764.5,214.5,1788.1094,262.5,1788.1094,262.5,1842.5,150.5,1842.5,150.5,1764.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="150.5" x2="214.5" y1="1788.1094" y2="1788.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="51" x="154.5" y="1781.0332">APL-DB</text><!--MD5=[5ca9dd90046af5fde1f083351cfea9ec]
+cluster APL-TestDB--><polygon fill="#DDDDDD" filter="url(#f1d752shqru3x0)" points="286.5,1764.5,373.5,1764.5,380.5,1788.1094,424.5,1788.1094,424.5,1842.5,286.5,1842.5,286.5,1764.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="286.5" x2="380.5" y1="1788.1094" y2="1788.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="81" x="290.5" y="1781.0332">APL-TestDB</text><!--MD5=[c104067880b7f7dffec0ba9eca6ed82e]
+cluster migration-tool--><polygon fill="#DDDDDD" filter="url(#f1d752shqru3x0)" points="121.5,945,131.5,935,295.5,935,295.5,1098,285.5,1108,121.5,1108,121.5,945" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="285.5" x2="295.5" y1="945" y2="935"/><line style="stroke:#000000;stroke-width:1.5;" x1="121.5" x2="285.5" y1="945" y2="945"/><line style="stroke:#000000;stroke-width:1.5;" x1="285.5" x2="285.5" y1="945" y2="1108"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="98" x="155.5" y="962.5332">migration-tool</text><!--MD5=[04659f8617df0ba922a06ae535144c4c]
+cluster flyway--><polygon fill="#DDDDDD" filter="url(#f1d752shqru3x0)" points="145.5,984,193.5,984,200.5,1007.6094,271.5,1007.6094,271.5,1084,145.5,1084,145.5,984" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="145.5" x2="200.5" y1="1007.6094" y2="1007.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="42" x="149.5" y="1000.5332">flyway</text><!--MD5=[e06bd44dfa533dc798c8abeabf2ef80d]
+class FormRequest--><rect codeLine="4" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="FormRequest" style="stroke:#A80036;stroke-width:1.5;" width="108" x="4048.5" y="1020"/><ellipse cx="4063.5" cy="1036" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M4067.1875,1037.2031 Q4066.9375,1040.6875 4065.7656,1041.8594 Q4064.7344,1042.5781 4063.3594,1042.5781 Q4061.9844,1042.5781 4060.9531,1041.8594 Q4059.1719,1040.0781 4059.1719,1036.4063 Q4059.1719,1032.1563 4061.0469,1030.25 Q4062.0938,1029.2344 4063.4219,1029.2344 Q4064.8281,1029.2344 4065.6719,1030.0469 Q4067.1563,1031.5625 4067.0781,1034.4375 L4064.9531,1034.4375 Q4064.875,1032.1094 4064.2344,1031.4688 Q4063.9531,1031.1719 4063.4219,1031.1719 Q4062.9688,1031.1719 4062.6094,1031.5469 Q4061.375,1032.7656 4061.375,1036.2813 Q4061.375,1039.3281 4062.4219,1040.3438 Q4062.8438,1040.7813 4063.3594,1040.7813 Q4063.8125,1040.7813 4064.25,1040.3438 Q4064.8125,1039.7969 4064.8906,1037.2031 L4067.1875,1037.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="76" x="4077.5" y="1040.9102">FormRequest</text><line style="stroke:#A80036;stroke-width:1.5;" x1="4049.5" x2="4155.5" y1="1052" y2="1052"/><line style="stroke:#A80036;stroke-width:1.5;" x1="4049.5" x2="4155.5" y1="1060" y2="1060"/><!--MD5=[ea5bbbfc27fc4220714a28ab39a92dcf]
+class JsonResource--><rect codeLine="5" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="JsonResource" style="stroke:#A80036;stroke-width:1.5;" width="113" x="3900" y="1020"/><ellipse cx="3915" cy="1036" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M3918.6875,1037.2031 Q3918.4375,1040.6875 3917.2656,1041.8594 Q3916.2344,1042.5781 3914.8594,1042.5781 Q3913.4844,1042.5781 3912.4531,1041.8594 Q3910.6719,1040.0781 3910.6719,1036.4063 Q3910.6719,1032.1563 3912.5469,1030.25 Q3913.5938,1029.2344 3914.9219,1029.2344 Q3916.3281,1029.2344 3917.1719,1030.0469 Q3918.6563,1031.5625 3918.5781,1034.4375 L3916.4531,1034.4375 Q3916.375,1032.1094 3915.7344,1031.4688 Q3915.4531,1031.1719 3914.9219,1031.1719 Q3914.4688,1031.1719 3914.1094,1031.5469 Q3912.875,1032.7656 3912.875,1036.2813 Q3912.875,1039.3281 3913.9219,1040.3438 Q3914.3438,1040.7813 3914.8594,1040.7813 Q3915.3125,1040.7813 3915.75,1040.3438 Q3916.3125,1039.7969 3916.3906,1037.2031 L3918.6875,1037.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="81" x="3929" y="1040.9102">JsonResource</text><line style="stroke:#A80036;stroke-width:1.5;" x1="3901" x2="4012" y1="1052" y2="1052"/><line style="stroke:#A80036;stroke-width:1.5;" x1="3901" x2="4012" y1="1060" y2="1060"/><!--MD5=[790e9955d9690e5344ead96b2c38e22e]
+class Facade--><rect codeLine="6" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="Facade" style="stroke:#A80036;stroke-width:1.5;" width="73" x="3792" y="1020"/><ellipse cx="3807" cy="1036" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M3810.6875,1037.2031 Q3810.4375,1040.6875 3809.2656,1041.8594 Q3808.2344,1042.5781 3806.8594,1042.5781 Q3805.4844,1042.5781 3804.4531,1041.8594 Q3802.6719,1040.0781 3802.6719,1036.4063 Q3802.6719,1032.1563 3804.5469,1030.25 Q3805.5938,1029.2344 3806.9219,1029.2344 Q3808.3281,1029.2344 3809.1719,1030.0469 Q3810.6563,1031.5625 3810.5781,1034.4375 L3808.4531,1034.4375 Q3808.375,1032.1094 3807.7344,1031.4688 Q3807.4531,1031.1719 3806.9219,1031.1719 Q3806.4688,1031.1719 3806.1094,1031.5469 Q3804.875,1032.7656 3804.875,1036.2813 Q3804.875,1039.3281 3805.9219,1040.3438 Q3806.3438,1040.7813 3806.8594,1040.7813 Q3807.3125,1040.7813 3807.75,1040.3438 Q3808.3125,1039.7969 3808.3906,1037.2031 L3810.6875,1037.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="41" x="3821" y="1040.9102">Facade</text><line style="stroke:#A80036;stroke-width:1.5;" x1="3793" x2="3864" y1="1052" y2="1052"/><line style="stroke:#A80036;stroke-width:1.5;" x1="3793" x2="3864" y1="1060" y2="1060"/><!--MD5=[3115659e3308ed5640814c2d47ce327f]
+class Mailable--><rect codeLine="7" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="Mailable" style="stroke:#A80036;stroke-width:1.5;" width="78" x="3314.5" y="1020"/><ellipse cx="3329.5" cy="1036" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M3333.1875,1037.2031 Q3332.9375,1040.6875 3331.7656,1041.8594 Q3330.7344,1042.5781 3329.3594,1042.5781 Q3327.9844,1042.5781 3326.9531,1041.8594 Q3325.1719,1040.0781 3325.1719,1036.4063 Q3325.1719,1032.1563 3327.0469,1030.25 Q3328.0938,1029.2344 3329.4219,1029.2344 Q3330.8281,1029.2344 3331.6719,1030.0469 Q3333.1563,1031.5625 3333.0781,1034.4375 L3330.9531,1034.4375 Q3330.875,1032.1094 3330.2344,1031.4688 Q3329.9531,1031.1719 3329.4219,1031.1719 Q3328.9688,1031.1719 3328.6094,1031.5469 Q3327.375,1032.7656 3327.375,1036.2813 Q3327.375,1039.3281 3328.4219,1040.3438 Q3328.8438,1040.7813 3329.3594,1040.7813 Q3329.8125,1040.7813 3330.25,1040.3438 Q3330.8125,1039.7969 3330.8906,1037.2031 L3333.1875,1037.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="46" x="3343.5" y="1040.9102">Mailable</text><line style="stroke:#A80036;stroke-width:1.5;" x1="3315.5" x2="3391.5" y1="1052" y2="1052"/><line style="stroke:#A80036;stroke-width:1.5;" x1="3315.5" x2="3391.5" y1="1060" y2="1060"/><!--MD5=[93fa001e80019159da57156d5b991050]
+class Facades\Mail--><rect codeLine="8" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="Facades\Mail" style="stroke:#A80036;stroke-width:1.5;" width="105" x="3174" y="1020"/><ellipse cx="3189" cy="1036" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M3192.6875,1037.2031 Q3192.4375,1040.6875 3191.2656,1041.8594 Q3190.2344,1042.5781 3188.8594,1042.5781 Q3187.4844,1042.5781 3186.4531,1041.8594 Q3184.6719,1040.0781 3184.6719,1036.4063 Q3184.6719,1032.1563 3186.5469,1030.25 Q3187.5938,1029.2344 3188.9219,1029.2344 Q3190.3281,1029.2344 3191.1719,1030.0469 Q3192.6563,1031.5625 3192.5781,1034.4375 L3190.4531,1034.4375 Q3190.375,1032.1094 3189.7344,1031.4688 Q3189.4531,1031.1719 3188.9219,1031.1719 Q3188.4688,1031.1719 3188.1094,1031.5469 Q3186.875,1032.7656 3186.875,1036.2813 Q3186.875,1039.3281 3187.9219,1040.3438 Q3188.3438,1040.7813 3188.8594,1040.7813 Q3189.3125,1040.7813 3189.75,1040.3438 Q3190.3125,1039.7969 3190.3906,1037.2031 L3192.6875,1037.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="73" x="3203" y="1040.9102">Facades\Mail</text><line style="stroke:#A80036;stroke-width:1.5;" x1="3175" x2="3278" y1="1052" y2="1052"/><line style="stroke:#A80036;stroke-width:1.5;" x1="3175" x2="3278" y1="1060" y2="1060"/><path d="M3195,1367.5 L3195,1459.2578 L3398,1459.2578 L3398,1377.5 L3388,1367.5 L3195,1367.5 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M3388,1367.5 L3388,1377.5 L3398,1377.5 L3388,1367.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="170" x="3201" y="1385.9951">Laravel標準機能を単純に拡張</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="156" x="3201" y="1402.3467">したものをまとめてます。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="170" x="3201" y="1418.6982">今後も単純にLaravelの機能を</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="182" x="3201" y="1435.0498">拡張する場合このパッケージ内</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="3201" y="1451.4014">での完結を心がけます。</text><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="3654.5,1386,3692.5,1386,3699.5,1409.6094,3706.5,1409.6094,3706.5,1441.2188,3654.5,1441.2188,3654.5,1386" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="3654.5" x2="3699.5" y1="1409.6094" y2="1409.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="32" x="3658.5" y="1402.5332">Auth</text><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="3549.5,1386,3605.5,1386,3612.5,1409.6094,3619.5,1409.6094,3619.5,1441.2188,3549.5,1441.2188,3549.5,1386" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="3549.5" x2="3612.5" y1="1409.6094" y2="1409.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="50" x="3553.5" y="1402.5332">Hasher</text><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="3433,1386,3500,1386,3507,1409.6094,3514,1409.6094,3514,1441.2188,3433,1441.2188,3433,1386" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="3433" x2="3507" y1="1409.6094" y2="1409.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="61" x="3437" y="1402.5332">Provider</text><!--MD5=[e53526c0f050b9edca6a8358e072d9e5]
+class TransactionManager--><rect codeLine="24" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="61.8359" id="TransactionManager" style="stroke:#A80036;stroke-width:1.5;" width="281" x="3771" y="1383"/><ellipse cx="3850.75" cy="1399" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M3854.4375,1400.2031 Q3854.1875,1403.6875 3853.0156,1404.8594 Q3851.9844,1405.5781 3850.6094,1405.5781 Q3849.2344,1405.5781 3848.2031,1404.8594 Q3846.4219,1403.0781 3846.4219,1399.4063 Q3846.4219,1395.1563 3848.2969,1393.25 Q3849.3438,1392.2344 3850.6719,1392.2344 Q3852.0781,1392.2344 3852.9219,1393.0469 Q3854.4063,1394.5625 3854.3281,1397.4375 L3852.2031,1397.4375 Q3852.125,1395.1094 3851.4844,1394.4688 Q3851.2031,1394.1719 3850.6719,1394.1719 Q3850.2188,1394.1719 3849.8594,1394.5469 Q3848.625,1395.7656 3848.625,1399.2813 Q3848.625,1402.3281 3849.6719,1403.3438 Q3850.0938,1403.7813 3850.6094,1403.7813 Q3851.0625,1403.7813 3851.5,1403.3438 Q3852.0625,1402.7969 3852.1406,1400.2031 L3854.4375,1400.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="113" x="3871.25" y="1403.9102">TransactionManager</text><line style="stroke:#A80036;stroke-width:1.5;" x1="3772" x2="4051" y1="1415" y2="1415"/><line style="stroke:#A80036;stroke-width:1.5;" x1="3772" x2="4051" y1="1423" y2="1423"/><ellipse cx="3782" cy="1434" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="255" x="3791" y="1438.4189">getFacadeAccessor(): TransactionManagerInterface</text><path d="M7266.5,184 L7266.5,439.2734 L7628.5,439.2734 L7628.5,194 L7618.5,184 L7266.5,184 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M7618.5,184 L7618.5,194 L7628.5,194 L7618.5,184 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="208" x="7272.5" y="202.4951">エンドポイント事に追加されます。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="201" x="7272.5" y="218.8467">HTTPリクエストの種類数に応じて</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="221" x="7272.5" y="235.1982">中身の実装関数を追加していきます。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="198" x="7272.5" y="251.5498">コントローラからはService層のみ</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="7272.5" y="267.9014">をコールする事が理想です。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="276" x="7272.5" y="284.2529">domain層の処理を直接呼ぶ必要がある場合は、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="341" x="7272.5" y="300.6045">その処理を一つのServiceに定義できないか検討ください。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="117" x="7272.5" y="316.9561">イメージとしては、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="211" x="7272.5" y="333.3076">一つのControllerないの一つの関数は</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="156" x="7272.5" y="349.6592">エンドポイントであるので</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="165" x="7272.5" y="366.0107">Requestが必ず渡されます、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="213" x="7272.5" y="382.3623">そのリクエストからDomainを生成し</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="198" x="7272.5" y="398.7139">使用したいServiceの引数に渡し、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="218" x="7272.5" y="415.0654">結果をResourceに詰めてreturnします</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="266" x="7272.5" y="431.417">※実際のルーティング定義はrouter.phpに記載</text><!--MD5=[1d7ba1c7002d54515419844fbd155368]
+class Controller--><rect codeLine="56" fill="#ADD8E6" filter="url(#f1d752shqru3x0)" height="125.1797" id="Controller" style="stroke:#008000;stroke-width:1.5;" width="267" x="6956" y="250"/><ellipse cx="7058.25" cy="266" fill="#ADD1B2" rx="11" ry="11" style="stroke:#008000;stroke-width:1.0;"/><path d="M7061.9375,267.2031 Q7061.6875,270.6875 7060.5156,271.8594 Q7059.4844,272.5781 7058.1094,272.5781 Q7056.7344,272.5781 7055.7031,271.8594 Q7053.9219,270.0781 7053.9219,266.4063 Q7053.9219,262.1563 7055.7969,260.25 Q7056.8438,259.2344 7058.1719,259.2344 Q7059.5781,259.2344 7060.4219,260.0469 Q7061.9063,261.5625 7061.8281,264.4375 L7059.7031,264.4375 Q7059.625,262.1094 7058.9844,261.4688 Q7058.7031,261.1719 7058.1719,261.1719 Q7057.7188,261.1719 7057.3594,261.5469 Q7056.125,262.7656 7056.125,266.2813 Q7056.125,269.3281 7057.1719,270.3438 Q7057.5938,270.7813 7058.1094,270.7813 Q7058.5625,270.7813 7059,270.3438 Q7059.5625,269.7969 7059.6406,267.2031 L7061.9375,267.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="54" x="7078.75" y="270.9102">Controller</text><line style="stroke:#008000;stroke-width:1.5;" x1="6957" x2="7222" y1="282" y2="282"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="77" x="6962" y="297.4189">エンドポイント</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="255" x="6962" y="311.2549">コンストラクタインジェクションにてService層をDI</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="181" x="6962" y="325.0908">各関数の引数にRequestをDIします。</text><line style="stroke:#008000;stroke-width:1.0;" x1="6957" x2="7222" y1="331.5078" y2="331.5078"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="6964" y="339.5078"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="165" x="6976" y="346.9268">serviceInterface: ServiceInterface</text><line style="stroke:#008000;stroke-width:1.0;" x1="6957" x2="7222" y1="353.3438" y2="353.3438"/><ellipse cx="6967" cy="364.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="181" x="6976" y="368.7627">controllerMethod(Request): Resource</text><path d="M7897.5,200 L7897.5,422.5703 L8347.5,422.5703 L8347.5,210 L8337.5,200 L7897.5,200 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M8337.5,200 L8337.5,210 L8347.5,210 L8337.5,200 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="240" x="7903.5" y="218.4951">エンドポイント×Httpリクエストメソッド</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="130" x="7903.5" y="234.8467">の数だけ存在します。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="248" x="7903.5" y="251.1982">LaravelのFormRequestを継承しているので</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="273" x="7903.5" y="267.5498">連想配列にて全リクエストを処理できますが、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="252" x="7903.5" y="283.9014">controllerや、Serviceにてリクエストのplain</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="221" x="7903.5" y="300.2529">なデータを操作することを防ぐため、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="256" x="7903.5" y="316.6045">各Requestクラス内でリクエストパラメータ</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="382" x="7903.5" y="332.9561">をDomainに変換する関数を閉じ込めておくことをお勧めします。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="227" x="7903.5" y="349.3076">LaravelのValidationを機能させるために</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="248" x="7903.5" y="365.6592">別途Definitionというクラスを用意します。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="270" x="7903.5" y="382.0107">このDefinitionをRequestに依存させることで、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="429" x="7903.5" y="398.3623">どのリクエストにはどのようなパラメータ、バリデーションが存在するか</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="7903.5" y="414.7139">についての見通しをよくします。</text><!--MD5=[9f8278d12fb7e11576e5e19ef1128a9c]
+class AbstractFormRequest--><rect codeLine="82" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="61.8359" id="AbstractFormRequest" style="stroke:#A80036;stroke-width:1.5;" width="162" x="7692.5" y="281"/><ellipse cx="7712" cy="297" fill="#A9DCDF" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M7709.9688,303.0781 L7707.6563,303.0781 L7711.1719,289.7344 L7713.0313,289.7344 L7716.5156,303.0781 L7714.2188,303.0781 L7713.2969,299.2969 L7710.9063,299.2969 L7709.9688,303.0781 Z M7712.0313,293.75 L7712.1563,293.75 L7711.4063,297.625 L7712.7813,297.625 L7712.0313,293.75 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="120" x="7727" y="301.9102">AbstractFormRequest</text><line style="stroke:#A80036;stroke-width:1.5;" x1="7693.5" x2="7853.5" y1="313" y2="313"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="7700.5" y="321"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="136" x="7712.5" y="328.4189">definition: DefinitionInterface</text><line style="stroke:#A80036;stroke-width:1.5;" x1="7693.5" x2="7853.5" y1="334.8359" y2="334.8359"/><!--MD5=[0851f84a889f989e7bb0bebc385d0f09]
+class Request--><rect codeLine="85" fill="#ADD8E6" filter="url(#f1d752shqru3x0)" height="61.8359" id="Request" style="stroke:#008000;stroke-width:1.5;" width="175" x="7693" y="671.5"/><ellipse cx="7752.75" cy="687.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#008000;stroke-width:1.0;"/><path d="M7756.4375,688.7031 Q7756.1875,692.1875 7755.0156,693.3594 Q7753.9844,694.0781 7752.6094,694.0781 Q7751.2344,694.0781 7750.2031,693.3594 Q7748.4219,691.5781 7748.4219,687.9063 Q7748.4219,683.6563 7750.2969,681.75 Q7751.3438,680.7344 7752.6719,680.7344 Q7754.0781,680.7344 7754.9219,681.5469 Q7756.4063,683.0625 7756.3281,685.9375 L7754.2031,685.9375 Q7754.125,683.6094 7753.4844,682.9688 Q7753.2031,682.6719 7752.6719,682.6719 Q7752.2188,682.6719 7751.8594,683.0469 Q7750.625,684.2656 7750.625,687.7813 Q7750.625,690.8281 7751.6719,691.8438 Q7752.0938,692.2813 7752.6094,692.2813 Q7753.0625,692.2813 7753.5,691.8438 Q7754.0625,691.2969 7754.1406,688.7031 L7756.4375,688.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="47" x="7773.25" y="692.4102">Request</text><line style="stroke:#008000;stroke-width:1.5;" x1="7694" x2="7867" y1="703.5" y2="703.5"/><line style="stroke:#008000;stroke-width:1.5;" x1="7694" x2="7867" y1="711.5" y2="711.5"/><ellipse cx="7704" cy="722.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="149" x="7713" y="726.9189">toDomainModel(): DomainModel</text><!--MD5=[b767b1ca440cbcdf8588110f3bead53b]
+class DefinitionInterface--><rect codeLine="89" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="DefinitionInterface" style="stroke:#A80036;stroke-width:1.5;" width="132" x="8121.5" y="678"/><ellipse cx="8136.5" cy="694" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M8137.6719,698.7188 L8138.4063,698.7188 L8138.4063,701.3906 L8134.7188,701.3906 L8134.7188,698.7188 L8135.0625,698.7813 L8135.0625,689.8438 L8134.7188,689.9063 L8134.7188,687.2344 L8138.4063,687.2344 L8138.4063,689.9063 L8137.6719,689.9063 L8137.6719,698.7188 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="100" x="8150.5" y="698.9102">DefinitionInterface</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8122.5" x2="8252.5" y1="710" y2="710"/><line style="stroke:#A80036;stroke-width:1.5;" x1="8122.5" x2="8252.5" y1="718" y2="718"/><!--MD5=[e9e4a11c79db961a6ad6db013d139185]
+class AbstractRequestDefinition--><rect codeLine="90" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="AbstractRequestDefinition" style="stroke:#A80036;stroke-width:1.5;" width="175" x="7911" y="678"/><ellipse cx="7926" cy="694" fill="#A9DCDF" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M7923.9688,700.0781 L7921.6563,700.0781 L7925.1719,686.7344 L7927.0313,686.7344 L7930.5156,700.0781 L7928.2188,700.0781 L7927.2969,696.2969 L7924.9063,696.2969 L7923.9688,700.0781 Z M7926.0313,690.75 L7926.1563,690.75 L7925.4063,694.625 L7926.7813,694.625 L7926.0313,690.75 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="143" x="7940" y="698.9102">AbstractRequestDefinition</text><line style="stroke:#A80036;stroke-width:1.5;" x1="7912" x2="8085" y1="710" y2="710"/><line style="stroke:#A80036;stroke-width:1.5;" x1="7912" x2="8085" y1="718" y2="718"/><!--MD5=[4e0f3460b7286c157027b47ff84e8fa3]
+class RequestDefinition--><rect codeLine="91" fill="#ADD8E6" filter="url(#f1d752shqru3x0)" height="48" id="RequestDefinition" style="stroke:#008000;stroke-width:1.5;" width="131" x="7933" y="1020"/><ellipse cx="7948" cy="1036" fill="#ADD1B2" rx="11" ry="11" style="stroke:#008000;stroke-width:1.0;"/><path d="M7951.6875,1037.2031 Q7951.4375,1040.6875 7950.2656,1041.8594 Q7949.2344,1042.5781 7947.8594,1042.5781 Q7946.4844,1042.5781 7945.4531,1041.8594 Q7943.6719,1040.0781 7943.6719,1036.4063 Q7943.6719,1032.1563 7945.5469,1030.25 Q7946.5938,1029.2344 7947.9219,1029.2344 Q7949.3281,1029.2344 7950.1719,1030.0469 Q7951.6563,1031.5625 7951.5781,1034.4375 L7949.4531,1034.4375 Q7949.375,1032.1094 7948.7344,1031.4688 Q7948.4531,1031.1719 7947.9219,1031.1719 Q7947.4688,1031.1719 7947.1094,1031.5469 Q7945.875,1032.7656 7945.875,1036.2813 Q7945.875,1039.3281 7946.9219,1040.3438 Q7947.3438,1040.7813 7947.8594,1040.7813 Q7948.3125,1040.7813 7948.75,1040.3438 Q7949.3125,1039.7969 7949.3906,1037.2031 L7951.6875,1037.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="99" x="7962" y="1040.9102">RequestDefinition</text><line style="stroke:#008000;stroke-width:1.5;" x1="7934" x2="8063" y1="1052" y2="1052"/><line style="stroke:#008000;stroke-width:1.5;" x1="7934" x2="8063" y1="1060" y2="1060"/><path d="M6649.5,224.5 L6649.5,398.0156 L6891.5,398.0156 L6891.5,234.5 L6881.5,224.5 L6649.5,224.5 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M6881.5,224.5 L6881.5,234.5 L6891.5,234.5 L6881.5,224.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="149" x="6655.5" y="242.9951">一つのHTTPリクエストが</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="6655.5" y="259.3467">コントローラに到達する前、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="6655.5" y="275.6982">コントローラによる処理の後</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="6655.5" y="292.0498">どちらにも処理を挟み込むための</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="105" x="6655.5" y="308.4014">Laravelの機能です</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="188" x="6655.5" y="324.7529">presentation層と扱っていますが</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="221" x="6655.5" y="341.1045">基本的なものはそのまま使用しており</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="196" x="6655.5" y="357.4561">Laravelのドキュメントから仕様を</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="117" x="6655.5" y="373.8076">追うことができます</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="0" x="6659.5" y="390.1592"/><!--MD5=[131633a6425ff7c809614caab594f6c5]
+class Authenticate--><rect codeLine="106" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="61.8359" id="Authenticate" style="stroke:#A80036;stroke-width:1.5;" width="310" x="6304.5" y="280.5"/><ellipse cx="6421.75" cy="296.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M6425.4375,297.7031 Q6425.1875,301.1875 6424.0156,302.3594 Q6422.9844,303.0781 6421.6094,303.0781 Q6420.2344,303.0781 6419.2031,302.3594 Q6417.4219,300.5781 6417.4219,296.9063 Q6417.4219,292.6563 6419.2969,290.75 Q6420.3438,289.7344 6421.6719,289.7344 Q6423.0781,289.7344 6423.9219,290.5469 Q6425.4063,292.0625 6425.3281,294.9375 L6423.2031,294.9375 Q6423.125,292.6094 6422.4844,291.9688 Q6422.2031,291.6719 6421.6719,291.6719 Q6421.2188,291.6719 6420.8594,292.0469 Q6419.625,293.2656 6419.625,296.7813 Q6419.625,299.8281 6420.6719,300.8438 Q6421.0938,301.2813 6421.6094,301.2813 Q6422.0625,301.2813 6422.5,300.8438 Q6423.0625,300.2969 6423.1406,297.7031 L6425.4375,297.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="67" x="6442.25" y="301.4102">Authenticate</text><line style="stroke:#A80036;stroke-width:1.5;" x1="6305.5" x2="6613.5" y1="312.5" y2="312.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="298" x="6310.5" y="327.9189">controllerへroutingする前に実施する認証処理を記載します。</text><line style="stroke:#A80036;stroke-width:1.5;" x1="6305.5" x2="6613.5" y1="334.3359" y2="334.3359"/><path d="M5783,200 L5783,422.5703 L6248,422.5703 L6248,210 L6238,200 L5783,200 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M6238,200 L6238,210 L6248,210 L6238,200 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="240" x="5789" y="218.4951">エンドポイント×Httpリクエストメソッド</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="130" x="5789" y="234.8467">の数だけ存在します。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="148" x="5789" y="251.1982">LaravelのJsonResourceを</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="167" x="5789" y="267.5498">継承しているので用意にjson</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="422" x="5789" y="283.9014">encode、decodeが可能です（この辺りは原則ミドルウェアに任せます）</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="444" x="5789" y="300.2529">実装するResourceクラスにはbuildResultなど自身のインスタンスを生成する</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="117" x="5789" y="316.6045">関数を用意します。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="433" x="5789" y="332.9561">この関数はcontrollerから呼ばれ、引数にはdomainモデルが渡されることを</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="104" x="5789" y="349.3076">期待しています。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="285" x="5789" y="365.6592">別途ResultDefinitionというクラスを用意します。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="262" x="5789" y="382.0107">このResultDefinitionをResourceに依存させ、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="405" x="5789" y="398.3623">buildResultないで、渡されたdomainデータを使いクライアントが望む</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="193" x="5789" y="414.7139">viewの構造に生成しなおします。</text><!--MD5=[d12bc2d7fb6f7ba24e6b890688cf6a11]
+class AbstractJsonResource--><rect codeLine="126" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="61.8359" id="AbstractJsonResource" style="stroke:#A80036;stroke-width:1.5;" width="176" x="5563.5" y="281"/><ellipse cx="5587.5" cy="297" fill="#A9DCDF" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M5585.4688,303.0781 L5583.1563,303.0781 L5586.6719,289.7344 L5588.5313,289.7344 L5592.0156,303.0781 L5589.7188,303.0781 L5588.7969,299.2969 L5586.4063,299.2969 L5585.4688,303.0781 Z M5587.5313,293.75 L5587.6563,293.75 L5586.9063,297.625 L5588.2813,297.625 L5587.5313,293.75 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="124" x="5603.5" y="301.9102">AbstractJsonResource</text><line style="stroke:#A80036;stroke-width:1.5;" x1="5564.5" x2="5738.5" y1="313" y2="313"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="5571.5" y="321"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="150" x="5583.5" y="328.4189">result: ResultDefinitionInterface</text><line style="stroke:#A80036;stroke-width:1.5;" x1="5564.5" x2="5738.5" y1="334.8359" y2="334.8359"/><!--MD5=[6b13f1b330d33795af281e5c1dfe1e98]
+class Resource--><rect codeLine="129" fill="#ADD8E6" filter="url(#f1d752shqru3x0)" height="75.6719" id="Resource" style="stroke:#008000;stroke-width:1.5;" width="201" x="6020" y="665"/><ellipse cx="6089.25" cy="681" fill="#ADD1B2" rx="11" ry="11" style="stroke:#008000;stroke-width:1.0;"/><path d="M6092.9375,682.2031 Q6092.6875,685.6875 6091.5156,686.8594 Q6090.4844,687.5781 6089.1094,687.5781 Q6087.7344,687.5781 6086.7031,686.8594 Q6084.9219,685.0781 6084.9219,681.4063 Q6084.9219,677.1563 6086.7969,675.25 Q6087.8438,674.2344 6089.1719,674.2344 Q6090.5781,674.2344 6091.4219,675.0469 Q6092.9063,676.5625 6092.8281,679.4375 L6090.7031,679.4375 Q6090.625,677.1094 6089.9844,676.4688 Q6089.7031,676.1719 6089.1719,676.1719 Q6088.7188,676.1719 6088.3594,676.5469 Q6087.125,677.7656 6087.125,681.2813 Q6087.125,684.3281 6088.1719,685.3438 Q6088.5938,685.7813 6089.1094,685.7813 Q6089.5625,685.7813 6090,685.3438 Q6090.5625,684.7969 6090.6406,682.2031 L6092.9375,682.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="54" x="6109.75" y="685.9102">Resource</text><line style="stroke:#008000;stroke-width:1.5;" x1="6021" x2="6220" y1="697" y2="697"/><line style="stroke:#008000;stroke-width:1.5;" x1="6021" x2="6220" y1="705" y2="705"/><ellipse cx="6031" cy="716" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="175" x="6040" y="720.4189">buildResult(domainModel)::Resource</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="6028" y="726.8359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="139" x="6040" y="734.2549">(domainModel::DomainModel)</text><!--MD5=[296b5ea2315d5cd3b39553cbb452df93]
+class ResultDefinitionInterface--><rect codeLine="133" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="ResultDefinitionInterface" style="stroke:#A80036;stroke-width:1.5;" width="167" x="5792" y="678"/><ellipse cx="5807" cy="694" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M5808.1719,698.7188 L5808.9063,698.7188 L5808.9063,701.3906 L5805.2188,701.3906 L5805.2188,698.7188 L5805.5625,698.7813 L5805.5625,689.8438 L5805.2188,689.9063 L5805.2188,687.2344 L5808.9063,687.2344 L5808.9063,689.9063 L5808.1719,689.9063 L5808.1719,698.7188 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="135" x="5821" y="698.9102">ResultDefinitionInterface</text><line style="stroke:#A80036;stroke-width:1.5;" x1="5793" x2="5958" y1="710" y2="710"/><line style="stroke:#A80036;stroke-width:1.5;" x1="5793" x2="5958" y1="718" y2="718"/><!--MD5=[6c0ae2b2b3f5e55835a547d98960da18]
+class AbstractResultDefinition--><rect codeLine="134" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="AbstractResultDefinition" style="stroke:#A80036;stroke-width:1.5;" width="164" x="5592.5" y="678"/><ellipse cx="5607.5" cy="694" fill="#A9DCDF" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M5605.4688,700.0781 L5603.1563,700.0781 L5606.6719,686.7344 L5608.5313,686.7344 L5612.0156,700.0781 L5609.7188,700.0781 L5608.7969,696.2969 L5606.4063,696.2969 L5605.4688,700.0781 Z M5607.5313,690.75 L5607.6563,690.75 L5606.9063,694.625 L5608.2813,694.625 L5607.5313,690.75 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="132" x="5621.5" y="698.9102">AbstractResultDefinition</text><line style="stroke:#A80036;stroke-width:1.5;" x1="5593.5" x2="5755.5" y1="710" y2="710"/><line style="stroke:#A80036;stroke-width:1.5;" x1="5593.5" x2="5755.5" y1="718" y2="718"/><!--MD5=[95f376d96abc0b9df2edf1951c945953]
+class ResultDefinition--><rect codeLine="135" fill="#ADD8E6" filter="url(#f1d752shqru3x0)" height="48" id="ResultDefinition" style="stroke:#008000;stroke-width:1.5;" width="120" x="5815.5" y="1020"/><ellipse cx="5830.5" cy="1036" fill="#ADD1B2" rx="11" ry="11" style="stroke:#008000;stroke-width:1.0;"/><path d="M5834.1875,1037.2031 Q5833.9375,1040.6875 5832.7656,1041.8594 Q5831.7344,1042.5781 5830.3594,1042.5781 Q5828.9844,1042.5781 5827.9531,1041.8594 Q5826.1719,1040.0781 5826.1719,1036.4063 Q5826.1719,1032.1563 5828.0469,1030.25 Q5829.0938,1029.2344 5830.4219,1029.2344 Q5831.8281,1029.2344 5832.6719,1030.0469 Q5834.1563,1031.5625 5834.0781,1034.4375 L5831.9531,1034.4375 Q5831.875,1032.1094 5831.2344,1031.4688 Q5830.9531,1031.1719 5830.4219,1031.1719 Q5829.9688,1031.1719 5829.6094,1031.5469 Q5828.375,1032.7656 5828.375,1036.2813 Q5828.375,1039.3281 5829.4219,1040.3438 Q5829.8438,1040.7813 5830.3594,1040.7813 Q5830.8125,1040.7813 5831.25,1040.3438 Q5831.8125,1039.7969 5831.8906,1037.2031 L5834.1875,1037.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="88" x="5844.5" y="1040.9102">ResultDefinition</text><line style="stroke:#008000;stroke-width:1.5;" x1="5816.5" x2="5934.5" y1="1052" y2="1052"/><line style="stroke:#008000;stroke-width:1.5;" x1="5816.5" x2="5934.5" y1="1060" y2="1060"/><path d="M4421,257.5 L4421,365.6094 L4730,365.6094 L4730,267.5 L4720,257.5 L4421,257.5 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M4720,257.5 L4720,267.5 L4730,267.5 L4720,257.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="4427" y="275.9951">主な使い方は下記を参考ください</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="288" x="4427" y="292.3467">https://readouble.com/laravel/8.x/ja/container.html</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="254" x="4427" y="308.6982">用途によってProviderを分けてはいますが、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="130" x="4427" y="325.0498">やっている事の本質は</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="208" x="4427" y="341.4014">どのクラスもそんなに変わらなく、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="286" x="4427" y="357.7529">シンプルにＤＩコンテナとして使用しています。</text><!--MD5=[9ef193fee76149a49bccd04201afb69d]
+class AppServiceProvider--><rect codeLine="149" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="75.6719" id="AppServiceProvider" style="stroke:#A80036;stroke-width:1.5;" width="138" x="4966.5" y="273.5"/><ellipse cx="4981.5" cy="289.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M4985.1875,290.7031 Q4984.9375,294.1875 4983.7656,295.3594 Q4982.7344,296.0781 4981.3594,296.0781 Q4979.9844,296.0781 4978.9531,295.3594 Q4977.1719,293.5781 4977.1719,289.9063 Q4977.1719,285.6563 4979.0469,283.75 Q4980.0938,282.7344 4981.4219,282.7344 Q4982.8281,282.7344 4983.6719,283.5469 Q4985.1563,285.0625 4985.0781,287.9375 L4982.9531,287.9375 Q4982.875,285.6094 4982.2344,284.9688 Q4981.9531,284.6719 4981.4219,284.6719 Q4980.9688,284.6719 4980.6094,285.0469 Q4979.375,286.2656 4979.375,289.7813 Q4979.375,292.8281 4980.4219,293.8438 Q4980.8438,294.2813 4981.3594,294.2813 Q4981.8125,294.2813 4982.25,293.8438 Q4982.8125,293.2969 4982.8906,290.7031 L4985.1875,290.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="106" x="4995.5" y="294.4102">AppServiceProvider</text><line style="stroke:#A80036;stroke-width:1.5;" x1="4967.5" x2="5103.5" y1="305.5" y2="305.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="124" x="4972.5" y="320.9189">service層の依存関係解決</text><line style="stroke:#A80036;stroke-width:1.5;" x1="4967.5" x2="5103.5" y1="327.3359" y2="327.3359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="45" x="4972.5" y="342.7549">register()</text><!--MD5=[2b95b9c102be8df1e2bca5e251072bcd]
+class DatasourceServiceProvider--><rect codeLine="153" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="75.6719" id="DatasourceServiceProvider" style="stroke:#A80036;stroke-width:1.5;" width="288" x="5139.5" y="273.5"/><ellipse cx="5204.75" cy="289.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M5208.4375,290.7031 Q5208.1875,294.1875 5207.0156,295.3594 Q5205.9844,296.0781 5204.6094,296.0781 Q5203.2344,296.0781 5202.2031,295.3594 Q5200.4219,293.5781 5200.4219,289.9063 Q5200.4219,285.6563 5202.2969,283.75 Q5203.3438,282.7344 5204.6719,282.7344 Q5206.0781,282.7344 5206.9219,283.5469 Q5208.4063,285.0625 5208.3281,287.9375 L5206.2031,287.9375 Q5206.125,285.6094 5205.4844,284.9688 Q5205.2031,284.6719 5204.6719,284.6719 Q5204.2188,284.6719 5203.8594,285.0469 Q5202.625,286.2656 5202.625,289.7813 Q5202.625,292.8281 5203.6719,293.8438 Q5204.0938,294.2813 5204.6094,294.2813 Q5205.0625,294.2813 5205.5,293.8438 Q5206.0625,293.2969 5206.1406,290.7031 L5208.4375,290.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="149" x="5225.25" y="294.4102">DatasourceServiceProvider</text><line style="stroke:#A80036;stroke-width:1.5;" x1="5140.5" x2="5426.5" y1="305.5" y2="305.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="276" x="5145.5" y="320.9189">infrastructure層及びdomain層のリポジトリ依存関係解決</text><line style="stroke:#A80036;stroke-width:1.5;" x1="5140.5" x2="5426.5" y1="327.3359" y2="327.3359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="45" x="5145.5" y="342.7549">register()</text><!--MD5=[0a372f73a0643bea75b31480dd26b06f]
+class AuthServiceProvider--><rect codeLine="157" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="75.6719" id="AuthServiceProvider" style="stroke:#A80036;stroke-width:1.5;" width="166" x="4765.5" y="273.5"/><ellipse cx="4791.75" cy="289.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M4795.4375,290.7031 Q4795.1875,294.1875 4794.0156,295.3594 Q4792.9844,296.0781 4791.6094,296.0781 Q4790.2344,296.0781 4789.2031,295.3594 Q4787.4219,293.5781 4787.4219,289.9063 Q4787.4219,285.6563 4789.2969,283.75 Q4790.3438,282.7344 4791.6719,282.7344 Q4793.0781,282.7344 4793.9219,283.5469 Q4795.4063,285.0625 4795.3281,287.9375 L4793.2031,287.9375 Q4793.125,285.6094 4792.4844,284.9688 Q4792.2031,284.6719 4791.6719,284.6719 Q4791.2188,284.6719 4790.8594,285.0469 Q4789.625,286.2656 4789.625,289.7813 Q4789.625,292.8281 4790.6719,293.8438 Q4791.0938,294.2813 4791.6094,294.2813 Q4792.0625,294.2813 4792.5,293.8438 Q4793.0625,293.2969 4793.1406,290.7031 L4795.4375,290.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="109" x="4808.25" y="294.4102">AuthServiceProvider</text><line style="stroke:#A80036;stroke-width:1.5;" x1="4766.5" x2="4930.5" y1="305.5" y2="305.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="154" x="4771.5" y="320.9189">認証にまつわる依存関係の解決</text><line style="stroke:#A80036;stroke-width:1.5;" x1="4766.5" x2="4930.5" y1="327.3359" y2="327.3359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="29" x="4771.5" y="342.7549">boot()</text><!--MD5=[24ef50b6b29e4ccb5617af9ac4fb5021]
+class FlywayCommand--><rect codeLine="164" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="FlywayCommand" style="stroke:#A80036;stroke-width:1.5;" width="127" x="4237" y="287.5"/><ellipse cx="4252" cy="303.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M4255.6875,304.7031 Q4255.4375,308.1875 4254.2656,309.3594 Q4253.2344,310.0781 4251.8594,310.0781 Q4250.4844,310.0781 4249.4531,309.3594 Q4247.6719,307.5781 4247.6719,303.9063 Q4247.6719,299.6563 4249.5469,297.75 Q4250.5938,296.7344 4251.9219,296.7344 Q4253.3281,296.7344 4254.1719,297.5469 Q4255.6563,299.0625 4255.5781,301.9375 L4253.4531,301.9375 Q4253.375,299.6094 4252.7344,298.9688 Q4252.4531,298.6719 4251.9219,298.6719 Q4251.4688,298.6719 4251.1094,299.0469 Q4249.875,300.2656 4249.875,303.7813 Q4249.875,306.8281 4250.9219,307.8438 Q4251.3438,308.2813 4251.8594,308.2813 Q4252.3125,308.2813 4252.75,307.8438 Q4253.3125,307.2969 4253.3906,304.7031 L4255.6875,304.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="95" x="4266" y="308.4102">FlywayCommand</text><line style="stroke:#A80036;stroke-width:1.5;" x1="4238" x2="4363" y1="319.5" y2="319.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="4238" x2="4363" y1="327.5" y2="327.5"/><path d="M1801.5,631.5 L1801.5,772.3125 L2043.5,772.3125 L2043.5,641.5 L2033.5,631.5 L1801.5,631.5 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2033.5,631.5 L2033.5,641.5 L2043.5,641.5 L2033.5,631.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="131" x="1807.5" y="649.9951">Laravelに極力依存せず</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="156" x="1807.5" y="666.3467">ドメイン駆動な開発をする</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="221" x="1807.5" y="682.6982">ための構成要素を閉じ込めています。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="1807.5" y="699.0498">ビジネスロジックの実装において</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="118" x="1807.5" y="715.4014">Laravelを意識せず、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="209" x="1807.5" y="731.7529">（PHPっぽさもなるべく排除して）</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="1807.5" y="748.1045">オブジェクト指向にて実装できる</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="156" x="1807.5" y="764.4561">ことに重きを置いています</text><path d="M979.5,1784 L979.5,1843.0547 L1143.5,1843.0547 L1143.5,1794 L1133.5,1784 L979.5,1784 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1133.5,1784 L1133.5,1794 L1143.5,1794 L1133.5,1784 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="52" x="985.5" y="1802.4951">業務知識</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="91" x="985.5" y="1818.8467">業務への関心事</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="985.5" y="1835.1982">のみを定義するレイヤー</text><!--MD5=[6dd63cf6a405603870f367da4a97e31c]
+class DomainRepository--><rect codeLine="190" fill="#ADD8E6" filter="url(#f1d752shqru3x0)" height="48" id="DomainRepository" style="stroke:#008000;stroke-width:1.5;" width="135" x="2791" y="1789.5"/><ellipse cx="2806" cy="1805.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#008000;stroke-width:1.0;"/><path d="M2807.1719,1810.2188 L2807.9063,1810.2188 L2807.9063,1812.8906 L2804.2188,1812.8906 L2804.2188,1810.2188 L2804.5625,1810.2813 L2804.5625,1801.3438 L2804.2188,1801.4063 L2804.2188,1798.7344 L2807.9063,1798.7344 L2807.9063,1801.4063 L2807.1719,1801.4063 L2807.1719,1810.2188 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="103" x="2820" y="1810.4102">DomainRepository</text><line style="stroke:#008000;stroke-width:1.5;" x1="2792" x2="2925" y1="1821.5" y2="1821.5"/><line style="stroke:#008000;stroke-width:1.5;" x1="2792" x2="2925" y1="1829.5" y2="1829.5"/><!--MD5=[1c78db8edeeb068fad615a8973943cb5]
+class DomainModel--><rect codeLine="191" fill="#ADD8E6" filter="url(#f1d752shqru3x0)" height="48" id="DomainModel" style="stroke:#008000;stroke-width:1.5;" width="109" x="2647" y="1789.5"/><ellipse cx="2662" cy="1805.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#008000;stroke-width:1.0;"/><path d="M2665.6875,1806.7031 Q2665.4375,1810.1875 2664.2656,1811.3594 Q2663.2344,1812.0781 2661.8594,1812.0781 Q2660.4844,1812.0781 2659.4531,1811.3594 Q2657.6719,1809.5781 2657.6719,1805.9063 Q2657.6719,1801.6563 2659.5469,1799.75 Q2660.5938,1798.7344 2661.9219,1798.7344 Q2663.3281,1798.7344 2664.1719,1799.5469 Q2665.6563,1801.0625 2665.5781,1803.9375 L2663.4531,1803.9375 Q2663.375,1801.6094 2662.7344,1800.9688 Q2662.4531,1800.6719 2661.9219,1800.6719 Q2661.4688,1800.6719 2661.1094,1801.0469 Q2659.875,1802.2656 2659.875,1805.7813 Q2659.875,1808.8281 2660.9219,1809.8438 Q2661.3438,1810.2813 2661.8594,1810.2813 Q2662.3125,1810.2813 2662.75,1809.8438 Q2663.3125,1809.2969 2663.3906,1806.7031 L2665.6875,1806.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="77" x="2676" y="1810.4102">DomainModel</text><line style="stroke:#008000;stroke-width:1.5;" x1="2648" x2="2755" y1="1821.5" y2="1821.5"/><line style="stroke:#008000;stroke-width:1.5;" x1="2648" x2="2755" y1="1829.5" y2="1829.5"/><path d="M2289.5,1759.5 L2289.5,1867.6094 L2611.5,1867.6094 L2611.5,1769.5 L2601.5,1759.5 L2289.5,1759.5 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2601.5,1759.5 L2601.5,1769.5 L2611.5,1769.5 L2601.5,1759.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="104" x="2295.5" y="1777.9951">業務における概念</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="2295.5" y="1794.3467">を表現します</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="130" x="2295.5" y="1810.6982">アプリケーション開発</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="221" x="2295.5" y="1827.0498">において最も重要視すべきレイヤです</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="301" x="2295.5" y="1843.4014">DB処理等が顕著ですがinfrastructure層の責務と混同</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="270" x="2295.5" y="1859.7529">させずに、interfaceのみをこの層に定義します</text><path d="M2019.5,1792 L2019.5,1834.7031 L2209.5,1834.7031 L2209.5,1802 L2199.5,1792 L2019.5,1792 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2199.5,1792 L2199.5,1802 L2209.5,1802 L2199.5,1792 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="2025.5" y="1810.4951">メール送信に必要となる</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="2025.5" y="1826.8467">情報群の入れ物オブジェクト</text><!--MD5=[0f39e4cb6f03951afbf6d14bd2505654]
+class Address--><rect codeLine="207" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="75.6719" id="Address" style="stroke:#A80036;stroke-width:1.5;" width="101" x="1730" y="2045.5"/><ellipse cx="1755.35" cy="2061.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1759.0375,2062.7031 Q1758.7875,2066.1875 1757.6156,2067.3594 Q1756.5844,2068.0781 1755.2094,2068.0781 Q1753.8344,2068.0781 1752.8031,2067.3594 Q1751.0219,2065.5781 1751.0219,2061.9063 Q1751.0219,2057.6563 1752.8969,2055.75 Q1753.9438,2054.7344 1755.2719,2054.7344 Q1756.6781,2054.7344 1757.5219,2055.5469 Q1759.0063,2057.0625 1758.9281,2059.9375 L1756.8031,2059.9375 Q1756.725,2057.6094 1756.0844,2056.9688 Q1755.8031,2056.6719 1755.2719,2056.6719 Q1754.8188,2056.6719 1754.4594,2057.0469 Q1753.225,2058.2656 1753.225,2061.7813 Q1753.225,2064.8281 1754.2719,2065.8438 Q1754.6938,2066.2813 1755.2094,2066.2813 Q1755.6625,2066.2813 1756.1,2065.8438 Q1756.6625,2065.2969 1756.7406,2062.7031 L1759.0375,2062.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="46" x="1771.65" y="2066.4102">Address</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1731" x2="1830" y1="2077.5" y2="2077.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1738" y="2085.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="42" x="1750" y="2092.9189">mail: Mail</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1738" y="2099.3359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="75" x="1750" y="2106.7549">personal: string</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1731" x2="1830" y1="2113.1719" y2="2113.1719"/><!--MD5=[453d516b3839ce7eb127c686fbb2cbb2]
+class AddressList--><rect codeLine="211" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="AddressList" style="stroke:#A80036;stroke-width:1.5;" width="98" x="1745.5" y="1930.5"/><ellipse cx="1760.5" cy="1946.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1764.1875,1947.7031 Q1763.9375,1951.1875 1762.7656,1952.3594 Q1761.7344,1953.0781 1760.3594,1953.0781 Q1758.9844,1953.0781 1757.9531,1952.3594 Q1756.1719,1950.5781 1756.1719,1946.9063 Q1756.1719,1942.6563 1758.0469,1940.75 Q1759.0938,1939.7344 1760.4219,1939.7344 Q1761.8281,1939.7344 1762.6719,1940.5469 Q1764.1563,1942.0625 1764.0781,1944.9375 L1761.9531,1944.9375 Q1761.875,1942.6094 1761.2344,1941.9688 Q1760.9531,1941.6719 1760.4219,1941.6719 Q1759.9688,1941.6719 1759.6094,1942.0469 Q1758.375,1943.2656 1758.375,1946.7813 Q1758.375,1949.8281 1759.4219,1950.8438 Q1759.8438,1951.2813 1760.3594,1951.2813 Q1760.8125,1951.2813 1761.25,1950.8438 Q1761.8125,1950.2969 1761.8906,1947.7031 L1764.1875,1947.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="66" x="1774.5" y="1951.4102">AddressList</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1746.5" x2="1842.5" y1="1962.5" y2="1962.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1746.5" x2="1842.5" y1="1970.5" y2="1970.5"/><!--MD5=[fd7366e9f96236d9aa60dcc04f2b83e5]
+class Content--><rect codeLine="212" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="Content" style="stroke:#A80036;stroke-width:1.5;" width="75" x="1879" y="1930.5"/><ellipse cx="1894" cy="1946.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1897.6875,1947.7031 Q1897.4375,1951.1875 1896.2656,1952.3594 Q1895.2344,1953.0781 1893.8594,1953.0781 Q1892.4844,1953.0781 1891.4531,1952.3594 Q1889.6719,1950.5781 1889.6719,1946.9063 Q1889.6719,1942.6563 1891.5469,1940.75 Q1892.5938,1939.7344 1893.9219,1939.7344 Q1895.3281,1939.7344 1896.1719,1940.5469 Q1897.6563,1942.0625 1897.5781,1944.9375 L1895.4531,1944.9375 Q1895.375,1942.6094 1894.7344,1941.9688 Q1894.4531,1941.6719 1893.9219,1941.6719 Q1893.4688,1941.6719 1893.1094,1942.0469 Q1891.875,1943.2656 1891.875,1946.7813 Q1891.875,1949.8281 1892.9219,1950.8438 Q1893.3438,1951.2813 1893.8594,1951.2813 Q1894.3125,1951.2813 1894.75,1950.8438 Q1895.3125,1950.2969 1895.3906,1947.7031 L1897.6875,1947.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="43" x="1908" y="1951.4102">Content</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1880" x2="1953" y1="1962.5" y2="1962.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1880" x2="1953" y1="1970.5" y2="1970.5"/><!--MD5=[bea5b0d46523efab5ea1c1d339f396f0]
+class Message--><rect codeLine="213" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="75.6719" id="Message" style="stroke:#A80036;stroke-width:1.5;" width="105" x="1871" y="1776.5"/><ellipse cx="1895.9" cy="1792.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1899.5875,1793.7031 Q1899.3375,1797.1875 1898.1656,1798.3594 Q1897.1344,1799.0781 1895.7594,1799.0781 Q1894.3844,1799.0781 1893.3531,1798.3594 Q1891.5719,1796.5781 1891.5719,1792.9063 Q1891.5719,1788.6563 1893.4469,1786.75 Q1894.4938,1785.7344 1895.8219,1785.7344 Q1897.2281,1785.7344 1898.0719,1786.5469 Q1899.5563,1788.0625 1899.4781,1790.9375 L1897.3531,1790.9375 Q1897.275,1788.6094 1896.6344,1787.9688 Q1896.3531,1787.6719 1895.8219,1787.6719 Q1895.3688,1787.6719 1895.0094,1788.0469 Q1893.775,1789.2656 1893.775,1792.7813 Q1893.775,1795.8281 1894.8219,1796.8438 Q1895.2438,1797.2813 1895.7594,1797.2813 Q1896.2125,1797.2813 1896.65,1796.8438 Q1897.2125,1796.2969 1897.2906,1793.7031 L1899.5875,1793.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="51" x="1912.1" y="1797.4102">Message</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1872" x2="1975" y1="1808.5" y2="1808.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1879" y="1816.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="77" x="1891" y="1823.9189">subject: Subject</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1879" y="1830.3359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="79" x="1891" y="1837.7549">content: Content</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1872" x2="1975" y1="1844.1719" y2="1844.1719"/><!--MD5=[d10018d7374cb536a2ec2f77e731452b]
+class Header--><rect codeLine="217" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="89.5078" id="Header" style="stroke:#A80036;stroke-width:1.5;" width="103" x="1717" y="1770"/><ellipse cx="1745.5" cy="1786" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1749.1875,1787.2031 Q1748.9375,1790.6875 1747.7656,1791.8594 Q1746.7344,1792.5781 1745.3594,1792.5781 Q1743.9844,1792.5781 1742.9531,1791.8594 Q1741.1719,1790.0781 1741.1719,1786.4063 Q1741.1719,1782.1563 1743.0469,1780.25 Q1744.0938,1779.2344 1745.4219,1779.2344 Q1746.8281,1779.2344 1747.6719,1780.0469 Q1749.1563,1781.5625 1749.0781,1784.4375 L1746.9531,1784.4375 Q1746.875,1782.1094 1746.2344,1781.4688 Q1745.9531,1781.1719 1745.4219,1781.1719 Q1744.9688,1781.1719 1744.6094,1781.5469 Q1743.375,1782.7656 1743.375,1786.2813 Q1743.375,1789.3281 1744.4219,1790.3438 Q1744.8438,1790.7813 1745.3594,1790.7813 Q1745.8125,1790.7813 1746.25,1790.3438 Q1746.8125,1789.7969 1746.8906,1787.2031 L1749.1875,1787.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="41" x="1762.5" y="1790.9102">Header</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1718" x2="1819" y1="1802" y2="1802"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1725" y="1810"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="74" x="1737" y="1817.4189">to: AddressList</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1725" y="1823.8359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="77" x="1737" y="1831.2549">cc: AddressList</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1725" y="1837.6719"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="70" x="1737" y="1845.0908">from: Address</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1718" x2="1819" y1="1851.5078" y2="1851.5078"/><!--MD5=[93b867cf5e7a1e913dd5047074c12207]
+class Mail--><rect codeLine="222" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="Mail" style="stroke:#A80036;stroke-width:1.5;" width="54" x="1754.5" y="2184.5"/><ellipse cx="1769.5" cy="2200.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1773.1875,2201.7031 Q1772.9375,2205.1875 1771.7656,2206.3594 Q1770.7344,2207.0781 1769.3594,2207.0781 Q1767.9844,2207.0781 1766.9531,2206.3594 Q1765.1719,2204.5781 1765.1719,2200.9063 Q1765.1719,2196.6563 1767.0469,2194.75 Q1768.0938,2193.7344 1769.4219,2193.7344 Q1770.8281,2193.7344 1771.6719,2194.5469 Q1773.1563,2196.0625 1773.0781,2198.9375 L1770.9531,2198.9375 Q1770.875,2196.6094 1770.2344,2195.9688 Q1769.9531,2195.6719 1769.4219,2195.6719 Q1768.9688,2195.6719 1768.6094,2196.0469 Q1767.375,2197.2656 1767.375,2200.7813 Q1767.375,2203.8281 1768.4219,2204.8438 Q1768.8438,2205.2813 1769.3594,2205.2813 Q1769.8125,2205.2813 1770.25,2204.8438 Q1770.8125,2204.2969 1770.8906,2201.7031 L1773.1875,2201.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="22" x="1783.5" y="2205.4102">Mail</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1755.5" x2="1807.5" y1="2216.5" y2="2216.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1755.5" x2="1807.5" y1="2224.5" y2="2224.5"/><!--MD5=[d0da0a299942266ebd64acf2b2e95fa4]
+class Subject--><rect codeLine="223" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="Subject" style="stroke:#A80036;stroke-width:1.5;" width="73" x="1989" y="1930.5"/><ellipse cx="2004" cy="1946.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2007.6875,1947.7031 Q2007.4375,1951.1875 2006.2656,1952.3594 Q2005.2344,1953.0781 2003.8594,1953.0781 Q2002.4844,1953.0781 2001.4531,1952.3594 Q1999.6719,1950.5781 1999.6719,1946.9063 Q1999.6719,1942.6563 2001.5469,1940.75 Q2002.5938,1939.7344 2003.9219,1939.7344 Q2005.3281,1939.7344 2006.1719,1940.5469 Q2007.6563,1942.0625 2007.5781,1944.9375 L2005.4531,1944.9375 Q2005.375,1942.6094 2004.7344,1941.9688 Q2004.4531,1941.6719 2003.9219,1941.6719 Q2003.4688,1941.6719 2003.1094,1942.0469 Q2001.875,1943.2656 2001.875,1946.7813 Q2001.875,1949.8281 2002.9219,1950.8438 Q2003.3438,1951.2813 2003.8594,1951.2813 Q2004.3125,1951.2813 2004.75,1950.8438 Q2005.3125,1950.2969 2005.3906,1947.7031 L2007.6875,1947.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="41" x="2018" y="1951.4102">Subject</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1990" x2="2061" y1="1962.5" y2="1962.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1990" x2="2061" y1="1970.5" y2="1970.5"/><path d="M1199.5,1784 L1199.5,1843.0547 L1389.5,1843.0547 L1389.5,1794 L1379.5,1784 L1199.5,1784 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1379.5,1784 L1379.5,1794 L1389.5,1794 L1379.5,1784 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="146" x="1205.5" y="1802.4951">各メインとなるdomainの</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="104" x="1205.5" y="1818.8467">メンバ変数が継承</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="1205.5" y="1835.1982">できる基本型を定義します。</text><!--MD5=[1d3248e4c70340157e7275036b7af232]
+class DateTimeType--><rect codeLine="232" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="DateTimeType" style="stroke:#A80036;stroke-width:1.5;" width="113" x="1425" y="1789.5"/><ellipse cx="1440" cy="1805.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1441.1719,1810.2188 L1441.9063,1810.2188 L1441.9063,1812.8906 L1438.2188,1812.8906 L1438.2188,1810.2188 L1438.5625,1810.2813 L1438.5625,1801.3438 L1438.2188,1801.4063 L1438.2188,1798.7344 L1441.9063,1798.7344 L1441.9063,1801.4063 L1441.1719,1801.4063 L1441.1719,1810.2188 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="81" x="1454" y="1810.4102">DateTimeType</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1426" x2="1537" y1="1821.5" y2="1821.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1426" x2="1537" y1="1829.5" y2="1829.5"/><!--MD5=[b2892fca6bf934519171596a14a2d163]
+class FileType--><rect codeLine="233" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="FileType" style="stroke:#A80036;stroke-width:1.5;" width="79" x="1573" y="1789.5"/><ellipse cx="1588" cy="1805.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1589.1719,1810.2188 L1589.9063,1810.2188 L1589.9063,1812.8906 L1586.2188,1812.8906 L1586.2188,1810.2188 L1586.5625,1810.2813 L1586.5625,1801.3438 L1586.2188,1801.4063 L1586.2188,1798.7344 L1589.9063,1798.7344 L1589.9063,1801.4063 L1589.1719,1801.4063 L1589.1719,1810.2188 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="47" x="1602" y="1810.4102">FileType</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1574" x2="1651" y1="1821.5" y2="1821.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1574" x2="1651" y1="1829.5" y2="1829.5"/><!--MD5=[01ac5929b8eb0bd97c9de00a997457ff]
+class IntegerType--><rect codeLine="234" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="IntegerType" style="stroke:#A80036;stroke-width:1.5;" width="98" x="1245.5" y="1930.5"/><ellipse cx="1260.5" cy="1946.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1261.6719,1951.2188 L1262.4063,1951.2188 L1262.4063,1953.8906 L1258.7188,1953.8906 L1258.7188,1951.2188 L1259.0625,1951.2813 L1259.0625,1942.3438 L1258.7188,1942.4063 L1258.7188,1939.7344 L1262.4063,1939.7344 L1262.4063,1942.4063 L1261.6719,1942.4063 L1261.6719,1951.2188 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="66" x="1274.5" y="1951.4102">IntegerType</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1246.5" x2="1342.5" y1="1962.5" y2="1962.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1246.5" x2="1342.5" y1="1970.5" y2="1970.5"/><!--MD5=[e8d3beb7a7912843b25bab34f04fe5e0]
+class StringType--><rect codeLine="235" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="StringType" style="stroke:#A80036;stroke-width:1.5;" width="91" x="1379" y="1930.5"/><ellipse cx="1394" cy="1946.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1395.1719,1951.2188 L1395.9063,1951.2188 L1395.9063,1953.8906 L1392.2188,1953.8906 L1392.2188,1951.2188 L1392.5625,1951.2813 L1392.5625,1942.3438 L1392.2188,1942.4063 L1392.2188,1939.7344 L1395.9063,1939.7344 L1395.9063,1942.4063 L1395.1719,1942.4063 L1395.1719,1951.2188 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="59" x="1408" y="1951.4102">StringType</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1380" x2="1469" y1="1962.5" y2="1962.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1380" x2="1469" y1="1970.5" y2="1970.5"/><path d="M2383,631.5 L2383,772.3125 L2576,772.3125 L2576,641.5 L2566,631.5 L2383,631.5 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2566,631.5 L2566,641.5 L2576,641.5 L2566,631.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="2389" y="649.9951">実現する機能を定義します。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="144" x="2389" y="666.3467">service層からは関連する</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="172" x="2389" y="682.6982">domain層のみを操作します。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="101" x="2389" y="699.0498">infrastructure層や</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="136" x="2389" y="715.4014">presentation層の操作が</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="2389" y="731.7529">必要になる場合の大半は</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="2389" y="748.1045">設計に問題があるとみて</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="156" x="2389" y="764.4561">設計を見直してください。</text><!--MD5=[64d7f30d421ce5e82d17836b4bb2a725]
+class ServiceInterface--><rect codeLine="253" fill="#ADD8E6" filter="url(#f1d752shqru3x0)" height="61.8359" id="ServiceInterface" style="stroke:#008000;stroke-width:1.5;" width="168" x="2619.5" y="671.5"/><ellipse cx="2655.65" cy="687.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#008000;stroke-width:1.0;"/><path d="M2656.8219,692.2188 L2657.5563,692.2188 L2657.5563,694.8906 L2653.8688,694.8906 L2653.8688,692.2188 L2654.2125,692.2813 L2654.2125,683.3438 L2653.8688,683.4063 L2653.8688,680.7344 L2657.5563,680.7344 L2657.5563,683.4063 L2656.8219,683.4063 L2656.8219,692.2188 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="89" x="2674.35" y="692.4102">ServiceInterface</text><line style="stroke:#008000;stroke-width:1.5;" x1="2620.5" x2="2786.5" y1="703.5" y2="703.5"/><line style="stroke:#008000;stroke-width:1.5;" x1="2620.5" x2="2786.5" y1="711.5" y2="711.5"/><ellipse cx="2630.5" cy="722.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="142" x="2639.5" y="726.9189">serviceMethod(DomainModel)</text><!--MD5=[47229e3183c43bc5dda4531882e2bdff]
+class ServiceClass--><rect codeLine="256" fill="#ADD8E6" filter="url(#f1d752shqru3x0)" height="61.8359" id="ServiceClass" style="stroke:#008000;stroke-width:1.5;" width="205" x="2630" y="1013.5"/><ellipse cx="2691.75" cy="1029.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#008000;stroke-width:1.0;"/><path d="M2695.4375,1030.7031 Q2695.1875,1034.1875 2694.0156,1035.3594 Q2692.9844,1036.0781 2691.6094,1036.0781 Q2690.2344,1036.0781 2689.2031,1035.3594 Q2687.4219,1033.5781 2687.4219,1029.9063 Q2687.4219,1025.6563 2689.2969,1023.75 Q2690.3438,1022.7344 2691.6719,1022.7344 Q2693.0781,1022.7344 2693.9219,1023.5469 Q2695.4063,1025.0625 2695.3281,1027.9375 L2693.2031,1027.9375 Q2693.125,1025.6094 2692.4844,1024.9688 Q2692.2031,1024.6719 2691.6719,1024.6719 Q2691.2188,1024.6719 2690.8594,1025.0469 Q2689.625,1026.2656 2689.625,1029.7813 Q2689.625,1032.8281 2690.6719,1033.8438 Q2691.0938,1034.2813 2691.6094,1034.2813 Q2692.0625,1034.2813 2692.5,1033.8438 Q2693.0625,1033.2969 2693.1406,1030.7031 L2695.4375,1030.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="73" x="2712.25" y="1034.4102">ServiceClass</text><line style="stroke:#008000;stroke-width:1.5;" x1="2631" x2="2834" y1="1045.5" y2="1045.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2638" y="1053.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="179" x="2650" y="1060.9189">domainRepository: DomainRepository</text><line style="stroke:#008000;stroke-width:1.5;" x1="2631" x2="2834" y1="1067.3359" y2="1067.3359"/><!--MD5=[5aef847b6ce4ec9bd2a2195a21892f21]
+class TransactionManagerInterface--><rect codeLine="261" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="TransactionManagerInterface" style="stroke:#A80036;stroke-width:1.5;" width="192" x="2830.5" y="678"/><ellipse cx="2845.5" cy="694" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2846.6719,698.7188 L2847.4063,698.7188 L2847.4063,701.3906 L2843.7188,701.3906 L2843.7188,698.7188 L2844.0625,698.7813 L2844.0625,689.8438 L2843.7188,689.9063 L2843.7188,687.2344 L2847.4063,687.2344 L2847.4063,689.9063 L2846.6719,689.9063 L2846.6719,698.7188 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="160" x="2859.5" y="698.9102">TransactionManagerInterface</text><line style="stroke:#A80036;stroke-width:1.5;" x1="2831.5" x2="3021.5" y1="710" y2="710"/><line style="stroke:#A80036;stroke-width:1.5;" x1="2831.5" x2="3021.5" y1="718" y2="718"/><path d="M526,998 L526,1089.7578 L877,1089.7578 L877,1008 L867,998 L526,998 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M867,998 L867,1008 L877,1008 L867,998 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="284" x="532" y="1016.4951">外部技術基盤へデータをexport,importする処理を</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="192" x="532" y="1032.8467">infrastructure層に閉じ込めます。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="39" x="532" y="1049.1982">例えば</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="330" x="532" y="1065.5498">DB,メール（チャットやSNSなども）送信、外部API通信</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="156" x="532" y="1081.9014">へ対する処理が該当します</text><path d="M1422,965.5 L1422,1122.6641 L1821,1122.6641 L1821,975.5 L1811,965.5 L1422,965.5 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1811,965.5 L1811,975.5 L1821,975.5 L1811,965.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="265" x="1428" y="983.9951">DBにまつわる実装はこの中に閉じ込めます。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="278" x="1428" y="1000.3467">ORM毎にdirを分けるような想定をしています。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="321" x="1428" y="1016.6982">laravelですと、Eloquent,Doctrineなどが候補に上がり、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="378" x="1428" y="1033.0498">リポジトリパターンに寄り添えるDoctrineをSampleにしています</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="352" x="1428" y="1049.4014">このUMLではどれを使っても問題ないことを強調するために</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="163" x="1428" y="1065.7529">ORM~~と表現しています。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="307" x="1428" y="1082.1045">※実際にはこのORMの部分が採用したORMの名前で</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="208" x="1428" y="1098.4561">実装されることを想定しています。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="270" x="1428" y="1114.8076">独自のDaoなどを導入しても良いと思います。</text><!--MD5=[0e4ef5f9f8882d1e0595d788342cf886]
+class ORMRepository--><rect codeLine="289" fill="#ADD8E6" filter="url(#f1d752shqru3x0)" height="48" id="ORMRepository" style="stroke:#008000;stroke-width:1.5;" width="118" x="1246.5" y="1389.5"/><ellipse cx="1261.5" cy="1405.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#008000;stroke-width:1.0;"/><path d="M1265.1875,1406.7031 Q1264.9375,1410.1875 1263.7656,1411.3594 Q1262.7344,1412.0781 1261.3594,1412.0781 Q1259.9844,1412.0781 1258.9531,1411.3594 Q1257.1719,1409.5781 1257.1719,1405.9063 Q1257.1719,1401.6563 1259.0469,1399.75 Q1260.0938,1398.7344 1261.4219,1398.7344 Q1262.8281,1398.7344 1263.6719,1399.5469 Q1265.1563,1401.0625 1265.0781,1403.9375 L1262.9531,1403.9375 Q1262.875,1401.6094 1262.2344,1400.9688 Q1261.9531,1400.6719 1261.4219,1400.6719 Q1260.9688,1400.6719 1260.6094,1401.0469 Q1259.375,1402.2656 1259.375,1405.7813 Q1259.375,1408.8281 1260.4219,1409.8438 Q1260.8438,1410.2813 1261.3594,1410.2813 Q1261.8125,1410.2813 1262.25,1409.8438 Q1262.8125,1409.2969 1262.8906,1406.7031 L1265.1875,1406.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="86" x="1275.5" y="1410.4102">ORMRepository</text><line style="stroke:#008000;stroke-width:1.5;" x1="1247.5" x2="1363.5" y1="1421.5" y2="1421.5"/><line style="stroke:#008000;stroke-width:1.5;" x1="1247.5" x2="1363.5" y1="1429.5" y2="1429.5"/><!--MD5=[ed61b41ed7ad88facbe47570759e43cb]
+class AbstractORMRepository--><rect codeLine="290" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="AbstractORMRepository" style="stroke:#A80036;stroke-width:1.5;" width="163" x="1224" y="1020"/><ellipse cx="1239" cy="1036" fill="#A9DCDF" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1236.9688,1042.0781 L1234.6563,1042.0781 L1238.1719,1028.7344 L1240.0313,1028.7344 L1243.5156,1042.0781 L1241.2188,1042.0781 L1240.2969,1038.2969 L1237.9063,1038.2969 L1236.9688,1042.0781 Z M1239.0313,1032.75 L1239.1563,1032.75 L1238.4063,1036.625 L1239.7813,1036.625 L1239.0313,1032.75 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="131" x="1253" y="1040.9102">AbstractORMRepository</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1225" x2="1386" y1="1052" y2="1052"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1225" x2="1386" y1="1060" y2="1060"/><!--MD5=[e7665d3ec3cd1875b8b214b8e577584a]
+class ORMTransactionManager--><rect codeLine="291" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="ORMTransactionManager" style="stroke:#A80036;stroke-width:1.5;" width="172" x="1016.5" y="1020"/><ellipse cx="1031.5" cy="1036" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1035.1875,1037.2031 Q1034.9375,1040.6875 1033.7656,1041.8594 Q1032.7344,1042.5781 1031.3594,1042.5781 Q1029.9844,1042.5781 1028.9531,1041.8594 Q1027.1719,1040.0781 1027.1719,1036.4063 Q1027.1719,1032.1563 1029.0469,1030.25 Q1030.0938,1029.2344 1031.4219,1029.2344 Q1032.8281,1029.2344 1033.6719,1030.0469 Q1035.1563,1031.5625 1035.0781,1034.4375 L1032.9531,1034.4375 Q1032.875,1032.1094 1032.2344,1031.4688 Q1031.9531,1031.1719 1031.4219,1031.1719 Q1030.9688,1031.1719 1030.6094,1031.5469 Q1029.375,1032.7656 1029.375,1036.2813 Q1029.375,1039.3281 1030.4219,1040.3438 Q1030.8438,1040.7813 1031.3594,1040.7813 Q1031.8125,1040.7813 1032.25,1040.3438 Q1032.8125,1039.7969 1032.8906,1037.2031 L1035.1875,1037.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="140" x="1045.5" y="1040.9102">ORMTransactionManager</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1017.5" x2="1187.5" y1="1052" y2="1052"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1017.5" x2="1187.5" y1="1060" y2="1060"/><polygon fill="#FFFFFF" filter="url(#f1d752shqru3x0)" points="912,1016.5,967,1016.5,974,1040.1094,981,1040.1094,981,1071.7188,912,1071.7188,912,1016.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="912" x2="974" y1="1040.1094" y2="1040.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="49" x="916" y="1033.0332">source</text><!--MD5=[22cbacedb27faed8fbce9c88073b1a65]
+class MailTransfer--><rect codeLine="297" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="61.8359" id="MailTransfer" style="stroke:#A80036;stroke-width:1.5;" width="193" x="1981" y="1013.5"/><ellipse cx="2039.75" cy="1029.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2040.9219,1034.2188 L2041.6563,1034.2188 L2041.6563,1036.8906 L2037.9688,1036.8906 L2037.9688,1034.2188 L2038.3125,1034.2813 L2038.3125,1025.3438 L2037.9688,1025.4063 L2037.9688,1022.7344 L2041.6563,1022.7344 L2041.6563,1025.4063 L2040.9219,1025.4063 L2040.9219,1034.2188 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="67" x="2060.25" y="1034.4102">MailTransfer</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1982" x2="2173" y1="1045.5" y2="1045.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1982" x2="2173" y1="1053.5" y2="1053.5"/><ellipse cx="1992" cy="1064.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="167" x="2001" y="1068.9189">send(request: SMTPSendRequest)</text><!--MD5=[2d8989205971e9815b8b02dd0afdd9dc]
+class SMTPTransfer--><rect codeLine="300" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="61.8359" id="SMTPTransfer" style="stroke:#A80036;stroke-width:1.5;" width="193" x="1886" y="1383"/><ellipse cx="1939.25" cy="1399" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1942.9375,1400.2031 Q1942.6875,1403.6875 1941.5156,1404.8594 Q1940.4844,1405.5781 1939.1094,1405.5781 Q1937.7344,1405.5781 1936.7031,1404.8594 Q1934.9219,1403.0781 1934.9219,1399.4063 Q1934.9219,1395.1563 1936.7969,1393.25 Q1937.8438,1392.2344 1939.1719,1392.2344 Q1940.5781,1392.2344 1941.4219,1393.0469 Q1942.9063,1394.5625 1942.8281,1397.4375 L1940.7031,1397.4375 Q1940.625,1395.1094 1939.9844,1394.4688 Q1939.7031,1394.1719 1939.1719,1394.1719 Q1938.7188,1394.1719 1938.3594,1394.5469 Q1937.125,1395.7656 1937.125,1399.2813 Q1937.125,1402.3281 1938.1719,1403.3438 Q1938.5938,1403.7813 1939.1094,1403.7813 Q1939.5625,1403.7813 1940,1403.3438 Q1940.5625,1402.7969 1940.6406,1400.2031 L1942.9375,1400.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="78" x="1959.75" y="1403.9102">SMTPTransfer</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1887" x2="2078" y1="1415" y2="1415"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1887" x2="2078" y1="1423" y2="1423"/><ellipse cx="1897" cy="1434" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="167" x="1906" y="1438.4189">send(request: SMTPSendRequest)</text><!--MD5=[0a21862f8bcb257612b3a050a00d929f]
+class SMTPSendRequest--><rect codeLine="303" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="89.5078" id="SMTPSendRequest" style="stroke:#A80036;stroke-width:1.5;" width="140" x="2130.5" y="1370"/><ellipse cx="2145.5" cy="1386" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M2149.1875,1387.2031 Q2148.9375,1390.6875 2147.7656,1391.8594 Q2146.7344,1392.5781 2145.3594,1392.5781 Q2143.9844,1392.5781 2142.9531,1391.8594 Q2141.1719,1390.0781 2141.1719,1386.4063 Q2141.1719,1382.1563 2143.0469,1380.25 Q2144.0938,1379.2344 2145.4219,1379.2344 Q2146.8281,1379.2344 2147.6719,1380.0469 Q2149.1563,1381.5625 2149.0781,1384.4375 L2146.9531,1384.4375 Q2146.875,1382.1094 2146.2344,1381.4688 Q2145.9531,1381.1719 2145.4219,1381.1719 Q2144.9688,1381.1719 2144.6094,1381.5469 Q2143.375,1382.7656 2143.375,1386.2813 Q2143.375,1389.3281 2144.4219,1390.3438 Q2144.8438,1390.7813 2145.3594,1390.7813 Q2145.8125,1390.7813 2146.25,1390.3438 Q2146.8125,1389.7969 2146.8906,1387.2031 L2149.1875,1387.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="108" x="2159.5" y="1390.9102">SMTPSendRequest</text><line style="stroke:#A80036;stroke-width:1.5;" x1="2131.5" x2="2269.5" y1="1402" y2="1402"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2138.5" y="1410"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="75" x="2150.5" y="1417.4189">header: Header</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2138.5" y="1423.8359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="94" x="2150.5" y="1431.2549">message: Message</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2138.5" y="1437.6719"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="82" x="2150.5" y="1445.0908">mailable: Mailable</text><line style="stroke:#A80036;stroke-width:1.5;" x1="2131.5" x2="2269.5" y1="1451.5078" y2="1451.5078"/><path d="M166.5,1800.5 L166.5,1826.8516 L246.5,1826.8516 L246.5,1810.5 L236.5,1800.5 L166.5,1800.5 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M236.5,1800.5 L236.5,1810.5 L246.5,1810.5 L236.5,1800.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="172.5" y="1818.9951">DBtable群</text><path d="M303,1800.5 L303,1826.8516 L408,1826.8516 L408,1810.5 L398,1800.5 L303,1800.5 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M398,1800.5 L398,1810.5 L408,1810.5 L398,1800.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="84" x="309" y="1818.9951">TestDBtable群</text><!--MD5=[26e2766456f6dfbcbaecbae632e28884]
+class FlywayMain--><rect codeLine="326" fill="#FEFECE" filter="url(#f1d752shqru3x0)" height="48" id="FlywayMain" style="stroke:#A80036;stroke-width:1.5;" width="94" x="161.5" y="1020"/><ellipse cx="176.5" cy="1036" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M180.1875,1037.2031 Q179.9375,1040.6875 178.7656,1041.8594 Q177.7344,1042.5781 176.3594,1042.5781 Q174.9844,1042.5781 173.9531,1041.8594 Q172.1719,1040.0781 172.1719,1036.4063 Q172.1719,1032.1563 174.0469,1030.25 Q175.0938,1029.2344 176.4219,1029.2344 Q177.8281,1029.2344 178.6719,1030.0469 Q180.1563,1031.5625 180.0781,1034.4375 L177.9531,1034.4375 Q177.875,1032.1094 177.2344,1031.4688 Q176.9531,1031.1719 176.4219,1031.1719 Q175.9688,1031.1719 175.6094,1031.5469 Q174.375,1032.7656 174.375,1036.2813 Q174.375,1039.3281 175.4219,1040.3438 Q175.8438,1040.7813 176.3594,1040.7813 Q176.8125,1040.7813 177.25,1040.3438 Q177.8125,1039.7969 177.8906,1037.2031 L180.1875,1037.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="62" x="190.5" y="1040.9102">FlywayMain</text><line style="stroke:#A80036;stroke-width:1.5;" x1="162.5" x2="254.5" y1="1052" y2="1052"/><line style="stroke:#A80036;stroke-width:1.5;" x1="162.5" x2="254.5" y1="1060" y2="1060"/><path d="M6,1400.5 L6,1426.8516 L109,1426.8516 L109,1410.5 L99,1400.5 L6,1400.5 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M99,1400.5 L99,1410.5 L109,1410.5 L99,1400.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="82" x="12" y="1418.9951">APL-Migration</text><path d="M144.5,1400.5 L144.5,1426.8516 L272.5,1426.8516 L272.5,1410.5 L262.5,1400.5 L144.5,1400.5 " fill="#FBFB77" filter="url(#f1d752shqru3x0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M262.5,1400.5 L262.5,1410.5 L272.5,1410.5 L262.5,1400.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="107" x="150.5" y="1418.9951">APL-TestMigration</text><!--MD5=[195cc1987a7a0fa4cfdb2d6886395424]
+reverse link Facade to TransactionManager--><path d="M3838.27,1088.25 C3854.99,1162.3 3888.77,1311.87 3903.89,1378.8 " fill="none" id="Facade-backto-TransactionManager" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="3831.33,1089.32,3833.75,1068.27,3844.99,1086.23,3831.33,1089.32" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[730adb5b89647627aa8e8f678cccccdc]
+reverse link FormRequest to AbstractFormRequest--><path d="M4164.17,1010.56 C4359.1,910.02 4982.1,603.98 5539.5,497 C5654.36,474.95 7538.64,512.73 7644.5,463 C7696.21,438.71 7735.1,382.64 7756.05,346.22 " fill="none" id="FormRequest-backto-AbstractFormRequest" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="4167.11,1016.92,4146.13,1019.91,4160.67,1004.49,4167.11,1016.92" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[baa1a7f88eb22e4ef778620b8fdb851e]
+reverse link AbstractFormRequest to Request--><path d="M7774.47,366.32 C7775.94,447.72 7778.68,599.82 7779.89,667.28 " fill="none" id="AbstractFormRequest-backto-Request" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="7767.47,366.42,7774.11,346.3,7781.47,366.17,7767.47,366.42" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[c41f6c68ae05b4a80dd45063bd96f777]
+reverse link AbstractRequestDefinition to RequestDefinition--><path d="M7998.5,746.21 C7998.5,819 7998.5,963.62 7998.5,1019.87 " fill="none" id="AbstractRequestDefinition-backto-RequestDefinition" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="7991.5,746.1,7998.5,726.1,8005.5,746.1,7991.5,746.1" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[833e6d0c218f1f1139a58db1466d8362]
+reverse link DefinitionInterface to RequestDefinition--><path d="M8164.78,743.88 C8124.76,815.87 8042.96,963.01 8011.36,1019.87 " fill="none" id="DefinitionInterface-backto-RequestDefinition" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="8158.82,740.18,8174.66,726.1,8171.06,746.98,8158.82,740.18" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ed3a18c4e05a348be19c91adf691f088]
+reverse link JsonResource to AbstractJsonResource--><path d="M3964.67,1000.32 C3974.86,954.81 3995.47,882.08 4031.5,828.5 C4165.48,629.26 4212.27,556.83 4436.5,471 C4488.75,451 5390.34,480.45 5443.5,463 C5514.22,439.79 5581.19,382.81 5619.2,346.01 " fill="none" id="JsonResource-backto-AbstractJsonResource" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="3971.5,1001.85,3960.54,1019.98,3957.8,998.97,3971.5,1001.85" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[af259d9ea475b206626a13fcb15f58ab]
+reverse link AbstractJsonResource to Resource--><path d="M5676.96,363.82 C5696.47,397.56 5726.62,439.64 5765.5,463 C5846.92,511.93 5895.92,446.71 5976.5,497 C6039.02,536.02 6082.01,613.18 6103.83,660.61 " fill="none" id="AbstractJsonResource-backto-Resource" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="5670.73,367.01,5667.24,346.11,5683,360.27,5670.73,367.01" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[92e468e9d8350246724261a317ed75b0]
+reverse link AbstractResultDefinition to ResultDefinition--><path d="M5698.4,743.42 C5740.85,815.24 5828.14,962.89 5861.82,1019.87 " fill="none" id="AbstractResultDefinition-backto-ResultDefinition" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="5692.31,746.88,5688.16,726.1,5704.36,739.76,5692.31,746.88" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[7390a1bff7e911072f07b68217535de0]
+reverse link ResultDefinitionInterface to ResultDefinition--><path d="M5875.5,746.21 C5875.5,819 5875.5,963.62 5875.5,1019.87 " fill="none" id="ResultDefinitionInterface-backto-ResultDefinition" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="5868.5,746.1,5875.5,726.1,5882.5,746.1,5868.5,746.1" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[29cb9cd64e4f0faf32f6be768c0fd447]
+reverse link ServiceInterface to ServiceClass--><path d="M2708.08,756.73 C2714.13,827.57 2724.58,950.13 2729.62,1009.22 " fill="none" id="ServiceInterface-backto-ServiceClass" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2701.09,757.05,2706.36,736.53,2715.03,755.86,2701.09,757.05" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ecaeec97c60cd761c4f2a9f2cea8803b]
+reverse link AbstractORMRepository to ORMRepository--><path d="M1305.5,1088.37 C1305.5,1166.56 1305.5,1328.65 1305.5,1389.1 " fill="none" id="AbstractORMRepository-backto-ORMRepository" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="1298.5,1088.27,1305.5,1068.27,1312.5,1088.27,1298.5,1088.27" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[5cd02dfcf243946a2d8e87a60b3bc33f]
+reverse link DomainRepository to ORMRepository--><path d="M2856.24,1769.33 C2850.87,1715.97 2832.96,1627.08 2773.5,1585 C2732.14,1555.72 1911.65,1575.27 1861.5,1568 C1676.18,1541.13 1464.93,1471.61 1364.51,1436.09 " fill="none" id="DomainRepository-backto-ORMRepository" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2863.24,1768.97,2857.84,1789.46,2849.28,1770.08,2863.24,1768.97" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[5743429206abe1170420f62de5f540c4]
+reverse link TransactionManagerInterface to ORMTransactionManager--><path d="M2886.24,738.88 C2869.06,751.99 2848.02,765.35 2826.5,772.5 C2815.82,776.05 1215.93,822.36 1206.5,828.5 C1138.86,872.52 1113.92,973.93 1105.88,1019.77 " fill="none" id="TransactionManagerInterface-backto-ORMTransactionManager" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2882.07,733.25,2902.02,726.09,2890.89,744.13,2882.07,733.25" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[8f4b4620a9d3801cae2739f5da7a55f6]
+reverse link MailTransfer to SMTPTransfer--><path d="M2063.8,1098.01 C2043.95,1174.8 2007.76,1314.78 1991.2,1378.86 " fill="none" id="MailTransfer-backto-SMTPTransfer" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2057.03,1096.2,2068.82,1078.59,2070.59,1099.7,2057.03,1096.2" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[2741df6f8329d74fdb8e7c4ca43f8947]
+link Controller to Request--><path codeLine="334" d="M7224.5,363.5 C7270.1,363.5 7220.2,428.06 7249.5,463 C7360.34,595.18 7559.57,656.92 7679.95,683.38 " fill="none" id="Controller-to-Request" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="7684.91,684.46,7676.9595,678.6471,7680.0231,683.4026,7675.2676,686.4662,7684.91,684.46" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[18255b72a3be02e68b1587e73f46243a]
+link Controller to Resource--><path codeLine="335" d="M6955.5,363.5 C6906.4,363.5 6944.81,431.09 6907.5,463 C6711.78,630.38 6401.05,680.04 6234.62,694.78 " fill="none" id="Controller-to-Resource" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="6229.25,695.25,6238.5595,698.4645,6234.2316,694.8218,6237.8744,690.4939,6229.25,695.25" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[9c5bbad28e67659f1bcb89429c18a6f3]
+link Request to RequestDefinition--><path codeLine="336" d="M7802,736.53 C7845.11,803.77 7941.39,953.93 7980.98,1015.68 " fill="none" id="Request-to-RequestDefinition" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="7983.73,1019.97,7982.2429,1010.2341,7981.0327,1015.7599,7975.5068,1014.5497,7983.73,1019.97" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[ce8ec2201f5fbb4a4da88cfab251abbe]
+link Resource to DomainModel--><path codeLine="337" d="M6222.5,716 C6282.05,716 8322.51,785.3 8363.5,828.5 C8466.13,936.67 8462.52,1052.51 8363.5,1164 C7847.39,1745.12 5666.27,1529.56 4890.5,1577 C4875.83,1577.9 2785.34,1576.29 2773.5,1585 C2710.22,1631.53 2701.18,1733.92 2700.75,1783.91 " fill="none" id="Resource-to-DomainModel" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="2700.73,1789.16,2704.7557,1780.1715,2700.7443,1784.16,2696.7557,1780.1486,2700.73,1789.16" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[58c05e71c8cfb25bbd8e62a92a75ad25]
+link Request to DomainModel--><path codeLine="338" d="M7692.5,723 C7662.58,723 5568.42,794.82 5539.5,802.5 C4830.22,990.8 4787.98,1388.18 4076.5,1568 C4041.41,1576.87 2802.56,1563.42 2773.5,1585 C2710.44,1631.82 2701.29,1734.07 2700.79,1783.97 " fill="none" id="Request-to-DomainModel" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="2700.77,1789.21,2704.8214,1780.233,2700.7986,1784.2101,2696.8215,1780.1873,2700.77,1789.21" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="4825.5" y="1186.4951">use</text><!--MD5=[bb3c9b6bd0264430f84a7e3ec3e9ed66]
+link Resource to ResultDefinition--><path codeLine="339" d="M6091.67,743 C6041.28,812.94 5938.4,955.7 5895.25,1015.59 " fill="none" id="Resource-to-ResultDefinition" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="5892.25,1019.76,5900.7609,1014.8037,5895.1764,1015.7059,5894.2742,1010.1214,5892.25,1019.76" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="6048.5" y="816.9951">use</text><!--MD5=[9df398f28fb8aa46133557f5f4a84a7d]
+link AbstractFormRequest to DefinitionInterface--><path codeLine="340" d="M7855.5,324.5 C7918.05,324.5 7835.67,419.38 7880.5,463 C7952.35,532.92 8024.65,435.08 8103.5,497 C8159.33,540.85 8178.35,628.15 8184.6,672.99 " fill="none" id="AbstractFormRequest-to-DefinitionInterface" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="8185.26,677.98,8188.039,668.5313,8184.6011,673.0236,8180.1088,669.5857,8185.26,677.98" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[da816de905fa1f8fd873c10249d54bf3]
+link AbstractJsonResource to ResultDefinitionInterface--><path codeLine="341" d="M5740.5,324.5 C5771.78,324.5 5756.09,433.18 5765.5,463 C5790.55,542.37 5835.93,629.77 5859.82,673.24 " fill="none" id="AbstractJsonResource-to-ResultDefinitionInterface" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="5862.34,677.82,5861.4904,668.0079,5859.9227,673.4432,5854.4874,671.8755,5862.34,677.82" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[eff887d968163e732d8a87d654ec2b7b]
+link TransactionManager to TransactionManagerInterface--><path codeLine="343" d="M3770.5,1434.5 C3744.19,1434.5 3778.37,1216.33 3759.5,1198 C3750.43,1189.19 3316.88,1192.55 3304.5,1190 C3283.8,1185.74 3281.06,1176.85 3260.5,1172 C3237.51,1166.57 3173.25,1178.37 3154.5,1164 C3019.36,1060.38 3118.73,946.29 3027.5,802.5 C3009.62,774.32 2982.36,748.09 2960.66,729.64 " fill="none" id="TransactionManager-to-TransactionManagerInterface" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="2956.68,726.28,2960.9846,735.1384,2960.5034,729.502,2966.1398,729.0208,2956.68,726.28" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[7ee119e98461e0ea69746c71ee598b47]
+reverse link AppServiceProvider to ServiceInterface--><path codeLine="349" d="M5024.25,354.74 C5012.22,390.6 4989.27,439.82 4949.5,463 C4924.91,477.33 2928.64,466.78 2900.5,471 C2861.01,476.92 2845.47,471.8 2814.5,497 C2759.3,541.92 2727.45,621.87 2713,667.19 " fill="none" id="AppServiceProvider-backto-ServiceInterface" style="stroke:#0000FF;stroke-width:2.0;"/><polygon fill="#0000FF" points="5025.95,349.55,5019.3487,356.8591,5024.3946,354.3019,5026.9518,359.3478,5025.95,349.55" style="stroke:#0000FF;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="89" x="2901.5" y="485.4951">依存IF取り込み</text><!--MD5=[49ad3e5d509d1f11712d580ddbaa5c66]
+reverse link AppServiceProvider to ServiceClass--><path codeLine="350" d="M5024.25,354.74 C5012.22,390.6 4989.27,439.82 4949.5,463 C4936.71,470.45 2833.3,470.84 2818.5,471 C2776.8,471.44 1346.73,467.26 1317.5,497 C1274.59,540.66 1275.47,727.99 1317.5,772.5 C1392.15,851.56 2189.32,800.93 2294.5,828.5 C2443.57,867.57 2602.06,959.5 2681.23,1009.39 " fill="none" id="AppServiceProvider-backto-ServiceClass" style="stroke:#0000FF;stroke-width:4.0;stroke-dasharray:1.0,3.0;"/><polygon fill="#0000FF" points="5025.95,349.55,5019.3487,356.8591,5024.3946,354.3019,5026.9518,359.3478,5025.95,349.55" style="stroke:#0000FF;stroke-width:4.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="1318.5" y="707.4951">対応実装クラス取り込み</text><!--MD5=[a2813d46c3757a19ede57107eb73afa1]
+reverse link AppServiceProvider to TransactionManagerInterface--><path codeLine="351" d="M5024.25,354.74 C5012.22,390.59 4989.27,439.81 4949.5,463 C4926.36,476.5 3042.71,456.02 3020.5,471 C2949.87,518.65 2932.27,629.67 2927.92,677.92 " fill="none" id="AppServiceProvider-backto-TransactionManagerInterface" style="stroke:#0000FF;stroke-width:2.0;"/><polygon fill="#0000FF" points="5025.94,349.55,5019.3322,356.8532,5024.3803,354.3005,5026.933,359.3487,5025.94,349.55" style="stroke:#0000FF;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="89" x="3021.5" y="485.4951">依存IF取り込み</text><!--MD5=[a3731059b09ac2fbe534ebae3bc5ddef]
+reverse link AppServiceProvider to ORMTransactionManager--><path codeLine="352" d="M5024.26,354.76 C5012.24,390.63 4989.29,439.85 4949.5,463 C4938.75,469.26 1378.92,470.3 1366.5,471 C1314.26,473.95 1168.45,458.99 1132.5,497 C990.62,647.02 1068.17,936.25 1094.7,1019.85 " fill="none" id="AppServiceProvider-backto-ORMTransactionManager" style="stroke:#0000FF;stroke-width:4.0;stroke-dasharray:1.0,3.0;"/><polygon fill="#0000FF" points="5025.95,349.57,5019.3487,356.8791,5024.3946,354.3219,5026.9518,359.3678,5025.95,349.57" style="stroke:#0000FF;stroke-width:4.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="1133.5" y="707.4951">対応実装クラス取り込み</text><!--MD5=[db1867b3b2b93f28fbd3e16d3e4e30ff]
+reverse link DatasourceServiceProvider to DomainRepository--><path codeLine="355" d="M5333.68,352.81 C5382.82,389.54 5461.49,441.26 5539.5,463 C5615.07,484.06 8295.49,457.89 8363.5,497 C8455.08,549.67 8485.5,595.36 8485.5,701 C8485.5,701 8485.5,701 8485.5,1414.5 C8485.5,1707.62 3563.05,1800.59 2926.11,1811.4 " fill="none" id="DatasourceServiceProvider-backto-DomainRepository" style="stroke:#0000FF;stroke-width:2.0;"/><polygon fill="#0000FF" points="5329.61,349.75,5334.41,358.35,5333.61,352.75,5339.21,351.95,5329.61,349.75" style="stroke:#0000FF;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="89" x="8486.5" y="1049.4951">依存IF取り込み</text><!--MD5=[52a58ce1ab5f1202ae854a733d4dee25]
+reverse link DatasourceServiceProvider to ORMRepository--><path codeLine="356" d="M5253.64,354.19 C5224.78,390.6 5177.44,440.97 5122.5,463 C5103.5,470.62 4405.95,470.07 4385.5,471 C3816.37,496.82 3540.26,409.26 3154.5,828.5 C3049.81,942.28 3184.1,1068.5 3062.5,1164 C3055.94,1169.15 1869.68,1196.36 1861.5,1198 C1662.43,1237.99 1441.83,1342.72 1349.69,1389.44 " fill="none" id="DatasourceServiceProvider-backto-ORMRepository" style="stroke:#0000FF;stroke-width:4.0;stroke-dasharray:1.0,3.0;"/><polygon fill="#0000FF" points="5257.06,349.82,5248.3551,354.427,5253.9715,353.7521,5254.6464,359.3685,5257.06,349.82" style="stroke:#0000FF;stroke-width:4.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="3172.5" y="816.9951">対応実装クラス取り込み</text><!--MD5=[3936fa5fd64be8f6c53a07ae8e6674ac]
+link FlywayCommand to FlywayMain--><path codeLine="359" d="M4236.7,313.81 C3845.32,322.12 1765.3,370.43 1136.5,471 C725.5,536.74 335.79,911.67 234.11,1016.04 " fill="none" id="FlywayCommand-to-FlywayMain" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="230.33,1019.93,239.4715,1016.2648,233.8152,1016.3448,233.7352,1010.6885,230.33,1019.93" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[bd1099080929b3d23f395c699392fb07]
+link FlywayMain to Migration--><path codeLine="360" d="M194.58,1068.24 C177.31,1097.7 147.69,1150.41 127.5,1198 C95.84,1272.65 69.61,1366.82 60.73,1400.14 " fill="none" id="FlywayMain-Migration" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[566c19d89c42a86a6011eb573da9ea35]
+link FlywayMain to TestMigration--><path codeLine="361" d="M208.5,1068.27 C208.5,1138.64 208.5,1347.62 208.5,1400.32 " fill="none" id="FlywayMain-TestMigration" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[613ce36f26a97feb2b43f857fe6409d7]
+link Migration to Tables--><path codeLine="362" d="M62.12,1426.85 C84.33,1486.15 179.85,1741.31 201.93,1800.3 " fill="none" id="Migration-Tables" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[402c0031cc3740ad464adda08f875066]
+link TestMigration to TestTables--><path codeLine="363" d="M213.06,1426.85 C234.96,1486.15 329.21,1741.31 350.99,1800.3 " fill="none" id="TestMigration-TestTables" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><!--MD5=[3eee66177994ccae184799a4d387cf40]
+link Controller to ServiceInterface--><path codeLine="365" d="M6955.5,342.5 C6897.85,342.5 6955.16,430.57 6907.5,463 C6900.41,467.83 4445.08,470.92 4436.5,471 C4425.24,471.11 2824.14,491.17 2814.5,497 C2754.64,533.23 2724.93,614.09 2712,662.41 " fill="none" id="Controller-to-ServiceInterface" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="2710.72,667.28,2716.8586,659.5782,2711.9798,662.4413,2709.1166,657.5625,2710.72,667.28" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[bc5232f5505353c85ebcf2ef39ce07c6]
+link ServiceClass to DomainRepository--><path codeLine="366" d="M2836.5,1057 C2910.75,1057 2870.9,1647.58 2860.67,1784.43 " fill="none" id="ServiceClass-to-DomainRepository" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="2860.29,1789.48,2864.9476,1780.802,2860.6615,1784.4938,2856.9697,1780.2077,2860.29,1789.48" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[198eeda314627d3249e49678a880f1f0]
+link ServiceInterface to DomainModel--><path codeLine="367" d="M2618.5,723 C2595.96,723 2624.9,758.18 2607.5,772.5 C2581.62,793.79 1435,801.6 1401.5,802.5 C1302.38,805.18 578.58,757.37 509.5,828.5 C234.63,1111.5 629.83,1432.92 1000.5,1568 C1043.02,1583.49 2593.13,1558.07 2629.5,1585 C2692.62,1631.74 2701.74,1734.03 2702.22,1783.95 " fill="none" id="ServiceInterface-to-DomainModel" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="2702.24,1789.19,2706.2143,1780.1786,2702.2257,1784.19,2698.2143,1780.2015,2702.24,1789.19" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[57f3ab6cc08c4dac230365df2d453cd8]
+link ServiceClass to TransactionManager--><path codeLine="368" d="M2796.31,1078.56 C2853.93,1107.02 2941.95,1146.01 3023.5,1164 C3099.1,1180.67 3122.58,1152.49 3197.5,1172 C3214.81,1176.51 3216.12,1185.76 3233.5,1190 C3261.89,1196.93 3733.64,1184.38 3759.5,1198 C3830.7,1235.5 3875.93,1323.09 3897.18,1373.99 " fill="none" id="ServiceClass-to-TransactionManager" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="3899.16,1378.8,3899.4427,1368.9552,3897.2613,1374.1745,3892.0419,1371.9932,3899.16,1378.8" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="3234.5" y="1186.4951">use</text><!--MD5=[a78ded089267daae369e734b9998af8f]
+link ORMRepository to Tables--><path codeLine="369" d="M1246.34,1425.21 C1096.1,1452.26 687.45,1524.89 345.5,1577 C332.42,1578.99 296.76,1576.64 286.5,1585 C217.2,1641.46 207.85,1761.98 206.65,1800.44 " fill="none" id="ORMRepository-Tables" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[6cf73d74bd7e6317337cc495936bb48a]
+link ORMRepository to TestTables--><path codeLine="370" d="M1250.32,1437.62 C1072.31,1512.19 517.17,1744.77 384.29,1800.44 " fill="none" id="ORMRepository-TestTables" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[7abad3b86fd53521b7894fb7cce807d6]
+link ORMTransactionManager to Tables--><path codeLine="372" d="M1092.39,1068.08 C1078.73,1096.16 1051.51,1142.49 1012.5,1164 C973.34,1185.59 651.19,1177.41 611.5,1198 C412.11,1301.4 397.78,1389.9 286.5,1585 C243.04,1661.19 217.14,1765.04 209.16,1800.25 " fill="none" id="ORMTransactionManager-Tables" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9bdc373ff14a366c4d21215ce0883566]
+link ORMTransactionManager to TestTables--><path codeLine="373" d="M1086.52,1068.13 C1069.21,1092.69 1040.33,1132.25 1012.5,1164 C772.16,1438.19 440.13,1737.19 369.18,1800.37 " fill="none" id="ORMTransactionManager-TestTables" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[7d8ada895a62eb421f436d2f475a4d5c]
+link MailTransfer to SMTPSendRequest--><path codeLine="375" d="M2175.5,1065 C2292.83,1065 2246.71,1264.51 2217.47,1361.19 " fill="none" id="MailTransfer-to-SMTPSendRequest" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="2216.01,1366,2222.458,1358.5553,2217.4664,1361.2168,2214.8049,1356.2251,2216.01,1366" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[4872a44888a9c9ba256ae12ec4f1f2b2]
+link SMTPTransfer to Facades\Mail--><path codeLine="376" d="M2080.5,1434.5 C2133.35,1434.5 2066.4,1233.55 2105.5,1198 C2121.72,1183.26 2873.33,1195.66 2894.5,1190 C2910.26,1185.79 2910.79,1176.42 2926.5,1172 C2950.05,1165.37 3125.12,1175.89 3146.5,1164 C3181.87,1144.32 3204.58,1101.64 3216.45,1073.11 " fill="none" id="SMTPTransfer-to-Facades\Mail" style="stroke:#FF0000;stroke-width:3.0;"/><polygon fill="#FF0000" points="3218.4,1068.31,3211.3,1075.1356,3216.5135,1072.9405,3218.7087,1078.154,3218.4,1068.31" style="stroke:#FF0000;stroke-width:3.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="261" x="2927.5" y="1186.4951">メール送信内部ロジックはLaravelにまかせる</text><!--MD5=[b3e9be877073ecaff593e9211fc5e4dd]
+link SMTPSendRequest to Mailable--><path codeLine="377" d="M2271.5,1439.5 C2688.66,1439.5 2767.71,1270.6 3178.5,1198 C3217.61,1191.09 3231.08,1205.84 3267.5,1190 C3314.44,1169.58 3337.38,1109.38 3347.21,1073.29 " fill="none" id="SMTPSendRequest-to-Mailable" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="3348.56,1068.15,3342.4001,1075.8348,3347.2868,1072.9852,3350.1364,1077.8719,3348.56,1068.15" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[853ff3abba5fece0d94d3369b47e1465]
+link SMTPSendRequest to Message--><path codeLine="378" d="M2129.5,1426.5 C2065.64,1426.5 2149.88,1523.06 2104.5,1568 C2071.84,1600.34 2037.63,1555.36 2002.5,1585 C1948.59,1630.49 1931.43,1714.82 1925.99,1767.05 " fill="none" id="SMTPSendRequest-to-Message" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="1925.47,1772.31,1930.3262,1763.7416,1925.9562,1767.3337,1922.3641,1762.9637,1925.47,1772.31" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[178c76845217ea0cfb22bed3dfda938f]
+link SMTPSendRequest to Header--><path codeLine="379" d="M2129.5,1412.5 C2094.5,1412.5 2130.38,1544.44 2104.5,1568 C2093.84,1577.71 1856.94,1576.22 1845.5,1585 C1791.52,1626.46 1775.07,1707.54 1770.24,1760.86 " fill="none" id="SMTPSendRequest-to-Header" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="1769.81,1765.94,1774.5661,1757.3156,1770.2382,1760.9584,1766.5955,1756.6305,1769.81,1765.94" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[f03be9093a7ace96005d697c11c98952]
+link Address to Mail--><path codeLine="380" d="M1832.5,2088.5 C1872.13,2088.5 1832.97,2144.96 1804.76,2180.1 " fill="none" id="Address-to-Mail" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="1801.38,2184.27,1810.1499,2179.7879,1804.5243,2180.3824,1803.9298,2174.7569,1801.38,2184.27" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[8ebbf2bd2b3cdbaab30545cd5e176e8a]
+link AddressList to Address--><path codeLine="381" d="M1791.93,1978.61 C1790.15,1994.65 1787.72,2016.55 1785.55,2036.02 " fill="none" id="AddressList-to-Address" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="1784.95,2041.45,1789.9275,2032.9515,1785.5069,2036.4811,1781.9772,2032.0605,1784.95,2041.45" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[561326617b30c507caf99de506777819]
+link Message to Content--><path codeLine="382" d="M1870.5,1832.5 C1830.66,1832.5 1868.06,1890.53 1894.83,1926.22 " fill="none" id="Message-to-Content" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="1898.04,1930.46,1895.7798,1920.874,1895.0149,1926.4789,1889.41,1925.7141,1898.04,1930.46" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[328dcf636a27e155f0bbb0cab0bf5682]
+link Message to Subject--><path codeLine="383" d="M1977.5,1819.5 C2011.37,1819.5 1991.05,1859.62 2002.5,1891.5 C2006.5,1902.65 2011.02,1914.89 2014.98,1925.52 " fill="none" id="Message-to-Subject" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="2016.76,1930.28,2017.3715,1920.4501,2015.0169,1925.5937,2009.8734,1923.2391,2016.76,1930.28" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[85d055d8e6591010bd9c644f0033a975]
+link Header to AddressList--><path codeLine="384" d="M1821.5,1812.5 C1867.1,1812.5 1833.73,1884.51 1810.98,1925.61 " fill="none" id="Header-to-AddressList" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="1808.4,1930.22,1816.2904,1924.3258,1810.8452,1925.8587,1809.3123,1920.4135,1808.4,1930.22" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[85d055d8e6591010bd9c644f0033a975]
+link Header to AddressList--><path codeLine="385" d="M1821.5,1826.5 C1831.53,1826.5 1814.56,1887.9 1803.28,1925.32 " fill="none" id="Header-to-AddressList-1" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="1801.8,1930.21,1808.248,1922.7653,1803.2564,1925.4268,1800.5949,1920.4351,1801.8,1930.21" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[9db6d02779c8617d1bf0ebaa27afd689]
+link Header to Address--><path codeLine="386" d="M1716.5,1839.5 C1711.71,1839.5 1693.72,1900.92 1728.5,2002.5 C1732.58,2014.43 1738.9,2026.31 1745.74,2037.1 " fill="none" id="Header-to-Address" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="1748.48,2041.34,1746.9161,2031.6161,1745.7495,2037.1514,1740.2143,2035.9849,1748.48,2041.34" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[02a7293605b9b52724330405b19d5551]
+link BasicType to DateTimeType--><!--MD5=[5df870cab50b119f6bc295ce65a2e639]
+link DateTimeType to FileType--><!--MD5=[bb7e49a0b9585fc46e3d6b3a02755250]
+link BasicType to IntegerType--><!--MD5=[dcab57b079463d1fdcd9333216006e27]
+link IntegerType to StringType--><!--MD5=[f8d533ade7a461351bbf1590098b4239]
+@startuml
+'https://plantuml.com/class-diagram
+
+node Laravel #DDDDDD {
+    class FormRequest
+    class JsonResource
+    class Facade
+    class Mailable
+    class Facades\Mail
+    node Extension #FFFFFF {
+        note as LaravelExtension
+           Laravel標準機能を単純に拡張
+           したものをまとめてます。
+           今後も単純にLaravelの機能を
+           拡張する場合このパッケージ内
+           での完結を心がけます。
+        end note
+        package app/Extension{
+
+            package Auth{}
+            package Hasher{}
+            package Provider{}
+            package Support{
+                package Facades{
+                    class TransactionManager extends Facade{
+                        + getFacadeAccessor(): TransactionManagerInterface
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+node "app" {
+
+    node "presentation層" {
+        package "HTTP" {
+            package "Controllers" {
+            note as ControllerNote
+               エンドポイント事に追加されます。
+               HTTPリクエストの種類数に応じて
+               中身の実装関数を追加していきます。
+               コントローラからはService層のみ
+               をコールする事が理想です。
+               domain層の処理を直接呼ぶ必要がある場合は、
+               その処理を一つのServiceに定義できないか検討ください。
+               イメージとしては、
+               一つのControllerないの一つの関数は
+               エンドポイントであるので
+               Requestが必ず渡されます、
+               そのリクエストからDomainを生成し
+               使用したいServiceの引数に渡し、
+               結果をResourceに詰めてreturnします
+               ※実際のルーティング定義はrouter.phpに記載
+            end note
+                class Controller #line:green;back:lightblue{
+                    エンドポイント
+                    コンストラクタインジェクションにてService層をDI
+                    各関数の引数にRequestをDIします。
+                    - -
+                    - serviceInterface: ServiceInterface
+                    - -
+                    + controllerMethod(Request): Resource
+                }
+            }
+            package "Requests" {
+                note as RequestNote
+                    エンドポイント×Httpリクエストメソッド
+                    の数だけ存在します。
+                    LaravelのFormRequestを継承しているので
+                    連想配列にて全リクエストを処理できますが、
+                    controllerや、Serviceにてリクエストのplain
+                    なデータを操作することを防ぐため、
+                    各Requestクラス内でリクエストパラメータ
+                    をDomainに変換する関数を閉じ込めておくことをお勧めします。
+                    LaravelのValidationを機能させるために
+                    別途Definitionというクラスを用意します。
+                    このDefinitionをRequestに依存させることで、
+                    どのリクエストにはどのようなパラメータ、バリデーションが存在するか
+                    についての見通しをよくします。
+                end note
+                abstract AbstractFormRequest extends FormRequest{
+                    - definition: DefinitionInterface
+                }
+                class Request #line:green;back:lightblue extends AbstractFormRequest {
+                    + toDomainModel(): DomainModel
+                }
+
+                interface DefinitionInterface
+                abstract AbstractRequestDefinition
+                class RequestDefinition #line:green;back:lightblue extends AbstractRequestDefinition implements DefinitionInterface
+            }
+            package "MiddleWare" {
+            note as MiddleWareNote
+                一つのHTTPリクエストが
+                コントローラに到達する前、
+                コントローラによる処理の後
+                どちらにも処理を挟み込むための
+                Laravelの機能です
+                presentation層と扱っていますが
+                基本的なものはそのまま使用しており
+                Laravelのドキュメントから仕様を
+                追うことができます
+
+            end note
+                class Authenticate {
+                    controllerへroutingする前に実施する認証処理を記載します。
+                }
+            }
+            package "Resources" {
+                note as ResourceNote
+                    エンドポイント×Httpリクエストメソッド
+                    の数だけ存在します。
+                    LaravelのJsonResourceを
+                    継承しているので用意にjson
+                    encode、decodeが可能です（この辺りは原則ミドルウェアに任せます）
+                    実装するResourceクラスにはbuildResultなど自身のインスタンスを生成する
+                    関数を用意します。
+                    この関数はcontrollerから呼ばれ、引数にはdomainモデルが渡されることを
+                    期待しています。
+                    別途ResultDefinitionというクラスを用意します。
+                    このResultDefinitionをResourceに依存させ、
+                    buildResultないで、渡されたdomainデータを使いクライアントが望む
+                    viewの構造に生成しなおします。
+                end note
+                abstract AbstractJsonResource extends JsonResource{
+                    - result: ResultDefinitionInterface
+                }
+                class Resource #line:green;back:lightblue extends AbstractJsonResource{
+                    + buildResult(domainModel)::Resource
+                    - (domainModel::DomainModel)
+                }
+                interface ResultDefinitionInterface
+                abstract AbstractResultDefinition
+                class ResultDefinition #line:green;back:lightblue extends AbstractResultDefinition implements ResultDefinitionInterface
+            }
+        }
+    }
+        node "DIコンテナ" {
+            note as DIコンテナNote
+            主な使い方は下記を参考ください
+            https://readouble.com/laravel/8.x/ja/container.html
+            用途によってProviderを分けてはいますが、
+            やっている事の本質は
+            どのクラスもそんなに変わらなく、
+            シンプルにＤＩコンテナとして使用しています。
+            end note
+            package Providers{
+                class AppServiceProvider{
+                    service層の依存関係解決
+                    register()
+                }
+                class DatasourceServiceProvider{
+                    infrastructure層及びdomain層のリポジトリ依存関係解決
+                    register()
+                }
+                class AuthServiceProvider{
+                    認証にまつわる依存関係の解決
+                    boot()
+                }
+            }
+        }
+        node "artisan" {
+                class FlywayCommand{
+                }
+        }
+
+}
+
+package "packages" {
+        note as Package
+           Laravelに極力依存せず
+           ドメイン駆動な開発をする
+           ための構成要素を閉じ込めています。
+           ビジネスロジックの実装において
+           Laravelを意識せず、
+           （PHPっぽさもなるべく排除して）
+           オブジェクト指向にて実装できる
+           ことに重きを置いています
+        end note
+    node "domain層" {
+        package "domain" {
+            note as DomainNote
+               業務知識
+               業務への関心事
+               のみを定義するレイヤー
+            end note
+            package model {
+
+                interface DomainRepository #line:green;back:lightblue
+                class DomainModel #line:green;back:lightblue
+                note as DomainModelNote
+                 業務における概念
+                 を表現します
+                 アプリケーション開発
+                 において最も重要視すべきレイヤです
+                 DB処理等が顕著ですがinfrastructure層の責務と混同
+                 させずに、interfaceのみをこの層に定義します
+                end note
+            }
+            package basic{
+                package mail{
+                    note as BasicMail
+                       メール送信に必要となる
+                       情報群の入れ物オブジェクト
+                    end note
+                    class Address{
+                        - mail: Mail
+                        - personal: string
+                    }
+                    class AddressList
+                    class Content
+                    class Message{
+                        -subject: Subject
+                        -content: Content
+                    }
+                    class Header{
+                        - to: AddressList
+                        - cc: AddressList
+                        - from: Address
+                    }
+                    class Mail
+                    class Subject
+
+                }
+                package type{
+                    note as BasicType
+                       各メインとなるdomainの
+                       メンバ変数が継承
+                       できる基本型を定義します。
+                    end note
+                    interface DateTimeType
+                    interface FileType
+                    interface IntegerType
+                    interface StringType
+                }
+            }
+        }
+    }
+
+    node "service層" {
+        note as ServiceNote
+         実現する機能を定義します。
+         service層からは関連する
+         domain層のみを操作します。
+         infrastructure層や
+         presentation層の操作が
+         必要になる場合の大半は
+         設計に問題があるとみて
+         設計を見直してください。
+        end note
+        package "service" {
+            interface ServiceInterface #line:green;back:lightblue{
+                + serviceMethod(DomainModel)
+            }
+            class ServiceClass #line:green;back:lightblue implements ServiceInterface{
+                - domainRepository: DomainRepository
+            }
+
+            package "helper" {
+                interface TransactionManagerInterface {
+
+                }
+            }
+        }
+    }
+    node "infrastructure層" {
+    note as InfraStructureNote
+             外部技術基盤へデータをexport,importする処理を
+             infrastructure層に閉じ込めます。
+             例えば
+             DB,メール（チャットやSNSなども）送信、外部API通信
+             へ対する処理が該当します
+    end note
+        package "infrastructure" {
+            package "database" {
+                note as InfraStructureDBNote
+                    DBにまつわる実装はこの中に閉じ込めます。
+                    ORM毎にdirを分けるような想定をしています。
+                    laravelですと、Eloquent,Doctrineなどが候補に上がり、
+                    リポジトリパターンに寄り添えるDoctrineをSampleにしています
+                    このUMLではどれを使っても問題ないことを強調するために
+                    ORM~~と表現しています。
+                    ※実際にはこのORMの部分が採用したORMの名前で
+                    実装されることを想定しています。
+                    独自のDaoなどを導入しても良いと思います。
+                end note
+
+                class ORMRepository #line:green;back:lightblue extends AbstractORMRepository implements  DomainRepository
+                abstract AbstractORMRepository
+                class ORMTransactionManager implements TransactionManagerInterface
+            }
+            package "source" {
+
+            }
+            package "transfer" {
+                interface MailTransfer{
+                    + send(request: SMTPSendRequest)
+                }
+                class SMTPTransfer implements MailTransfer{
+                    + send(request: SMTPSendRequest)
+                }
+                class SMTPSendRequest{
+                    - header: Header
+                    - message: Message
+                    - mailable: Mailable
+                }
+            }
+
+        }
+    }
+}
+
+
+database "Docker-RDBMS" #DDDDDD{
+  folder "APL-DB" {
+    note "DBtable群" as Tables
+  }
+  folder "APL-TestDB" {
+    note "TestDBtable群" as TestTables
+  }
+
+}
+node "migration-tool" #DDDDDD{
+   package "flyway" {
+       class FlywayMain {
+       }
+   }
+}
+
+note "APL-Migration" as Migration
+note "APL-TestMigration" as TestMigration
+
+Controller::controllerMethod -[#green,dashed,thickness=4]-> Request
+Controller::controllerMethod -[#green,dashed,thickness=4]-> Resource
+Request::definition -[#green,dashed,thickness=4]-> RequestDefinition
+Resource::buildResult -[#green,dashed,thickness=4]-> DomainModel
+Request::toDomainModel - -> DomainModel: use
+Resource - -> ResultDefinition: use
+AbstractFormRequest::definition -[#green,dashed,thickness=4]-> DefinitionInterface
+AbstractJsonResource::result -[#green,dashed,thickness=4]-> ResultDefinitionInterface
+
+TransactionManager::getFacadeAccessor  -[#green,dashed,thickness=4]-> TransactionManagerInterface
+
+
+
+
+
+AppServiceProvider <-[#blue,plain,thickness=2]- ServiceInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ServiceClass: 対応実装クラス取り込み
+AppServiceProvider <-[#blue,plain,thickness=2]- TransactionManagerInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ORMTransactionManager: 対応実装クラス取り込み
+
+
+DatasourceServiceProvider <-[#blue,plain,thickness=2]- DomainRepository: 依存IF取り込み
+DatasourceServiceProvider <-[#blue,dotted,thickness=4]- ORMRepository: 対応実装クラス取り込み
+
+
+FlywayCommand - -> FlywayMain
+FlywayMain .. Migration
+FlywayMain .. TestMigration
+Migration .. Tables
+TestMigration .. TestTables
+
+Controller::serviceInterface -[#green,dashed,thickness=4]-> ServiceInterface
+ServiceClass::domainRepository -[#green,dashed,thickness=4]-> DomainRepository
+ServiceInterface::serviceMethod -[#green,dashed,thickness=4]-> DomainModel
+ServiceClass- ->TransactionManager: use
+ORMRepository - - Tables
+ORMRepository - - TestTables
+
+ORMTransactionManager - - Tables
+ORMTransactionManager - - TestTables
+
+MailTransfer::send -[#green,dashed,thickness=4]-> SMTPSendRequest
+SMTPTransfer::send -[#red,plain,thickness=3]-> Facades\Mail :メール送信内部ロジックはLaravelにまかせる
+SMTPSendRequest::mailable -[#green,dashed,thickness=4]-> Mailable
+SMTPSendRequest::message -[#green,dashed,thickness=4]-> Message
+SMTPSendRequest::header -[#green,dashed,thickness=4]-> Header
+Address::mail-[#green,dashed,thickness=4]-> Mail
+AddressList-[#green,dashed,thickness=4]-> Address
+Message::content-[#green,dashed,thickness=4]->Content
+Message::subject-[#green,dashed,thickness=4]->Subject
+Header::to-[#green,dashed,thickness=4]->AddressList
+Header::cc-[#green,dashed,thickness=4]->AddressList
+Header::from-[#green,dashed,thickness=4]->Address
+
+
+
+
+@enduml
+
+@startuml
+
+node Laravel #DDDDDD {
+    class FormRequest
+    class JsonResource
+    class Facade
+    class Mailable
+    class Facades\Mail
+    node Extension #FFFFFF {
+        note as LaravelExtension
+           Laravel標準機能を単純に拡張
+           したものをまとめてます。
+           今後も単純にLaravelの機能を
+           拡張する場合このパッケージ内
+           での完結を心がけます。
+        end note
+        package app/Extension{
+
+            package Auth{}
+            package Hasher{}
+            package Provider{}
+            package Support{
+                package Facades{
+                    class TransactionManager extends Facade{
+                        + getFacadeAccessor(): TransactionManagerInterface
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+node "app" {
+
+    node "presentation層" {
+        package "HTTP" {
+            package "Controllers" {
+            note as ControllerNote
+               エンドポイント事に追加されます。
+               HTTPリクエストの種類数に応じて
+               中身の実装関数を追加していきます。
+               コントローラからはService層のみ
+               をコールする事が理想です。
+               domain層の処理を直接呼ぶ必要がある場合は、
+               その処理を一つのServiceに定義できないか検討ください。
+               イメージとしては、
+               一つのControllerないの一つの関数は
+               エンドポイントであるので
+               Requestが必ず渡されます、
+               そのリクエストからDomainを生成し
+               使用したいServiceの引数に渡し、
+               結果をResourceに詰めてreturnします
+               ※実際のルーティング定義はrouter.phpに記載
+            end note
+                class Controller #line:green;back:lightblue{
+                    エンドポイント
+                    コンストラクタインジェクションにてService層をDI
+                    各関数の引数にRequestをDIします。
+                    - -
+                    - serviceInterface: ServiceInterface
+                    - -
+                    + controllerMethod(Request): Resource
+                }
+            }
+            package "Requests" {
+                note as RequestNote
+                    エンドポイント×Httpリクエストメソッド
+                    の数だけ存在します。
+                    LaravelのFormRequestを継承しているので
+                    連想配列にて全リクエストを処理できますが、
+                    controllerや、Serviceにてリクエストのplain
+                    なデータを操作することを防ぐため、
+                    各Requestクラス内でリクエストパラメータ
+                    をDomainに変換する関数を閉じ込めておくことをお勧めします。
+                    LaravelのValidationを機能させるために
+                    別途Definitionというクラスを用意します。
+                    このDefinitionをRequestに依存させることで、
+                    どのリクエストにはどのようなパラメータ、バリデーションが存在するか
+                    についての見通しをよくします。
+                end note
+                abstract AbstractFormRequest extends FormRequest{
+                    - definition: DefinitionInterface
+                }
+                class Request #line:green;back:lightblue extends AbstractFormRequest {
+                    + toDomainModel(): DomainModel
+                }
+
+                interface DefinitionInterface
+                abstract AbstractRequestDefinition
+                class RequestDefinition #line:green;back:lightblue extends AbstractRequestDefinition implements DefinitionInterface
+            }
+            package "MiddleWare" {
+            note as MiddleWareNote
+                一つのHTTPリクエストが
+                コントローラに到達する前、
+                コントローラによる処理の後
+                どちらにも処理を挟み込むための
+                Laravelの機能です
+                presentation層と扱っていますが
+                基本的なものはそのまま使用しており
+                Laravelのドキュメントから仕様を
+                追うことができます
+
+            end note
+                class Authenticate {
+                    controllerへroutingする前に実施する認証処理を記載します。
+                }
+            }
+            package "Resources" {
+                note as ResourceNote
+                    エンドポイント×Httpリクエストメソッド
+                    の数だけ存在します。
+                    LaravelのJsonResourceを
+                    継承しているので用意にjson
+                    encode、decodeが可能です（この辺りは原則ミドルウェアに任せます）
+                    実装するResourceクラスにはbuildResultなど自身のインスタンスを生成する
+                    関数を用意します。
+                    この関数はcontrollerから呼ばれ、引数にはdomainモデルが渡されることを
+                    期待しています。
+                    別途ResultDefinitionというクラスを用意します。
+                    このResultDefinitionをResourceに依存させ、
+                    buildResultないで、渡されたdomainデータを使いクライアントが望む
+                    viewの構造に生成しなおします。
+                end note
+                abstract AbstractJsonResource extends JsonResource{
+                    - result: ResultDefinitionInterface
+                }
+                class Resource #line:green;back:lightblue extends AbstractJsonResource{
+                    + buildResult(domainModel)::Resource
+                    - (domainModel::DomainModel)
+                }
+                interface ResultDefinitionInterface
+                abstract AbstractResultDefinition
+                class ResultDefinition #line:green;back:lightblue extends AbstractResultDefinition implements ResultDefinitionInterface
+            }
+        }
+    }
+        node "DIコンテナ" {
+            note as DIコンテナNote
+            主な使い方は下記を参考ください
+            https://readouble.com/laravel/8.x/ja/container.html
+            用途によってProviderを分けてはいますが、
+            やっている事の本質は
+            どのクラスもそんなに変わらなく、
+            シンプルにＤＩコンテナとして使用しています。
+            end note
+            package Providers{
+                class AppServiceProvider{
+                    service層の依存関係解決
+                    register()
+                }
+                class DatasourceServiceProvider{
+                    infrastructure層及びdomain層のリポジトリ依存関係解決
+                    register()
+                }
+                class AuthServiceProvider{
+                    認証にまつわる依存関係の解決
+                    boot()
+                }
+            }
+        }
+        node "artisan" {
+                class FlywayCommand{
+                }
+        }
+
+}
+
+package "packages" {
+        note as Package
+           Laravelに極力依存せず
+           ドメイン駆動な開発をする
+           ための構成要素を閉じ込めています。
+           ビジネスロジックの実装において
+           Laravelを意識せず、
+           （PHPっぽさもなるべく排除して）
+           オブジェクト指向にて実装できる
+           ことに重きを置いています
+        end note
+    node "domain層" {
+        package "domain" {
+            note as DomainNote
+               業務知識
+               業務への関心事
+               のみを定義するレイヤー
+            end note
+            package model {
+
+                interface DomainRepository #line:green;back:lightblue
+                class DomainModel #line:green;back:lightblue
+                note as DomainModelNote
+                 業務における概念
+                 を表現します
+                 アプリケーション開発
+                 において最も重要視すべきレイヤです
+                 DB処理等が顕著ですがinfrastructure層の責務と混同
+                 させずに、interfaceのみをこの層に定義します
+                end note
+            }
+            package basic{
+                package mail{
+                    note as BasicMail
+                       メール送信に必要となる
+                       情報群の入れ物オブジェクト
+                    end note
+                    class Address{
+                        - mail: Mail
+                        - personal: string
+                    }
+                    class AddressList
+                    class Content
+                    class Message{
+                        -subject: Subject
+                        -content: Content
+                    }
+                    class Header{
+                        - to: AddressList
+                        - cc: AddressList
+                        - from: Address
+                    }
+                    class Mail
+                    class Subject
+
+                }
+                package type{
+                    note as BasicType
+                       各メインとなるdomainの
+                       メンバ変数が継承
+                       できる基本型を定義します。
+                    end note
+                    interface DateTimeType
+                    interface FileType
+                    interface IntegerType
+                    interface StringType
+                }
+            }
+        }
+    }
+
+    node "service層" {
+        note as ServiceNote
+         実現する機能を定義します。
+         service層からは関連する
+         domain層のみを操作します。
+         infrastructure層や
+         presentation層の操作が
+         必要になる場合の大半は
+         設計に問題があるとみて
+         設計を見直してください。
+        end note
+        package "service" {
+            interface ServiceInterface #line:green;back:lightblue{
+                + serviceMethod(DomainModel)
+            }
+            class ServiceClass #line:green;back:lightblue implements ServiceInterface{
+                - domainRepository: DomainRepository
+            }
+
+            package "helper" {
+                interface TransactionManagerInterface {
+
+                }
+            }
+        }
+    }
+    node "infrastructure層" {
+    note as InfraStructureNote
+             外部技術基盤へデータをexport,importする処理を
+             infrastructure層に閉じ込めます。
+             例えば
+             DB,メール（チャットやSNSなども）送信、外部API通信
+             へ対する処理が該当します
+    end note
+        package "infrastructure" {
+            package "database" {
+                note as InfraStructureDBNote
+                    DBにまつわる実装はこの中に閉じ込めます。
+                    ORM毎にdirを分けるような想定をしています。
+                    laravelですと、Eloquent,Doctrineなどが候補に上がり、
+                    リポジトリパターンに寄り添えるDoctrineをSampleにしています
+                    このUMLではどれを使っても問題ないことを強調するために
+                    ORM~~と表現しています。
+                    ※実際にはこのORMの部分が採用したORMの名前で
+                    実装されることを想定しています。
+                    独自のDaoなどを導入しても良いと思います。
+                end note
+
+                class ORMRepository #line:green;back:lightblue extends AbstractORMRepository implements  DomainRepository
+                abstract AbstractORMRepository
+                class ORMTransactionManager implements TransactionManagerInterface
+            }
+            package "source" {
+
+            }
+            package "transfer" {
+                interface MailTransfer{
+                    + send(request: SMTPSendRequest)
+                }
+                class SMTPTransfer implements MailTransfer{
+                    + send(request: SMTPSendRequest)
+                }
+                class SMTPSendRequest{
+                    - header: Header
+                    - message: Message
+                    - mailable: Mailable
+                }
+            }
+
+        }
+    }
+}
+
+
+database "Docker-RDBMS" #DDDDDD{
+  folder "APL-DB" {
+    note "DBtable群" as Tables
+  }
+  folder "APL-TestDB" {
+    note "TestDBtable群" as TestTables
+  }
+
+}
+node "migration-tool" #DDDDDD{
+   package "flyway" {
+       class FlywayMain {
+       }
+   }
+}
+
+note "APL-Migration" as Migration
+note "APL-TestMigration" as TestMigration
+
+Controller::controllerMethod -[#green,dashed,thickness=4]-> Request
+Controller::controllerMethod -[#green,dashed,thickness=4]-> Resource
+Request::definition -[#green,dashed,thickness=4]-> RequestDefinition
+Resource::buildResult -[#green,dashed,thickness=4]-> DomainModel
+Request::toDomainModel - -> DomainModel: use
+Resource - -> ResultDefinition: use
+AbstractFormRequest::definition -[#green,dashed,thickness=4]-> DefinitionInterface
+AbstractJsonResource::result -[#green,dashed,thickness=4]-> ResultDefinitionInterface
+
+TransactionManager::getFacadeAccessor  -[#green,dashed,thickness=4]-> TransactionManagerInterface
+
+
+
+
+
+AppServiceProvider <-[#blue,plain,thickness=2]- ServiceInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ServiceClass: 対応実装クラス取り込み
+AppServiceProvider <-[#blue,plain,thickness=2]- TransactionManagerInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ORMTransactionManager: 対応実装クラス取り込み
+
+
+DatasourceServiceProvider <-[#blue,plain,thickness=2]- DomainRepository: 依存IF取り込み
+DatasourceServiceProvider <-[#blue,dotted,thickness=4]- ORMRepository: 対応実装クラス取り込み
+
+
+FlywayCommand - -> FlywayMain
+FlywayMain .. Migration
+FlywayMain .. TestMigration
+Migration .. Tables
+TestMigration .. TestTables
+
+Controller::serviceInterface -[#green,dashed,thickness=4]-> ServiceInterface
+ServiceClass::domainRepository -[#green,dashed,thickness=4]-> DomainRepository
+ServiceInterface::serviceMethod -[#green,dashed,thickness=4]-> DomainModel
+ServiceClass- ->TransactionManager: use
+ORMRepository - - Tables
+ORMRepository - - TestTables
+
+ORMTransactionManager - - Tables
+ORMTransactionManager - - TestTables
+
+MailTransfer::send -[#green,dashed,thickness=4]-> SMTPSendRequest
+SMTPTransfer::send -[#red,plain,thickness=3]-> Facades\Mail :メール送信内部ロジックはLaravelにまかせる
+SMTPSendRequest::mailable -[#green,dashed,thickness=4]-> Mailable
+SMTPSendRequest::message -[#green,dashed,thickness=4]-> Message
+SMTPSendRequest::header -[#green,dashed,thickness=4]-> Header
+Address::mail-[#green,dashed,thickness=4]-> Mail
+AddressList-[#green,dashed,thickness=4]-> Address
+Message::content-[#green,dashed,thickness=4]->Content
+Message::subject-[#green,dashed,thickness=4]->Subject
+Header::to-[#green,dashed,thickness=4]->AddressList
+Header::cc-[#green,dashed,thickness=4]->AddressList
+Header::from-[#green,dashed,thickness=4]->Address
+
+
+
+
+@enduml
+
+PlantUML version 1.2021.15(Wed Dec 01 01:45:34 JST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

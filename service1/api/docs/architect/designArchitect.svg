@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1098px" preserveAspectRatio="none" style="width:612px;height:1098px;background:#FFFFFF;" version="1.1" viewBox="0 0 612 1098" width="612px" zoomAndPan="magnify"><defs><filter height="300%" id="f1vf4ebvhgd0g4" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="144" x="227.5" y="18.6855">サーバ側デザイン</text><!--MD5=[e1439b5c646806b64086be67464dad55]
+cluster APIサーバ--><polygon fill="#FFFFFF" filter="url(#f1vf4ebvhgd0g4)" points="21,167.1406,31,157.1406,595,157.1406,595,921.1406,585,931.1406,21,931.1406,21,167.1406" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="585" x2="595" y1="167.1406" y2="157.1406"/><line style="stroke:#000000;stroke-width:1.5;" x1="21" x2="585" y1="167.1406" y2="167.1406"/><line style="stroke:#000000;stroke-width:1.5;" x1="585" x2="585" y1="167.1406" y2="931.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="64" x="272" y="184.6738">APIサーバ</text><!--MD5=[3dcf69e4e87a10af00fce8354034ba4c]
+cluster presentation--><polygon fill="#FFFFFF" filter="url(#f1vf4ebvhgd0g4)" points="127,206.1406,373,206.1406,380,229.75,511,229.75,511,442.1406,127,442.1406,127,206.1406" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="127" x2="380" y1="229.75" y2="229.75"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="240" x="131" y="222.6738">presentation(プレゼンテーション層)</text><!--MD5=[3ff016c1aa5003d713567a073e2181a6]
+cluster application--><polygon fill="#FFFFFF" filter="url(#f1vf4ebvhgd0g4)" points="201,492.1406,420,492.1406,427,515.75,430,515.75,430,597.1406,201,597.1406,201,492.1406" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="201" x2="427" y1="515.75" y2="515.75"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="213" x="205" y="508.6738">application(アプリケーション層)</text><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><polygon fill="#FFFFFF" filter="url(#f1vf4ebvhgd0g4)" points="45,647.1406,182,647.1406,189,670.75,571,670.75,571,752.1406,45,752.1406,45,647.1406" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="45" x2="189" y1="670.75" y2="670.75"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="131" x="49" y="663.6738">domain(ドメイン層)</text><!--MD5=[77349be1bd27b81b697a0f9b3aded3c8]
+cluster infrastructure--><polygon fill="#FFFFFF" filter="url(#f1vf4ebvhgd0g4)" points="129,802.1406,396,802.1406,403,825.75,406,825.75,406,907.1406,129,907.1406,129,802.1406" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="129" x2="403" y1="825.75" y2="825.75"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="261" x="133" y="818.6738">infrastructure(インフラストラクチャ層)</text><!--MD5=[9b0b6e8bf31ce9056972addfab970dfd]
+cluster DB/MailServer/外部技術基盤--><polygon fill="#FFFFFF" filter="url(#f1vf4ebvhgd0g4)" points="16,991.1406,26,981.1406,453,981.1406,453,1081.1406,443,1091.1406,16,1091.1406,16,991.1406" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="443" x2="453" y1="991.1406" y2="981.1406"/><line style="stroke:#000000;stroke-width:1.5;" x1="16" x2="443" y1="991.1406" y2="991.1406"/><line style="stroke:#000000;stroke-width:1.5;" x1="443" x2="443" y1="991.1406" y2="1091.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="189" x="136" y="1008.6738">DB/MailServer/外部技術基盤</text><!--MD5=[f855680bc6c989572ebb25245d27968d]
+entity Controller--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="82" x="274" y="373.1406"/><image height="16" width="16" x="307.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="383.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="284" y="412.6738">Controller</text><!--MD5=[df3e39cca9e639b032bcb56e6238e548]
+entity Request--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="73" x="143.5" y="373.1406"/><image height="16" width="16" x="172.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="383.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53" x="153.5" y="412.6738">Request</text><!--MD5=[043ccd64d0f175904b4cedf0b9b5700a]
+entity Resource--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="81" x="413.5" y="373.1406"/><image height="16" width="16" x="446.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="383.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="423.5" y="412.6738">Resource</text><!--MD5=[2ca3b03fd5f82974a9fd563ad909d1c0]
+entity MiddleWare--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="95" x="267.5" y="242.1406"/><image height="16" width="16" x="307.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAKklEQVR4XmNgGEzgPxkYBfz//38r0Zg2BpCBUQCGLfjwqAGD1gAy8CAAADcEpq3bMvB9AAAAAElFTkSuQmCC" y="252.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="277.5" y="281.6738">MiddleWare</text><!--MD5=[17737e49c286898813382e12d6080e03]
+entity Service--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="67" x="281.5" y="528.1406"/><image height="16" width="16" x="307.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="538.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47" x="291.5" y="567.6738">Service</text><!--MD5=[011f23f7f1bed0f9bae3b452416523b4]
+entity DomainModel--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="106" x="262" y="683.1406"/><image height="16" width="16" x="307.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="693.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="272" y="722.6738">DomainModel</text><!--MD5=[0fd09b7f91dd2684177f4ed3907194a9]
+entity RepositoryInterface--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="143" x="61.5" y="683.1406"/><image height="16" width="16" x="125.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="693.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123" x="71.5" y="722.6738">RepositoryInterface</text><!--MD5=[7fc89c1af187c3ce02202e8757e3d9d6]
+entity TransferInterface--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="129" x="425.5" y="683.1406"/><image height="16" width="16" x="482.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="693.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109" x="435.5" y="722.6738">TransferInterface</text><!--MD5=[4e260e4024c27e03c495c33059d2b5ff]
+entity Repository--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="88" x="169" y="838.1406"/><image height="16" width="16" x="205.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="848.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="179" y="877.6738">Repository</text><!--MD5=[4156da6071bf92001fefd15cc451a321]
+entity Transfer--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="74" x="292" y="838.1406"/><image height="16" width="16" x="321.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="848.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="302" y="877.6738">Transfer</text><!--MD5=[f9ba5bf973e7832d2ce5ed59077b93f7]
+entity DB--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="39" x="32.5" y="1022.1406"/><image height="16" width="16" x="44.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="1032.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="19" x="42.5" y="1061.6738">DB</text><!--MD5=[d6e75f2a2d9b7b2a48fe909117c6250f]
+entity Mail--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="45" x="306.5" y="1022.1406"/><image height="16" width="16" x="321.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="1032.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="25" x="316.5" y="1061.6738">Mail</text><!--MD5=[8e1cdbe6992de2efd24a2fd0f81317b2]
+entity Chat--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="50" x="387" y="1022.1406"/><image height="16" width="16" x="404.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="1032.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30" x="397" y="1061.6738">Chat</text><!--MD5=[ce89ad26a5fee78cbe31c10ed8ea57a5]
+entity WebAPI--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="70" x="107" y="1022.1406"/><image height="16" width="16" x="134.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="1032.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="117" y="1061.6738">WebAPI</text><!--MD5=[053ae1fda7ec250fd0c0bc55f8b273f4]
+entity FileSv--><rect fill="#FFFFCC" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="59" x="212.5" y="1022.1406"/><image height="16" width="16" x="234.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="1032.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="222.5" y="1061.6738">FileSv</text><!--MD5=[dcdbfd077e02e4cf4f5f3db90961366d]
+entity ユーザー--><ellipse cx="119" cy="36.6406" fill="#FEFECE" filter="url(#f1vf4ebvhgd0g4)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M119,44.6406 L119,71.6406 M106,52.6406 L132,52.6406 M119,71.6406 L106,86.6406 M119,71.6406 L132,86.6406 " fill="none" filter="url(#f1vf4ebvhgd0g4)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="91" y="106.6738">ユーザー</text><!--MD5=[0ba5ee7700168656dc1b457c6fe9fdac]
+entity Client--><rect fill="#FEFECE" filter="url(#f1vf4ebvhgd0g4)" height="52.6094" style="stroke:#000000;stroke-width:1.5;" width="133" x="248.5" y="42.1406"/><image height="16" width="16" x="307.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATklEQVR4Xs2RsQ0AIAjA+P9o46KD0iqJi01YSh0MEb/RioPoAsAWpYAtSgFblAK2KAVsUQrYohS0nXe+jXJcDrTRBZDaJAosb/Y/VuedDqytNZXIcSA4AAAAAElFTkSuQmCC" y="52.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="258.5" y="81.6738">Webクライアント</text><!--MD5=[3721e1d8e4198d5a682a8144b4b1071e]
+link ユーザー to Client--><path d="M147.06,83.9306 C152.61,86.2906 158.5,88.3706 164.25,89.6406 C189.77,95.2706 218.07,93.4206 243.2,89.0206 " fill="none" id="ユーザー-to-Client" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="248.18,88.1106,238.6067,85.7974,243.2618,89.0113,240.0478,93.6665,248.18,88.1106" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="65" x="165.25" y="86.1357">リクエスト</text><!--MD5=[2dc888a8647e0dfb2ecb28045652dc81]
+reverse link ユーザー to Client--><path d="M152.18,68.6406 C178.47,68.6406 216.04,68.6406 248.46,68.6406 " fill="none" id="ユーザー-backto-Client" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="147.08,68.6406,156.08,72.6406,152.08,68.6406,156.08,64.6406,147.08,68.6406" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="65" x="165.25" y="62.1357">レスポンス</text><!--MD5=[2dfb7745bfd62b0d827e3809c187d91d]
+link Client to MiddleWare--><path d="M306.06,95.5306 C301.18,131.9406 300.99,198.1806 305.47,237.0006 " fill="none" id="Client-to-MiddleWare" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="306.1,242.0606,308.9361,232.6289,305.471,237.1003,300.9996,233.6353,306.1,242.0606" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[335275dd2cde9ce7856f4403cc78243b]
+reverse link Client to MiddleWare--><path d="M325.13,100.6106 C329.85,139.5806 329.61,205.8106 324.42,242.0606 " fill="none" id="Client-backto-MiddleWare" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="324.46,95.5306,321.6507,104.9703,325.103,100.4891,329.5842,103.9415,324.46,95.5306" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[776c46205a31a4f88ee97280ac3d56d5]
+link MiddleWare to Controller--><path d="M295.21,295.3406 C289.46,304.2806 283.94,314.7006 281,325.1406 C276.82,339.9706 282.45,355.5806 290.26,368.5706 " fill="none" id="MiddleWare-to-Controller" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="292.98,372.8806,291.5548,363.1354,290.3095,368.6535,284.7914,367.4082,292.98,372.8806" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="282" y="339.6357">call</text><!--MD5=[b768728a5422e8f2284d52c54995468e]
+reverse link MiddleWare to Controller--><path d="M315,300.6006 C315,322.7006 315,352.0706 315,372.8906 " fill="none" id="MiddleWare-backto-Controller" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="315,295.4406,311.0257,304.452,315.0143,300.4406,319.0257,304.4292,315,295.4406" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="28" x="316" y="339.6357">back</text><!--MD5=[3347160e7b71c91f923b2718736ed230]
+reverse link Request to Controller--><path d="M221.59,399.6406 C238.14,399.6406 257.14,399.6406 273.67,399.6406 " fill="none" id="Request-backto-Controller" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="216.53,399.6406,225.53,403.6406,221.53,399.6406,225.53,395.6406,216.53,399.6406" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="234.75" y="393.1357">use</text><!--MD5=[18255b72a3be02e68b1587e73f46243a]
+link Controller to Resource--><path d="M356.33,399.6406 C372.57,399.6406 391.29,399.6406 407.97,399.6406 " fill="none" id="Controller-to-Resource" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="413.07,399.6406,404.07,395.6406,408.07,399.6406,404.07,403.6406,413.07,399.6406" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="374.25" y="393.1357">use</text><!--MD5=[6ee88e067ac5b020ca91296d15764b13]
+link Controller to Service--><path d="M315,426.2506 C315,452.8406 315,494.4406 315,522.8106 " fill="none" id="Controller-to-Service" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="315,527.9506,319,518.9506,315,522.9506,311,518.9506,315,527.9506" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="316" y="472.6357">use</text><!--MD5=[6ad0782e4a7e681493d45c7b346cd223]
+link Service to DomainModel--><path d="M315,581.2506 C315,607.8406 315,649.4406 315,677.8106 " fill="none" id="Service-to-DomainModel" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="315,682.9506,319,673.9506,315,677.9506,311,673.9506,315,682.9506" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="316" y="627.6357">use</text><!--MD5=[f14e000ed6d76a41aac105cc393c44d3]
+link Service to RepositoryInterface--><path d="M284.54,581.2506 C252.25,608.3906 201.37,651.1706 167.59,679.5606 " fill="none" id="Service-to-RepositoryInterface" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="163.56,682.9506,173.0189,680.2065,167.3823,679.7273,167.8616,674.0908,163.56,682.9506" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="247" y="627.6357">use</text><!--MD5=[f230982a4235c05fbaa4b7160088acd7]
+link Service to TransferInterface--><path d="M344.29,581.2506 C375.33,608.3906 424.26,651.1706 456.74,679.5606 " fill="none" id="Service-to-TransferInterface" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="460.61,682.9506,456.4684,674.0149,456.8462,679.6591,451.202,680.0369,460.61,682.9506" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="398" y="627.6357">use</text><!--MD5=[4d0cedadda595a6e8b0b750475e0c9cb]
+link RepositoryInterface to Repository--><path d="M146.39,736.2506 C160.41,763.0606 182.4,805.1306 197.25,833.5106 " fill="none" id="RepositoryInterface-to-Repository" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="199.57,837.9506,198.9467,828.1215,197.2542,833.5192,191.8565,831.8267,199.57,837.9506" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="12" x="172" y="782.6357">DI</text><!--MD5=[518fbbde14ffe61a0df32f0cfbfa2072]
+link RepositoryInterface to DomainModel--><path d="M204.67,709.6406 C221.98,709.6406 240.26,709.6406 256.87,709.6406 " fill="none" id="RepositoryInterface-to-DomainModel" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="261.96,709.6406,252.96,705.6406,256.96,709.6406,252.96,713.6406,261.96,709.6406" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="222.75" y="703.1357">use</text><!--MD5=[65657f00667668486d58176cc4fff2d7]
+reverse link DomainModel to Repository--><path d="M294.97,740.6806 C276.07,769.0406 248.02,811.1106 230.13,837.9506 " fill="none" id="DomainModel-backto-Repository" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="297.93,736.2506,289.6095,741.5203,295.1565,740.4109,296.2659,745.9579,297.93,736.2506" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="278" y="782.6357">use</text><!--MD5=[3a47e7d28797ea190da5f3d4ddc4e298]
+link Repository to DB--><path d="M176.43,891.1506 C149.71,911.1606 113.94,940.9206 89,973.1406 C78.68,986.4806 70.07,1003.1506 63.76,1017.3406 " fill="none" id="Repository-to-DB" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="61.71,1022.0506,68.982,1015.4085,63.7141,1017.4698,61.6527,1012.2019,61.71,1022.0506" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="111" y="961.6357">use</text><!--MD5=[6dc3d1a87a27d521e2f601864bc406bf]
+link Repository to WebAPI--><path d="M202.98,891.3306 C190.08,924.3906 167.7,981.7606 153.94,1017.0406 " fill="none" id="Repository-to-WebAPI" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="151.97,1022.0806,158.9641,1015.1465,153.785,1017.4217,151.5098,1012.2425,151.97,1022.0806" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="181" y="961.6357">use</text><!--MD5=[8603f0937081a17f854a5ef902604f7a]
+link Repository to FileSv--><path d="M217.09,891.3306 C222.36,924.3906 231.5,981.7606 237.12,1017.0406 " fill="none" id="Repository-to-FileSv" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="237.93,1022.0806,240.4675,1012.5643,237.1451,1017.1426,232.5667,1013.8202,237.93,1022.0806" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="230" y="961.6357">use</text><!--MD5=[40f016c36aef0bc02924ebd3f7aafe09]
+link TransferInterface to Transfer--><path d="M463.05,736.2506 C434.61,763.2806 389.84,805.8206 359.97,834.2106 " fill="none" id="TransferInterface-to-Transfer" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="356.04,837.9506,365.3152,834.6385,359.66,834.5016,359.7968,828.8464,356.04,837.9506" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="12" x="429" y="782.6357">DI</text><!--MD5=[401cea34ace0e9367f6cedd5fb54f4b5]
+reverse link DomainModel to TransferInterface--><path d="M373.57,709.6406 C390.24,709.6406 408.47,709.6406 425.47,709.6406 " fill="none" id="DomainModel-backto-TransferInterface" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="368.46,709.6406,377.46,713.6406,373.46,709.6406,377.46,705.6406,368.46,709.6406" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="386.25" y="703.1357">use</text><!--MD5=[4f84f51a02c9be9e2940a4e820b77526]
+reverse link DomainModel to Transfer--><path d="M317.81,741.3806 C320.41,769.7306 324.21,811.3306 326.65,837.9506 " fill="none" id="DomainModel-backto-Transfer" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="317.34,736.2506,314.1809,745.5791,317.7978,741.2296,322.1473,744.8465,317.34,736.2506" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="322" y="782.6357">use</text><!--MD5=[bb90b182a48ca3163c88355ae1a8a045]
+link Transfer to Mail--><path d="M329,891.3306 C329,924.3906 329,981.7606 329,1017.0406 " fill="none" id="Transfer-to-Mail" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="329,1022.0806,333,1013.0806,329,1017.0806,325,1013.0806,329,1022.0806" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="330" y="961.6357">use</text><!--MD5=[5bf5ea274ab5758dddbdac68c630e5d7]
+link Transfer to Chat--><path d="M340.72,891.3306 C355.85,924.5306 382.17,982.2306 398.24,1017.4706 " fill="none" id="Transfer-to-Chat" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="400.34,1022.0806,400.2456,1012.2322,398.2656,1017.5312,392.9666,1015.5513,400.34,1022.0806" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="21" x="373" y="961.6357">use</text><!--MD5=[36a86a50247c4a87499cfe70591c5585]
+@startuml
+title サーバ側デザイン
+skinparam rectangle<<classRectangle>> {
+	roundCorner 25
+}
+sprite $bObject jar:archimate/business-object
+!define User actor
+
+User ユーザー
+archimate  "Webクライアント" as Client <<device>>
+
+node APIサーバ{
+    package presentation(プレゼンテーション層) as presentation{
+        rectangle "MiddleWare" <<$bObject>><<classRectangle>> #Business{
+        }
+        rectangle "Controller" <<$bObject>><<classRectangle>> #Business
+        rectangle "Request" <<$bObject>><<classRectangle>> #Business
+        rectangle "Resource" <<$bObject>><<classRectangle>> #Business
+
+    }
+    package application(アプリケーション層) as application{
+        rectangle "Service" <<$bObject>><<classRectangle>> #Business
+    }
+    package domain(ドメイン層) as domain{
+        rectangle "DomainModel" <<$bObject>><<classRectangle>> #Business
+        rectangle "RepositoryInterface" <<$bObject>><<classRectangle>> #Business
+        rectangle "TransferInterface" <<$bObject>><<classRectangle>> #Business
+    }
+    package infrastructure(インフラストラクチャ層) as infrastructure{
+        rectangle "Repository" <<$bObject>><<classRectangle>> #Business
+        rectangle "Transfer" <<$bObject>><<classRectangle>> #Business
+    }
+}
+node DB/MailServer/外部技術基盤{
+
+    rectangle "DB" <<$bObject>><<classRectangle>> #Business
+    rectangle "Mail" <<$bObject>><<classRectangle>> #Business
+    rectangle "Chat" <<$bObject>><<classRectangle>> #Business
+    rectangle "WebAPI" <<$bObject>><<classRectangle>> #Business
+    rectangle "FileSv" <<$bObject>><<classRectangle>> #Business
+}
+
+ユーザー -right-> Client: リクエスト
+Client -left-> ユーザー:レスポンス
+Client-down->MiddleWare
+MiddleWare-up->Client
+
+MiddleWare-down->Controller:call
+Controller-up->MiddleWare:back
+Controller-left->Request: use
+Controller-right->Resource:use
+Controller-down->Service:use
+Service-down->DomainModel:use
+Service-down->RepositoryInterface:use
+Service-down->TransferInterface:use
+RepositoryInterface-down->Repository:DI
+RepositoryInterface-right->DomainModel:use
+Repository .up.> DomainModel:use
+Repository-down->DB:use
+Repository-down->WebAPI:use
+Repository-down->FileSv:use
+TransferInterface-down->Transfer:DI
+TransferInterface-left->DomainModel:use
+Transfer .up.>DomainModel:use
+Transfer-down->Mail:use
+Transfer-down->Chat:use
+
+@enduml
+
+@startuml
+title サーバ側デザイン
+skinparam rectangle<<classRectangle>> {
+	roundCorner 25
+}
+sprite $bObject jar:archimate/business-object
+
+actor ユーザー
+archimate  "Webクライアント" as Client <<device>>
+
+node APIサーバ{
+    package presentation(プレゼンテーション層) as presentation{
+        rectangle "MiddleWare" <<$bObject>><<classRectangle>> #Business{
+        }
+        rectangle "Controller" <<$bObject>><<classRectangle>> #Business
+        rectangle "Request" <<$bObject>><<classRectangle>> #Business
+        rectangle "Resource" <<$bObject>><<classRectangle>> #Business
+
+    }
+    package application(アプリケーション層) as application{
+        rectangle "Service" <<$bObject>><<classRectangle>> #Business
+    }
+    package domain(ドメイン層) as domain{
+        rectangle "DomainModel" <<$bObject>><<classRectangle>> #Business
+        rectangle "RepositoryInterface" <<$bObject>><<classRectangle>> #Business
+        rectangle "TransferInterface" <<$bObject>><<classRectangle>> #Business
+    }
+    package infrastructure(インフラストラクチャ層) as infrastructure{
+        rectangle "Repository" <<$bObject>><<classRectangle>> #Business
+        rectangle "Transfer" <<$bObject>><<classRectangle>> #Business
+    }
+}
+node DB/MailServer/外部技術基盤{
+
+    rectangle "DB" <<$bObject>><<classRectangle>> #Business
+    rectangle "Mail" <<$bObject>><<classRectangle>> #Business
+    rectangle "Chat" <<$bObject>><<classRectangle>> #Business
+    rectangle "WebAPI" <<$bObject>><<classRectangle>> #Business
+    rectangle "FileSv" <<$bObject>><<classRectangle>> #Business
+}
+
+ユーザー -right-> Client: リクエスト
+Client -left-> ユーザー:レスポンス
+Client-down->MiddleWare
+MiddleWare-up->Client
+
+MiddleWare-down->Controller:call
+Controller-up->MiddleWare:back
+Controller-left->Request: use
+Controller-right->Resource:use
+Controller-down->Service:use
+Service-down->DomainModel:use
+Service-down->RepositoryInterface:use
+Service-down->TransferInterface:use
+RepositoryInterface-down->Repository:DI
+RepositoryInterface-right->DomainModel:use
+Repository .up.> DomainModel:use
+Repository-down->DB:use
+Repository-down->WebAPI:use
+Repository-down->FileSv:use
+TransferInterface-down->Transfer:DI
+TransferInterface-left->DomainModel:use
+Transfer .up.>DomainModel:use
+Transfer-down->Mail:use
+Transfer-down->Chat:use
+
+@enduml
+
+PlantUML version 1.2021.15(Wed Dec 01 01:45:34 JST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>
