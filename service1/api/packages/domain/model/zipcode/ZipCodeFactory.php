@@ -44,7 +44,6 @@ class ZipCodeFactory
     protected array  $regexDeprecatedPatternCollection = array("/抜海村バッカイ/u");
 
     // 町域（カナ）の分割パターン
-    protected int $ptnNotApplicable     = 0;
     protected int $ptnMainSub           = 1;
     protected int $ptnMultiMain         = 2;
     protected int $ptnSerialMain        = 3;
@@ -69,7 +68,7 @@ class ZipCodeFactory
     protected int $idxIsMultiTownByOnePostCode = 12;
     protected int $idxUpdated                  = 13;
     protected int $idxUpdateReason             = 14;
-    //row[8]=町域名称,row[5]=町域名称カナ
+
     public function create($row): ZipCode
     {
         return  new ZipCode(
@@ -465,7 +464,7 @@ class ZipCodeFactory
      */
     private function hasHalfSizeNum(string $str): bool
     {
-        return (bool)preg_match("/[0-9]+/u", $str);
+        return (bool)preg_match($this->regexNumberHalf, $str);
     }
 
     /**
@@ -843,7 +842,7 @@ class ZipCodeFactory
         if($this->isMainSub($townArea)) {
             return $this->ptnMainSub;
         }
-        // 2つの主パターン
+        // 複数の主パターン
         if($this->isMultiMain($townArea)) {
             return $this->ptnMultiMain;
         }
@@ -959,7 +958,7 @@ class ZipCodeFactory
             //カッコ内の、最後を除いた要素が数字以外ならこのパターンに該当しない
             foreach($units as $remainElement) {
                 $isRemainNumOnly = !(bool)preg_match(
-                    "/[^０-９]+/u",
+                    $this->regexNotNumber,
                     $remainElement
                 );
             }
