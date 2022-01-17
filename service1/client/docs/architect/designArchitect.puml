@@ -1,0 +1,58 @@
+@startuml
+
+note "Atomic Designを模した共通パーツ" as comment2
+package components {
+}
+components .. comment2
+
+note "バックエンドとの連携" as comment4
+package infrastructure {
+}
+infrastructure .. comment4
+
+note "vuex store" as comment5
+package stores {
+}
+stores .. comment5
+
+note "型の定義" as comment6
+package types {
+}
+types .. comment6
+
+note "バリデーション" as comment7
+package validator {
+}
+validator .. comment7
+
+note "各ページに対応したテンプレート" as comment8
+package views {
+}
+views .. comment8
+
+package client {
+    note "scss, imageなどの静的リソース" as comment1
+    package assets {
+    }
+    assets .. comment1
+
+    note "globalなフィルター" as comment3
+    package filter {
+    }
+    filter .. comment3
+}
+
+views ..> components : use
+views ..> infrastructure : use
+components ..> infrastructure : use
+views ..> validator : use
+views ..> stores : use
+stores ..> infrastructure : use
+
+views ..> types : use
+components ..> types : use
+stores ..> types : use
+validator ..> types : use
+infrastructure ..> types : use
+
+@enduml

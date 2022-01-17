@@ -171,7 +171,7 @@ Laravelはそのまま使うとValidationエラーのメッセージに英語を
 
 
 
-#SwaggerとSwagger対応コマンドについて。
+# SwaggerとSwagger対応コマンドについて。
     ./vendor/bin/sail artisan make:swagger-codegen {--tag=} {--force}
 を実行すると、
     resources\swagger\api.json
@@ -181,3 +181,4 @@ Laravelはそのまま使うとValidationエラーのメッセージに英語を
     Request
     Result
 を自動で生成します
+
