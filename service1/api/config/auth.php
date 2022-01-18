@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'api',
-        'passwords' => 'users',
+        //'passwords' => 'users',
     ],
 
     /*
@@ -36,10 +36,10 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        /*'web' => [
             'driver' => 'session',
             'provider' => 'users',
-        ],
+        ],*/
         'api' => [
             'driver' => 'jwt-custom',
             'provider' => 'doctrine-custom',
@@ -75,7 +75,7 @@ return [
 
         'doctrine-custom' => [
             'driver' => 'doctrine-custom', // laravel-doctrineが提供しているUserProvider
-            'model' => packages\Domain\Model\Authentication\Account::class, // 変更
+            'model' => packages\domain\model\authentication\Account::class, // 変更
         ],
     ],
 
@@ -93,7 +93,7 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
-
+    /*
     'passwords' => [
         'users' => [
             'provider' => 'users',
@@ -101,7 +101,7 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-    ],
+    ],*/
 
     /*
     |--------------------------------------------------------------------------
@@ -114,6 +114,6 @@ return [
     |
     */
 
-    'password_timeout' => 10800,
+    //'password_timeout' => 10800,
 
 ];

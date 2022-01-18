@@ -10,15 +10,15 @@
       </div>
       <h1>ログインサンプル</h1>
       <label>
-        ログインID入力
+        ログインID
         <input id="accessId"
-               type="tel"
-               inputmode="tel"
+               type="text"
+               inputmode="text"
                class="accessId"
                placeholder="00000"
                maxlength="7"
                v-model="request.accessId"
-               @input="validate()"/>
+               />
       </label>
       <label>
         パスワードを入力してください
@@ -26,7 +26,7 @@
       </label>
       <button id="signInButton" @click="signIn()">ログイン</button>
     </div>
-    <SignGuideLine/>
+    
     <SignInAlertModal name="InformationAlertModal"
                 title="お知らせ"
                 @done="toMypage()">
@@ -88,7 +88,6 @@
 
       await tokenModule.authenticate(this.request)
         .then(async (response: any) => {
-          await this.getInformation();
           await this.getAccount();
           this.openAlertModal();
         })
@@ -115,14 +114,14 @@
 
 
     openAlertModal(): void {
-      if (this.hasInformation || this.hasContact) {
-        this.$modal.show('InformationAlertModal');
-      }
+      //if (this.hasInformation || this.hasContact) {
+      //  this.$modal.show('InformationAlertModal');
+      //}
     }
 
     async toMypage(): Promise<void> {
       await this.getAccount();
-      //this.$router.push({name: 'mypage'});
+      this.$router.push({name: 'mypage'});
     }
 
     validate(): void {

@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-SERVICE=`basename $0`
-SERVICE_PATH="$SERVICE/api/"
-cd $SERVICE_PATH
-./vendor/bin/sail $@

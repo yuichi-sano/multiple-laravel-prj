@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Providers;
-use packages\Domain\Model\User\User;
-use packages\Infrastructure\Database\Doctrine as DoctrineRepos;
-use packages\Infrastructure\Database as DatabaseRepos;
 use Illuminate\Support\ServiceProvider;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,16 +20,36 @@ class AppServiceProvider extends ServiceProvider
     private function registerForInMemory(){
 
         $this->app->bind(
-            \packages\Service\UserGetInterface::class,
-            \packages\Service\UserGetService::class
+            \packages\service\UserGetInterface::class,
+            \packages\service\UserGetService::class
+        );
+        $this->app->bind(
+            \packages\service\merchant\MerchantGetInterface::class,
+            \packages\service\merchant\MerchantGetService::class
+        );
+        $this->app->bind(
+            \packages\service\authentication\AccessTokenGetInterface::class,
+            \packages\service\authentication\AccessTokenGetService::class
+        );
+        $this->app->bind(
+            \packages\service\authentication\RefreshTokenUpdateInterface::class,
+            \packages\service\authentication\RefreshTokenUpdateService::class
+        );
+        $this->app->bind(
+            \packages\service\authentication\AccountAuthenticationInterface::class,
+            \packages\service\authentication\AccountAuthenticationService::class
+        );
+        $this->app->singleton(
+            \packages\service\helper\TransactionManagerInterface::class,
+            \packages\infrastructure\database\doctrine\DoctrineTransactionManager::class
         );
 
     }
     private function registerForMock(){
 
         $this->app->bind(
-            \packages\Service\UserGetInterface::class,
-            \packages\Service\TestUserGetService::class
+            \packages\service\MerchantGetInterface::class,
+            \packages\service\TestUserGetService::class
         );
 
     }

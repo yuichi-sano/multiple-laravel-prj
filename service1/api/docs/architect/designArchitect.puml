@@ -1,0 +1,68 @@
+@startuml
+title サーバ側デザイン
+skinparam rectangle<<classRectangle>> {
+	roundCorner 25
+}
+sprite $bObject jar:archimate/business-object
+!define User actor
+
+User ユーザー
+archimate  "Webクライアント" as Client <<device>>
+
+node APIサーバ{
+    package presentation(プレゼンテーション層) as presentation{
+        rectangle "MiddleWare" <<$bObject>><<classRectangle>> #Business{
+        }
+        rectangle "Controller" <<$bObject>><<classRectangle>> #Business
+        rectangle "Request" <<$bObject>><<classRectangle>> #Business
+        rectangle "Resource" <<$bObject>><<classRectangle>> #Business
+
+    }
+    package application(アプリケーション層) as application{
+        rectangle "Service" <<$bObject>><<classRectangle>> #Business
+    }
+    package domain(ドメイン層) as domain{
+        rectangle "DomainModel" <<$bObject>><<classRectangle>> #Business
+        rectangle "RepositoryInterface" <<$bObject>><<classRectangle>> #Business
+        rectangle "TransferInterface" <<$bObject>><<classRectangle>> #Business
+    }
+    package infrastructure(インフラストラクチャ層) as infrastructure{
+        rectangle "Repository" <<$bObject>><<classRectangle>> #Business
+        rectangle "Transfer" <<$bObject>><<classRectangle>> #Business
+    }
+}
+node DB/MailServer/外部技術基盤{
+
+    rectangle "DB" <<$bObject>><<classRectangle>> #Business
+    rectangle "Mail" <<$bObject>><<classRectangle>> #Business
+    rectangle "Chat" <<$bObject>><<classRectangle>> #Business
+    rectangle "WebAPI" <<$bObject>><<classRectangle>> #Business
+    rectangle "FileSv" <<$bObject>><<classRectangle>> #Business
+}
+
+ユーザー -right-> Client: リクエスト
+Client -left-> ユーザー:レスポンス
+Client-down->MiddleWare
+MiddleWare-up->Client
+
+MiddleWare-down->Controller:call
+Controller-up->MiddleWare:back
+Controller-left->Request: use
+Controller-right->Resource:use
+Controller-down->Service:use
+Service-down->DomainModel:use
+Service-down->RepositoryInterface:use
+Service-down->TransferInterface:use
+RepositoryInterface-down->Repository:DI
+RepositoryInterface-right->DomainModel:use
+Repository .up.> DomainModel:use
+Repository-down->DB:use
+Repository-down->WebAPI:use
+Repository-down->FileSv:use
+TransferInterface-down->Transfer:DI
+TransferInterface-left->DomainModel:use
+Transfer .up.>DomainModel:use
+Transfer-down->Mail:use
+Transfer-down->Chat:use
+
+@enduml

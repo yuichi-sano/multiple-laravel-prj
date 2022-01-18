@@ -87,7 +87,7 @@ abstract class AbstractFormRequest extends FormRequest
     {
         $this->validationMessage = $validator->errors()->toArray();
         logger($validator->errors()->toJson());
-        //throw new ValidationException('W0000001');
+        throw new ValidationException('V_0000000',$this->validationMessage);
     }
 
     public function messages(): array

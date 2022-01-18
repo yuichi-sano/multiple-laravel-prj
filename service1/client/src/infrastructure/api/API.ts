@@ -9,26 +9,27 @@ export default {
 
   async authenticate(request: AuthenticationRequest): Promise<AuthenticationToken> {
     const client = new Client();
-    const response = await client.post('/api/authenticate', request);
-    return response.data;
+    const response = await client.post('/login', request);
+    return response.data.result;
   },
 
   async refresh(refreshToken: string): Promise<string> {
     const client = new Client();
-    const response = await client.post('/api/authenticate/token', {
+    const response = await client.post('/refresh', {
       refreshToken,
     });
-    return response.data.accessToken;
+    return response.data.result.accessToken;
   },
 
   async getAccount(): Promise<AuthorizedAccount> {
     const auth = new Auth();
-    const response = await auth.get('/api/authenticate/account');
+    const response = await auth.get('/sample');
     return response.data;
   },
-  async setSignedCookies(): Promise<void> {
+  async getSample(): Promise<AuthorizedAccount> {
     const auth = new Auth();
-    await auth.get('/api/signed/cookies');
+    const response = await auth.get('/sample');
+    return response.data;
   },
 
 };

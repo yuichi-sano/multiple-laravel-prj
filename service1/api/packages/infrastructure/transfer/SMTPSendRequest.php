@@ -1,14 +1,14 @@
 <?php
 
-namespace packages\Infrastructure\Transfer;
+namespace packages\infrastructure\transfer;
 
 use Illuminate\Mail\Mailable;
-use packages\Domain\Basic\Mail\Address;
-use packages\Domain\Basic\Mail\AddressList;
-use packages\Domain\Basic\Mail\Content;
-use packages\Domain\Basic\Mail\Header;
-use packages\Domain\Basic\Mail\Message;
-use packages\Domain\Basic\Mail\Subject;
+use packages\domain\basic\mail\Address;
+use packages\domain\basic\mail\AddressList;
+use packages\domain\basic\mail\Content;
+use packages\domain\basic\mail\Header;
+use packages\domain\basic\mail\Message;
+use packages\domain\basic\mail\Subject;
 
 class SMTPSendRequest
 {

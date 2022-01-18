@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="packages\domain\model\authentication\authorization\AuthenticationRefreshToken" table="sample.user_refresh_tokens">
+        <embedded
+            name="refreshToken"
+            class="packages\domain\model\authentication\authorization\RefreshToken"
+            use-column-prefix="false"
+        />
+        <embedded
+            name="userId"
+            class="packages\domain\model\User\UserId"
+            use-column-prefix="false"
+        />
+        <embedded
+            name="refreshTokenSignsAt"
+            class="packages\domain\model\authentication\authorization\RefreshTokenSignsAt"
+            use-column-prefix="false"
+        />
+        <embedded
+            name="refreshTokenExpiresAt"
+            class="packages\domain\model\authentication\authorization\RefreshTokenExpiresAt"
+            use-column-prefix="false"
+        />
+        <named-native-queries>
+            <named-native-query name="upsert" result-class="__CLASS__">
+                <query>
+                    INSERT INTO sample.user_refresh_tokens (
+                    refresh_token,
+                    user_id,
+                    signs_at,
+                    expires_at
+                    ) VALUES (
+                    :refreshToken,
+                    :userId,
+                    :signsAt,
+                    :expiresAt
+                    )
+                    ON CONFLICT ON CONSTRAINT user_refresh_tokens_pkey
+                    DO UPDATE SET
+                    expires_at = :expiresAt
+                    WHERE
+                    sample.user_refresh_tokens.refresh_token = :refreshToken
+                </query>
+            </named-native-query>
+            <named-native-query name="findByToken" result-class="__CLASS__">
+                <query>
+                    SELECT
+                        refresh_token,
+                        user_id as id,
+                        signs_at,
+                        expires_at
+                    FROM sample.user_refresh_tokens
+                    WHERE
+                    sample.user_refresh_tokens.refresh_token = :refreshToken
+                </query>
+            </named-native-query>
+        </named-native-queries>
+    </entity>
+</doctrine-mapping>
+
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="packages\domain\model\authentication\Account" table="sample.users">
+        <field name="accessId" type="string" column="access_id" length="255" nullable="false">
+            <options>
+                <option name="fixed"/>
+            </options>
+        </field>
+        <field name="password" type="string" column="password" length="255" nullable="false">
+            <options>
+                <option name="fixed"/>
+            </options>
+        </field>
+        <id name="id" type="integer" column="user_id"/>
+
+        <named-native-queries>
+            <named-native-query name="findByToken" result-class="__CLASS__">
+                <query>
+                    SELECT
+                        user_id
+                        ,access_id
+                    FROM sample.users
+                    JOIN sample.user_refresh_tokens USING (user_id)
+                    WHERE
+                        refresh_token = ?
+                        AND sample.user_refresh_tokens.expires_at > now();
+                </query>
+            </named-native-query>
+        </named-native-queries>
+    </entity>
+</doctrine-mapping>
+
+

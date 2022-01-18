@@ -3,9 +3,25 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Routing\Router;
 
 class Kernel extends HttpKernel
 {
+    /**
+     * Create a new HTTP kernel instance.
+     *
+     * @param  \Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Illuminate\Routing\Router  $router
+     * @return void
+     */
+    public function __construct(Application $app, Router $router)
+    {
+        parent::__construct($app, $router);
+        if(env('API_ONLY')){
+            unset($this->middlewareGroups ['web']);
+        }
+    }
     /**
      * The application's global HTTP middleware stack.
      *
@@ -44,6 +60,9 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'tokenAuth' => [
+            'auth:jwt-custom',
+        ],
     ];
 
     /**
@@ -63,5 +82,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        //'jwt_auth'  =>  \Tymon\JWTAuth\Http\Middleware\Authenticate::class,
+        //'jwt_refresh' => \Tymon\JWTAuth\Http\Middleware\RefreshToken::class,
     ];
 }

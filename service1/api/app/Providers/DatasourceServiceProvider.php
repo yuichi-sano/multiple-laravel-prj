@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Providers;
-use packages\Domain\Model\User\User;
-use packages\Infrastructure\Database\Doctrine as DoctrineRepos;
-use packages\Infrastructure\Database as DatabaseRepos;
+
+use packages\infrastructure\database\doctrine as Doctrine;
+use packages\infrastructure\database as Database;
+use packages\domain\model as DomainModel;
 use Illuminate\Support\ServiceProvider;
+use packages\infrastructure\source\external\postalCode\GuzzleZipCodeSourceRepository;
 
 class DatasourceServiceProvider extends ServiceProvider
 {
@@ -21,9 +23,25 @@ class DatasourceServiceProvider extends ServiceProvider
 
     private function registerForInMemory(){
 
-        $this->app->bind(DatabaseRepos\UserRepository::class, function($app) {
-            return new DoctrineRepos\DoctrineUserRepository($app['em'], $app['em']->getClassMetaData(User::class));
+        $this->app->bind(DomainModel\User\UserRepository::class, function($app) {
+            return new Doctrine\user\DoctrineUserRepository($app['em'], $app['em']->getClassMetaData(DomainModel\User\User::class));
         });
+        $this->app->bind(
+            DomainModel\authentication\authorization\RefreshTokenRepository::class, function($app) {
+                return new Doctrine\authentication\authorization\DoctrineRefreshTokenRepository(
+                $app['em'], $app['em']->getClassMetaData(DomainModel\authentication\authorization\AuthenticationRefreshToken::class)
+            );
+        });
+        $this->app->bind(
+            DomainModel\merchant\MerchantRepository::class, function($app) {
+            return new Doctrine\merchant\DoctrineMerchantRepository(
+                $app['em'], $app['em']->getClassMetaData(DomainModel\merchant\Merchant::class)
+            );
+        });
+        $this->app->bind(
+            DomainModel\zipcode\ZipCodeSourceRepository::class,
+                    GuzzleZipCodeSourceRepository::class
+        );
 
     }
 

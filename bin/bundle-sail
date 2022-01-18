@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-
+BUNDLE_PATH=$(dirname `realpath $0`)
+cd $BUNDLE_PATH
+cd ../
 if ! [ -x "$(command -v docker-compose)" ]; then
     shopt -s expand_aliases
     alias docker-compose='docker compose'
@@ -75,12 +77,12 @@ else
 fi
 
 if [ $# -gt 0 ]; then
-    
+
     # serviceコマンドが存在すればそちらを実行。引数は一個飛ばす
-    SCRIPT_DIR=$(cd $(dirname $0); pwd)
-    
-    if [ -e $SCRIPT_DIR/$1 ]; then
-        $(dirname $0)/$1 ${@:2} 
+
+    if [ -e $BUNDLE_PATH/$1 ]; then
+        cd $BUNDLE_PATH
+        $BUNDLE_PATH/$1 ${@:2}
     # add service
     elif [ "$1" == "add_service" ]; then
         if [ "$2" == "add_service" ]; then
@@ -90,19 +92,23 @@ if [ $# -gt 0 ]; then
             echo "その名前はサービス名に使用できません"
             exit 1
         fi
-        cp $SCRIPT_DIR/template_script $SCRIPT_DIR/$2
+        cp $BUNDLE_PATH/template_script $BUNDLE_PATH/$2
         mkdir $2
         mkdir $2/api
         mkdir $2/client
         cd $2
         git clone https://github.com/yuichi-sano/ddd-laravel-doctrine.git api
         cd api
-        sh setup.sh
+        sh ./setup_scripts/setup.sh $3 $2 $4
         rm -rf .git
         rm -f Vagrantfile
         rm -rf ./database/flyway
         mv ./docker-compose.yml $2.yml
-        
+        cd ..
+        git clone https://github.com/yuichi-sano/simple-vue-cli.git client
+        cd client
+        rm -rf .git
+
     # Share the site...
     elif [ "$1" == "share" ]; then
         shift 1

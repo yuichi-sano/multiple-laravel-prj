@@ -1,6 +1,6 @@
 <?php
 
-namespace packages\Domain\Basic\Mail;
+namespace packages\domain\basic\mail;
 
 use Egulias\EmailValidator\EmailLexer;
 use Egulias\EmailValidator\Validation\RFCValidation;

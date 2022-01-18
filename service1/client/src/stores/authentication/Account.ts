@@ -28,41 +28,10 @@ class Account extends VuexModule {
     this.clearAccount();
   }
 
-  get examineeId(): string {
-    return this.authorizedAccount.examineeId;
+  get accessId(): string {
+    return this.authorizedAccount.accessId;
   }
 
-  get examineeNumber(): string {
-    return this.authorizedAccount.examineeNumber;
-  }
-
-  get officeCode(): string {
-    return this.authorizedAccount.officeCode;
-  }
-
-  get officeName(): string {
-    return this.authorizedAccount.officeName;
-  }
-
-  get hasUnreadAnswer(): boolean {
-    return this.authorizedAccount.hasUnreadAnswer;
-  }
-
-  get hasUserInquiry(): boolean {
-    return this.authorizedAccount.hasUserInquiry;
-  }
-
-  get hasCompletion(): boolean {
-    return this.authorizedAccount.hasCompletion;
-  }
-
-  get isReadOnly(): boolean {
-    return this.authorizedAccount.isReadonly;
-  }
-
-  get isFastForwarding(): boolean {
-    return this.authorizedAccount.isFastForwarding;
-  }
 }
 
 export const loginModule = getModule(Account);

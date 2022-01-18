@@ -27,13 +27,18 @@ return [
     'managers'                   => [
         'default' => [
             'dev'           => env('APP_DEBUG', false),
-            'meta'          => env('DOCTRINE_METADATA', 'xml'),
+            'meta'          => env('DOCTRINE_METADATA', 'simplified_xml'),
             'connection'    => env('DB_CONNECTION', 'pgsql'),
-            'namespaces'    => [
-                'packages\Domain\Model'
-            ],
+            'namespaces'    => [],
             'paths'         => [
-                base_path('packages/infrastructure/database/xml')
+                base_path('packages/infrastructure/database/xml/authentication/')
+                    =>'packages\domain\model\authentication',
+                base_path('packages/infrastructure/database/xml/authentication/authorization')
+                    =>'packages\domain\model\authentication\authorization',
+                base_path('packages/infrastructure/database/xml/user')
+                    =>'packages\domain\model\User',
+                base_path('packages/infrastructure/database/xml/merchant')
+                =>'packages\domain\model\merchant',
             ],
             'repository'    => Doctrine\ORM\EntityRepository::class,
             'proxies'       => [

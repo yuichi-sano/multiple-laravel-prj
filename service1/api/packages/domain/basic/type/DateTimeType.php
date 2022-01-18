@@ -1,5 +1,5 @@
 <?php
-namespace packages\Domain\Basic\Type;
+namespace packages\domain\basic\type;
 
 interface DateTimeType
 {

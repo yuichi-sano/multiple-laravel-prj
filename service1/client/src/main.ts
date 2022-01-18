@@ -15,6 +15,9 @@ import DateFormat from '@/filter/DateFormat';
 
 Vue.config.productionTip = false;
 
+import Axios from 'axios'
+Axios.defaults.baseURL = 'http://localhost:5080';
+
 VideoPlayer.config({
   youtube: false,
   switcher: true,

@@ -1,0 +1,382 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Sample-API-Doc",
+        "description": "暗号化-復号化は別途定義します\n===\nステータスコード体系\n---\n| 符号|符号(略)|備考|\n|:------|:-------:|:-------|\n|Info|I| 正常|\n|Error|E|エラー|\n|Warning|W|準正常系|\n|Validation|V|入力値エラー|",
+        "license": {
+            "name": "Apache 2.4",
+            "url": "http://www.apache.org/licenses/LICENSE-2.4.html"
+        },
+        "version": "1"
+    },
+    "externalDocs": {
+        "description": "インターフェイス以外詳細の詳細仕様",
+        "url": "--"
+    },
+    "host": "sample.com",
+    "basePath": "/",
+    "schemes": [
+        "https",
+        "http"
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "security": [],
+                "summary": "ログイン認証",
+                "description": "test",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginRequest",
+                        "in": "body",
+                        "description": "ログイン認証リクエスト",
+                        "schema": {
+                            "$ref": "#/definitions/LoginDefinition"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ログイン成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/LoginResource"
+                        }
+                    },
+                    "default": {
+                        "description": "ログイン成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/AbstractJsonResource"
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "security": [],
+                "summary": "ログイン認証",
+                "description": "test",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginRequest",
+                        "in": "body",
+                        "description": "ログイン認証リクエスト",
+                        "schema": {
+                            "$ref": "#/definitions/LoginDefinition"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ログイン成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/LoginResource"
+                        }
+                    },
+                    "default": {
+                        "description": "ログイン成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/AbstractJsonResource"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Authentication"
+                ],
+                "security": [],
+                "summary": "ログイン認証",
+                "description": "test",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "LoginRequest",
+                        "in": "body",
+                        "description": "ログイン認証リクエスト",
+                        "schema": {
+                            "$ref": "#/definitions/LoginDefinition"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ログイン成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/LoginResource"
+                        }
+                    },
+                    "default": {
+                        "description": "ログイン成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/AbstractJsonResource"
+                        }
+                    }
+                }
+            }
+        },
+        "/sample": {
+            "get": {
+                "tags": [
+                    "Sample"
+                ],
+                "security": [
+                    {
+                        "tokenAuth": []
+                    }
+                ],
+                "summary": "Sample",
+                "description": "test",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "SampleRequest",
+                        "in": "body",
+                        "description": "Sampleリクエスト",
+                        "schema": {
+                            "$ref": "#/definitions/SampleDefinition"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sampleレスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/SampleResource"
+                        }
+                    },
+                    "default": {
+                        "description": "ログイン成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/AbstractJsonResource"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "AbstractJsonResource": {
+            "description": "API共通レスポンス定義",
+            "properties": {
+                "state": {
+                    "description": "結果コード",
+                    "type": "string"
+                },
+                "message": {
+                    "description": "メッセージ",
+                    "type": "string"
+                },
+                "result": {
+                    "description": "API個別",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "LoginDefinition": {
+            "description": "ログイン認証リクエスト定義",
+            "required": [
+                "accessId",
+                "password"
+            ],
+            "properties": {
+                "accessId": {
+                    "description": "ログインID",
+                    "type": "string",
+                    "example": "1111"
+                },
+                "password": {
+                    "description": "ログインPASS",
+                    "type": "string",
+                    "example": "weak-password"
+                }
+            },
+            "type": "object"
+        },
+        "LoginResource": {
+            "properties": {
+                "state": {
+                    "description": "結果コード",
+                    "type": "string"
+                },
+                "message": {
+                    "description": "メッセージ",
+                    "type": "string"
+                },
+                "result": {
+                    "$ref": "#/definitions/LoginResultDefinition"
+                }
+            }
+        },
+        "LoginResultDefinition": {
+            "type": "object",
+            "description": "ログイン認証",
+            "required": [
+                "accessToken",
+                "refreshToken"
+            ],
+            "properties": {
+                "accessToken": {
+                    "description": "アクセストークン",
+                    "type": "string",
+                    "example": "***********"
+                },
+                "refreshToken": {
+                    "description": "リフレッシュトークン",
+                    "type": "string",
+                    "example": "***********"
+                }
+            }
+        },
+        "SampleDefinition": {
+            "description": "Sample",
+            "required": [
+                "accessId",
+                "password"
+            ],
+            "properties": {
+                "accessId": {
+                    "description": "ログインID",
+                    "type": "string",
+                    "example": "1111"
+                },
+                "password": {
+                    "description": "ログインPASS",
+                    "type": "string",
+                    "example": "weak-password"
+                },
+                "hoge": {
+                    "description": "HOGE",
+                    "type": "string",
+                    "example": "HOGE"
+                }
+            },
+            "type": "object"
+        },
+        "SampleResource": {
+            "properties": {
+                "state": {
+                    "description": "結果コード",
+                    "type": "string"
+                },
+                "message": {
+                    "description": "メッセージ",
+                    "type": "string"
+                },
+                "result": {
+                    "$ref": "#/definitions/SampleResultDefinition"
+                }
+            }
+        },
+        "SampleResultDefinition": {
+            "type": "object",
+            "description": "SampleResult",
+            "required": [
+                "accessToken",
+                "refreshToken",
+                "user"
+            ],
+            "properties": {
+                "accessToken": {
+                    "description": "アクセストークン",
+                    "type": "string",
+                    "example": "***********"
+                },
+                "refreshToken": {
+                    "description": "リフレッシュトークン",
+                    "type": "string",
+                    "example": "***********"
+                },
+                "user": {
+                    "description": "リフレッシュトークン",
+                    "type": "object",
+                    "required": [
+                        "userId",
+                        "name",
+                        "addressList"
+                    ],
+                    "properties": {
+                        "userId": {
+                            "description": "ユーザーID",
+                            "type": "integer",
+                            "example": 1
+                        },
+                        "name": {
+                            "description": "名前",
+                            "type": "string",
+                            "example": 1
+                        },
+                        "addressList": {
+                            "description": "登録済み住所",
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "address"
+                                ],
+                                "properties": {
+                                    "address": {
+                                        "description": "住所",
+                                        "type": "string",
+                                        "example": "ほげほげ"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "tokenAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "description": "accessToken",
+            "in": "header"
+        }
+    },
+    "tags": [
+        {
+            "name": "auth",
+            "description": "認証関連API群"
+        },
+        {
+            "name": "sample",
+            "description": "sample-グルーピングタグ"
+        }
+    ]
+}

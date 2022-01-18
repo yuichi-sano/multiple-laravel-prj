@@ -12,6 +12,7 @@ services:
             LARAVEL_SAIL: 1
             XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
             XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
+            TZ: Asia/Tokyo
         volumes:
             - './service1/api:/var/www/html'
             - './database/flyway:/var/www/html/database/flyway'
@@ -27,10 +28,11 @@ services:
         build:
             context: ./service1/client/docker
             dockerfile: Dockerfile
+        image: 'service1-cli'
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
-            - '18080:8080'
+            - '18080:18080'
         volumes:
             - './service1/client:/app/'
             - 'service1-cli-node-modules:/app/node_modules'
@@ -38,7 +40,8 @@ services:
             - sail
         stdin_open: true
         tty: true
-        restart: always
+        environment:
+            - CHOKIDAR_USEPOLLING=true
         depends_on:
             - selenium
     mysql:

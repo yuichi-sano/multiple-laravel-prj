@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace packages\Domain\Model\User;
+namespace packages\domain\model\User;
 
-use packages\Domain\Basic\Type\IntegerType;
+use packages\domain\basic\type\IntegerType;
 
 class UserId implements IntegerType
 {

@@ -13,16 +13,6 @@
         </template>
       </ConfirmModal>
     </div>
-    <div class="headerInfo" v-show="loggedIn">
-      <div class="headerInfoLeft">
-        <p class="headerInfo_id"
-           data-cy="ようこそ"></p>
-        <p class="headerInfo_limit"
-           data-cy="ようこそ2"></p>
-      </div>
-      <div class="headerInfoRight">
-      </div>
-    </div>
   </header>
 </template>
 
@@ -55,16 +45,10 @@
     }
 
     // computed
-    get examineeNumber(): string {
-      return loginModule.examineeNumber;
+    get accessId(): string {
+      return loginModule.accessId;
     }
 
-    get hasUnreadAnswer(): boolean {
-      return loginModule.hasUnreadAnswer;
-    }
-    get hasUserInquiry(): boolean {
-      return loginModule.hasUserInquiry;
-    }
 
     get title(): string {
       return this.$router.currentRoute.meta.title;
