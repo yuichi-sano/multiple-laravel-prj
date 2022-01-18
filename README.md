@@ -1,4 +1,27 @@
-# DDD-Laravel-Doctrine
+# MultipleLaravelPrj
+### (MultipleWebIntegrationDevelopment)
+複数のWebアプリを開発するための統合開発リポジトリです。  
+Webアプリはクライアントとサーバサイドを完全に分離するような思想になっています。  
+この環境上サーバサイド(以下API)は
+
+    言語:PHP 
+    FW:Laravel
+    ORM:Doctrine
+
+クライアントサイド(以下CLI)は
+    
+    言語：Javascript,TypeScript,Html
+    FW(Lib):Vue
+
+にてWebアプリを構成していきます。  
+用意したシェルコマンドを実行することで上記の新たな構成を自動で作製し、   
+比較的用意にWebサービスの追加を行うことができるような物を目指しています。
+
+サーバサイドはPHP,Laravelを使用していますが、今後別の言語セットで同等の  
+開発環境を作製していくつもりです。  
+取り急ぎは、Web開発時に選択されやすいPHPをターゲットとしていますが、   
+あえてPHPという言語の特性を強力排除した作り(Javaライクな実装ができるような)  
+をしており、今後他の言語でも同様の機能をもった基盤を作製していくつもりです。
 
 # SetUp
 ## git clone
