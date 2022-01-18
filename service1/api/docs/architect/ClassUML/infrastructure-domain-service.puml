@@ -1,0 +1,217 @@
+@startuml
+'https://plantuml.com/class-diagram
+node 凡例 #lightgray {
+    class 実装対象クラス <<usage>> #line:green;back:lightblue  {
+    }
+    class 本PJ提供クラス <<usage>>{
+    }
+    circle from
+    circle to
+    from -[dashed]right-> to: 継承
+    circle from2
+    circle to2
+    from2 -[#green,dashed,thickness=4]right-> to2: 依存
+    circle from3
+    circle to3
+    from3 -[#blue,plain,thickness=2]right-> to3: DI
+}
+
+hide <<usage>> circle
+hide <<usage>> members
+hide <<usage>> methods
+
+package Laravel #DDDDDD {
+    class Facade
+    class Mailable
+    class Facades\Mail
+}
+
+package "app" {
+
+        node "DIコンテナ" {
+            note as DIコンテナNote
+            主な使い方は下記を参考ください
+            https://readouble.com/laravel/8.x/ja/container.html
+            用途によってProviderを分けてはいますが、
+            やっている事の本質は
+            どのクラスもそんなに変わらなく、
+            シンプルにＤＩコンテナとして使用しています。
+            end note
+            package Providers{
+                class AppServiceProvider{
+                    service層の依存関係解決
+                    register()
+                }
+                class DatasourceServiceProvider{
+                        infrastructure層及びdomain層のリポジトリ依存関係解決
+                        register()
+                    }
+            }
+        }
+    node Extension #FFFFFF {
+        note as LaravelExtension
+           Laravel標準機能を単純に拡張
+           したものをまとめてます。
+           今後も単純にLaravelの機能を
+           拡張する場合このパッケージ内
+           での完結を心がけます。
+        end note
+        package app/Extension {
+            package Support{
+                package Facades{
+                    class TransactionManager extends Facade{
+                        + getFacadeAccessor(): TransactionManagerInterface
+                    }
+                }
+            }
+        }
+    }
+}
+
+package "packages" {
+        note as Package
+           Laravelに極力依存せず
+           ドメイン駆動な開発をする
+           ための構成要素を閉じ込めています。
+           ビジネスロジックの実装において
+           Laravelを意識せず、
+           （PHPっぽさもなるべく排除して）
+           オブジェクト指向にて実装できる
+           ことに重きを置いています
+        end note
+
+    node "service層" {
+        note as ServiceNote
+         実現する機能を定義します。
+         service層からは関連する
+         domain層のみを操作します。
+         infrastructure層や
+         presentation層の操作が
+         必要になる場合の大半は
+         設計に問題があるとみて
+         設計を見直してください。
+        end note
+        package "service" {
+            interface ServiceInterface #line:green;back:lightblue{
+                + serviceMethod(DomainModel)
+            }
+            class ServiceClass #line:green;back:lightblue implements ServiceInterface{
+                - domainRepository: DomainRepository
+            }
+
+            package "helper" {
+                interface TransactionManagerInterface
+            }
+        }
+
+    }
+    node "domain層" {
+        package "domain" {
+            note as DomainNote
+               業務知識
+               業務への関心事
+               のみを定義するレイヤー
+            end note
+            package model {
+
+                interface DomainRepository #line:green;back:lightblue
+                class DomainModel #line:green;back:lightblue
+                note as DomainModelNote
+                 業務における概念
+                 を表現します
+                 アプリケーション開発
+                 において最も重要視すべきレイヤです
+                 DB処理等が顕著ですがinfrastructure層の責務と混同
+                 させずに、interfaceのみをこの層に定義します
+                end note
+            }
+        }
+    }
+    domain層-right[#white]-service層
+    domain層-down[#white]-infrastructure層
+    service層-down[#white]-infrastructure層
+    node "infrastructure層" {
+    note as InfraStructureNote
+             外部技術基盤へデータをexport,importする処理を
+             infrastructure層に閉じ込めます。
+             例えば
+             DB,メール（チャットやSNSなども）送信、外部API通信
+             へ対する処理が該当します
+    end note
+        package "infrastructure" {
+            package "database" {
+                note as InfraStructureDBNote
+                    DBにまつわる実装はこの中に閉じ込めます。
+                    ORM毎にdirを分けるような想定をしています。
+                    laravelですと、Eloquent,Doctrineなどが候補に上がり、
+                    リポジトリパターンに寄り添えるDoctrineをSampleにしています
+                    このUMLではどれを使っても問題ないことを強調するために
+                    ORM~~と表現しています。
+                    ※実際にはこのORMの部分が採用したORMの名前で
+                    実装されることを想定しています。
+                    独自のDaoなどを導入しても良いと思います。
+                end note
+
+                class ORMRepository #line:green;back:lightblue extends AbstractORMRepository implements  DomainRepository
+                abstract AbstractORMRepository
+                class ORMTransactionManager implements TransactionManagerInterface
+            }
+            package "source" {
+
+            }
+            package "transfer" {
+                interface MailTransfer{
+                    + send(request: SMTPSendRequest)
+                }
+                class SMTPTransfer implements MailTransfer{
+                    + send(request: SMTPSendRequest)
+                }
+                class SMTPSendRequest{
+                    - header: Header
+                    - message: Message
+                    - mailable: Mailable
+                }
+            }
+
+        }
+    }
+}
+database "Docker-RDBMS" #DDDDDD{
+  folder "APL-DB" {
+    note "DBtable群" as Tables
+  }
+  folder "APL-TestDB" {
+    note "TestDBtable群" as TestTables
+  }
+
+}
+
+凡例 -down[#white]->Laravel
+凡例 -down[#white]-> app
+
+
+AppServiceProvider <-[#blue,plain,thickness=2]- ServiceInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ServiceClass: 対応実装クラス取り込み
+AppServiceProvider <-[#blue,plain,thickness=2]- TransactionManagerInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ORMTransactionManager: 対応実装クラス取り込み
+
+DatasourceServiceProvider <-[#blue,plain,thickness=2]- DomainRepository: 依存IF取り込み
+DatasourceServiceProvider <-[#blue,dotted,thickness=4]- ORMRepository: 対応実装クラス取り込み
+TransactionManager::getFacadeAccessor  -[#green,dashed,thickness=4]-> TransactionManagerInterface
+
+ServiceClass::domainRepository -[#green,dashed,thickness=4]-> DomainRepository
+ServiceInterface::serviceMethod -[#green,dashed,thickness=4]-> DomainModel
+ServiceClass-->TransactionManager: use
+ORMRepository -- Tables
+ORMRepository -- TestTables
+
+ORMTransactionManager -- Tables
+ORMTransactionManager -- TestTables
+
+
+MailTransfer::send -[#green,dashed,thickness=4]-> SMTPSendRequest
+SMTPTransfer::send -[#red,plain,thickness=3]-> Facades\Mail :メール送信内部ロジックはLaravelにまかせる
+SMTPSendRequest::mailable -[#green,dashed,thickness=4]-> Mailable
+
+
+@enduml

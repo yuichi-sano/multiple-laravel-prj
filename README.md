@@ -13,7 +13,7 @@
 	unzip main.zip
 
 ## ForWindows
-[Windows環境でのSETUP](./docs/for_win/README.md)  
+###[Windows環境でのSETUP](./docs/for_win/README.md)  
 本資料では、vagrantに関する記述は以上とします。  
 vagrantにて仮想環境が起動したら、ssh接続を実施し  
 
@@ -31,7 +31,7 @@ macでは下記パッケージが必要なのでinstallします。
 	cd service1/api/
 	sh ./setup_scripts/setup.sh local service1 localhost
 を実行ください。
-※パーミッションの件確認
+
 ### setup.shについて
     第一引数: 環境を入力。local,staging,productの3種類を想定しています。
     第二引数: サービス名称を入力、dockerのコンテナ名にはねます
@@ -100,7 +100,7 @@ bundle-sail に追加用のスクリプトを用意しています。
 にてアプリケーションが起動します。  
 アプリが起動したらServiceの追加が完了です。
 
-#TIP 
+# TIP 
 サービス追加時
 	https://github.com/yuichi-sano/ddd-laravel-doctrine
 のソースコードを落としてきます。
@@ -119,5 +119,30 @@ bundle-sail に追加用のスクリプトを用意しています。
 	./docker-compose.yml [指定したサービス名].yml  
 
 このymlを参考に、本PJが参照するdocker-composeへ追記していくとよいと思います。  
+
+
+# DB
+本PJにて同梱しているDB環境はdockerで構成されています。
+またflywayというmigrationツールを利用しています。
+セットアップ自体は
+
+    setup.sh  
+と  
+
+    bundle-sail up -d
+
+にて完了しますが、個別の設定や、flywayに関する操作方法を下記に記載します。
+### [DBセットアップ及びmigration操作](./database/flyway/README.md)
+
+# Api
+本PJにて同梱しているAPIについてのdocumentを下記に記載します。  
+※初期導入時に同梱されるservice1というdirectoryのドキュメントを参照します。
+### [APIに関して](./service1/api/README.md)
+
+# Client
+本PJにて同梱しているCLIについてのdocumentを下記に記載します。   
+※初期導入時に同梱されるservice1というdirectoryのドキュメントを参照します。
+### [CLIENTに関して](./service1/client/README.md)
+
 
 

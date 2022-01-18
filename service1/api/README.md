@@ -12,7 +12,7 @@
 	wget https://github.com/yuichi-sano/ddd-laravel-doctrine/archive/refs/heads/master.zip a.zip; unzip a.zip
 
 ## ForWindows
-[Windows環境でのSETUP](./docs/for_win/README.md)   
+###  [Windows環境でのSETUP](./docs/for_win/README.md)   
 ※本資料では、vagrantに関する記述は以上とします。  
 vagrantにて仮想環境が起動したら、ssh接続を実施し
 setup.shを実行ください。
@@ -34,71 +34,20 @@ setup.shを実行ください。
 ここまででSETUPが完了します。
 
 # 設計思想
-   本PJでは戦略的ドメイン駆動開発をするためにLaravelを使ったクリーンアーキテクトを取り入れており  
-   Laravelそれ自体のドキュメントを読みながら一からクリーンアーキテクトを実践するとコストがかかりがちな部分を予め用意しております。  
-   したがって、Laravelとはまた違った実装上の決まり事や思想が注入されており、ここではそれらについて解説していきます。
-## packagesについて
-本PJのディレクトリ構造をみていただくと、Laravelとして用意しているビジネスロジックの実装箇所である　　
-app
-というディレクトリと同列に  
-packages  
-というディレクトリが存在することがわかると思います。
-このpackagesというディレクトリに下記3つのディレクトリが配置されています。
-
-    domain
-    infrastructure
-    service
-上記3つのディレクトリをそれぞれレイヤーとし、それぞれに対して責務与えています。
-    
-    domainレイヤ::業務ロジックを定ぐ
-    infrastructureレイヤ::外部リソース操作を定義する
-    service::実現したい機能を定義する
-このうち
-
-    infrastructure
-などを例にとると想像しやすいかと思いますが、DBに対する操作、外部との連携、メール送信
-等の責務を任せるようにします。  
-また3つの層が互いに疎結合であるべきで、かつ他のレイヤの責務が混じらないように設計する必要があります。  
-※ただし大前提としてLaravelを使用していることもあり、その縛りによって厳しい部分も多く完全には実現できてはいません  
-
-わかり安い例でいうとdomain層にはビジネスロジックを任せていくことになりますが、  
-その時domain層の中にDBに関する関心事、例えばselect句のようなsql構文を直接書  
-いてしまわないように心がけて設計することで実現できます。
-
-## Laravelとpackagesについて
-ここまででpackagesディレクトリの大まかな役割を説明してきました  
-今度はLaravel本体はどのような役割を持つかについて解説していきます  
-packagesでは、主にアプリケーションを構成する中身についての定義を  
-していくことになりますが これだけではアプリケーションは動作しません。  
-アプリケーションを使用するためのインターフェースが必要です。  
-本PJではデフォルトでLaravelをApi専用で使用しているのでWebApi  
-を例に出すとpackagesでは、エンドポイントの定義、ルーティング、  
-HTTPリクエストに基づいたコントロールについての定義がありません。  
-一般的に言われるcleanArchitectにおいて上記は
-
-    presentation
-というレイヤに分類されます。  
-Laravelから提供される機能はこのpresentation層の定義に強力な力  
-を発揮できるものが多々あります。よってpresentation層に関しては   
-Laravelにべったりと寄り添った実装をしていきます。  
-また、Laravelは強力なDIコンテナの機能も提供しています。  
-これは
-- domain層とinfrastructure層の依存性を解決
-- service層から直接infrastructure層を参照しない仕組の構築
-- laravelが予め定義しているHash機能
-- laravelが予め定義している認証機能の拡張
-- controller層から参照するservice層の可用性の担保
-
-などなどをシステムを構築する上で重要な役割をになっております。  
-大きくは上記を抑えておけば、これから開発するアプリケーションについて、  
-何のドキュメントを見ながら、どこにどのように定義していけばよいのか。  
-が見えてくるかと思います。
-
+Laravelを一部拡張しながらクリーンアーキテクトの思想を取り入れています。   
+Laravel標準ではクリーンアーキテクトな思想に関しての言及がないので  
+本ドキュメントにて、Laravelのどの機能をどう活用してクリーンアーキテクトを  
+実現しているかを言及していきます。
 
 ## 設計デザイン
-![design](./docs/architect/designArchitect.svg)
-- [設計についての詳細](./docs/architect/designArchitect.md)
-- [主要なClass設計図](./docs/architect/classesUml.svg)
+下記にてざっくりと設計デザインを図示します。  
+![design](./docs/architect/designArchitect.svg)  
+
+###下記リンクにて詳細な設計思想についての言及をします。
+###- [設計についての詳細](./docs/architect/designArchitect.md)
+###- [主要なClass設計図](./docs/architect/classesUml.svg)
+
+
 # 設定済、カスタマイズ済み
 Laravelについて、packages以外で特筆すべき拡張を実施している点についての説明、解説をしていきます。
 
@@ -131,7 +80,7 @@ Laravelはそのまま使うとValidationエラーのメッセージに英語を
     NamedNativeQueryにて最小限のファイル構成でdomain層との完全なる疎結合を実現しています。
 
 ※DIはDatasourceProvidersに記載していきます。
-- [Doctrineについてさらに詳細](./docs/architect/ORM/doctrine.md)
+###- [Doctrineについてさらに詳細](./docs/architect/ORM/doctrine.md)
 
 ## hash値
     laravelがdefaultで操作できるhash値は比較的最近の技術しかなかったので

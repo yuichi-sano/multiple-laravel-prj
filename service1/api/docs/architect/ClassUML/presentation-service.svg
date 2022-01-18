@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1359px" preserveAspectRatio="none" style="width:1685px;height:1359px;background:#FFFFFF;" version="1.1" viewBox="0 0 1685 1359" width="1685px" zoomAndPan="magnify"><defs><filter height="300%" id="f1b5gus1jkww3q" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><polygon fill="#FFFFFF" filter="url(#f1b5gus1jkww3q)" points="16,168,48,168,55,191.6094,1460,191.6094,1460,700,16,700,16,168" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="16" x2="55" y1="191.6094" y2="191.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="26" x="20" y="184.5332">app</text><!--MD5=[001befb245ef55d2310db5270ef9ffe7]
+cluster presentation層--><polygon fill="#FFFFFF" filter="url(#f1b5gus1jkww3q)" points="56,230,66,220,865,220,865,658,855,668,56,668,56,230" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="855" x2="865" y1="230" y2="220"/><line style="stroke:#000000;stroke-width:1.5;" x1="56" x2="855" y1="230" y2="230"/><line style="stroke:#000000;stroke-width:1.5;" x1="855" x2="855" y1="230" y2="668"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="104" x="404.5" y="247.5332">presentation層</text><!--MD5=[e6e61d846f7ebc290f4b7ed94825158d]
+cluster HTTP--><polygon fill="#FFFFFF" filter="url(#f1b5gus1jkww3q)" points="80,269,121,269,128,292.6094,841,292.6094,841,644,80,644,80,269" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="80" x2="128" y1="292.6094" y2="292.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="35" x="84" y="285.5332">HTTP</text><!--MD5=[ed1d20ea533a2a0e7df5ba3c35e56ced]
+cluster Controllers--><polygon fill="#FFFFFF" filter="url(#f1b5gus1jkww3q)" points="104,313,189,313,196,336.6094,817,336.6094,817,620,104,620,104,313" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="104" x2="196" y1="336.6094" y2="336.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="79" x="108" y="329.5332">Controllers</text><!--MD5=[34913efed9209dfb6ec19ee2fe20acac]
+cluster DIコンテナ--><polygon fill="#FFFFFF" filter="url(#f1b5gus1jkww3q)" points="889,363.5,899,353.5,1428,353.5,1428,544.5,1418,554.5,889,554.5,889,363.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1418" x2="1428" y1="363.5" y2="353.5"/><line style="stroke:#000000;stroke-width:1.5;" x1="889" x2="1418" y1="363.5" y2="363.5"/><line style="stroke:#000000;stroke-width:1.5;" x1="1418" x2="1418" y1="363.5" y2="554.5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="70" x="1119.5" y="381.0332">DIコンテナ</text><!--MD5=[46d1235180ad9d6d621a9bea424853f2]
+cluster Providers--><polygon fill="#FFFFFF" filter="url(#f1b5gus1jkww3q)" points="1234,402.5,1309,402.5,1316,426.1094,1404,426.1094,1404,530.5,1234,530.5,1234,402.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1234" x2="1316" y1="426.1094" y2="426.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="69" x="1238" y="419.0332">Providers</text><!--MD5=[82a3c10cfc5417650ef2e1677f96fd32]
+cluster packages--><polygon fill="#FFFFFF" filter="url(#f1b5gus1jkww3q)" points="208,758,281,758,288,781.6094,1457,781.6094,1457,1352.5,208,1352.5,208,758" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="208" x2="288" y1="781.6094" y2="781.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="67" x="212" y="774.5332">packages</text><!--MD5=[51cb01ded0fda53bfd37a17d2c369077]
+cluster service層--><polygon fill="#FFFFFF" filter="url(#f1b5gus1jkww3q)" points="485,812,495,802,1205,802,1205,1185.5,1195,1195.5,485,1195.5,485,812" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1195" x2="1205" y1="812" y2="802"/><line style="stroke:#000000;stroke-width:1.5;" x1="485" x2="1195" y1="812" y2="812"/><line style="stroke:#000000;stroke-width:1.5;" x1="1195" x2="1195" y1="812" y2="1195.5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="67" x="807.5" y="829.5332">service層</text><!--MD5=[7579d5565d2521d5936cec86ed3dadee]
+cluster service--><polygon fill="#FFFFFF" filter="url(#f1b5gus1jkww3q)" points="714,851,773,851,780,874.6094,1181,874.6094,1181,1171.5,714,1171.5,714,851" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="714" x2="780" y1="874.6094" y2="874.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="53" x="718" y="867.5332">service</text><!--MD5=[be48e98a4ad7f5f2a1ba2465e5010d2c]
+cluster helper--><polygon fill="#FFFFFF" filter="url(#f1b5gus1jkww3q)" points="933,895,985,895,992,918.6094,1157,918.6094,1157,995,933,995,933,895" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="933" x2="992" y1="918.6094" y2="918.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="46" x="937" y="911.5332">helper</text><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><polygon fill="#FFFFFF" filter="url(#f1b5gus1jkww3q)" points="755,1228.5,812,1228.5,819,1252.1094,1067,1252.1094,1067,1328.5,755,1328.5,755,1228.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="755" x2="819" y1="1252.1094" y2="1252.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="51" x="759" y="1245.0332">domain</text><!--MD5=[77349be1bd27b81b697a0f9b3aded3c8]
+cluster infrastructure--><polygon fill="#FFFFFF" filter="url(#f1b5gus1jkww3q)" points="1229,895,1332,895,1339,918.6094,1433,918.6094,1433,995,1229,995,1229,895" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1229" x2="1339" y1="918.6094" y2="918.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="97" x="1233" y="911.5332">infrastructure</text><!--MD5=[427f549801585bfe1760656213d284e8]
+cluster 凡例--><polygon fill="#D3D3D3" filter="url(#f1b5gus1jkww3q)" points="16,16,26,6,688,6,688,109,678,119,16,119,16,16" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="678" x2="688" y1="16" y2="6"/><line style="stroke:#000000;stroke-width:1.5;" x1="16" x2="678" y1="16" y2="16"/><line style="stroke:#000000;stroke-width:1.5;" x1="678" x2="678" y1="16" y2="119"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="28" x="334" y="33.5332">凡例</text><path d="M439,349 L439,604.2734 L801,604.2734 L801,359 L791,349 L439,349 " fill="#FBFB77" filter="url(#f1b5gus1jkww3q)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M791,349 L791,359 L801,359 L791,349 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="208" x="445" y="367.4951">エンドポイント事に追加されます。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="201" x="445" y="383.8467">HTTPリクエストの種類数に応じて</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="221" x="445" y="400.1982">中身の実装関数を追加していきます。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="198" x="445" y="416.5498">コントローラからはService層のみ</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="445" y="432.9014">をコールする事が理想です。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="276" x="445" y="449.2529">domain層の処理を直接呼ぶ必要がある場合は、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="341" x="445" y="465.6045">その処理を一つのServiceに定義できないか検討ください。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="117" x="445" y="481.9561">イメージとしては、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="211" x="445" y="498.3076">一つのControllerないの一つの関数は</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="156" x="445" y="514.6592">エンドポイントであるので</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="165" x="445" y="531.0107">Requestが必ず渡されます、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="213" x="445" y="547.3623">そのリクエストからDomainを生成し</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="198" x="445" y="563.7139">使用したいServiceの引数に渡し、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="218" x="445" y="580.0654">結果をResourceに詰めてreturnします</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="266" x="445" y="596.417">※実際のルーティング定義はrouter.phpに記載</text><!--MD5=[1d7ba1c7002d54515419844fbd155368]
+class Controller--><rect codeLine="25" fill="#ADD8E6" filter="url(#f1b5gus1jkww3q)" height="125.1797" id="Controller" style="stroke:#008000;stroke-width:1.5;" width="267" x="128.5" y="415"/><ellipse cx="230.75" cy="431" fill="#ADD1B2" rx="11" ry="11" style="stroke:#008000;stroke-width:1.0;"/><path d="M234.4375,432.2031 Q234.1875,435.6875 233.0156,436.8594 Q231.9844,437.5781 230.6094,437.5781 Q229.2344,437.5781 228.2031,436.8594 Q226.4219,435.0781 226.4219,431.4063 Q226.4219,427.1563 228.2969,425.25 Q229.3438,424.2344 230.6719,424.2344 Q232.0781,424.2344 232.9219,425.0469 Q234.4063,426.5625 234.3281,429.4375 L232.2031,429.4375 Q232.125,427.1094 231.4844,426.4688 Q231.2031,426.1719 230.6719,426.1719 Q230.2188,426.1719 229.8594,426.5469 Q228.625,427.7656 228.625,431.2813 Q228.625,434.3281 229.6719,435.3438 Q230.0938,435.7813 230.6094,435.7813 Q231.0625,435.7813 231.5,435.3438 Q232.0625,434.7969 232.1406,432.2031 L234.4375,432.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="54" x="251.25" y="435.9102">Controller</text><line style="stroke:#008000;stroke-width:1.5;" x1="129.5" x2="394.5" y1="447" y2="447"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="77" x="134.5" y="462.4189">エンドポイント</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="255" x="134.5" y="476.2549">コンストラクタインジェクションにてService層をDI</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="181" x="134.5" y="490.0908">各関数の引数にRequestをDIします。</text><line style="stroke:#008000;stroke-width:1.0;" x1="129.5" x2="394.5" y1="496.5078" y2="496.5078"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="136.5" y="504.5078"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="165" x="148.5" y="511.9268">serviceInterface: ServiceInterface</text><line style="stroke:#008000;stroke-width:1.0;" x1="129.5" x2="394.5" y1="518.3438" y2="518.3438"/><ellipse cx="139.5" cy="529.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="181" x="148.5" y="533.7627">controllerMethod(Request): Resource</text><path d="M905.5,422.5 L905.5,530.6094 L1214.5,530.6094 L1214.5,432.5 L1204.5,422.5 L905.5,422.5 " fill="#FBFB77" filter="url(#f1b5gus1jkww3q)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1204.5,422.5 L1204.5,432.5 L1214.5,432.5 L1204.5,422.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="911.5" y="440.9951">主な使い方は下記を参考ください</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="288" x="911.5" y="457.3467">https://readouble.com/laravel/8.x/ja/container.html</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="254" x="911.5" y="473.6982">用途によってProviderを分けてはいますが、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="130" x="911.5" y="490.0498">やっている事の本質は</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="208" x="911.5" y="506.4014">どのクラスもそんなに変わらなく、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="286" x="911.5" y="522.7529">シンプルにＤＩコンテナとして使用しています。</text><!--MD5=[9ef193fee76149a49bccd04201afb69d]
+class AppServiceProvider--><rect codeLine="47" fill="#FEFECE" filter="url(#f1b5gus1jkww3q)" height="75.6719" id="AppServiceProvider" style="stroke:#A80036;stroke-width:1.5;" width="138" x="1250" y="438.5"/><ellipse cx="1265" cy="454.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1268.6875,455.7031 Q1268.4375,459.1875 1267.2656,460.3594 Q1266.2344,461.0781 1264.8594,461.0781 Q1263.4844,461.0781 1262.4531,460.3594 Q1260.6719,458.5781 1260.6719,454.9063 Q1260.6719,450.6563 1262.5469,448.75 Q1263.5938,447.7344 1264.9219,447.7344 Q1266.3281,447.7344 1267.1719,448.5469 Q1268.6563,450.0625 1268.5781,452.9375 L1266.4531,452.9375 Q1266.375,450.6094 1265.7344,449.9688 Q1265.4531,449.6719 1264.9219,449.6719 Q1264.4688,449.6719 1264.1094,450.0469 Q1262.875,451.2656 1262.875,454.7813 Q1262.875,457.8281 1263.9219,458.8438 Q1264.3438,459.2813 1264.8594,459.2813 Q1265.3125,459.2813 1265.75,458.8438 Q1266.3125,458.2969 1266.3906,455.7031 L1268.6875,455.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="106" x="1279" y="459.4102">AppServiceProvider</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1251" x2="1387" y1="470.5" y2="470.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="124" x="1256" y="485.9189">service層の依存関係解決</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1251" x2="1387" y1="492.3359" y2="492.3359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="45" x="1256" y="507.7549">register()</text><path d="M224,884.5 L224,1025.3125 L466,1025.3125 L466,894.5 L456,884.5 L224,884.5 " fill="#FBFB77" filter="url(#f1b5gus1jkww3q)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M456,884.5 L456,894.5 L466,894.5 L456,884.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="131" x="230" y="902.9951">Laravelに極力依存せず</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="156" x="230" y="919.3467">ドメイン駆動な開発をする</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="221" x="230" y="935.6982">ための構成要素を閉じ込めています。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="230" y="952.0498">ビジネスロジックの実装において</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="118" x="230" y="968.4014">Laravelを意識せず、</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="209" x="230" y="984.7529">（PHPっぽさもなるべく排除して）</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="195" x="230" y="1001.1045">オブジェクト指向にて実装できる</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="156" x="230" y="1017.4561">ことに重きを置いています</text><path d="M501.5,884.5 L501.5,1025.3125 L694.5,1025.3125 L694.5,894.5 L684.5,884.5 L501.5,884.5 " fill="#FBFB77" filter="url(#f1b5gus1jkww3q)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M684.5,884.5 L684.5,894.5 L694.5,894.5 L684.5,884.5 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="507.5" y="902.9951">実現する機能を定義します。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="144" x="507.5" y="919.3467">service層からは関連する</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="172" x="507.5" y="935.6982">domain層のみを操作します。</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="101" x="507.5" y="952.0498">infrastructure層や</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="136" x="507.5" y="968.4014">presentation層の操作が</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="507.5" y="984.7529">必要になる場合の大半は</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="507.5" y="1001.1045">設計に問題があるとみて</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="156" x="507.5" y="1017.4561">設計を見直してください。</text><!--MD5=[64d7f30d421ce5e82d17836b4bb2a725]
+class ServiceInterface--><rect codeLine="79" fill="#ADD8E6" filter="url(#f1b5gus1jkww3q)" height="61.8359" id="ServiceInterface" style="stroke:#008000;stroke-width:1.5;" width="168" x="738" y="924.5"/><ellipse cx="774.15" cy="940.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#008000;stroke-width:1.0;"/><path d="M775.3219,945.2188 L776.0563,945.2188 L776.0563,947.8906 L772.3688,947.8906 L772.3688,945.2188 L772.7125,945.2813 L772.7125,936.3438 L772.3688,936.4063 L772.3688,933.7344 L776.0563,933.7344 L776.0563,936.4063 L775.3219,936.4063 L775.3219,945.2188 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="89" x="792.85" y="945.4102">ServiceInterface</text><line style="stroke:#008000;stroke-width:1.5;" x1="739" x2="905" y1="956.5" y2="956.5"/><line style="stroke:#008000;stroke-width:1.5;" x1="739" x2="905" y1="964.5" y2="964.5"/><ellipse cx="749" cy="975.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="142" x="758" y="979.9189">serviceMethod(DomainModel)</text><!--MD5=[47229e3183c43bc5dda4531882e2bdff]
+class ServiceClass--><rect codeLine="82" fill="#ADD8E6" filter="url(#f1b5gus1jkww3q)" height="61.8359" id="ServiceClass" style="stroke:#008000;stroke-width:1.5;" width="205" x="738.5" y="1090.5"/><ellipse cx="800.25" cy="1106.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#008000;stroke-width:1.0;"/><path d="M803.9375,1107.7031 Q803.6875,1111.1875 802.5156,1112.3594 Q801.4844,1113.0781 800.1094,1113.0781 Q798.7344,1113.0781 797.7031,1112.3594 Q795.9219,1110.5781 795.9219,1106.9063 Q795.9219,1102.6563 797.7969,1100.75 Q798.8438,1099.7344 800.1719,1099.7344 Q801.5781,1099.7344 802.4219,1100.5469 Q803.9063,1102.0625 803.8281,1104.9375 L801.7031,1104.9375 Q801.625,1102.6094 800.9844,1101.9688 Q800.7031,1101.6719 800.1719,1101.6719 Q799.7188,1101.6719 799.3594,1102.0469 Q798.125,1103.2656 798.125,1106.7813 Q798.125,1109.8281 799.1719,1110.8438 Q799.5938,1111.2813 800.1094,1111.2813 Q800.5625,1111.2813 801,1110.8438 Q801.5625,1110.2969 801.6406,1107.7031 L803.9375,1107.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="73" x="820.75" y="1111.4102">ServiceClass</text><line style="stroke:#008000;stroke-width:1.5;" x1="739.5" x2="942.5" y1="1122.5" y2="1122.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="746.5" y="1130.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="179" x="758.5" y="1137.9189">domainRepository: DomainRepository</text><line style="stroke:#008000;stroke-width:1.5;" x1="739.5" x2="942.5" y1="1144.3359" y2="1144.3359"/><!--MD5=[5aef847b6ce4ec9bd2a2195a21892f21]
+class TransactionManagerInterface--><rect codeLine="87" fill="#FEFECE" filter="url(#f1b5gus1jkww3q)" height="48" id="TransactionManagerInterface" style="stroke:#A80036;stroke-width:1.5;" width="192" x="949" y="931"/><ellipse cx="964" cy="947" fill="#B4A7E5" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M965.1719,951.7188 L965.9063,951.7188 L965.9063,954.3906 L962.2188,954.3906 L962.2188,951.7188 L962.5625,951.7813 L962.5625,942.8438 L962.2188,942.9063 L962.2188,940.2344 L965.9063,940.2344 L965.9063,942.9063 L965.1719,942.9063 L965.1719,951.7188 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="160" x="978" y="951.9102">TransactionManagerInterface</text><line style="stroke:#A80036;stroke-width:1.5;" x1="950" x2="1140" y1="963" y2="963"/><line style="stroke:#A80036;stroke-width:1.5;" x1="950" x2="1140" y1="971" y2="971"/><!--MD5=[1c78db8edeeb068fad615a8973943cb5]
+class DomainModel--><rect codeLine="93" fill="#FEFECE" filter="url(#f1b5gus1jkww3q)" height="48" id="DomainModel" style="stroke:#A80036;stroke-width:1.5;" width="109" x="941.5" y="1264.5"/><ellipse cx="956.5" cy="1280.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M960.1875,1281.7031 Q959.9375,1285.1875 958.7656,1286.3594 Q957.7344,1287.0781 956.3594,1287.0781 Q954.9844,1287.0781 953.9531,1286.3594 Q952.1719,1284.5781 952.1719,1280.9063 Q952.1719,1276.6563 954.0469,1274.75 Q955.0938,1273.7344 956.4219,1273.7344 Q957.8281,1273.7344 958.6719,1274.5469 Q960.1563,1276.0625 960.0781,1278.9375 L957.9531,1278.9375 Q957.875,1276.6094 957.2344,1275.9688 Q956.9531,1275.6719 956.4219,1275.6719 Q955.9688,1275.6719 955.6094,1276.0469 Q954.375,1277.2656 954.375,1280.7813 Q954.375,1283.8281 955.4219,1284.8438 Q955.8438,1285.2813 956.3594,1285.2813 Q956.8125,1285.2813 957.25,1284.8438 Q957.8125,1284.2969 957.8906,1281.7031 L960.1875,1281.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="77" x="970.5" y="1285.4102">DomainModel</text><line style="stroke:#A80036;stroke-width:1.5;" x1="942.5" x2="1049.5" y1="1296.5" y2="1296.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="942.5" x2="1049.5" y1="1304.5" y2="1304.5"/><!--MD5=[6dd63cf6a405603870f367da4a97e31c]
+class DomainRepository--><rect codeLine="94" fill="#FEFECE" filter="url(#f1b5gus1jkww3q)" height="48" id="DomainRepository" style="stroke:#A80036;stroke-width:1.5;" width="135" x="771.5" y="1264.5"/><ellipse cx="786.5" cy="1280.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M790.1875,1281.7031 Q789.9375,1285.1875 788.7656,1286.3594 Q787.7344,1287.0781 786.3594,1287.0781 Q784.9844,1287.0781 783.9531,1286.3594 Q782.1719,1284.5781 782.1719,1280.9063 Q782.1719,1276.6563 784.0469,1274.75 Q785.0938,1273.7344 786.4219,1273.7344 Q787.8281,1273.7344 788.6719,1274.5469 Q790.1563,1276.0625 790.0781,1278.9375 L787.9531,1278.9375 Q787.875,1276.6094 787.2344,1275.9688 Q786.9531,1275.6719 786.4219,1275.6719 Q785.9688,1275.6719 785.6094,1276.0469 Q784.375,1277.2656 784.375,1280.7813 Q784.375,1283.8281 785.4219,1284.8438 Q785.8438,1285.2813 786.3594,1285.2813 Q786.8125,1285.2813 787.25,1284.8438 Q787.8125,1284.2969 787.8906,1281.7031 L790.1875,1281.7031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="103" x="800.5" y="1285.4102">DomainRepository</text><line style="stroke:#A80036;stroke-width:1.5;" x1="772.5" x2="905.5" y1="1296.5" y2="1296.5"/><line style="stroke:#A80036;stroke-width:1.5;" x1="772.5" x2="905.5" y1="1304.5" y2="1304.5"/><!--MD5=[e7665d3ec3cd1875b8b214b8e577584a]
+class ORMTransactionManager--><rect codeLine="97" fill="#FEFECE" filter="url(#f1b5gus1jkww3q)" height="48" id="ORMTransactionManager" style="stroke:#A80036;stroke-width:1.5;" width="172" x="1245" y="931"/><ellipse cx="1260" cy="947" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1263.6875,948.2031 Q1263.4375,951.6875 1262.2656,952.8594 Q1261.2344,953.5781 1259.8594,953.5781 Q1258.4844,953.5781 1257.4531,952.8594 Q1255.6719,951.0781 1255.6719,947.4063 Q1255.6719,943.1563 1257.5469,941.25 Q1258.5938,940.2344 1259.9219,940.2344 Q1261.3281,940.2344 1262.1719,941.0469 Q1263.6563,942.5625 1263.5781,945.4375 L1261.4531,945.4375 Q1261.375,943.1094 1260.7344,942.4688 Q1260.4531,942.1719 1259.9219,942.1719 Q1259.4688,942.1719 1259.1094,942.5469 Q1257.875,943.7656 1257.875,947.2813 Q1257.875,950.3281 1258.9219,951.3438 Q1259.3438,951.7813 1259.8594,951.7813 Q1260.3125,951.7813 1260.75,951.3438 Q1261.3125,950.7969 1261.3906,948.2031 L1263.6875,948.2031 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="140" x="1274" y="951.9102">ORMTransactionManager</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1246" x2="1416" y1="963" y2="963"/><line style="stroke:#A80036;stroke-width:1.5;" x1="1246" x2="1416" y1="971" y2="971"/><!--MD5=[e0c3e76208a3c266c58a858ff17d81f0]
+class 実装対象クラス--><rect codeLine="101" fill="#ADD8E6" filter="url(#f1b5gus1jkww3q)" height="40.1875" id="実装対象クラス" style="stroke:#008000;stroke-width:1.5;" width="90" x="186" y="55"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="48" x="207" y="72.457">«usage»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="84" x="189" y="87.5508">実装対象クラス</text><!--MD5=[e54f922c46c268170d1451ea4d9f0a3c]
+class 本PJ提供クラス--><rect codeLine="103" fill="#FEFECE" filter="url(#f1b5gus1jkww3q)" height="40.1875" id="本PJ提供クラス" style="stroke:#A80036;stroke-width:1.5;" width="92" x="59" y="55"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="48" x="81" y="72.457">«usage»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="86" x="62" y="87.5508">本PJ提供クラス</text><!--MD5=[d6315f3558af24f5bcc8aec40e172d39]
+entity from--><ellipse cx="574" cy="75" fill="#FEFECE" filter="url(#f1b5gus1jkww3q)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28" x="560" y="106.5332">from</text><!--MD5=[1e65963a6639d287e8994fec2ed8a377]
+entity to--><ellipse cx="655" cy="75" fill="#FEFECE" filter="url(#f1b5gus1jkww3q)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="12" x="649" y="106.5332">to</text><!--MD5=[25ddbd161ce7a5c6041c4dfe137f0f23]
+entity from2--><ellipse cx="440" cy="75" fill="#FEFECE" filter="url(#f1b5gus1jkww3q)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="422" y="106.5332">from2</text><!--MD5=[0dd9f043f618b3bcfe991757d0f541ed]
+entity to2--><ellipse cx="521" cy="75" fill="#FEFECE" filter="url(#f1b5gus1jkww3q)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="20" x="511" y="106.5332">to2</text><!--MD5=[cce732c56cbf3bf966eb9e4d50ff201c]
+entity from3--><ellipse cx="320" cy="75" fill="#FEFECE" filter="url(#f1b5gus1jkww3q)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="302" y="106.5332">from3</text><!--MD5=[56ad1597f30aee70c5063f3d5eaa287b]
+entity to3--><ellipse cx="387" cy="75" fill="#FEFECE" filter="url(#f1b5gus1jkww3q)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="20" x="377" y="106.5332">to3</text><!--MD5=[29cb9cd64e4f0faf32f6be768c0fd447]
+reverse link ServiceInterface to ServiceClass--><path d="M828.21,1009.63 C831.15,1034.94 834.55,1064.36 837.11,1086.46 " fill="none" id="ServiceInterface-backto-ServiceClass" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="821.24,1010.26,825.89,989.58,835.15,1008.65,821.24,1010.26" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[1342ef6685727609c7e1617cac233c09]
+link from to to--><path codeLine="107" d="M583.29,75 C597.33,75 624.06,75 640.62,75 " fill="none" id="from-to-to" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="645.82,75,636.82,71,640.82,75,636.82,79,645.82,75" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="26" x="601.5" y="68.4951">継承</text><!--MD5=[e060c197db696632bd17b190ed88df51]
+link from2 to to2--><path codeLine="110" d="M449.29,75 C463.33,75 490.06,75 506.62,75 " fill="none" id="from2-to-to2" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="511.82,75,502.82,71,506.82,75,502.82,79,511.82,75" style="stroke:#008000;stroke-width:4.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="26" x="467.5" y="68.4951">依存</text><!--MD5=[05b25e8f2b95676a7bdd7b90548f8bec]
+link from3 to to3--><path codeLine="113" d="M329.04,75 C340.16,75 359.21,75 372.41,75 " fill="none" id="from3-to-to3" style="stroke:#0000FF;stroke-width:2.0;"/><polygon fill="#0000FF" points="377.68,75,368.68,71,372.68,75,368.68,79,377.68,75" style="stroke:#0000FF;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="12" x="347.5" y="68.4951">DI</text><!--MD5=[23c3986471632553633a811260138d71]
+link 凡例 to app--><path d="M24,119.0653 C24,119.5641 24,120.0665 24,120.5722 C24,122.5953 24,124.6735 24,126.8042 C24,131.0654 24,135.536 24,140.1927 C24,144.8493 24,149.6921 24,154.6976 C24,157.2004 24,159.7439 24,162.3251 C24,163.6158 24,164.9159 24,166.225 C24,166.5523 24,166.8802 24,167.2086 C24,167.3728 24,167.5372 24,167.7017 " fill="none" id="凡例-to-app" style="stroke:#FFFFFF;stroke-width:1.0;"/><polygon fill="#FFFFFF" points="24,167.7017,28,158.7017,24,162.7017,20,158.7017,24,167.7017" style="stroke:#FFFFFF;stroke-width:1.0;"/><!--MD5=[7ee119e98461e0ea69746c71ee598b47]
+reverse link AppServiceProvider to ServiceInterface--><path codeLine="122" d="M1319.62,520.13 C1317.86,575.15 1305.64,669.34 1246,716 C1233.03,726.15 1114.38,722.27 1098,724 C1024.17,731.79 993.66,707.2 933,750 C874.36,791.37 843.6,873.84 830.3,920.25 " fill="none" id="AppServiceProvider-backto-ServiceInterface" style="stroke:#0000FF;stroke-width:2.0;"/><polygon fill="#0000FF" points="1319.76,514.93,1315.5046,523.8121,1319.6172,519.928,1323.5013,524.0406,1319.76,514.93" style="stroke:#0000FF;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="89" x="1099" y="738.4951">依存IF取り込み</text><!--MD5=[49ad3e5d509d1f11712d580ddbaa5c66]
+reverse link AppServiceProvider to ServiceClass--><path codeLine="123" d="M1353,518.78 C1388.92,565.31 1443.32,644.84 1465,724 C1478.77,774.25 1629.4,819.88 1433,1025.5 C1368.62,1092.91 1104.49,1112.25 951.67,1117.79 " fill="none" id="AppServiceProvider-backto-ServiceClass" style="stroke:#0000FF;stroke-width:4.0;stroke-dasharray:1.0,3.0;"/><polygon fill="#0000FF" points="1349.8,514.65,1352.1585,524.2123,1352.8658,518.5998,1358.4782,519.3071,1349.8,514.65" style="stroke:#0000FF;stroke-width:4.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="1534" y="960.4951">対応実装クラス取り込み</text><!--MD5=[a2813d46c3757a19ede57107eb73afa1]
+reverse link AppServiceProvider to TransactionManagerInterface--><path codeLine="124" d="M1317.99,519.68 C1314.37,572.94 1300.05,663.88 1246,716 C1236.07,725.58 1227.42,716.25 1216,724 C1135.5,778.61 1078.22,883.95 1055.65,930.68 " fill="none" id="AppServiceProvider-backto-TransactionManagerInterface" style="stroke:#0000FF;stroke-width:2.0;"/><polygon fill="#0000FF" points="1318.3,514.65,1313.7433,523.3813,1317.9863,519.6402,1321.7275,523.8832,1318.3,514.65" style="stroke:#0000FF;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="89" x="1217" y="738.4951">依存IF取り込み</text><!--MD5=[a3731059b09ac2fbe534ebae3bc5ddef]
+reverse link AppServiceProvider to ORMTransactionManager--><path codeLine="125" d="M1317.3,519.99 C1315.49,572.26 1313.23,663.69 1316,742 C1318.43,810.77 1325.28,891.86 1328.82,930.81 " fill="none" id="AppServiceProvider-backto-ORMTransactionManager" style="stroke:#0000FF;stroke-width:4.0;stroke-dasharray:1.0,3.0;"/><polygon fill="#0000FF" points="1317.48,514.75,1313.174,523.6077,1317.3087,519.7471,1321.1693,523.8818,1317.48,514.75" style="stroke:#0000FF;stroke-width:4.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="1317" y="738.4951">対応実装クラス取り込み</text><!--MD5=[3eee66177994ccae184799a4d387cf40]
+link Controller to ServiceInterface--><path codeLine="127" d="M397,507.5 C443.64,507.5 387.96,683.08 421,716 C469.31,764.14 670.53,710.32 726,750 C780.83,789.22 805.33,868 815.5,915.36 " fill="none" id="Controller-to-ServiceInterface" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="816.56,920.41,818.6527,910.786,815.5465,915.5138,810.8187,912.4076,816.56,920.41" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[bc5232f5505353c85ebcf2ef39ce07c6]
+link ServiceClass to DomainRepository--><path codeLine="128" d="M738,1134 C678.12,1134 760.37,1216.54 808.5,1260.57 " fill="none" id="ServiceClass-to-DomainRepository" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="812.47,1264.19,808.529,1255.164,808.7807,1260.8153,803.1294,1261.0669,812.47,1264.19" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[198eeda314627d3249e49678a880f1f0]
+link ServiceInterface to DomainModel--><path codeLine="129" d="M907,976 C931.85,976 920.9,1003.79 933,1025.5 C948.32,1053 958.7,1056.75 969,1086.5 C989.45,1145.57 994.52,1219.37 995.71,1259.07 " fill="none" id="ServiceInterface-to-DomainModel" style="stroke:#008000;stroke-width:4.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#008000" points="995.85,1264.21,999.5913,1255.0994,995.7072,1259.212,991.5946,1255.3279,995.85,1264.21" style="stroke:#008000;stroke-width:4.0;"/><!--MD5=[47014548c9cbf8a86b80a20bd0ce18a7]
+@startuml
+'https://plantuml.com/class-diagram
+
+package "app" {
+
+    node "presentation層" {
+        package "HTTP" {
+            package "Controllers" {
+            note as ControllerNote
+               エンドポイント事に追加されます。
+               HTTPリクエストの種類数に応じて
+               中身の実装関数を追加していきます。
+               コントローラからはService層のみ
+               をコールする事が理想です。
+               domain層の処理を直接呼ぶ必要がある場合は、
+               その処理を一つのServiceに定義できないか検討ください。
+               イメージとしては、
+               一つのControllerないの一つの関数は
+               エンドポイントであるので
+               Requestが必ず渡されます、
+               そのリクエストからDomainを生成し
+               使用したいServiceの引数に渡し、
+               結果をResourceに詰めてreturnします
+               ※実際のルーティング定義はrouter.phpに記載
+            end note
+                class Controller #line:green;back:lightblue{
+                    エンドポイント
+                    コンストラクタインジェクションにてService層をDI
+                    各関数の引数にRequestをDIします。
+                    - -
+                    - serviceInterface: ServiceInterface
+                    - -
+                    + controllerMethod(Request): Resource
+                }
+            }
+        }
+    }
+        node "DIコンテナ" {
+            note as DIコンテナNote
+            主な使い方は下記を参考ください
+            https://readouble.com/laravel/8.x/ja/container.html
+            用途によってProviderを分けてはいますが、
+            やっている事の本質は
+            どのクラスもそんなに変わらなく、
+            シンプルにＤＩコンテナとして使用しています。
+            end note
+            package Providers{
+                class AppServiceProvider{
+                    service層の依存関係解決
+                    register()
+                }
+            }
+        }
+}
+
+package "packages" {
+        note as Package
+           Laravelに極力依存せず
+           ドメイン駆動な開発をする
+           ための構成要素を閉じ込めています。
+           ビジネスロジックの実装において
+           Laravelを意識せず、
+           （PHPっぽさもなるべく排除して）
+           オブジェクト指向にて実装できる
+           ことに重きを置いています
+        end note
+
+    node "service層" {
+        note as ServiceNote
+         実現する機能を定義します。
+         service層からは関連する
+         domain層のみを操作します。
+         infrastructure層や
+         presentation層の操作が
+         必要になる場合の大半は
+         設計に問題があるとみて
+         設計を見直してください。
+        end note
+        package "service" {
+            interface ServiceInterface #line:green;back:lightblue{
+                + serviceMethod(DomainModel)
+            }
+            class ServiceClass #line:green;back:lightblue implements ServiceInterface{
+                - domainRepository: DomainRepository
+            }
+
+            package "helper" {
+                interface TransactionManagerInterface
+            }
+        }
+
+    }
+    package "domain" {
+        class DomainModel
+        class DomainRepository
+    }
+    package "infrastructure" {
+        class ORMTransactionManager
+    }
+}
+node 凡例 #lightgray {
+    class 実装対象クラス <<usage>> #line:green;back:lightblue  {
+    }
+    class 本PJ提供クラス <<usage>>{
+    }
+    circle from
+    circle to
+    from -[dashed]right-> to: 継承
+    circle from2
+    circle to2
+    from2 -[#green,dashed,thickness=4]right-> to2: 依存
+    circle from3
+    circle to3
+    from3 -[#blue,plain,thickness=2]right-> to3: DI
+}
+凡例 -down[#white]-> app
+hide <<usage>> circle
+hide <<usage>> members
+hide <<usage>> methods
+
+
+
+AppServiceProvider <-[#blue,plain,thickness=2]- ServiceInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ServiceClass: 対応実装クラス取り込み
+AppServiceProvider <-[#blue,plain,thickness=2]- TransactionManagerInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ORMTransactionManager: 対応実装クラス取り込み
+
+Controller::serviceInterface -[#green,dashed,thickness=4]-> ServiceInterface
+ServiceClass::domainRepository -[#green,dashed,thickness=4]-> DomainRepository
+ServiceInterface::serviceMethod -[#green,dashed,thickness=4]-> DomainModel
+
+
+@enduml
+
+@startuml
+
+package "app" {
+
+    node "presentation層" {
+        package "HTTP" {
+            package "Controllers" {
+            note as ControllerNote
+               エンドポイント事に追加されます。
+               HTTPリクエストの種類数に応じて
+               中身の実装関数を追加していきます。
+               コントローラからはService層のみ
+               をコールする事が理想です。
+               domain層の処理を直接呼ぶ必要がある場合は、
+               その処理を一つのServiceに定義できないか検討ください。
+               イメージとしては、
+               一つのControllerないの一つの関数は
+               エンドポイントであるので
+               Requestが必ず渡されます、
+               そのリクエストからDomainを生成し
+               使用したいServiceの引数に渡し、
+               結果をResourceに詰めてreturnします
+               ※実際のルーティング定義はrouter.phpに記載
+            end note
+                class Controller #line:green;back:lightblue{
+                    エンドポイント
+                    コンストラクタインジェクションにてService層をDI
+                    各関数の引数にRequestをDIします。
+                    - -
+                    - serviceInterface: ServiceInterface
+                    - -
+                    + controllerMethod(Request): Resource
+                }
+            }
+        }
+    }
+        node "DIコンテナ" {
+            note as DIコンテナNote
+            主な使い方は下記を参考ください
+            https://readouble.com/laravel/8.x/ja/container.html
+            用途によってProviderを分けてはいますが、
+            やっている事の本質は
+            どのクラスもそんなに変わらなく、
+            シンプルにＤＩコンテナとして使用しています。
+            end note
+            package Providers{
+                class AppServiceProvider{
+                    service層の依存関係解決
+                    register()
+                }
+            }
+        }
+}
+
+package "packages" {
+        note as Package
+           Laravelに極力依存せず
+           ドメイン駆動な開発をする
+           ための構成要素を閉じ込めています。
+           ビジネスロジックの実装において
+           Laravelを意識せず、
+           （PHPっぽさもなるべく排除して）
+           オブジェクト指向にて実装できる
+           ことに重きを置いています
+        end note
+
+    node "service層" {
+        note as ServiceNote
+         実現する機能を定義します。
+         service層からは関連する
+         domain層のみを操作します。
+         infrastructure層や
+         presentation層の操作が
+         必要になる場合の大半は
+         設計に問題があるとみて
+         設計を見直してください。
+        end note
+        package "service" {
+            interface ServiceInterface #line:green;back:lightblue{
+                + serviceMethod(DomainModel)
+            }
+            class ServiceClass #line:green;back:lightblue implements ServiceInterface{
+                - domainRepository: DomainRepository
+            }
+
+            package "helper" {
+                interface TransactionManagerInterface
+            }
+        }
+
+    }
+    package "domain" {
+        class DomainModel
+        class DomainRepository
+    }
+    package "infrastructure" {
+        class ORMTransactionManager
+    }
+}
+node 凡例 #lightgray {
+    class 実装対象クラス <<usage>> #line:green;back:lightblue  {
+    }
+    class 本PJ提供クラス <<usage>>{
+    }
+    circle from
+    circle to
+    from -[dashed]right-> to: 継承
+    circle from2
+    circle to2
+    from2 -[#green,dashed,thickness=4]right-> to2: 依存
+    circle from3
+    circle to3
+    from3 -[#blue,plain,thickness=2]right-> to3: DI
+}
+凡例 -down[#white]-> app
+hide <<usage>> circle
+hide <<usage>> members
+hide <<usage>> methods
+
+
+
+AppServiceProvider <-[#blue,plain,thickness=2]- ServiceInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ServiceClass: 対応実装クラス取り込み
+AppServiceProvider <-[#blue,plain,thickness=2]- TransactionManagerInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ORMTransactionManager: 対応実装クラス取り込み
+
+Controller::serviceInterface -[#green,dashed,thickness=4]-> ServiceInterface
+ServiceClass::domainRepository -[#green,dashed,thickness=4]-> DomainRepository
+ServiceInterface::serviceMethod -[#green,dashed,thickness=4]-> DomainModel
+
+
+@enduml
+
+PlantUML version 1.2021.15(Wed Dec 01 01:45:34 JST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>

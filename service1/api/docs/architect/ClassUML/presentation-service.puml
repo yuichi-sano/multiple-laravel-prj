@@ -1,0 +1,133 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package "app" {
+
+    node "presentation層" {
+        package "HTTP" {
+            package "Controllers" {
+            note as ControllerNote
+               エンドポイント事に追加されます。
+               HTTPリクエストの種類数に応じて
+               中身の実装関数を追加していきます。
+               コントローラからはService層のみ
+               をコールする事が理想です。
+               domain層の処理を直接呼ぶ必要がある場合は、
+               その処理を一つのServiceに定義できないか検討ください。
+               イメージとしては、
+               一つのControllerないの一つの関数は
+               エンドポイントであるので
+               Requestが必ず渡されます、
+               そのリクエストからDomainを生成し
+               使用したいServiceの引数に渡し、
+               結果をResourceに詰めてreturnします
+               ※実際のルーティング定義はrouter.phpに記載
+            end note
+                class Controller #line:green;back:lightblue{
+                    エンドポイント
+                    コンストラクタインジェクションにてService層をDI
+                    各関数の引数にRequestをDIします。
+                    --
+                    - serviceInterface: ServiceInterface
+                    --
+                    + controllerMethod(Request): Resource
+                }
+            }
+        }
+    }
+        node "DIコンテナ" {
+            note as DIコンテナNote
+            主な使い方は下記を参考ください
+            https://readouble.com/laravel/8.x/ja/container.html
+            用途によってProviderを分けてはいますが、
+            やっている事の本質は
+            どのクラスもそんなに変わらなく、
+            シンプルにＤＩコンテナとして使用しています。
+            end note
+            package Providers{
+                class AppServiceProvider{
+                    service層の依存関係解決
+                    register()
+                }
+            }
+        }
+}
+
+package "packages" {
+        note as Package
+           Laravelに極力依存せず
+           ドメイン駆動な開発をする
+           ための構成要素を閉じ込めています。
+           ビジネスロジックの実装において
+           Laravelを意識せず、
+           （PHPっぽさもなるべく排除して）
+           オブジェクト指向にて実装できる
+           ことに重きを置いています
+        end note
+
+    node "service層" {
+        note as ServiceNote
+         実現する機能を定義します。
+         service層からは関連する
+         domain層のみを操作します。
+         infrastructure層や
+         presentation層の操作が
+         必要になる場合の大半は
+         設計に問題があるとみて
+         設計を見直してください。
+        end note
+        package "service" {
+            interface ServiceInterface #line:green;back:lightblue{
+                + serviceMethod(DomainModel)
+            }
+            class ServiceClass #line:green;back:lightblue implements ServiceInterface{
+                - domainRepository: DomainRepository
+            }
+
+            package "helper" {
+                interface TransactionManagerInterface
+            }
+        }
+
+    }
+    package "domain" {
+        class DomainModel
+        class DomainRepository
+    }
+    package "infrastructure" {
+        class ORMTransactionManager
+    }
+}
+node 凡例 #lightgray {
+    class 実装対象クラス <<usage>> #line:green;back:lightblue  {
+    }
+    class 本PJ提供クラス <<usage>>{
+    }
+    circle from
+    circle to
+    from -[dashed]right-> to: 継承
+    circle from2
+    circle to2
+    from2 -[#green,dashed,thickness=4]right-> to2: 依存
+    circle from3
+    circle to3
+    from3 -[#blue,plain,thickness=2]right-> to3: DI
+}
+凡例 -down[#white]-> app
+hide <<usage>> circle
+hide <<usage>> members
+hide <<usage>> methods
+
+
+
+AppServiceProvider <-[#blue,plain,thickness=2]- ServiceInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ServiceClass: 対応実装クラス取り込み
+AppServiceProvider <-[#blue,plain,thickness=2]- TransactionManagerInterface: 依存IF取り込み
+AppServiceProvider <-[#blue,dotted,thickness=4]- ORMTransactionManager: 対応実装クラス取り込み
+
+Controller::serviceInterface -[#green,dashed,thickness=4]-> ServiceInterface
+ServiceClass::domainRepository -[#green,dashed,thickness=4]-> DomainRepository
+ServiceInterface::serviceMethod -[#green,dashed,thickness=4]-> DomainModel
+
+
+@enduml
