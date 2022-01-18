@@ -1,6 +1,18 @@
-# Sample application Trade Skill Tests Client
+# SimpleVueCli
 
 - [npm](https://docs.npmjs.com/)
+
+# SetUp
+## git clone
+まずはこのPJをGitClone、または一括でDLしてください
+### cloneの場合
+	git clone https://github.com/yuichi-sano/simple-vue-cli
+	# 他のPJで使う場合は下記のようにgit管理を削除
+	rm -rf .git
+
+### DLの場合
+	wget https://github.com/yuichi-sano/simple-vue-cli/archive/refs/heads/master.zip a.zip; unzip a.zip
+
 
 ## Usage
 
@@ -52,7 +64,7 @@ npm run build
   - 基本的にはコンテンツチームが生成
 - components
   - vueのコンポーネントを定義
-  - Atomic Designを模しているが定義が曖昧かも
+  - Atomic Designにて設計
 - infrastructure
   - 外部との連携（主にバックエンドのAPI）
 - stores
@@ -63,4 +75,4 @@ npm run build
   - 型の定義
   - どのレイヤーからも定義された型を利用して品質の担保を実現
 
-![Package](../../doc/client-package.png)
+![design](./docs/architect/designArchitect.png)

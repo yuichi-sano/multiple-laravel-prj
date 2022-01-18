@@ -1,4 +1,4 @@
-# DDD-Laravel-Doctorine
+# DDD-Laravel-Doctrine
 
 # SetUp
 ## git clone
@@ -12,7 +12,7 @@
 	wget https://github.com/yuichi-sano/ddd-laravel-doctrine/archive/refs/heads/master.zip a.zip; unzip a.zip
 
 ## ForWindows
-[Windows環境でのSETUP](./docs/for_win/README.md)   
+###  [Windows環境でのSETUP](./docs/for_win/README.md)   
 ※本資料では、vagrantに関する記述は以上とします。  
 vagrantにて仮想環境が起動したら、ssh接続を実施し
 setup.shを実行ください。
@@ -33,48 +33,54 @@ setup.shを実行ください。
 にてアプリケーションが起動します。
 ここまででSETUPが完了します。
 
-# DDD戦略について
-   本PJではDDDの戦略としてクリーンアーキテクトを取り入れています。
-   Laravelそれ自体のドキュメントからでは追いづらい部分を本資料で補足していこうと思います。
-## packagesについて
-    
-    domain
-    infrastructure
-    service
-主に上記3つのレイヤーにそれぞれの責務を預けます。
+# 設計思想
+Laravelを一部拡張しながらクリーンアーキテクトの思想を取り入れています。   
+Laravel標準ではクリーンアーキテクトな思想に関しての言及がないので  
+本ドキュメントにて、Laravelのどの機能をどう活用してクリーンアーキテクトを  
+実現しているかを言及していきます。
 
-    infrastructure
-などを例にとると想像しやすいかと思いますが、DBに対する操作、外部との連携、メール送信
-等の責務を任せるようにします。  
-また3つの層が互いに疎結合であるべきで、かつ他のレイヤの責務が混じらないように設計する必要があります。
-※ここがlaravelだとかなり難しい部分があります  
-わかり安い例でいうとdomain層にはビジネスロジックを任せていくことになるわけだが、　　
-domain層の中にDBに関する関心事を放り込まないよう心がけて設計することで実現できます。
+## 設計デザイン
+下記にてざっくりと設計デザインを図示します。  
+![design](./docs/architect/designArchitect.svg)  
+
+###下記リンクにて詳細な設計思想についての言及をします。
+###- [設計についての詳細](./docs/architect/designArchitect.md)
+###- [主要なClass設計図](./docs/architect/classesUml.svg)
 
 
 # 設定済、カスタマイズ済み
+Laravelについて、packages以外で特筆すべき拡張を実施している点についての説明、解説をしていきます。
+
 ## JWT認証laravel用モジュール
     Tymon/JWT-Auth
-そのままレールに従った使い方ではないが、Guradなどlaravelのうまみを消しすぎないようなカスタマイズ
-Tokenの作成はFactoryを介して実施することでブラックボックス化をある程度さける。
+そのままレールに従った使い方ではないが、GuardなどLaravelのうまみを消しすぎないような  
+カスタマイズを実施しています。   
+Tokenの作成はFactoryを介して実施することでブラックボックス化をある程度軽減させています。　　
+※本PJのsampleではdefaultでJWT認証に倒しています。
+
 ## Japanese
+Laravelはそのまま使うとValidationエラーのメッセージに英語を返してきたりします。   
+そのままでもよいにはよいですが、日本語で定義しておいた方が理解の助けになるということで導入しています。
+
     日本語バリデーション等追加済み
     laravelの標準的な使い方をしています
     バリデーションや、例外メッセージ等もここで管理するといいと思います。
-    TODO メール文面をどこにおこうか。
+    TODO メール文面をどこに配置するかを要件等する。
 ## MiddleWare
     tokenAuth
-と命名して、jwt認証ガード一式を登録
+と命名して、jwt認証ガード一式を登録しています。
 
 
-## doctorineについて
-	Eloquentは廃止しています
-	doctorine一本なのですが。migrationはそもそもlaravelの機能をつかっていません。
-	mifrationについては後述します。
+## Doctrineについて
+	本初期sampleではEloquentは廃止しています
+	LaravelDoctorineを採用しています。
+    migrationはそもそもlaravelの機能をつかっていません。
+	migrationについては後述します。
     本PJではxmlマッピング形式を利用しさらに
     NamedNativeQueryにて最小限のファイル構成でdomain層との完全なる疎結合を実現しています。
 
 ※DIはDatasourceProvidersに記載していきます。
+###- [Doctrineについてさらに詳細](./docs/architect/ORM/doctrine.md)
 
 ## hash値
     laravelがdefaultで操作できるhash値は比較的最近の技術しかなかったので
@@ -111,13 +117,10 @@ Tokenの作成はFactoryを介して実施することでブラックボック�
  用はすべてgradlew経由でmigrationを実施していきます。
 
     ./vendor/bin/sail artisan flyway:develop
-など
 
 
 
-
-
-#SwaggerとSwagger対応コマンドについて。
+# SwaggerとSwagger対応コマンドについて。
     ./vendor/bin/sail artisan make:swagger-codegen {--tag=} {--force}
 を実行すると、
     resources\swagger\api.json
@@ -127,3 +130,4 @@ Tokenの作成はFactoryを介して実施することでブラックボック�
     Request
     Result
 を自動で生成します
+

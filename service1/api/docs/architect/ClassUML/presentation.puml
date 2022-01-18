@@ -1,0 +1,150 @@
+@startuml
+'https://plantuml.com/class-diagram
+node 凡例 #lightgray {
+    class 実装対象クラス <<usage>> #line:green;back:lightblue  {
+    }
+    class 本PJ提供クラス <<usage>>{
+    }
+    circle from
+    circle to
+    from -[dashed]right-> to: 継承
+    circle from2
+    circle to2
+    from2 -[#green,dashed,thickness=4]right-> to2: 依存
+    circle from3
+    circle to3
+    from3 -[#blue,plain,thickness=2]right-> to3: DI
+}
+
+hide <<usage>> circle
+hide <<usage>> members
+hide <<usage>> methods
+
+package Laravel #DDDDDD {
+    class FormRequest
+    class JsonResource
+    class Facade
+}
+
+package "app" {
+    node "presentation層" {
+        package "HTTP" {
+            package "Controllers" {
+            note as ControllerNote
+               エンドポイント事に追加されます。
+               HTTPリクエストの種類数に応じて
+               中身の実装関数を追加していきます。
+               コントローラからはService層のみ
+               をコールする事が理想です。
+               domain層の処理を直接呼ぶ必要がある場合は、
+               その処理を一つのServiceに定義できないか検討ください。
+               イメージとしては、
+               一つのControllerないの一つの関数は
+               エンドポイントであるので
+               Requestが必ず渡されます、
+               そのリクエストからDomainを生成し
+               使用したいServiceの引数に渡し、
+               結果をResourceに詰めてreturnします
+               ※実際のルーティング定義はrouter.phpに記載
+            end note
+                class Controller #line:green;back:lightblue{
+                    エンドポイント
+                    コンストラクタインジェクションにてService層をDI
+                    各関数の引数にRequestをDIします。
+                    --
+                    - serviceInterface: ServiceInterface
+                    --
+                    + controllerMethod(Request): Resource
+                }
+            }
+            package "Requests" {
+                note as RequestNote
+                    エンドポイント×Httpリクエストメソッド
+                    の数だけ存在します。
+                    LaravelのFormRequestを継承しているので
+                    連想配列にて全リクエストを処理できますが、
+                    controllerや、Serviceにてリクエストのplain
+                    なデータを操作することを防ぐため、
+                    各Requestクラス内でリクエストパラメータ
+                    をDomainに変換する関数を閉じ込めておくことをお勧めします。
+                    LaravelのValidationを機能させるために
+                    別途Definitionというクラスを用意します。
+                    このDefinitionをRequestに依存させることで、
+                    どのリクエストにはどのようなパラメータ、バリデーションが存在するか
+                    についての見通しをよくします。
+                end note
+                abstract AbstractFormRequest extends FormRequest{
+                    - definition: DefinitionInterface
+                }
+                class Request #line:green;back:lightblue extends AbstractFormRequest {
+                    + toDomainModel(): DomainModel
+                }
+
+                interface DefinitionInterface
+                abstract AbstractRequestDefinition
+                class RequestDefinition #line:green;back:lightblue extends AbstractRequestDefinition implements DefinitionInterface
+            }
+            package "MiddleWare" {
+            note as MiddleWareNote
+                一つのHTTPリクエストが
+                コントローラに到達する前、
+                コントローラによる処理の後
+                どちらにも処理を挟み込むための
+                Laravelの機能です
+                presentation層と扱っていますが
+                基本的なものはそのまま使用しており
+                Laravelのドキュメントから仕様を
+                追うことができます
+
+            end note
+                class Authenticate {
+                    controllerへroutingする前に実施する認証処理を記載します。
+                }
+            }
+            package "Resources" {
+                note as ResourceNote
+                    エンドポイント×Httpリクエストメソッド
+                    の数だけ存在します。
+                    LaravelのJsonResourceを
+                    継承しているので用意にjson
+                    encode、decodeが可能です（この辺りは原則ミドルウェアに任せます）
+                    実装するResourceクラスにはbuildResultなど自身のインスタンスを生成する
+                    関数を用意します。
+                    この関数はcontrollerから呼ばれ、引数にはdomainモデルが渡されることを
+                    期待しています。
+                    別途ResultDefinitionというクラスを用意します。
+                    このResultDefinitionをResourceに依存させ、
+                    buildResultないで、渡されたdomainデータを使いクライアントが望む
+                    viewの構造に生成しなおします。
+                end note
+                abstract AbstractJsonResource extends JsonResource{
+                    - result: ResultDefinitionInterface
+                }
+                class Resource #line:green;back:lightblue extends AbstractJsonResource{
+                    + buildResult(domainModel)::Resource
+                    - (domainModel::DomainModel)
+                }
+                interface ResultDefinitionInterface
+                abstract AbstractResultDefinition
+                class ResultDefinition #line:green;back:lightblue extends AbstractResultDefinition implements ResultDefinitionInterface
+            }
+        }
+    }
+
+}
+
+
+凡例 -right[#white]->Laravel
+凡例 -down[#white]-> app
+
+Requests -down[#white]-> Controllers
+Resources-up[#white]-> Controllers
+Controller::controllerMethod -[#green,dashed,thickness=4]-> Request
+Controller::controllerMethod -[#green,dashed,thickness=4]-> Resource
+Request::definition -[#green,dashed,thickness=4]-> RequestDefinition
+
+Resource --> ResultDefinition: use
+AbstractFormRequest::definition -[#green,dashed,thickness=4]-> DefinitionInterface
+AbstractJsonResource::result -[#green,dashed,thickness=4]-> ResultDefinitionInterface
+
+@enduml
