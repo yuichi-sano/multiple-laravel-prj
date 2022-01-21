@@ -52,6 +52,7 @@ class MerchantGetService implements MerchantGetInterface
 
             $mergedRow = $factory->mergeRows($mergeRows);
             if($factory->needSplit($mergedRow)){
+
                 foreach ($factory->splitRow($mergedRow)as $splitRow){
                     $zipCode = $factory->create($splitRow);
                     $list->add($zipCode);
@@ -63,6 +64,7 @@ class MerchantGetService implements MerchantGetInterface
             $mergeRows = [];
         }
 
+        dd($list); // TODO
         var_dump($list->count());
         exit;
 
