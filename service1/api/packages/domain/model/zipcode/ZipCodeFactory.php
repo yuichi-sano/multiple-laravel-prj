@@ -1,23 +1,5 @@
 <?php
-/*
- * 再利用出来るようにしたい
- * StringSplit interface
- *  merge rows implements
- *
- * 定数の定義の仕方
- *  コードの分割
- *
- *  create cleaTownArea
- *  コード の概要
- *  ちゃんと見る
- *
- *  コメントアウト消す
- *  種市けす
- *  テストコード書く
- *
- *  WebApiExceptionにする
- *
- */
+
 declare(strict_types=1);
 
 namespace packages\domain\model\zipcode;
