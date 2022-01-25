@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace packages\domain\model\zipcode\split_townarea;
 use packages\domain\model\zipcode\ZipCodeConstants;
-use packages\domain\model\zipcode\ZipCodeAnalyzer;
+use packages\domain\model\zipcode\TowAreaAnalyzer;
 
 class SplitMainSub extends SplitTownArea {
 
@@ -26,7 +26,7 @@ class SplitMainSub extends SplitTownArea {
         );
 
        $mainTownAreaKana = '';
-       if(ZipCodeAnalyzer::hasKanaMain($townAreaKana)) {
+       if(TowAreaAnalyzer::hasMainKana($townAreaKana)) {
             $mainTownAreaKana = parent::extractMatch(
                  ZipCodeConstants::REGEX_BEFORE_PARENTHESES_KANA
                 ,$townAreaKana
@@ -36,13 +36,13 @@ class SplitMainSub extends SplitTownArea {
         }
 
         $subTownAreaKanas = [];
-        if(ZipCodeAnalyzer::needSplitKana($townAreaKana)) {
+        if(TowAreaAnalyzer::needSplitKana($townAreaKana)) {
             $subTownAreaKanas = parent::extractMatchArray(
                  ZipCodeConstants::REGEX_BEFORE_PARENTHESES_KANA
                 ,$townAreaKana
                 ,'､'
             );
-        } elseif(ZipCodeAnalyzer::hasKanaSub($townAreaKana)) {
+        } elseif(TowAreaAnalyzer::hasSubKana($townAreaKana)) {
             // 分割するレコードでも、従属する町域カナは単一の値の場合がある
             $subTownAreaKanas = [
                 parent::extractMatch(
