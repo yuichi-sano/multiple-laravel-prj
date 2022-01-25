@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace packages\domain\model\zipcode\split_townarea;
 use packages\domain\model\zipcode\ZipCodeConstants;
-use packages\domain\model\zipcode\ZipCodeAnalyzer;
+use packages\domain\model\zipcode\split_townarea\TownAreaAnalyzer;
 
 abstract class SplitTownArea
 {
@@ -170,28 +170,28 @@ abstract class SplitTownArea
     {
 
         $start = $this->extractMatch(
-            ZipCodeConstants::REGEX_BEFORE_SERIAL_TOWNAREA_KANA,
-            $townAreaKana
+             ZipCodeConstants::REGEX_BEFORE_SERIAL_TOWNAREA_KANA
+            ,$townAreaKana
         );
         // 稀に1-97-116といったような引数が来た場合に97-116が連番に該当する
         // その際は単純な数値の抽出では対応できない
-        if(ZipCodeAnalyzer::hasAfterSerialTownAreaKana($start)) {
+        if(TownAreaAnalyzer::hasAfterSerialTownAreaKana($start)) {
             $start = $this->extractMatch(
-                ZipCodeConstants::REGEX_AFTER_SERIAL_TOWNAREA_KANA,
-                $start
+                 ZipCodeConstants::REGEX_AFTER_SERIAL_TOWNAREA_KANA
+                ,$start
             );
         } else{
             // こちらに該当するものが大半
             $start = $this->extractMatch(
-                ZipCodeConstants::REGEX_NUMBER_HALF,
-                $start
+                 ZipCodeConstants::REGEX_NUMBER_HALF
+                ,$start
             );
         }
         // 稀に1-97-116といったような引数が来た場合にpreg_matchでは97しか抽出ができない
         preg_match_all(ZipCodeConstants::REGEX_AFTER_SERIAL_TOWNAREA_KANA, $townAreaKana, $end);
         $end = $this->extractMatch(
-            ZipCodeConstants::REGEX_NumberHalf,
-            $end[0][count($end[0])-1]
+             ZipCodeConstants::REGEX_NUMBER_HALF
+            ,$end[0][count($end[0])-1]
         );
 
         return ['start' => $start, 'end' => $end];
