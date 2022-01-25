@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace packages\domain\model\zipcode;
+namespace packages\domain\model\zipcode\split_townArea;
 use packages\domain\model\zipcode\ZipCodeConstants;
 
-class ZipCodeAnalyzer
+class TownAreaAnalyzer
 {
     /**
      * @param  string $townArea 町域名称カナ
