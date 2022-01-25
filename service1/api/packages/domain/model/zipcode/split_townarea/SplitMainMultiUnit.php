@@ -51,6 +51,7 @@ class SplitMainMultiUnit extends SplitTownArea {
                 ,'lastIndex'        => $lastIndex
         ];
     }
+
     /**
      * @param  array  $townAreaInfo 町域名称（カナ）情報
      * @return array                加工した町域名称（カナ）情報
