@@ -7,19 +7,19 @@ use packages\domain\model\zipcode\split_townarea\TownAreaAnalyzer;
 
 abstract class SplitTownArea
 {
-
     /**
-     * @param  array zipcode
+     * @param  string $townArea      町域名称
+     * @param  string $townAreaKana  町域名称カナ
      * @return array splittedTownArea
      */
-    public final function splitTownArea(array $zipcode):array
+    public final function split(string $townArea, string $townAreaKana):array
     {
         return $this->process(
                     $this->extract(
-                        $zipcode[ZipCodeConstants::IDX_TOWNAREA]
-                        ,$zipcode[ZipCodeConstants::IDX_TOWNAREA_KANA]
+                         $townArea
+                        ,$townAreaKana
                     )
-        );
+               );
     }
 
     /**

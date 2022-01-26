@@ -19,8 +19,8 @@ class TownAreaAnalyzer
     }
 
     /**
-     * @param  string $townArea 町域名称カナ
-     * @return bool             判定結果
+     * @param  string $townAreaKana 町域名称カナ
+     * @return bool                 判定結果
      */
     static function hasSubKana($townAreaKana): bool
     {
@@ -31,14 +31,38 @@ class TownAreaAnalyzer
     }
 
     /**
-     * @param  string $townArea 町域名称カナ
-     * @return bool             判定結果
+     * @param  string $townAreaKana 町域名称カナ
+     * @return bool                 判定結果
      */
     static function hasMainKana($townAreaKana): bool
     {
         return (bool)preg_match(
              ZipCodeConstants::REGEX_BEFORE_PARENTHESES_KANA
             ,$townAreaKana
+        );
+    }
+
+    /**
+     * @param  string $townArea 町域名称
+     * @return bool             判定結果
+     */
+    static function hasSerial($townArea): bool
+    {
+        return (bool)preg_match(
+             ZipCodeConstants::REGEX_SERIAL_TOWNAREA
+            ,$townArea
+        );
+    }
+
+    /**
+     * @param  string $townArea     町域名称
+     * @return bool                 判定結果
+     */
+    static function hasSerialBanchiGou($townArea): bool
+    {
+        return (bool)preg_match(
+             ZipCodeConstants::REGEX_SERIAL_BANCHIGOU
+            ,$townArea
         );
     }
 
