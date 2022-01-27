@@ -117,6 +117,32 @@ services:
             - postgres-data:/var/lib/postgresql/data
         networks:
             - sail
+    locust-master:
+        image: locustio/locust
+        ports:
+              - "18089:8089"
+        volumes:
+            - ./locust/docker:/mnt/locust
+            - ./locust/docker/conf/limits.conf:/etc/security/limits.conf
+        command: -f /mnt/locust/locustfile.py --master
+        networks:
+            - sail
+    locust-worker:
+        image: locustio/locust
+        volumes:
+            - ./locust/docker:/mnt/locust
+            - ./locust/docker/conf/limits.conf:/etc/security/limits.conf
+        command: -f /mnt/locust/locustfile.py --worker --master-host locust-master
+        networks:
+            - sail
+    locust-worker-2:
+        image: locustio/locust
+        volumes:
+            - ./locust/docker:/mnt/locust
+            - ./locust/docker/conf/limits.conf:/etc/security/limits.conf
+        command: -f /mnt/locust/locustfile.py --worker --master-host locust-master
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
