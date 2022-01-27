@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace packages\domain\model\zipcode\split_townarea;
 use packages\domain\model\zipcode\ZipCodeConstants;
-use packages\domain\model\zipcode\TowAreaAnalyzer;
 
 class SplitMainSerialUnit extends SplitTownArea {
 
@@ -18,21 +17,21 @@ class SplitMainSerialUnit extends SplitTownArea {
         /* 町域名称（カナ）を構成する各情報を抽出する */
 
         // 主の町域名称（カナ）
-        $mainTownArea     = parent::extractMatch(
+        $mainTownArea     = $this->extractMatch(
              ZipCodeConstants::REGEX_BEFORE_PARENTHESES
             ,$townArea
         );
-        $mainTownAreaKana = parent::extractMatch(
+        $mainTownAreaKana = $this->extractMatch(
              ZipCodeConstants::REGEX_BEFORE_PARENTHESES_KANA
             ,$townAreaKana
         );
 
         // カッコ内の情報
-        $insideParentheses     = parent::extractMatch(
+        $insideParentheses     = $this->extractMatch(
              ZipCodeConstants::REGEX_INSIDE_PARENTHESES
             ,$townArea
         );
-        $insideParenthesesKana = parent::extractMatch(
+        $insideParenthesesKana = $this->extractMatch(
              ZipCodeConstants::REGEX_INSIDE_PARENTHESES_KANA
             ,$townAreaKana
         );
@@ -41,35 +40,35 @@ class SplitMainSerialUnit extends SplitTownArea {
         // それらを全て抽出する必要がある
 
         // 町域名称（カナ）
-        $subTownArea     = parent::extractBeforeNum(
-            parent::extractMatch(
+        $subTownArea     = $this->extractBeforeNum(
+            $this->extractMatch(
                  ZipCodeConstants::REGEX_BEFORE_SERIAL_TOWNAREA
                 ,$insideParentheses
             )
         );
-        $subTownAreaKana = parent::extractBeforeNum(
-            parent::extractMatch(
+        $subTownAreaKana = $this->extractBeforeNum(
+            $this->extractMatch(
                  ZipCodeConstants::REGEX_BEFORE_SERIAL_TOWNAREA_KANA
                 ,$insideParenthesesKana
             )
         );
 
         // 住所区分単位
-        $unitName    = parent::extractAfterNum(
-            parent::extractMatch(
+        $unitName    = $this->extractAfterNum(
+            $this->extractMatch(
                  ZipCodeConstants::REGEX_AFTER_SERIAL_TOWNAREA
                 ,$insideParentheses
             )
         );
-        $unitNameKana = parent::extractAfterNum(
-            parent::extractMatch(
+        $unitNameKana = $this->extractAfterNum(
+            $this->extractMatch(
                  ZipCodeConstants::REGEX_AFTER_SERIAL_TOWNAREA_KANA
                 ,$insideParenthesesKana
             )
         );
 
         // 連番
-        $serial = parent::extractSerialStartAndEnd($townAreaKana);
+        $serial = $this->extractSerialStartAndEnd($townAreaKana);
 
         return [
              'serial_start'     => $serial['start']

@@ -5,7 +5,6 @@ declare(strict_types=1);
 
 namespace packages\domain\model\zipcode\split_townarea;
 use packages\domain\model\zipcode\ZipCodeConstants;
-use packages\domain\model\zipcode\TowAreaAnalyzer;
 
 class SplitSerialMain extends SplitTownArea {
 
@@ -18,46 +17,46 @@ class SplitSerialMain extends SplitTownArea {
     {
         // もしカッコがついていたら不要なので外す
         if(TownAreaAnalyzer::hasSub($townArea)) {
-            $townArea = parent::extractMatch(
+            $townArea = $this->extractMatch(
                 ZipCodeConstants::REGEX_INSIDE_PARENTHESES,
                 $townArea
             );
         }
         if(TownAreaAnalyzer::hasSubKana($townAreaKana)) {
-            $townAreaKana = parent::extractMatch(
+            $townAreaKana = $this->extractMatch(
                 ZipCodeConstants::REGEX_INSIDE_PARENTHESES_KANA,
                 $townAreaKana
             );
         }
 
         /* 連番の前後の町域名称（カナ）を抽出 */
-        $townAreaBefore = parent::extractBeforeNum(
-            parent::extractMatch(
+        $townAreaBefore = $this->extractBeforeNum(
+            $this->extractMatch(
                 ZipCodeConstants::REGEX_BEFORE_SERIAL_TOWNAREA,
                 $townArea
             )
         );
-        $townAreaAfter = parent::extractAfterNum(
-            parent::extractMatch(
+        $townAreaAfter = $this->extractAfterNum(
+            $this->extractMatch(
                 ZipCodeConstants::REGEX_AFTER_SERIAL_TOWNAREA,
                 $townArea
             )
         );
-        $townAreaBeforeKana = parent::extractBeforeNum(
-            parent::extractMatch(
+        $townAreaBeforeKana = $this->extractBeforeNum(
+            $this->extractMatch(
                 ZipCodeConstants::REGEX_BEFORE_SERIAL_TOWNAREA_KANA,
                 $townAreaKana
             )
         );
-        $townAreaAfterKana = parent::extractAfterNum(
-            parent::extractMatch(
+        $townAreaAfterKana = $this->extractAfterNum(
+            $this->extractMatch(
                 ZipCodeConstants::REGEX_AFTER_SERIAL_TOWNAREA_KANA,
                 $townAreaKana
             )
         );
 
         /* 連番の始点と終点の抽出 */
-        $serial = parent::extractSerialStartAndEnd($townAreaKana);
+        $serial = $this->extractSerialStartAndEnd($townAreaKana);
 
         return [
              'serial_start'       => $serial['start']
@@ -76,7 +75,7 @@ class SplitSerialMain extends SplitTownArea {
      */
     public function process(array $townAreaInfo): array
     {
-        return parent::generateTownAreaStartToEnd(
+        return $this->generateTownAreaStartToEnd(
              (int)$townAreaInfo['serial_start']
             ,(int)$townAreaInfo['serial_end']
             ,$townAreaInfo['townAreaBefore']

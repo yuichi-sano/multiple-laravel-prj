@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace packages\domain\model\zipcode\split_townarea;
 use packages\domain\model\zipcode\ZipCodeConstants;
-use packages\domain\model\zipcode\split_townarea\TownAreaAnalyzer;
 
 abstract class SplitTownArea
 {

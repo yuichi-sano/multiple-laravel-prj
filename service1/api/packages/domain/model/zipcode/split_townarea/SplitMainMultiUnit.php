@@ -16,21 +16,21 @@ class SplitMainMultiUnit extends SplitTownArea {
     {
 
         /* 町域（カナ）の抽出 */
-        $mainTownArea = parent::extractMatch(
+        $mainTownArea = $this->extractMatch(
             ZipCodeConstants::REGEX_BEFORE_PARENTHESES,
             $townArea
         );
-        $subTownAreas = parent::extractMatchArray(
+        $subTownAreas = $this->extractMatchArray(
             ZipCodeConstants::REGEX_INSIDE_PARENTHESES,
             $townArea,
             '、'
         );
 
-        $mainTownAreaKana = parent::extractMatch(
+        $mainTownAreaKana = $this->extractMatch(
             ZipCodeConstants::REGEX_BEFORE_PARENTHESES_KANA,
             $townAreaKana
         );
-        $subTownAreaKanas = parent::extractMatchArray(
+        $subTownAreaKanas = $this->extractMatchArray(
             ZipCodeConstants::REGEX_INSIDE_PARENTHESES_KANA,
             $townAreaKana,
             '､'
@@ -38,8 +38,8 @@ class SplitMainMultiUnit extends SplitTownArea {
 
         /* 住所単位の抽出 */
         $lastIndex    = count($subTownAreas)-1;
-        $unitName     = parent::extractAfterNum($subTownAreas[$lastIndex]);
-        $unitNameKana = parent::extractAfterNum($subTownAreaKanas[$lastIndex]);
+        $unitName     = $this->extractAfterNum($subTownAreas[$lastIndex]);
+        $unitNameKana = $this->extractAfterNum($subTownAreaKanas[$lastIndex]);
 
         return [
                  'mainTownArea'     => $mainTownArea
@@ -51,13 +51,13 @@ class SplitMainMultiUnit extends SplitTownArea {
                 ,'lastIndex'        => $lastIndex
         ];
     }
-
     /**
      * @param  array  $townAreaInfo 町域名称（カナ）情報
      * @return array                加工した町域名称（カナ）情報
      */
     protected function process(array $townAreaInfo): array
     {
+
         /* 抽出 */
         $processed = ['townArea' => [], 'townAreaKana' => []];
         for($i = 0; $i <= (int)$townAreaInfo['lastIndex']; $i++){

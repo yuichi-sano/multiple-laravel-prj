@@ -3,9 +3,7 @@
 declare(strict_types=1);
 
 namespace packages\domain\model\zipcode\split_townarea;
-
 use packages\domain\model\zipcode\ZipCodeConstants;
-use packages\domain\model\zipcode\split_townArea\TownAreaAnalyzer;
 
 class SplitMainSubSerialUnit extends SplitTownArea {
 
@@ -18,21 +16,21 @@ class SplitMainSubSerialUnit extends SplitTownArea {
     function extract(string $townArea, string $townAreaKana): array
     {
         /* 各情報の抽出 */
-        $mainTownArea          = parent::extractMatch(
+        $mainTownArea          = $this->extractMatch(
             ZipCodeConstants::REGEX_BEFORE_PARENTHESES,
             $townArea
         );
-        $mainTownAreaKana      = parent::extractMatch(
+        $mainTownAreaKana      = $this->extractMatch(
             ZipCodeConstants::REGEX_BEFORE_PARENTHESES_KANA,
             $townAreaKana
         );
 
-        $insideParentheses     = parent::extractMatch(
+        $insideParentheses     = $this->extractMatch(
             ZipCodeConstants::REGEX_INSIDE_PARENTHESES,
             $townArea,
             '、'
         );
-        $insideParenthesesKana = parent::extractMatch(
+        $insideParenthesesKana = $this->extractMatch(
             ZipCodeConstants::REGEX_INSIDE_PARENTHESES_KANA,
             $townAreaKana,
             '､'

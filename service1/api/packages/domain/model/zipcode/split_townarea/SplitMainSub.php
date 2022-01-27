@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace packages\domain\model\zipcode\split_townarea;
 use packages\domain\model\zipcode\ZipCodeConstants;
-use packages\domain\model\zipcode\TowAreaAnalyzer;
 
 class SplitMainSub extends SplitTownArea {
 
@@ -15,19 +14,19 @@ class SplitMainSub extends SplitTownArea {
      */
     protected function extract(string $townArea, string $townAreaKana): array
     {
-        $mainTownArea = parent::extractMatch(
+        $mainTownArea = $this->extractMatch(
              ZipCodeConstants::REGEX_BEFORE_PARENTHESES
             ,$townArea
         );
-        $subTownAreas = parent::extractMatchArray(
+        $subTownAreas = $this->extractMatchArray(
              ZipCodeConstants::REGEX_INSIDE_PARENTHESES
             ,$townArea
             ,'、'
         );
 
        $mainTownAreaKana = '';
-       if(TowAreaAnalyzer::hasMainKana($townAreaKana)) {
-            $mainTownAreaKana = parent::extractMatch(
+       if(TownAreaAnalyzer::hasMainKana($townAreaKana)) {
+            $mainTownAreaKana = $this->extractMatch(
                  ZipCodeConstants::REGEX_BEFORE_PARENTHESES_KANA
                 ,$townAreaKana
             );
@@ -36,16 +35,16 @@ class SplitMainSub extends SplitTownArea {
         }
 
         $subTownAreaKanas = [];
-        if(TowAreaAnalyzer::needSplitKana($townAreaKana)) {
-            $subTownAreaKanas = parent::extractMatchArray(
+        if(TownAreaAnalyzer::needSplitKana($townAreaKana)) {
+            $subTownAreaKanas = $this->extractMatchArray(
                  ZipCodeConstants::REGEX_BEFORE_PARENTHESES_KANA
                 ,$townAreaKana
                 ,'､'
             );
-        } elseif(TowAreaAnalyzer::hasSubKana($townAreaKana)) {
+        } elseif(TownAreaAnalyzer::hasSubKana($townAreaKana)) {
             // 分割するレコードでも、従属する町域カナは単一の値の場合がある
             $subTownAreaKanas = [
-                parent::extractMatch(
+                $this->extractMatch(
                      ZipCodeConstants::REGEX_INSIDE_PARENTHESES_KANA
                     ,$townAreaKana
                 )
