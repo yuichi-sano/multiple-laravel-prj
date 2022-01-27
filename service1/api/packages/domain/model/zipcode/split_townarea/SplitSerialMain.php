@@ -9,6 +9,7 @@ use packages\domain\model\zipcode\ZipCodeConstants;
 class SplitSerialMain extends SplitTownArea {
 
     /**
+     * 必要な情報を抽出する
      * @param  string $townArea      町域名称
      * @param  string $townAreaKana  町域名称カナ
      * @return array                 抽出した町域名称（カナ）
@@ -70,6 +71,7 @@ class SplitSerialMain extends SplitTownArea {
     }
 
     /**
+     * 抽出した情報を加工する
      * @param  array $townAreaInfo 町域名称情報
      * @return array               加工した町域名称（カナ）
      */

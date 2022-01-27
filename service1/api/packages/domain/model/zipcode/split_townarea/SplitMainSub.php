@@ -8,6 +8,7 @@ use packages\domain\model\zipcode\ZipCodeConstants;
 class SplitMainSub extends SplitTownArea {
 
     /**
+     * 必要な情報を加工する
      * @param  string $townArea      町域名称
      * @param  string $townAreaKana  町域名称カナ
      * @return array                 抽出した町域名称（カナ）
@@ -63,6 +64,7 @@ class SplitMainSub extends SplitTownArea {
     }
 
     /**
+     * 抽出した情報を加工する
      * @param  array $townAreaInfo 町域名称情報
      * @return array                 抽出した町域名称（カナ）
      */
@@ -79,7 +81,7 @@ class SplitMainSub extends SplitTownArea {
             array_unshift($subTownAreaKanas, '');
         }
 
-        // 町域（カナ）の加工 
+        // 町域（カナ）の加工
         $processed = ['townArea' => [], 'townAreaKana' => []];
         foreach($subTownAreas as $index => $subTownArea){
             $processed['townArea'][]     = $mainTownArea . $subTownArea;

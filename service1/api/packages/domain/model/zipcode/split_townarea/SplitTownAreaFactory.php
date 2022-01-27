@@ -8,14 +8,15 @@ use App\Exceptions\WebAPIException;
 use packages\domain\model\zipcode\split_townArea\TownAreaAnalyzer;
 use packages\domain\model\zipcode\ZipCodeConstants;
 
-class SplitPatternFactory {
+class SplitTownAreaFactory {
 
     /**
-     * 町域（カナ）情報がどの分割パターンか判定する
-     * @param  string $townArea
-     * @return int    分割パターン
+     * 町域（カナ）情報がどの分割パターンか判定して適切な分割クラスを提供
+     * @param  string $townArea 町域名称
+     * @return int              分割パターン
+     * @throws WebAPIException  どの分割パターンにも該当しないデータの検出
      */
-    public function analyzeSplitPattern(string $townArea): SplitTownArea
+    public function production(string $townArea): SplitTownArea
     {
         // 主・従属パターン
         if($this->isMainSub($townArea)) {
@@ -46,7 +47,7 @@ class SplitPatternFactory {
             return new SplitSerialMainSub;
         }
 
-        // 該当しないものは、データが新しく追加になったか変更されたものが考えられる
+        // 該当しないものは、データが新しく追加になったか変更されたものを想定
         throw new WebAPIException('無効なデータの検出');
     }
 
@@ -112,7 +113,11 @@ class SplitPatternFactory {
                TownAreaAnalyzer::hasMain($townArea)
             && TownAreaAnalyzer::hasSeparator($townArea)
         ) {
-            preg_match(ZipCodeConstants::REGEX_INSIDE_PARENTHESES, $townArea, $units);
+            preg_match(
+                 ZipCodeConstants::REGEX_INSIDE_PARENTHESES
+                ,$townArea
+                ,$units
+            );
             $units       = explode('、', $units[0]);
             $unitNum     = count(explode('、', $townArea));
             $hasUnitName = (bool)preg_match(

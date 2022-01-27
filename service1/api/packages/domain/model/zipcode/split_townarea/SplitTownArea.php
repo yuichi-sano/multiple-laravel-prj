@@ -7,9 +7,11 @@ use packages\domain\model\zipcode\ZipCodeConstants;
 abstract class SplitTownArea
 {
     /**
-     * @param  string $townArea      町域名称
-     * @param  string $townAreaKana  町域名称カナ
-     * @return array splittedTownArea
+     * 町域名称（カナ）を分割する
+     * @final  オーバーライドが必要であれば制限を緩めて下さい
+     * @param  string $townArea       町域名称
+     * @param  string $townAreaKana   町域名称カナ
+     * @return array splittedTownArea 分割された町域名称（カナ）
      */
     public final function split(string $townArea, string $townAreaKana):array
     {
@@ -22,18 +24,22 @@ abstract class SplitTownArea
     }
 
     /**
+     * 必要な情報を抽出する
      * @param  string $townArea      町域名称
      * @param  string $townAreaKana  町域名称カナ
      * @return array
      */
     abstract protected function extract(string $townArea, string $townAreaKana): array;
+
     /**
+     * 抽出した情報を加工する
      * @param  array  $townAreaInfo 町域名称（カナ）情報
      * @return array                加工した町域名称（カナ）情報
      */
     abstract protected function process(array $townAreaInfo): array;
 
-    /* 共通利用メソッド */
+    /* サブクラス共通利用メソッド */
+
     /**
      * 引数で渡された正規表現にマッチした文字列を抽出
      * @param  string $regex 正規表現
@@ -112,7 +118,7 @@ abstract class SplitTownArea
 
     /**
      * 引数の数字部分の末尾に存在する文字列を抽出。存在しない場合は空文字を返却
-     * このメソッドは、引数の例として`〇〇3丁目`の`丁目`部分を抽出する用途を想定
+     * @example `〇〇3丁目` -> `丁目`
      * @param  string $str 抽出元の文字列
      * @return string      抽出した文字列
      */
@@ -186,8 +192,12 @@ abstract class SplitTownArea
                 ,$start
             );
         }
-        // 稀に1-97-116といったような引数が来た場合にpreg_matchでは97しか抽出ができない
-        preg_match_all(ZipCodeConstants::REGEX_AFTER_SERIAL_TOWNAREA_KANA, $townAreaKana, $end);
+        // 稀に1-97-116の様な引数が来た場合にpreg_matchでは97しか抽出が出来ない
+        preg_match_all(
+             ZipCodeConstants::REGEX_AFTER_SERIAL_TOWNAREA_KANA
+            ,$townAreaKana
+            ,$end
+        );
         $end = $this->extractMatch(
              ZipCodeConstants::REGEX_NUMBER_HALF
             ,$end[0][count($end[0])-1]

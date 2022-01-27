@@ -8,6 +8,7 @@ use packages\domain\model\zipcode\ZipCodeConstants;
 class SplitMainMultiUnit extends SplitTownArea {
 
     /**
+     * 必要な情報の抽出をする
      * @param  string $townArea      町域名称
      * @param  string $townAreaKana  町域名称カナ
      * @return array
@@ -51,14 +52,14 @@ class SplitMainMultiUnit extends SplitTownArea {
                 ,'lastIndex'        => $lastIndex
         ];
     }
+
     /**
+     * 抽出した情報を加工する
      * @param  array  $townAreaInfo 町域名称（カナ）情報
      * @return array                加工した町域名称（カナ）情報
      */
     protected function process(array $townAreaInfo): array
     {
-
-        /* 抽出 */
         $processed = ['townArea' => [], 'townAreaKana' => []];
         for($i = 0; $i <= (int)$townAreaInfo['lastIndex']; $i++){
             if($i < (int)$townAreaInfo['lastIndex']) {
