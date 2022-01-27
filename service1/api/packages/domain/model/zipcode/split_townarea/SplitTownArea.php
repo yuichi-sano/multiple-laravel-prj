@@ -15,12 +15,7 @@ abstract class SplitTownArea
      */
     public final function split(string $townArea, string $townAreaKana):array
     {
-        return $this->process(
-                    $this->extract(
-                         $townArea
-                        ,$townAreaKana
-                    )
-               );
+        return $this->process($this->extract($townArea ,$townAreaKana));
     }
 
     /**

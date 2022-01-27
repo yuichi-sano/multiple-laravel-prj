@@ -6,6 +6,13 @@ declare(strict_types=1);
 namespace packages\domain\model\zipcode\split_townarea;
 use packages\domain\model\zipcode\ZipCodeConstants;
 
+/**
+ * 町域（カナ）を複数に分割する -> 連番の主と単一の従属町域パターン
+ * 例：`〇〇n地割〜〇〇m地割（✗✗町）`
+ * 例の✗✗町は連番の主のすべての町域を包括するため、nとmの間の数値を生成した上で
+ * 末尾に（✗✗町）を付与してそれぞれ独立した町域として分割する
+ * 連番の主パターンに処理を一部移譲する
+ */
 class SplitSerialMainSub extends SplitTownArea {
 
     /**

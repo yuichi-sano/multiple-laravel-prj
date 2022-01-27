@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace packages\domain\model\zipcode\split_townarea;
 use packages\domain\model\zipcode\ZipCodeConstants;
 
+/**
+ * 町域（カナ）を複数に分割する -> 主と複数の住所単位パターン
+ * `〇〇（n,m丁目）`といったようなデータに対して、
+ * nに住所単位を付与してそれぞれ独立した町域情報に分割する
+ */
 class SplitMainMultiUnit extends SplitTownArea {
 
     /**
-     * 必要な情報の抽出をする
+     * 必要な情報を抽出する
      * @param  string $townArea      町域名称
      * @param  string $townAreaKana  町域名称カナ
      * @return array

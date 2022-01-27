@@ -50,14 +50,14 @@ class ZipCodeConstants
     const IDX_JIS                         = 0;
     const IDX_ZIPCODE5                    = 1;
     const IDX_ZIPCODE                     = 2;
-    const IDX_PREFECTUREKANA              = 3;
-    const IDX_CITYKANA                    = 4;
+    const IDX_PREFECTURE_KANA             = 3;
+    const IDX_CITY_KANA                   = 4;
     const IDX_TOWNAREA_KANA               = 5;
     const IDX_PREFECTURE                  = 6;
     const IDX_CITY                        = 7;
     const IDX_TOWNAREA                    = 8;
     const IDX_IS_ONETOWN_BY_MULTIZIPCODE  = 9;
-    const IDX_IS_NEEDSMALLAREAADDRESS     = 10;
+    const IDX_IS_NEEDS_SMALLAREAADDRESS   = 10;
     const IDX_IS_CHOUME                   = 11;
     const IDX_IS_MULTITOWN_BY_ONEPOSTCODE = 12;
     const IDX_UPDATED                     = 13;

@@ -5,6 +5,11 @@ declare(strict_types=1);
 namespace packages\domain\model\zipcode\split_townarea;
 use packages\domain\model\zipcode\ZipCodeConstants;
 
+/**
+ * 町域（カナ）を複数に分割する -> 主と連続した住所単位パターン
+ * `〇〇（✗✗n〜m丁目）`といったようなデータに対して、
+ * nとmの間の数値を生成した上で住所単位を付与して独立した町域情報に分割する
+ */
 class SplitMainSerialUnit extends SplitTownArea {
 
     /**
