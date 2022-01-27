@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 namespace packages\domain\model\zipcode\split_townarea;
+
+use App\Exceptions\WebAPIException;
+use packages\domain\model\zipcode\split_townArea\TownAreaAnalyzer;
 use packages\domain\model\zipcode\ZipCodeConstants;
 
 class SplitPatternFactory {
@@ -43,8 +46,8 @@ class SplitPatternFactory {
             return new SplitSerialMainSub;
         }
 
-        // 該当なし
-        abort(500, '無効なデータの検出: ' . $townArea);
+        // 該当しないものは、データが新しく追加になったか変更されたものが考えられる
+        throw new WebAPIException('無効なデータの検出');
     }
 
     /**
@@ -54,29 +57,22 @@ class SplitPatternFactory {
      */
     private function isMainSub(string $townArea): bool
     {
-        $hasMain        = (bool)preg_match(ZipCodeConstants::REGEX_BEFORE_PARENTHESES, $townArea);
-        $hasParent      = (bool)preg_match(ZipCodeConstants::REGEX_PARENTHESES, $townArea);
-        $hasSeparater   = (bool)preg_match(ZipCodeConstants::REGEX_SEPARATE_TOWNAREA, $townArea);
-        $hasSerial      = (bool)preg_match(ZipCodeConstants::REGEX_SERIAL_TOWNAREA, $townArea);
-        $hasBullets     = (bool)preg_match(ZipCodeConstants::REGEX_BULLETS, $townArea);
-        $hasKeyBrackets = (bool)preg_match(ZipCodeConstants::REGEX_KEYBRACKETS, $townArea);
-        $hasNotSerialEndNumber = (bool)preg_match(
-             ZipCodeConstants::REGEX_NOT_SERIALEND_NUMBER,
-            $townArea
-        );
-
         // 主・従属パターンは、主と複数の住所単位パターンを包括している
         // -> 主と複数の住所単位パターンに該当しないものを主・従属パターンとして処理
         // 〜を使用しているものはこの分割パターンに該当しないが、
         // 例外的に〜と、`・`もしくは`「」`を同時で使用する場合はここで処理する
         // -> 例：西瑞江（４丁目１～２番・１０～２７番、５丁目）
         // -> 例：折茂（今熊「２１３〜２３４、（中略）１５０４を除く」、大原、（以下略）
-        return   $hasMain
-              && $hasParent
-              && $hasSeparater
-              && (!$hasSerial ||$hasBullets || $hasKeyBrackets || $hasNotSerialEndNumber)
+        return   TownAreaAnalyzer::hasMain($townArea)
+              && TownAreaAnalyzer::hasParent($townArea)
+              && TownAreaAnalyzer::hasSeparator($townArea)
+              && (
+                       !TownAreaAnalyzer::hasSerial($townArea)
+                     || TownAreaAnalyzer::hasBullets($townArea)
+                     || TownAreaAnalyzer::hasKeyBrackets($townArea)
+                     || TownAreaAnalyzer::hasNotSerialEndNumber($townArea)
+                 )
               && !$this->isMainMultiUnit($townArea);
-
     }
 
     /**
@@ -86,12 +82,11 @@ class SplitPatternFactory {
      */
     private function isMultiMain(string $townArea): bool
     {
-        $hasSub      = (bool)preg_match(ZipCodeConstants::REGEX_BEFORE_PARENTHESES, $townArea);
-        $hasParent   = (bool)preg_match(ZipCodeConstants::REGEX_PARENTHESES, $townArea);
+        // 一時変数にしないとエラーになる
         $townAreaNum = count(explode('、', $townArea));
-
-        return !$hasSub && !$hasParent && $townAreaNum > 1;
-
+        return !TownAreaAnalyzer::hasSub($townArea)
+            && !TownAreaAnalyzer::hasParent($townArea)
+            && $townAreaNum > 1;
     }
 
     /**
@@ -101,12 +96,9 @@ class SplitPatternFactory {
      */
     private function isSerialMain(string $townArea): bool
     {
-        $hasSub    = (bool)preg_match(ZipCodeConstants::REGEX_BEFORE_PARENTHESES, $townArea);
-        $hasParent = (bool)preg_match(ZipCodeConstants::REGEX_PARENTHESES, $townArea);
-        $hasSerial = (bool)preg_match(ZipCodeConstants::REGEX_SERIAL_TOWNAREA, $townArea);
-
-        return !$hasSub && !$hasParent && $hasSerial;
-
+        return !TownAreaAnalyzer::hasSub($townArea)
+            && !TownAreaAnalyzer::hasParent($townArea)
+            &&  TownAreaAnalyzer::hasSerial($townArea);
     }
 
     /**
@@ -116,11 +108,10 @@ class SplitPatternFactory {
      */
     private function isMainMultiUnit(string $townArea): bool
     {
-        $hasMain      = (bool)preg_match(ZipCodeConstants::REGEX_BEFORE_PARENTHESES, $townArea);
-        $hasSeparater = (bool)preg_match(ZipCodeConstants::REGEX_SEPARATE_TOWNAREA, $townArea);
-
-        if($hasMain && $hasSeparater) {
-
+        if(
+               TownAreaAnalyzer::hasMain($townArea)
+            && TownAreaAnalyzer::hasSeparator($townArea)
+        ) {
             preg_match(ZipCodeConstants::REGEX_INSIDE_PARENTHESES, $townArea, $units);
             $units       = explode('、', $units[0]);
             $unitNum     = count(explode('、', $townArea));
@@ -128,17 +119,17 @@ class SplitPatternFactory {
                 ZipCodeConstants::REGEX_UNITS,
                 $units[count($units)-1]
             );
-
-            $isRemainNumOnly = true;
             array_pop($units);
+
             //カッコ内の、最後を除いた要素が数字以外ならこのパターンに該当しない
+            $isRemainNumOnly = true;
             foreach($units as $remainElement) {
-                $isRemainNumOnly = !(bool)preg_match(
-                    ZipCodeConstants::REGEX_NOT_NUMBER,
-                    $remainElement
-                );
+                $isRemainNumOnly = !TownAreaAnalyzer::hasNotNumber($remainElement);
             }
-            return $unitNum > 1 && $hasUnitName && $isRemainNumOnly;
+
+            return $unitNum > 1
+                && $hasUnitName
+                && $isRemainNumOnly;
         } else {
             return false;
         }
@@ -151,28 +142,24 @@ class SplitPatternFactory {
      */
     private function isMainSerialUnit(string $townArea): bool
     {
-        $hasMain      = (bool)preg_match(ZipCodeConstants::REGEX_BEFORE_PARENTHESES, $townArea);
-        $hasSeparater = (bool)preg_match(ZipCodeConstants::REGEX_SEPARATE_TOWNAREA, $townArea);
+        if(
+                TownAreaAnalyzer::hasMain($townArea)
+            && !TownAreaAnalyzer::hasSeparator($townArea)
+        ) {
 
-        if($hasMain && !$hasSeparater){
-
-            $isMainSerial = (bool)preg_match(
-                ZipCodeConstants::REGEX_SERIAL_TOWNAREA,
-                $this->extractRegex(
-                    ZipCodeConstants::REGEX_BEFORE_PARENTHESES,
-                    $townArea
-                )
+            preg_match(
+                ZipCodeConstants::REGEX_BEFORE_PARENTHESES
+               ,$townArea
+               ,$mainTownAreas
             );
-            $isSubSerial  = (bool)preg_match(
-                ZipCodeConstants::REGEX_SERIAL_TOWNAREA,
-                $this->extractRegex(
-                    ZipCodeConstants::REGEX_PARENTHESES,
-                    $townArea
-                )
+            preg_match(
+                ZipCodeConstants::REGEX_PARENTHESES
+               ,$townArea
+               ,$subTownAreas
             );
 
-            return !$isMainSerial && $isSubSerial ;
-
+            return !TownAreaAnalyzer::hasSerial($mainTownAreas[0])
+                 && TownAreaAnalyzer::hasSerial($subTownAreas[0]);
         }
         return false;
     }
@@ -184,24 +171,10 @@ class SplitPatternFactory {
      */
     private function isMainSubSerialUnit(string $townArea): bool
     {
-        $hasMain               = (bool)preg_match(
-            ZipCodeConstants::REGEX_BEFORE_PARENTHESES,
-            $townArea
-        );
-        $hasSeparater          = (bool)preg_match(
-            ZipCodeConstants::REGEX_SEPARATE_TOWNAREA,
-            $townArea
-        );
-        $hasSerial             = (bool)preg_match(
-            ZipCodeConstants::REGEX_SERIAL_TOWNAREA,
-            $townArea
-        );
-        $hasNotSerialEndNumber = (bool)preg_match(
-             ZipCodeConstants::REGEX_NOT_SERIALEND_NUMBER,
-            $townArea
-        );
-
-        return $hasMain && $hasSeparater && $hasSerial && !$hasNotSerialEndNumber;
+        return  TownAreaAnalyzer::hasMain($townArea)
+            &&  TownAreaAnalyzer::hasSeparator($townArea)
+            &&  TownAreaAnalyzer::hasSerial($townArea)
+            && !TownAreaAnalyzer::hasNotSerialEndNumber($townArea);
     }
 
     /**
@@ -211,44 +184,24 @@ class SplitPatternFactory {
      */
     private function isSerialMainSub(string $townArea): bool
     {
-        $hasMain   = (bool)preg_match(ZipCodeConstants::REGEX_BEFORE_PARENTHESES, $townArea);
-        $hasParent = (bool)preg_match(ZipCodeConstants::REGEX_PARENTHESES, $townArea);
-
-        if($hasMain && $hasParent) {
-            $isMainSerial   =  (bool)preg_match(
-                ZipCodeConstants::REGEX_SERIAL_TOWNAREA,
-                self::extractRegex(
-                    ZipCodeConstants::REGEX_BEFORE_PARENTHESES,
-                    $townArea
-                )
+        if(
+               TownAreaAnalyzer::hasMain($townArea)
+            && TownAreaAnalyzer::hasParent($townArea)
+        ) {
+            preg_match(
+                ZipCodeConstants::REGEX_BEFORE_PARENTHESES
+                ,$townArea
+                ,$mainTownAreas
             );
-            $isSubSeparater = (bool)preg_match(
-                    ZipCodeConstants::REGEX_SEPARATE_TOWNAREA,
-                    $this->extractRegex(
-                        ZipCodeConstants::REGEX_PARENTHESES,
-                        $townArea
-                    )
-                );
+            preg_match(
+                 ZipCodeConstants::REGEX_PARENTHESES
+                ,$townArea
+                ,$subTownAreas
+            );
 
-            return $isMainSerial && !$isSubSeparater;
+            return  TownAreaAnalyzer::hasSerial($mainTownAreas[0])
+                && !TownAreaAnalyzer::hasSeparator($subTownAreas[0]);
         }
         return false;
     }
-
-    /**
-     * 引数で渡された正規表現にマッチした文字列を抽出
-     * @param  string $regex 正規表現
-     * @param  string $str   抽出対象の文字列
-     * @return string        抽出したメインの文字列
-     */
-    private static function extractRegex(string $regex, string $str): string
-    {
-        if((bool)preg_match($regex, $str)){
-            preg_match($regex, $str, $matchedArray);
-            return $matchedArray[0];
-        } else {
-            return '';
-        }
-    }
-
 }
