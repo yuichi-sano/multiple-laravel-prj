@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "yuichi-sano/centOs7onDocker"
   # private ip 設置---不必要であればコメントアウトしてください。
   config.vm.network "private_network", ip: "192.168.33.202"
-  
+
   # vbguestのVBGuestAdditionの自動アップデート無効化
   config.vbguest.auto_update = false
   # ポートフォワード設定
@@ -26,11 +26,12 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", host_ip:"127.0.0.1", guest: 5432, host: 5432 # psql
   config.vm.network "forwarded_port", host_ip:"127.0.0.1", guest: 5433, host: 5433 # psql2
   config.vm.network "forwarded_port", host_ip:"127.0.0.1", guest: 18080, host: 18080 # node1
+  config.vm.network "forwarded_port", host_ip:"127.0.0.1", guest: 18089, host: 18089 # locust
   # デフォルトを無効化し、homeにてアプリケーションを稼働させる
   config.vm.synced_folder ".", "/vagrant", disabled: true,  mount_options: ['dmode=755','fmode=644']
-  
+
   config.vm.synced_folder ".", "/home/sail-mutiple", create:true, owner: "vagrant", group:"wheel", mount_options: ['dmode=777','fmode=777']
-  
+
   # VitrualBoxの設定、仮想マシンスペック--cpu,memoryは良しなに設定ください
   config.vm.provider "virtualbox" do |vb|
     # 表示名、GUIの使用、CPU数、メモリ
