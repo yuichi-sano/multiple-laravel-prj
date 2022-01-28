@@ -102,7 +102,7 @@ services:
     postgres:
         build: "./database/flyway/docker/make"
         ports:
-            - 5433:5432
+            - "5433:5432"
         restart: always
         environment:
             POSTGRES_DB: sample
