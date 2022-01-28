@@ -43,9 +43,9 @@ Laravel標準ではクリーンアーキテクトな思想に関しての言及�
 下記にてざっくりと設計デザインを図示します。  
 ![design](./docs/architect/designArchitect.svg)  
 
-###下記リンクにて詳細な設計思想についての言及をします。
-###- [設計についての詳細](./docs/architect/designArchitect.md)
-###- [主要なClass設計図](./docs/architect/classesUml.svg)
+### 下記リンクにて詳細な設計思想についての言及をします。
+### [設計についての詳細](./docs/architect/designArchitect.md)
+### [主要なClass設計図](./docs/architect/classesUml.svg)
 
 
 # 設定済、カスタマイズ済み
@@ -55,7 +55,7 @@ Laravelについて、packages以外で特筆すべき拡張を実施してい�
     Tymon/JWT-Auth
 そのままレールに従った使い方ではないが、GuardなどLaravelのうまみを消しすぎないような  
 カスタマイズを実施しています。   
-Tokenの作成はFactoryを介して実施することでブラックボックス化をある程度軽減させています。　　
+Tokenの作成はFactoryを介して実施することでブラックボックス化をある程度軽減させています。　 　
 ※本PJのsampleではdefaultでJWT認証に倒しています。
 
 ## Japanese
@@ -80,7 +80,7 @@ Laravelはそのまま使うとValidationエラーのメッセージに英語を
     NamedNativeQueryにて最小限のファイル構成でdomain層との完全なる疎結合を実現しています。
 
 ※DIはDatasourceProvidersに記載していきます。
-###- [Doctrineについてさらに詳細](./docs/architect/ORM/doctrine.md)
+### [Doctrineについてさらに詳細](./docs/architect/ORM/doctrine.md)
 
 ## hash値
     laravelがdefaultで操作できるhash値は比較的最近の技術しかなかったので
@@ -111,9 +111,9 @@ Laravelはそのまま使うとValidationエラーのメッセージに英語を
 
 
 # Migrationについて
- Flywayというツールを用いています。
- これはPHP以外の標準開発にflywayを導入するためです。
- FlyWayようの各種artisanのカスタマイズは実施済みです。
+ Flywayというツールを用いています。  
+ これはPHP以外の標準開発にflywayを導入するためです。  
+ FlyWayようの各種artisanのカスタマイズは実施済みです。  
  用はすべてgradlew経由でmigrationを実施していきます。
 
     ./vendor/bin/sail artisan flyway:develop

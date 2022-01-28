@@ -14,14 +14,23 @@ Webアプリはクライアントとサーバサイドを完全に分離する�
     FW(Lib):Vue
 
 にてWebアプリを構成していきます。  
+※以下このセットをWebServiceと呼びます  
 用意したシェルコマンドを実行することで上記の新たな構成を自動で作製し、   
-比較的用意にWebサービスの追加を行うことができるような物を目指しています。
+比較的用意にWebServiceの追加を行うことができるような物を目指しています。
 
 サーバサイドはPHP,Laravelを使用していますが、今後別の言語セットで同等の  
 開発環境を作製していくつもりです。  
 取り急ぎは、Web開発時に選択されやすいPHPをターゲットとしていますが、   
-あえてPHPという言語の特性を強力排除した作り(Javaライクな実装ができるような)  
+あえてPHPという言語の特性を極力排除した作り(Javaライクな実装ができるような)  
 をしており、今後他の言語でも同様の機能をもった基盤を作製していくつもりです。
+
+## 大まかな技術スタック
+主要な技術を本PJ内に予め用意している開発ソースとの関連性を明記した図を添付します。   
+基本的には複数のサーバをdockerで再現させており、docker-composeにより包括的に管理しています。  
+よってホスト側にて各dockerコンテナよりforwardされたportを使用し開発してください。  
+windowsの場合vagrant環境にも同様の設定が必要ですが、同梱しているvagrantFile内で初期導入時には即座に使える状態にしています。  
+
+![stack](./docs/softWareStack.svg)
 
 # SetUp
 ## git clone
@@ -36,8 +45,8 @@ Webアプリはクライアントとサーバサイドを完全に分離する�
 	unzip main.zip
 
 ## ForWindows
-###[Windows環境でのSETUP](./docs/for_win/README.md)  
-本資料では、vagrantに関する記述は以上とします。  
+### [Windows環境でのSETUP](./docs/for_win/README.md)  
+本資料では、vagrantに関する記述は上記に留めます  
 vagrantにて仮想環境が起動したら、ssh接続を実施し  
 
 	cd /home/sail-mutiple/service1/api/
@@ -94,8 +103,14 @@ http://localhost:18080/
 
 http://localhost:5080/
 
-# Serviceの追加
-sail プロジェクトを追加するパターンについて言及します。
+# WebServiceの追加
+初期ではservice1というWebアプリケーションセットのみが構成されていますが。  
+よくある構成として
+
+    公開用Webアプリ
+    管理用Webアプリ
+等といったターゲット途なるユーザーが別のWebアプリケーションを開発する必要がある場合が多くあります。  
+そのような場合のWebServiceを追加するパターンについて言及します。  
 bundle-sail に追加用のスクリプトを用意しています。
 
 	bundle-sail add_service [サービス名] [環境] [URL]
@@ -113,6 +128,7 @@ bundle-sail に追加用のスクリプトを用意しています。
 ※setup.shと第一、第二の引数順番が逆ですのでご注意ください。
 
 ## TODO 
+サービス追加時には
 	docker-compose.yml
 	bundle.env
 には現状手動で追記が必要です。それぞれ追加したアプリケーション名にそって記述を追加します。
@@ -123,10 +139,11 @@ bundle-sail に追加用のスクリプトを用意しています。
 にてアプリケーションが起動します。  
 アプリが起動したらServiceの追加が完了です。
 
-# TIP 
+# TIPS 
 サービス追加時
+
 	https://github.com/yuichi-sano/ddd-laravel-doctrine
-のソースコードを落としてきます。
+のソースコードを落としてきます。  
 その後、各種設定を行ったのち
 
 	.git
