@@ -73,10 +73,25 @@ class ZipCodeFactory
 
     public function isUnClose($row): bool
     {
-        return (bool)preg_match(ZipCodeConstants::REGEX_UNCLOSED_PARENTHESESKANA, $row[ZipCodeConstants::IDX_TOWNAREA_KANA]) || (bool)preg_match($ZipCodeConstants::REGEX_UnClosedParentheses, $row[$ZipCodeConstants::IDXTownArea]);
+        return (bool)preg_match(
+            ZipCodeConstants::REGEX_UNCLOSED_PARENTHESES_KANA,
+            $row[ZipCodeConstants::IDX_TOWNAREA_KANA]
+        ) || 
+        (bool)preg_match(
+            ZipCodeConstants::REGEX_UNCLOSED_PARENTHESES
+           ,$row[ZipCodeConstants::IDX_TOWNAREA]
+        );
     }
     public function isClose($row){
-        return (bool)preg_match(ZipCodeConstants::REGEX_ClosedParenthesesKana, $row[$ZipCodeConstants::IDXTownAreaKana]) || (bool)preg_match($ZipCodeConstants::REGEX_ClosedParentheses, $row[$ZipCodeConstants::IDXTownArea]);
+        return (bool)preg_match(
+            ZipCodeConstants::REGEX_CLOSED_PARENTHESES_KANA
+           ,$row[ZipCodeConstants::IDX_TOWNAREA_KANA]
+        )
+        ||
+        (bool)preg_match(
+            ZipCodeConstants::REGEX_CLOSED_PARENTHESES
+           ,$row[ZipCodeConstants::IDX_TOWNAREA]
+        );
     }
 
     /**
@@ -86,18 +101,18 @@ class ZipCodeFactory
      */
     public function needSplit(array $row): bool
     {
-        $townArea = $row[$ZipCodeConstants::IDXTownArea];
+        $townArea = $row[ZipCodeConstants::IDX_TOWNAREA];
 
         $hasMain   = (bool)preg_match(
-            $ZipCodeConstants::REGEX_BeforeParentheses,
+            ZipCodeConstants::REGEX_BEFORE_PARENTHESES,
             $townArea
         );
         $hasSerial = (bool)preg_match(
-            $ZipCodeConstants::REGEX_SerialTownArea,
+            ZipCodeConstants::REGEX_SERIAL_TOWNAREA,
             $townArea
         );
         $hasSeparater = (bool)preg_match(
-            $ZipCodeConstants::REGEX_SeparateTownArea,
+            ZipCodeConstants::REGEX_SEPARATE_TOWNAREA,
             $townArea
         );
 
@@ -106,9 +121,9 @@ class ZipCodeFactory
             // 主の町域が連続する町域であった場合は分割の対象外となる
             // 例：種市第１５地割～第２１地割（鹿糠、小路合、緑町、大久保、高取）
             return !(bool)preg_match(
-                $ZipCodeConstants::REGEX_SerialTownArea,
+                ZipCodeConstants::REGEX_SERIAL_TOWNAREA,
                 $this->extractMatch(
-                    $ZipCodeConstants::REGEX_BeforeParentheses,
+                    ZipCodeConstants::REGEX_BEFORE_PARENTHESES,
                     $townArea
                 )
             );
@@ -118,15 +133,15 @@ class ZipCodeFactory
             //連番の町域であり、かつ始点と終点に異なる番地を保持している場合は、
             //分割の対象外となる 例: ２４３０－１～２４３１－７５
             $hasSerialBanchiGou = (bool)preg_match(
-                $ZipCodeConstants::REGEX_SerialBanchiGou,
-                $townArea
+                ZipCodeConstants::REGEX_SERIAL_BANCHIGOU
+               ,$townArea
             );
 
             //〜のあとに町域情報が存在しないものは分割の対象外となる
             // 例：大前（細原２２５９〜）
             $hasNotSerialEnd = (bool)preg_match(
-                $ZipCodeConstants::REGEX_NotSerialEndNumber,
-                $townArea
+                ZipCodeConstants::REGEX_NOT_SERIALEND_NUMBER
+               ,$townArea
             );
 
             // $hasSerialBanchiGou, $hasNotSerialEndに該当するのが
@@ -148,8 +163,8 @@ class ZipCodeFactory
     public function splitRow(array $row): array
     {
         $splittedTownAreas = $this->splitTownArea(
-            $row[$ZipCodeConstants::IDXTownArea],
-            $row[$ZipCodeConstants::IDXTownAreaKana]
+            $row[ZipCodeConstants::IDX_TOWNAREA],
+            $row[ZipCodeConstants::IDX_TOWNAREA_KANA]
         );
 
         $splittedRows = [];
@@ -157,8 +172,8 @@ class ZipCodeFactory
 
             $splittedRow = $this->generateTemplateRow($row);
 
-            $splittedRow[$ZipCodeConstants::IDXTownArea]     = $townArea;
-            $splittedRow[$ZipCodeConstants::IDXTownAreaKana] = $splittedTownAreas['townAreaKana'][$index];
+            $splittedRow[ZipCodeConstants::IDX_TOWNAREA]     = $townArea;
+            $splittedRow[ZipCodeConstants::IDX_TOWNAREA_KANA] = $splittedTownAreas['townAreaKana'][$index];
 
             $splittedRows[] = $splittedRow;
         }
@@ -176,8 +191,8 @@ class ZipCodeFactory
         $samePieceRow = [];
         foreach($row as $attributeIndex => $attribute){
             // レコード内の、町域属性と町域カナ属性以外は同一の値となる
-            if($attributeIndex != $ZipCodeConstants::IDXTownArea &&
-               $attributeIndex != $ZipCodeConstants::IDXTownAreaKana
+            if($attributeIndex != ZipCodeConstants::IDX_TOWNAREA &&
+               $attributeIndex != ZipCodeConstants::IDX_TOWNAREA_KANA
             ){
                 $samePieceRow[$attributeIndex] = $attribute;
             } else {
@@ -196,14 +211,14 @@ class ZipCodeFactory
         $mergeTownAreaKana=[];
         $mergedRow = [];
         foreach ($mergeRows as $row){
-            $mergeTownArea[] = $row[$ZipCodeConstants::IDXTownArea];
-            $mergeTownAreaKana[] = $row[$ZipCodeConstants::IDXTownAreaKana];
+            $mergeTownArea[] = $row[ZipCodeConstants::IDX_TOWNAREA];
+            $mergeTownAreaKana[] = $row[ZipCodeConstants::IDX_TOWNAREA_KANA];
             $mergedRow = $row;
         }
         $mergedTownArea  =implode('',$mergeTownArea);
         $mergedTownAreaKana  =implode('',$mergeTownAreaKana);
-        $mergedRow[$ZipCodeConstants::IDXTownAreaKana] = $mergedTownAreaKana;
-        $mergedRow[$ZipCodeConstants::IDXTownArea] = $mergedTownArea;
+        $mergedRow[ZipCodeConstants::IDX_TOWNAREA_KANA] = $mergedTownAreaKana;
+        $mergedRow[ZipCodeConstants::IDX_TOWNAREA]      = $mergedTownArea;
         return $mergedRow;
     }
     public function mergeTownAreaKana(){

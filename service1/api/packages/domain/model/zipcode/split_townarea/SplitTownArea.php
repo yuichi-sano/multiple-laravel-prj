@@ -11,7 +11,7 @@ abstract class SplitTownArea
      * @final  オーバーライドが必要であれば制限を緩めて下さい
      * @param  string $townArea       町域名称
      * @param  string $townAreaKana   町域名称カナ
-     * @return array splittedTownArea 分割された町域名称（カナ）
+     * @return array                  分割された町域名称（カナ）
      */
     public final function split(string $townArea, string $townAreaKana):array
     {
@@ -60,7 +60,10 @@ abstract class SplitTownArea
      */
     protected function extractMatchArray($regex, $str, $separator): array
     {
-        preg_match($regex, $str, $matchedArray);
+        preg_match($regex,
+            $str,
+            $matchedArray);
+
         $subArray = explode($separator, $matchedArray[0]);
         return $subArray;
     }

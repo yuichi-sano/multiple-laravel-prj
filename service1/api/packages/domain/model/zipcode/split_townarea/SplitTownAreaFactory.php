@@ -77,17 +77,15 @@ class SplitTownAreaFactory {
     }
 
     /**
-     * 町域が2つの主パターンか否かを判定
+     * 町域が複数の主パターンか否かを判定
      * @param  string $townArea 元データの町域情報
      * @return bool             判定結果
      */
     private function isMultiMain(string $townArea): bool
     {
-        // 一時変数にしないとエラーになる
-        $townAreaNum = count(explode('、', $townArea));
         return !TownAreaAnalyzer::hasSub($townArea)
             && !TownAreaAnalyzer::hasParent($townArea)
-            && $townAreaNum > 1;
+            && count(explode('、', $townArea)) > 1;
     }
 
     /**

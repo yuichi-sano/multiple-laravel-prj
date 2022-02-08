@@ -70,41 +70,37 @@ class ZipCodeFactory
 
 
     }
-    /**
-     * レコードの町域名称（カナ）の括弧が明示的に閉じられていないか判定する
-     * @param  string $row レコード
-     * @return bool        判定結果
-     */
+
     public function isUnClose($row): bool
     {
-        $isUnclose     = (bool)preg_match(
-                              ZipCodeConstants::REGEX_UNCLOSED_PARENTHESES
-                             ,$row[ZipCodeConstants::IDX_TOWNAREA]
-                         );
-        $isUncloseKana = (bool)preg_match(
-                              ZipCodeConstants::REGEX_UNCLOSED_PARENTHESES_KANA
-                             ,$row[ZipCodeConstants::IDX_TOWNAREA_KANA]
-                         );
+        $isUnclosed     = (bool)preg_match(
+                               ZipCodeConstants::REGEX_UNCLOSED_PARENTHESES
+                              ,$row[ZipCodeConstants::IDX_TOWNAREA]
+                          );
+        $isUnclosedKana = (bool)preg_match(
+                               ZipCodeConstants::REGEX_UNCLOSED_PARENTHESES_KANA
+                              ,$row[ZipCodeConstants::IDX_TOWNAREA_KANA]
+                          );
 
-        return $isUnclose || $isUncloseKana;
+        return (bool)preg_match(
+            ZipCodeConstants::REGEX_UNCLOSED_PARENTHESES_KANA,
+            $row[ZipCodeConstants::IDX_TOWNAREA_KANA]
+        ) || 
+        (bool)preg_match(
+            ZipCodeConstants::REGEX_UNCLOSED_PARENTHESES
+           ,$row[ZipCodeConstants::IDX_TOWNAREA]
+        );
     }
-
-    /**
-     * レコードの町域名称（カナ）の括弧が明示的に閉じられているか判定する
-     * @param  string $row レコード
-     * @return bool        判定結果
-     */
     public function isClose($row){
-        $isClose     = (bool)preg_match(
-                              ZipCodeConstants::REGEX_CLOSED_PARENTHESES
-                             ,$row[ZipCodeConstants::IDX_TOWNAREA]
-                         );
-        $isCloseKana = (bool)preg_match(
-                              ZipCodeConstants::REGEX_CLOSED_PARENTHESES_KANA
-                             ,$row[ZipCodeConstants::IDX_TOWNAREA_KANA]
-                         );
-
-        return $isClose || $isCloseKana;
+        return (bool)preg_match(
+            ZipCodeConstants::REGEX_CLOSED_PARENTHESES_KANA
+           ,$row[ZipCodeConstants::IDX_TOWNAREA_KANA]
+        )
+        ||
+        (bool)preg_match(
+            ZipCodeConstants::REGEX_CLOSED_PARENTHESES
+           ,$row[ZipCodeConstants::IDX_TOWNAREA]
+        );
     }
 
     /**
