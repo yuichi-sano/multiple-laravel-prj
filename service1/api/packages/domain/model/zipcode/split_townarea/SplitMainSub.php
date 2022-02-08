@@ -38,7 +38,7 @@ class SplitMainSub extends SplitTownArea {
         $subTownAreaKanas = [];
         if(TownAreaAnalyzer::needSplitKana($townAreaKana)) {
             $subTownAreaKanas = $this->extractMatchArray(
-                 ZipCodeConstants::REGEX_BEFORE_PARENTHESES_KANA
+                 ZipCodeConstants::REGEX_INSIDE_PARENTHESES_KANA
                 ,$townAreaKana
                 ,'､'
             );
