@@ -82,7 +82,6 @@ class SplitMainSub extends SplitTownArea {
         if(!is_null($subTownAreaKanas)) {
             array_unshift($subTownAreaKanas, '');
         }
-try {
         // 町域（カナ）の加工
         $processed = ['townArea' => [], 'townAreaKana' => []];
         foreach($subTownAreas as $index => $subTownArea){
@@ -91,9 +90,6 @@ try {
                 $mainTownAreaKana : // 処理の共通化の為単一の値を配列に格納
                 $mainTownAreaKana . $subTownAreaKanas[$index];
         }
-} catch(\Exception) {
-dd($subTownAreaKanas);
-}
         return $processed;
     }
 }
