@@ -65,6 +65,8 @@ abstract class SplitTownArea
             $matchedArray);
 
         $subArray = explode($separator, $matchedArray[0]);
+
+
         return $subArray;
     }
 

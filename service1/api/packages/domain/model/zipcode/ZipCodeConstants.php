@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 namespace packages\domain\model\zipcode;
-class ZipCodeConstants 
+class ZipCodeConstants
 {
     /* 町域名称（カナ）の処理用正規表現 */
     const REGEX_UNCLOSED_PARENTHESES          = "/（.*[^）]$/u";
@@ -17,9 +17,9 @@ class ZipCodeConstants
     const REGEX_PARENTHESES                   = "/（(.*)）/u";
     const REGEX_PARENTHESES_KANA              = "/\\((.*)\\)/u";
     const REGEX_BEFORE_PARENTHESES            = "/(.*)(?=（)/u";
-    const REGEX_BEFORE_PARENTHESES_KANA       = "/[^\(]+(?= \()/u";
-    const REGEX_INSIDE_PARENTHESES            = "/(?<=（).*(?= ）)/u";
-    const REGEX_INSIDE_PARENTHESES_KANA       = "/(?<= \().*(?=\))/u";
+    const REGEX_BEFORE_PARENTHESES_KANA       = "/[^\(]+(?=\()/u";
+    const REGEX_INSIDE_PARENTHESES            = "/(?<=（).*(?=）)/u";
+    const REGEX_INSIDE_PARENTHESES_KANA       = "/(?<=\().*(?=\))/u";
     const REGEX_SEPARATE_TOWNAREA             = "/.*、.*/u";
     const REGEX_SEPARATE_TOWNAREA_KANA        = "/.*､.*/u";
     const REGEX_SERIAL_TOWNAREA               = "/.*[～〜].*/u";
@@ -38,7 +38,7 @@ class ZipCodeConstants
     const REGEX_NOT_NUMBER                    = "/[^０-９]+/u";
     const REGEX_NOT_NUMBER_HALF               = "/[^0-9]+/u";
     const REGEX_DEPRECATED_PATTERN_COLLECTION = array("/抜海村バッカイ/u");
-    const REGEX_NOT_SERIALEND_NUMBER          = 
+    const REGEX_NOT_SERIALEND_NUMBER          =
         "/[０-９]+(((番地)?[～〜][、）])+|((番地)?[～〜]$))/u";
     const REGEX_IGNORE                        =
         "/以下に掲載がない場合|(市|町|村)の次に番地がくる場合|(市|町|村)一円/u";

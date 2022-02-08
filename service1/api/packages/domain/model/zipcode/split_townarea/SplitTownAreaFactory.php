@@ -111,6 +111,7 @@ class SplitTownAreaFactory {
                TownAreaAnalyzer::hasMain($townArea)
             && TownAreaAnalyzer::hasSeparator($townArea)
         ) {
+
             preg_match(
                  ZipCodeConstants::REGEX_INSIDE_PARENTHESES
                 ,$townArea

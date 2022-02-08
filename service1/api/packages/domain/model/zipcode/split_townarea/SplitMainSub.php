@@ -42,7 +42,9 @@ class SplitMainSub extends SplitTownArea {
                 ,$townAreaKana
                 ,'､'
             );
-        } elseif(TownAreaAnalyzer::hasSubKana($townAreaKana)) {
+        } elseif(
+            TownAreaAnalyzer::hasSubKana($townAreaKana)
+        ) {
             // 分割するレコードでも、従属する町域カナは単一の値の場合がある
             $subTownAreaKanas = [
                 $this->extractMatch(
@@ -80,7 +82,7 @@ class SplitMainSub extends SplitTownArea {
         if(!is_null($subTownAreaKanas)) {
             array_unshift($subTownAreaKanas, '');
         }
-
+try {
         // 町域（カナ）の加工
         $processed = ['townArea' => [], 'townAreaKana' => []];
         foreach($subTownAreas as $index => $subTownArea){
@@ -89,6 +91,9 @@ class SplitMainSub extends SplitTownArea {
                 $mainTownAreaKana : // 処理の共通化の為単一の値を配列に格納
                 $mainTownAreaKana . $subTownAreaKanas[$index];
         }
+} catch(\Exception) {
+dd($subTownAreaKanas);
+}
         return $processed;
     }
 }

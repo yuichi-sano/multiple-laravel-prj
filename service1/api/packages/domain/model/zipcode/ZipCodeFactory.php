@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 namespace packages\domain\model\zipcode;
+use packages\domain\model\zipcode\split_townarea\SplitTownAreaFactory;
+
 class ZipCodeFactory
 {
 
@@ -133,12 +135,14 @@ class ZipCodeFactory
             // 主の町域と従属する町域と連続する町域が存在する際に、
             // 主の町域が連続する町域であった場合は分割の対象外となる
             // 例：種市第１５地割～第２１地割（鹿糠、小路合、緑町、大久保、高取）
+            preg_match(
+                ZipCodeConstants::REGEX_BEFORE_PARENTHESES
+                ,$townArea
+                ,$mainTownArea
+            );
             return !(bool)preg_match(
                 ZipCodeConstants::REGEX_SERIAL_TOWNAREA,
-                $this->extractMatch(
-                    ZipCodeConstants::REGEX_BEFORE_PARENTHESES,
-                    $townArea
-                )
+                $mainTownArea[0]
             );
         }
 
@@ -175,17 +179,21 @@ class ZipCodeFactory
      */
     public function splitRow(array $row): array
     {
-        $splittedTownAreas = $this->splitTownArea(
-            $row[ZipCodeConstants::IDX_TOWNAREA],
-            $row[ZipCodeConstants::IDX_TOWNAREA_KANA]
-        );
+        $factory           = new SplitTownAreaFactory;
+        $splitter          = $factory->production(
+                                 $row[ZipCodeConstants::IDX_TOWNAREA]
+                             );
 
+        $splittedTownAreas = $splitter->split(
+                                $row[ZipCodeConstants::IDX_TOWNAREA],
+                                $row[ZipCodeConstants::IDX_TOWNAREA_KANA]
+                             );
         $splittedRows = [];
         foreach($splittedTownAreas['townArea'] as $index => $townArea){
 
             $splittedRow = $this->generateTemplateRow($row);
 
-            $splittedRow[ZipCodeConstants::IDX_TOWNAREA]     = $townArea;
+            $splittedRow[ZipCodeConstants::IDX_TOWNAREA]      = $townArea;
             $splittedRow[ZipCodeConstants::IDX_TOWNAREA_KANA] = $splittedTownAreas['townAreaKana'][$index];
 
             $splittedRows[] = $splittedRow;
