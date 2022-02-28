@@ -31,47 +31,161 @@ class ZipCodeFactory
             $row[ZipCodeConstants::IDX_UPDATEREASON],
         );
     }
-    public function cleanTownArea($townArea){
-        $cleanTownArea= $townArea;
-        if((bool)preg_match(ZipCodeConstants::REGEX_IGNORE, $townArea)){
+
+    /**
+     * 表示に不要な町域情報を除外する
+     * @param $townArea 町域情報
+     * @return          一部情報を削除した町域情報
+     */
+    public function cleanTownArea($townArea): string
+    {
+
+        $cleanTownArea = $townArea;
+
+        if((bool)preg_match(ZipCodeConstants::REGEX_IGNORE, $townArea)) {
             $cleanTownArea = '';
         };
-        if((bool)preg_match(ZipCodeConstants::REGEX_FLOOR, $townArea)){
-            $cleanTownArea = preg_replace(ZipCodeConstants::REGEX_FLOOR, '', $townArea);
+
+        if((bool)preg_match(ZipCodeConstants::REGEX_FLOOR, $townArea)) {
+            $cleanTownArea = preg_replace(
+                                ZipCodeConstants::REGEX_FLOOR,
+                                '',
+                                $townArea
+                             );
         }
 
         /*
         if((bool)preg_match(ZipCodeConstants::REGEX_JIWARI, $townArea)){
-            $cleanTownArea = preg_replace(ZipCodeConstants::REGEX_JIWARI, '', $townArea);
+            $cleanTownArea = preg_replace(
+                                ZipCodeConstants::REGEX_JIWARI,
+                                '',
+                                $townArea
+                             );
+        };
+        if((bool)preg_match(ZipCodeConstants::REGEX_PARENTHESES, $townArea)){
+            $cleanTownArea = preg_replace(
+                                ZipCodeConstants::REGEX_PARENTHESES,
+                                '',
+                                $cleanTownArea
+                             );
         };
         */
-        //if((bool)preg_match(ZipCodeConstants::REGEX_PARENTHESES, $townArea)){
-        //    $cleanTownArea = preg_replace(ZipCodeConstants::REGEX_PARENTHESES, '', $cleanTownArea);
-        //};
-
         return $cleanTownArea;
     }
-    public function cleanTownAreaKana($townArea,$townAreaKana){
-        $cleanTownAreaKana= $townAreaKana;
+
+    /**
+     * 町域の分割に人力での調査が必要なもの町域情報を一部削除
+     * @param $townArea 町域情報
+     * @return          一部情報を削除した町域情報
+     */
+    public function cleanCantSplitTownArea($townArea): string
+    {
+
+        $cleanTownArea = $townArea;
+
+        // trueになる→ 種市パターン
+        if(!$this->needSplitConcrete($townArea)){
+
+            $hasParentheses = (bool)preg_match(ZipCodeConstants::REGEX_PARENTHESES,
+                                              $cleanTownArea);
+            if($hasParentheses) {
+                $cleanTownArea = preg_replace(
+                    ZipCodeConstants::REGEX_PARENTHESES,
+                    '',
+                    $cleanTownArea
+                );
+            }
+
+            $hasJiwari = (bool)preg_match(ZipCodeConstants::REGEX_JIWARI_EXCEPT_TOWN,
+                                          $cleanTownArea);
+            if($hasJiwari) {
+                $cleanTownArea = preg_replace(
+                    ZipCodeConstants::REGEX_JIWARI_EXCEPT_TOWN,
+                    '',
+                    $cleanTownArea
+                );
+            }
+        }
+        return $cleanTownArea;
+    }
+
+    /**
+     * 表示に不要な町域情報カナを除外する
+     * @param $townArea 町域情報カナ
+     * @return          一部情報を削除した町域情報カナ
+     */
+    public function cleanTownAreaKana($townArea,$townAreaKana) : string
+    {
+        $cleanTownAreaKana = $townAreaKana;
+
         if((bool)preg_match(ZipCodeConstants::REGEX_IGNORE, $townArea)){
             $cleanTownAreaKana = '';
         };
+
         if((bool)preg_match(ZipCodeConstants::REGEX_FLOOR_KANA, $townAreaKana)){
-            $cleanTownAreaKana = preg_replace(ZipCodeConstants::REGEX_FLOOR_KANA, '', $townAreaKana);
+            $cleanTownAreaKana = preg_replace(
+                                    ZipCodeConstants::REGEX_FLOOR_KANA,
+                                    '',
+                                    $townAreaKana
+                                 );
         };
+
         /*
-        if((bool)preg_match(ZipCodeConstants::REGEX_JIWARI_KANA, $townAreaKana)){
-            $cleanTownAreaKana = preg_replace(ZipCodeConstants::REGEX_JIWARI_KANA, '', $townAreaKana);
+        if((bool)preg_match(ZipCodeConstants::REGEX_JIWARI_KANA, $townAreaKana)) {
+            $cleanTownAreaKana = preg_replace(
+                                    ZipCodeConstants::REGEX_JIWARI_KANA,
+                                    '',
+                                    $townAreaKana
+                                 );
         };
         */
-        //if((bool)preg_match(ZipCodeConstants::REGEX_PARENTHESES, $townArea)){
-        //    $cleanTownArea = preg_replace(ZipCodeConstants::REGEX_PARENTHESES, '', $cleanTownArea);
-        //};
-
+        /*
+        if((bool)preg_match(ZipCodeConstants::REGEX_PARENTHESES, $townArea)) {
+            $cleanTownArea = preg_replace(
+                                ZipCodeConstants::REGEX_PARENTHESES,
+                                '',
+                                $cleanTownArea
+                             );
+        };
+        */
         return $cleanTownAreaKana;
-
-
     }
+
+    /**
+     * 町域の分割に人力での調査が必要なものの情報を一部削除
+     * @param $townArea 町域情報カナ
+     * @return          一部情報を削除した町域情報カナ
+     */
+    public function cleanCantSplitTownAreaKana($townArea,$townAreaKana) : string
+    {
+        $cleanTownAreaKana = $townAreaKana;
+
+        // needSplitConcreteは半角を受け付けていない
+        if(!$this->needSplitConcrete($townArea)) {
+
+            $hasParentheses = (bool)preg_match(ZipCodeConstants::REGEX_PARENTHESES_KANA,
+                                               $cleanTownAreaKana);
+            if($hasParentheses) {
+                $cleanTownAreaKana = preg_replace(
+                    ZipCodeConstants::REGEX_PARENTHESES_KANA,
+                    '',
+                    $cleanTownAreaKana
+                );
+            }
+
+            $hasJiwari = (bool)preg_match(ZipCodeConstants::REGEX_JIWARI_KANA_EXCEPT_TOWN,
+                                          $cleanTownAreaKana);
+            if($hasJiwari) {
+                $cleanTownAreaKana = preg_replace(
+                    ZipCodeConstants::REGEX_JIWARI_KANA_EXCEPT_TOWN,
+                    '',
+                    $cleanTownAreaKana
+                );
+            }
+        }
+        return $cleanTownAreaKana;
+    }
+
     /**
      * レコードの町域名称（カナ）の括弧が明示的に閉じられていないか判定する
      * @param  string $row レコード
@@ -96,7 +210,8 @@ class ZipCodeFactory
      * @param  string $row レコード
      * @return bool        判定結果
      */
-    public function isClose($row){
+    public function isClose($row): bool
+    {
         $isClose     = (bool)preg_match(
                               ZipCodeConstants::REGEX_CLOSED_PARENTHESES
                              ,$row[ZipCodeConstants::IDX_TOWNAREA]
@@ -117,6 +232,17 @@ class ZipCodeFactory
     public function needSplit(array $row): bool
     {
         $townArea = $row[ZipCodeConstants::IDX_TOWNAREA];
+        return $this->needSplitConcrete($townArea);
+
+    }
+
+    /**
+     * 町域名称の値を元にレコードの分割要否を判定する実装
+     * @param  array $townArea
+     * @return bool  分割要否
+     */
+    private function needSplitConcrete(string $townArea): bool
+    {
 
         $hasMain   = (bool)preg_match(
             ZipCodeConstants::REGEX_BEFORE_PARENTHESES,
@@ -193,8 +319,9 @@ class ZipCodeFactory
 
             $splittedRow = $this->generateTemplateRow($row);
 
-            $splittedRow[ZipCodeConstants::IDX_TOWNAREA]      = $townArea;
-            $splittedRow[ZipCodeConstants::IDX_TOWNAREA_KANA] = $splittedTownAreas['townAreaKana'][$index];
+            $splittedRow[ZipCodeConstants::IDX_TOWNAREA] = $townArea;
+            $splittedRow[ZipCodeConstants::IDX_TOWNAREA_KANA]
+                = $splittedTownAreas['townAreaKana'][$index];
 
             $splittedRows[] = $splittedRow;
         }

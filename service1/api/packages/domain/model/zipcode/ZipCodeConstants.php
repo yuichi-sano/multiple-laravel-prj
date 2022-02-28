@@ -14,6 +14,8 @@ class ZipCodeConstants
     const REGEX_FLOOR_KANA                    = "/\\(([0-9]+ｶｲ)\\)/u";
     const REGEX_JIWARI                        = "/^([^０-９第（]+)|[第]*[０-９]+地割.*/u";
     const REGEX_JIWARI_KANA                   = "/^([^0-9\\(]+)|(ﾀﾞｲ)*[0-9(]*ﾁﾜﾘ.*/u";
+    const REGEX_JIWARI_EXCEPT_TOWN            = "/^(?=[^０-９第（]+)|[第]*[０-９]+地割.*/u";
+    const REGEX_JIWARI_KANA_EXCEPT_TOWN       = "/^(?=[^0-9\\(]+)|(ﾀﾞｲ)*[0-9(]*ﾁﾜﾘ.*/u";
     const REGEX_PARENTHESES                   = "/（(.*)）/u";
     const REGEX_PARENTHESES_KANA              = "/\\((.*)\\)/u";
     const REGEX_BEFORE_PARENTHESES            = "/(.*)(?=（)/u";
