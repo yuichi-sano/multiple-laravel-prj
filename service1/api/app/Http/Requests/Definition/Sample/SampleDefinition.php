@@ -15,6 +15,7 @@ class SampleDefinition extends AbstractRequestDefinition implements DefinitionIn
     protected string $child='object';
     protected string $arraychild='collectionObject';
     protected string $arraychild2='collectionObject|required';
+
     /** オーバーライド */
     public function childDefinition(): array
     {
