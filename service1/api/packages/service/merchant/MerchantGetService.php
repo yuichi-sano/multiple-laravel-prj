@@ -57,8 +57,18 @@ class MerchantGetService implements MerchantGetInterface
                     $list->add($zipCode);
                 }
             }else{
-                $zipCode = $factory->create($mergedRow);
+
+                $zipCode      = $factory->create($mergedRow);
+                $townArea     = $zipCode->getTownArea();
+                $townAreaKana = $zipCode->getTownAreaKana();
+
+                $zipCode->setTownAreaKana(
+                    $factory->cleanCantSplitTownAreaKana($townArea, $townAreaKana)
+                );
+                $zipCode->setTownArea($factory->cleanCantSplitTownArea($townArea));
+
                 $list->add($zipCode);
+
             }
             $mergeRows = [];
         }

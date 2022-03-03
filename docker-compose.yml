@@ -102,7 +102,7 @@ services:
     postgres:
         build: "./database/flyway/docker/make"
         ports:
-            - 5433:5432
+            - "5433:5432"
         restart: always
         environment:
             POSTGRES_DB: sample
@@ -115,6 +115,12 @@ services:
             - ./database/flyway/docker/init.sh:/docker-entrypoint-initdb.d/init.sh
             - .//database/flyway/docker/conf/postgresql.conf:/etc/postgresql.conf
             - postgres-data:/var/lib/postgresql/data
+        networks:
+            - sail
+    squid-proxy:
+        image: zakihmkc/squid
+        ports:
+            - "18989:8080"
         networks:
             - sail
     locust-master:

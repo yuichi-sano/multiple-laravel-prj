@@ -1,0 +1,109 @@
+@startuml
+title 統合環境概要図
+skinparam rectangle<<aplRectangle>> {
+	roundCorner 25
+}
+sprite $bObject jar:archimate/business-object
+sprite $bProduct jar:archimate/business-product
+sprite $resource jar:archimate/strategy-resource
+sprite $device jar:archimate/device
+!define User actor
+
+node  開発対象 #honeydew{
+    package serviceX #technology{
+        package api {
+            rectangle "PHPScriptSource\n(DDDLaravelDoctrine)\n-Laravel\n-Doctrine" as DDDLaravelDoctrine <<$resource>><<aplRectangle>> #Business
+        }
+        package client{
+            rectangle "Js/TsSource\n(SimpleVueCli)\n-Vue\n-VueX"" as SimpleVueCli <<$resource>><<aplRectangle>> #Business
+        }
+
+    }
+    package database #technology{
+        package flyway{
+            rectangle "DBMigrationSource\n-DDL\n-DML\n-Flyway\n-SpringBoot" as FlyWayTool <<$resource>><<aplRectangle>> #Business
+        }
+    }
+    package locust #technology{
+        rectangle "PythonScript\n(locustシナリオ)\n-locatio" as locust_source <<$resource>><<aplRectangle>> #Business
+    }
+    database-[#honeydew]up->serviceX
+    serviceX-[#honeydew]down->database
+    database-[#honeydew]down->locust
+}
+
+package docker-compose as docker_compose #lightcyan{
+    node serviceX as serviceXDocker{
+
+        package php-docker<$device> as php_docker #lightblue{
+            package "apache<$bObject>" #Business{
+                 package "php8<$bObject>"  #Business{
+                    rectangle "/var/www/html\nphpソース\nport:80\nhost-port:5080" as php_source <<$resource>><<aplRectangle>> #Business{
+                    }
+                 }
+            }
+        }
+        package node-docker<$device> as node_docker #lightblue{
+            package "node<$bObject>"  #Business{
+                    rectangle "/app\nclientソース\nport:18080\nhost-port:18080" as client_source <<$resource>><<aplRectangle>> #Business{
+                    }
+            }
+        }
+    }
+    node DB{
+        package mysql-docker<$device> as mysql_docker #lightblue{
+            rectangle "mysql" <<$bObject>><<aplRectangle>> #Business
+        }
+        package postgres-docker<$device> as postgres_docker #lightblue{
+            rectangle "postgres\nport:5432\nhost-port:5433" as postgres<<$bObject>><<aplRectangle>> #Business
+        }
+        package redis-docker<$device> as redis_docker #lightblue{
+            rectangle "redis\n port:6379" <<$bObject>><<aplRectangle>> #Business
+        }
+    }
+    package meilisearch-docker<$device> as meilisearch_docker #lightblue{
+        rectangle "meilisearch\n port:7700" <<$bObject>><<aplRectangle>> #Business
+    }
+    package mailhog-docker<$device> as mailhog_docker #lightblue{
+        rectangle "mailhog\n port:1025\n port: 8025" <<$bObject>><<aplRectangle>> #Business
+    }
+    package selenium-docker<$device> as selenium_docker #lightblue{
+        rectangle "selenium\n port:1025\n port: 8025" <<$bObject>><<aplRectangle>> #Business
+    }
+
+    node Locust {
+
+        package locust-master-docker<$device> as locust_master_docker #lightblue{
+            rectangle "master\nport:8089\nhost-port:18089" as master<<$bObject>><<aplRectangle>> #Business
+        }
+        package locust-worker-docker<$device> as locust_worker_docker #lightblue{
+            rectangle "worker" <<$bObject>><<aplRectangle>> #Business
+        }
+    }
+    DB -[#lightcyan]up-> serviceXDocker
+    Locust -[#lightcyan]up-> DB
+    selenium_docker -[#lightcyan]up-> Locust
+    serviceXDocker -[#lightcyan]down-> mailhog_docker
+    serviceXDocker -[#lightcyan]down-> meilisearch_docker
+    note as mailhogNote
+        メールサーバ
+    end note
+    mailhogNote -up-> mailhog_docker
+    note as meilisearchNote
+        検索エンジン
+    end note
+    meilisearchNote -up-> meilisearch_docker
+    note as seleniumNote
+       シナリオ試験ツール
+    end note
+    selenium_docker <-- seleniumNote
+
+}
+
+
+api <-right- php_source:mount
+client <-right- client_source:mount
+flyway -right-> postgres
+locust_source <-right- master : mount
+locust_source <-right- worker : mount
+@enduml

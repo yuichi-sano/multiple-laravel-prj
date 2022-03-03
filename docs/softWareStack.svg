@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1544px" preserveAspectRatio="none" style="width:1638px;height:1544px;background:#FFFFFF;" version="1.1" viewBox="0 0 1638 1544" width="1638px" zoomAndPan="magnify"><defs><filter height="300%" id="f1uhk1dm1eg8u3" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="126" x="749.5" y="18.6855">統合環境概要図</text><!--MD5=[2e98d9e6336fcaa61886ea7dc3588d8f]
+cluster 開発対象--><polygon fill="#F0FFF0" filter="url(#f1uhk1dm1eg8u3)" points="16,158.4006,26,148.4006,616,148.4006,616,1213.4006,606,1223.4006,16,1223.4006,16,158.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="606" x2="616" y1="158.4006" y2="148.4006"/><line style="stroke:#000000;stroke-width:1.5;" x1="16" x2="606" y1="158.4006" y2="158.4006"/><line style="stroke:#000000;stroke-width:1.5;" x1="606" x2="606" y1="158.4006" y2="1223.4006"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="56" x="284" y="175.9338">開発対象</text><!--MD5=[adc02baaab7e4220d8e75ef9b96f1508]
+cluster serviceX--><polygon fill="#C9FFC9" filter="url(#f1uhk1dm1eg8u3)" points="48,210.4006,116,210.4006,123,234.01,584,234.01,584,503.4006,48,503.4006,48,210.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="48" x2="123" y1="234.01" y2="234.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="62" x="52" y="226.9338">serviceX</text><!--MD5=[7442f3b126ee602ae02566c1a49e158a]
+cluster api--><polygon fill="#C9FFC9" filter="url(#f1uhk1dm1eg8u3)" points="317,270.4006,344,270.4006,351,294.01,544,294.01,544,463.4006,317,463.4006,317,270.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="317" x2="351" y1="294.01" y2="294.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="21" x="321" y="286.9338">api</text><!--MD5=[aa2f05b2676d7d34ffa7e771fb7634f3]
+cluster client--><polygon fill="#C9FFC9" filter="url(#f1uhk1dm1eg8u3)" points="96,270.4006,141,270.4006,148,294.01,277,294.01,277,463.4006,96,463.4006,96,270.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="96" x2="148" y1="294.01" y2="294.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="39" x="100" y="286.9338">client</text><!--MD5=[db65ce44d5e360fb4ec835f941dc7573]
+cluster database--><polygon fill="#C9FFC9" filter="url(#f1uhk1dm1eg8u3)" points="167,584.4006,237,584.4006,244,608.01,464,608.01,464,895.4006,167,895.4006,167,584.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="167" x2="244" y1="608.01" y2="608.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="64" x="171" y="600.9338">database</text><!--MD5=[04659f8617df0ba922a06ae535144c4c]
+cluster flyway--><polygon fill="#C9FFC9" filter="url(#f1uhk1dm1eg8u3)" points="215,644.4006,263,644.4006,270,668.01,424,668.01,424,855.4006,215,855.4006,215,644.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="215" x2="270" y1="668.01" y2="668.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="42" x="219" y="660.9338">flyway</text><!--MD5=[18e40732d357c33c917579e13c559a6f]
+cluster locust--><polygon fill="#C9FFC9" filter="url(#f1uhk1dm1eg8u3)" points="393,1015.4006,442,1015.4006,449,1039.01,584,1039.01,584,1191.4006,393,1191.4006,393,1015.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="393" x2="449" y1="1039.01" y2="1039.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="43" x="397" y="1031.9338">locust</text><!--MD5=[0ef373df1c2c68d18be0f508ddb2457f]
+cluster docker_compose--><polygon fill="#E0FFFF" filter="url(#f1uhk1dm1eg8u3)" points="640,76.4006,764,76.4006,771,100.01,1621,100.01,1621,1537.4006,640,1537.4006,640,76.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="640" x2="771" y1="100.01" y2="100.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="118" x="644" y="92.9338">docker-compose</text><!--MD5=[1d01e1a53e7937ffc7d94a3f796dfdf9]
+cluster serviceXDocker--><polygon fill="#E0FFFF" filter="url(#f1uhk1dm1eg8u3)" points="672,138.4006,682,128.4006,1212,128.4006,1212,525.4006,1202,535.4006,672,535.4006,672,138.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1202" x2="1212" y1="138.4006" y2="128.4006"/><line style="stroke:#000000;stroke-width:1.5;" x1="672" x2="1202" y1="138.4006" y2="138.4006"/><line style="stroke:#000000;stroke-width:1.5;" x1="1202" x2="1202" y1="138.4006" y2="535.4006"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="62" x="907" y="155.9338">serviceX</text><!--MD5=[a9b6684692d5f26cab1021cbe9ad15a1]
+cluster php_docker--><polygon fill="#ADD8E6" filter="url(#f1uhk1dm1eg8u3)" points="938,190.4006,1040,190.4006,1047,214.01,1180,214.01,1180,503.4006,938,503.4006,938,190.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="938" x2="1047" y1="214.01" y2="214.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="81" x="942" y="206.9338">php-docker</text><image height="16" width="16" x="1023" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATklEQVR4Xs2RsQ0AIAjA+P9o46KD0iqJi01YSh0MEb/RioPoAsAWpYAtSgFblAK2KAVsUQrYohS0nXe+jXJcDrTRBZDaJAosb/Y/VuedDqytNZXIcSA4AAAAAElFTkSuQmCC" y="195.01"/><!--MD5=[1578760542dff9c995de5f2c10973e5a]
+cluster apache<$bObject>--><polygon fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" points="962,234.4006,1034,234.4006,1041,258.01,1156,258.01,1156,479.4006,962,479.4006,962,234.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="962" x2="1041" y1="258.01" y2="258.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="51" x="966" y="250.9338">apache</text><image height="16" width="16" x="1017" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="239.01"/><!--MD5=[b662b60fd2a4172a77e1511bcce6f05c]
+cluster php8<$bObject>--><polygon fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" points="986,278.4006,1042,278.4006,1049,302.01,1132,302.01,1132,455.4006,986,455.4006,986,278.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="986" x2="1049" y1="302.01" y2="302.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="35" x="990" y="294.9338">php8</text><image height="16" width="16" x="1025" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="283.01"/><!--MD5=[b8672abdd80a03e9291820552961892b]
+cluster node_docker--><polygon fill="#ADD8E6" filter="url(#f1uhk1dm1eg8u3)" points="712,234.4006,823,234.4006,830,258.01,914,258.01,914,479.4006,712,479.4006,712,234.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="712" x2="830" y1="258.01" y2="258.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="90" x="716" y="250.9338">node-docker</text><image height="16" width="16" x="806" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATklEQVR4Xs2RsQ0AIAjA+P9o46KD0iqJi01YSh0MEb/RioPoAsAWpYAtSgFblAK2KAVsUQrYohS0nXe+jXJcDrTRBZDaJAosb/Y/VuedDqytNZXIcSA4AAAAAElFTkSuQmCC" y="239.01"/><!--MD5=[05fbbd1e56fb88eacff56f1a64cc3261]
+cluster node<$bObject>--><polygon fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" points="736,278.4006,793,278.4006,800,302.01,890,302.01,890,455.4006,736,455.4006,736,278.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="736" x2="800" y1="302.01" y2="302.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="36" x="740" y="294.9338">node</text><image height="16" width="16" x="776" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="283.01"/><!--MD5=[e169ac431914a6adb8cf110c9da1459f]
+cluster DB--><polygon fill="#E0FFFF" filter="url(#f1uhk1dm1eg8u3)" points="672,617.9006,682,607.9006,1186,607.9006,1186,851.9006,1176,861.9006,672,861.9006,672,617.9006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1176" x2="1186" y1="617.9006" y2="607.9006"/><line style="stroke:#000000;stroke-width:1.5;" x1="672" x2="1176" y1="617.9006" y2="617.9006"/><line style="stroke:#000000;stroke-width:1.5;" x1="1176" x2="1176" y1="617.9006" y2="861.9006"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="20" x="915" y="635.4338">DB</text><!--MD5=[95c1243c49cc4bec721413f74a27cdac]
+cluster mysql_docker--><polygon fill="#ADD8E6" filter="url(#f1uhk1dm1eg8u3)" points="712,687.4006,827,687.4006,834,711.01,837,711.01,837,812.4006,712,812.4006,712,687.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="712" x2="834" y1="711.01" y2="711.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="94" x="716" y="703.9338">mysql-docker</text><image height="16" width="16" x="810" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATklEQVR4Xs2RsQ0AIAjA+P9o46KD0iqJi01YSh0MEb/RioPoAsAWpYAtSgFblAK2KAVsUQrYohS0nXe+jXJcDrTRBZDaJAosb/Y/VuedDqytNZXIcSA4AAAAAElFTkSuQmCC" y="692.01"/><!--MD5=[646391b8902d8ccbf35b578e220afd11]
+cluster postgres_docker--><polygon fill="#ADD8E6" filter="url(#f1uhk1dm1eg8u3)" points="1006,669.9006,1144,669.9006,1151,693.51,1154,693.51,1154,829.9006,1006,829.9006,1006,669.9006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1006" x2="1151" y1="693.51" y2="693.51"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="117" x="1010" y="686.4338">postgres-docker</text><image height="16" width="16" x="1127" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATklEQVR4Xs2RsQ0AIAjA+P9o46KD0iqJi01YSh0MEb/RioPoAsAWpYAtSgFblAK2KAVsUQrYohS0nXe+jXJcDrTRBZDaJAosb/Y/VuedDqytNZXIcSA4AAAAAElFTkSuQmCC" y="674.51"/><!--MD5=[8b33fd970257db2bcde75ecf05f1972b]
+cluster redis_docker--><polygon fill="#ADD8E6" filter="url(#f1uhk1dm1eg8u3)" points="861,678.9006,972,678.9006,979,702.51,982,702.51,982,820.9006,861,820.9006,861,678.9006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="861" x2="979" y1="702.51" y2="702.51"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="90" x="865" y="695.4338">redis-docker</text><image height="16" width="16" x="955" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATklEQVR4Xs2RsQ0AIAjA+P9o46KD0iqJi01YSh0MEb/RioPoAsAWpYAtSgFblAK2KAVsUQrYohS0nXe+jXJcDrTRBZDaJAosb/Y/VuedDqytNZXIcSA4AAAAAElFTkSuQmCC" y="683.51"/><!--MD5=[7e047763ed3b800092e6a52c1541fb19]
+cluster meilisearch_docker--><polygon fill="#ADD8E6" filter="url(#f1uhk1dm1eg8u3)" points="1226,670.9006,1382,670.9006,1389,694.51,1392,694.51,1392,828.9006,1226,828.9006,1226,670.9006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1226" x2="1389" y1="694.51" y2="694.51"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="135" x="1230" y="687.4338">meilisearch-docker</text><image height="16" width="16" x="1365" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATklEQVR4Xs2RsQ0AIAjA+P9o46KD0iqJi01YSh0MEb/RioPoAsAWpYAtSgFblAK2KAVsUQrYohS0nXe+jXJcDrTRBZDaJAosb/Y/VuedDqytNZXIcSA4AAAAAElFTkSuQmCC" y="675.51"/><!--MD5=[cc673266ce20820911a4ec0a19f52d7b]
+cluster mailhog_docker--><polygon fill="#ADD8E6" filter="url(#f1uhk1dm1eg8u3)" points="1432,661.9006,1562,661.9006,1569,685.51,1589,685.51,1589,837.9006,1432,837.9006,1432,661.9006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1432" x2="1569" y1="685.51" y2="685.51"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="109" x="1436" y="678.4338">mailhog-docker</text><image height="16" width="16" x="1545" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATklEQVR4Xs2RsQ0AIAjA+P9o46KD0iqJi01YSh0MEb/RioPoAsAWpYAtSgFblAK2KAVsUQrYohS0nXe+jXJcDrTRBZDaJAosb/Y/VuedDqytNZXIcSA4AAAAAElFTkSuQmCC" y="666.51"/><!--MD5=[01fe2c79361cfa86ffa45083f90a4fe4]
+cluster selenium_docker--><polygon fill="#ADD8E6" filter="url(#f1uhk1dm1eg8u3)" points="694,1264.4006,833,1264.4006,840,1288.01,851,1288.01,851,1440.4006,694,1440.4006,694,1264.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="694" x2="840" y1="1288.01" y2="1288.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="118" x="698" y="1280.9338">selenium-docker</text><image height="16" width="16" x="816" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATklEQVR4Xs2RsQ0AIAjA+P9o46KD0iqJi01YSh0MEb/RioPoAsAWpYAtSgFblAK2KAVsUQrYohS0nXe+jXJcDrTRBZDaJAosb/Y/VuedDqytNZXIcSA4AAAAAElFTkSuQmCC" y="1269.01"/><!--MD5=[c24367b9bbffe179d873a58bc732e9a3]
+cluster Locust--><polygon fill="#E0FFFF" filter="url(#f1uhk1dm1eg8u3)" points="672,971.4006,682,961.4006,1131,961.4006,1131,1205.4006,1121,1215.4006,672,1215.4006,672,971.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1121" x2="1131" y1="971.4006" y2="961.4006"/><line style="stroke:#000000;stroke-width:1.5;" x1="672" x2="1121" y1="971.4006" y2="971.4006"/><line style="stroke:#000000;stroke-width:1.5;" x1="1121" x2="1121" y1="971.4006" y2="1215.4006"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="47" x="874" y="988.9338">Locust</text><!--MD5=[a6bbb2e23eaa2020b421a906d83bac2a]
+cluster locust_master_docker--><polygon fill="#ADD8E6" filter="url(#f1uhk1dm1eg8u3)" points="712,1023.4006,883,1023.4006,890,1047.01,893,1047.01,893,1183.4006,712,1183.4006,712,1023.4006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="712" x2="890" y1="1047.01" y2="1047.01"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="150" x="716" y="1039.9338">locust-master-docker</text><image height="16" width="16" x="866" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATklEQVR4Xs2RsQ0AIAjA+P9o46KD0iqJi01YSh0MEb/RioPoAsAWpYAtSgFblAK2KAVsUQrYohS0nXe+jXJcDrTRBZDaJAosb/Y/VuedDqytNZXIcSA4AAAAAElFTkSuQmCC" y="1028.01"/><!--MD5=[94d1b1a5670fee153dffcd094134f456]
+cluster locust_worker_docker--><polygon fill="#ADD8E6" filter="url(#f1uhk1dm1eg8u3)" points="917,1040.9006,1089,1040.9006,1096,1064.51,1099,1064.51,1099,1165.9006,917,1165.9006,917,1040.9006" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="917" x2="1096" y1="1064.51" y2="1064.51"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="151" x="921" y="1057.4338">locust-worker-docker</text><image height="16" width="16" x="1072" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATklEQVR4Xs2RsQ0AIAjA+P9o46KD0iqJi01YSh0MEb/RioPoAsAWpYAtSgFblAK2KAVsUQrYohS0nXe+jXJcDrTRBZDaJAosb/Y/VuedDqytNZXIcSA4AAAAAElFTkSuQmCC" y="1045.51"/><!--MD5=[b29bbdbb32df52cb281c7869bd7a586b]
+entity DDDLaravelDoctrine--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="105.4375" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="160" x="360" y="334.4006"/><image height="16" width="16" x="432.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAP0lEQVR4XmNgGCzgH4kYBfz7em/Vf1IwuiHUMwDGRqfRMdQAuCFkGYBk0Ig1AKYZxQBiMbJmqhgANoREPIgAAH+QtOBantO7AAAAAElFTkSuQmCC" y="344.4006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="370" y="373.9338">PHPScriptSource</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140" x="370" y="391.5432">(DDDLaravelDoctrine)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52" x="370" y="409.1526">-Laravel</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="370" y="426.762">-Doctrine</text><!--MD5=[9c6e9f4e049297f3653ecd69ddd401be]
+entity SimpleVueCli--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="105.4375" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="113" x="139.5" y="334.4006"/><image height="16" width="16" x="188.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAP0lEQVR4XmNgGCzgH4kYBfz7em/Vf1IwuiHUMwDGRqfRMdQAuCFkGYBk0Ig1AKYZxQBiMbJmqhgANoREPIgAAH+QtOBantO7AAAAAElFTkSuQmCC" y="344.4006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="149.5" y="373.9338">Js/TsSource</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="149.5" y="391.5432">(SimpleVueCli)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30" x="149.5" y="409.1526">-Vue</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43" x="149.5" y="426.762">-VueX"</text><!--MD5=[cf0aaec8b6a0fafbcd19c509e5b1608b]
+entity FlyWayTool--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="123.0469" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="142" x="258" y="708.4006"/><image height="16" width="16" x="321.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAP0lEQVR4XmNgGCzgH4kYBfz7em/Vf1IwuiHUMwDGRqfRMdQAuCFkGYBk0Ig1AKYZxQBiMbJmqhgANoREPIgAAH+QtOBantO7AAAAAElFTkSuQmCC" y="718.4006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="268" y="747.9338">DBMigrationSource</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33" x="268" y="765.5432">-DDL</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="268" y="783.1526">-DML</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="268" y="800.762">-Flyway</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="268" y="818.3713">-SpringBoot</text><!--MD5=[fc0cad361df6204566ffa770ef544d58]
+entity locust_source--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="87.8281" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="123" x="436.5" y="1079.4006"/><image height="16" width="16" x="490.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAP0lEQVR4XmNgGCzgH4kYBfz7em/Vf1IwuiHUMwDGRqfRMdQAuCFkGYBk0Ig1AKYZxQBiMbJmqhgANoREPIgAAH+QtOBantO7AAAAAElFTkSuQmCC" y="1089.4006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80" x="446.5" y="1118.9338">PythonScript</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="446.5" y="1136.5432">(locustシナリオ)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="446.5" y="1154.1526">-locatio</text><path d="M1390.5,1110.4006 L1390.5,1136.7522 L1489.5,1136.7522 L1489.5,1120.4006 L1479.5,1110.4006 L1390.5,1110.4006 " fill="#FBFB77" filter="url(#f1uhk1dm1eg8u3)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1479.5,1110.4006 L1479.5,1120.4006 L1489.5,1120.4006 L1479.5,1110.4006 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="1396.5" y="1128.8957">メールサーバ</text><path d="M1184.5,1110.4006 L1184.5,1136.7522 L1283.5,1136.7522 L1283.5,1120.4006 L1273.5,1110.4006 L1184.5,1110.4006 " fill="#FBFB77" filter="url(#f1uhk1dm1eg8u3)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1273.5,1110.4006 L1273.5,1120.4006 L1283.5,1120.4006 L1273.5,1110.4006 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="1190.5" y="1128.8957">検索エンジン</text><path d="M656,1495.4006 L656,1521.7522 L794,1521.7522 L794,1505.4006 L784,1495.4006 L656,1495.4006 " fill="#FBFB77" filter="url(#f1uhk1dm1eg8u3)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M784,1495.4006 L784,1505.4006 L794,1505.4006 L784,1495.4006 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="117" x="662" y="1513.8957">シナリオ試験ツール</text><!--MD5=[6f35536c73dde43ec4e09f02405ca4e0]
+entity php_source--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="105.4375" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="113" x="1002.5" y="334.4006"/><image height="16" width="16" x="1051.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR4XmNgGCzgP4kYBfz/em8VSRjdEAwFhDBOA2BsdBodQw2AG0KWAUgGjVgDYJpRDCAWI2umigFgQ0jEgwgAAAoRtSThlD9XAAAAAElFTkSuQmCC" y="344.4006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="1012.5" y="373.9338">/var/www/html</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="1012.5" y="391.5432">phpソース</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="45" x="1012.5" y="409.1526">port:80</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="1012.5" y="426.762">host-port:5080</text><!--MD5=[2f3962b6aa67f6ab100157efaa559318]
+entity client_source--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="105.4375" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="121" x="752.5" y="334.4006"/><image height="16" width="16" x="805.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR4XmNgGCzgP4kYBfz/em8VSRjdEAwFhDBOA2BsdBodQw2AG0KWAUgGjVgDYJpRDCAWI2umigFgQ0jEgwgAAAoRtSThlD9XAAAAAElFTkSuQmCC" y="344.4006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28" x="762.5" y="373.9338">/app</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="762.5" y="391.5432">clientソース</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="762.5" y="409.1526">port:18080</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="762.5" y="426.762">host-port:18080</text><!--MD5=[95056b5cbad1279cc73d9cc5c17a1af7]
+entity mysql--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="56" x="746" y="743.4006"/><image height="16" width="16" x="766.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="753.4006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="756" y="782.9338">mysql</text><!--MD5=[0e1fecc31e3549f2a1667c6349b56d9e]
+entity postgres--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="87.8281" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="113" x="1022.5" y="725.9006"/><image height="16" width="16" x="1071.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="735.9006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="1032.5" y="765.4338">postgres</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="1032.5" y="783.0432">port:5432</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="1032.5" y="800.6526">host-port:5433</text><!--MD5=[7dbd8e5a405b26809a4649ee0f996040]
+entity redis\n port:6379--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="70.2188" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="85" x="878.5" y="734.9006"/><image height="16" width="16" x="913.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="744.9006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="31" x="888.5" y="774.4338">redis</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="892.5" y="792.0432">port:6379</text><!--MD5=[96d9f9306e4d1d52b52734ccc1b3a0e2]
+entity meilisearch\n port:7700--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="70.2188" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="91" x="1272.5" y="734.9006"/><image height="16" width="16" x="1310.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="744.9006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="1282.5" y="774.4338">meilisearch</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="1286.5" y="792.0432">port:7700</text><!--MD5=[a0543ec6695cd674fb498a11b576951c]
+entity mailhog\n port:1025\n port: 8025--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="87.8281" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="89" x="1475.5" y="725.9006"/><image height="16" width="16" x="1512.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="735.9006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="1485.5" y="765.4338">mailhog</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="1489.5" y="783.0432">port:1025</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="1489.5" y="800.6526">port: 8025</text><!--MD5=[bdace738958e970c2926aae589741d2d]
+entity selenium\n port:1025\n port: 8025--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="87.8281" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="89" x="737.5" y="1328.4006"/><image height="16" width="16" x="774.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="1338.4006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="747.5" y="1367.9338">selenium</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="751.5" y="1385.5432">port:1025</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="751.5" y="1403.1526">port: 8025</text><!--MD5=[e6001af16d4774e0fdad2715570119d9]
+entity master--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="87.8281" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="121" x="749.5" y="1079.4006"/><image height="16" width="16" x="802.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="1089.4006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43" x="759.5" y="1118.9338">master</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="759.5" y="1136.5432">port:8089</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="759.5" y="1154.1526">host-port:18089</text><!--MD5=[d37e7b6e4e01e9dcb388f1477493d265]
+entity worker--><rect fill="#FFFFCC" filter="url(#f1uhk1dm1eg8u3)" height="52.6094" rx="12.5" ry="12.5" style="stroke:#000000;stroke-width:1.5;" width="62" x="933" y="1096.9006"/><image height="16" width="16" x="956.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR4XmNgGEzgHxkYBfz7/3/rf2IxbQwgA6MAyl2ArggfHjWAVgaQgQcBAAC8+aZ0EXbqwQAAAABJRU5ErkJggg==" y="1106.9006"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42" x="943" y="1136.4338">worker</text><!--MD5=[49b1170a693873ca6e12532f97ec7104]
+reverse link serviceX to database--><path d="M59.1261,504.1636 C59.1878,504.4542 59.2496,504.7449 59.3117,505.0356 C59.4358,505.6171 59.5608,506.1986 59.6865,506.7803 C59.9381,507.9437 60.1928,509.1074 60.4508,510.2711 C61.4827,514.9257 62.5657,519.5793 63.6954,524.2046 C65.9548,533.4553 68.4013,542.5931 71,551.4006 C85.615,600.9406 107.14,654.8556 127.1975,696.6131 C137.2263,717.4919 146.8881,735.3313 155.1359,748.0647 C159.2598,754.4314 163.0302,759.5216 166.3162,763.0771 C166.5216,763.2993 166.7251,763.5155 166.9266,763.7257 " fill="none" id="serviceX-backto-database" style="stroke:#F0FFF0;stroke-width:1.0;"/><polygon fill="#F0FFF0" points="59.1261,504.1636,57.0806,513.7977,60.1636,509.0547,64.9065,512.1377,59.1261,504.1636" style="stroke:#F0FFF0;stroke-width:1.0;"/><!--MD5=[02eb2ab348d477d735e6b78899b209f8]
+link serviceX to database--><path d="M93.7871,504.1636 C93.8549,504.4542 93.9228,504.7449 93.9908,505.0356 C94.1268,505.6171 94.2632,506.1986 94.4,506.7803 C94.6736,507.9437 94.9487,509.1074 95.2254,510.2711 C96.3325,514.9257 97.4655,519.5793 98.6286,524.2046 C100.9548,533.4553 103.4013,542.5931 106,551.4006 C120.615,600.9406 142.14,654.8556 157.925,696.6131 C159.8981,701.8328 161.7816,706.8625 163.5506,711.67 C164.4351,714.0738 165.291,716.4219 166.1153,718.7105 C166.3213,719.2826 166.5254,719.8511 166.7275,720.4157 " fill="none" id="serviceX-to-database" style="stroke:#F0FFF0;stroke-width:1.0;"/><polygon fill="#F0FFF0" points="166.7275,720.4157,167.4613,710.5942,165.0429,715.708,159.929,713.2896,166.7275,720.4157" style="stroke:#F0FFF0;stroke-width:1.0;"/><!--MD5=[15e0fb6c37da1af1a8bf8ad3501632cc]
+link database to locust--><path d="M199.7268,895.7987 C199.8234,896.0318 199.9203,896.2646 200.0176,896.4972 C200.2122,896.9624 200.4082,897.4265 200.6058,897.8896 C201.001,898.8157 201.4023,899.7373 201.8097,900.6542 C203.4394,904.3218 205.1675,907.9125 207,911.4006 C236.16,966.9106 283.6125,1018.8931 324.2863,1057.3731 C344.6231,1076.6131 363.2653,1092.4775 377.0789,1103.7194 C380.5323,1106.5298 383.6839,1109.0514 386.4848,1111.2646 C387.8852,1112.3712 389.1979,1113.4007 390.4169,1114.3506 C391.0263,1114.8256 391.6123,1115.2807 392.1741,1115.7156 C392.455,1115.9331 392.7299,1116.1455 392.9986,1116.3528 " fill="none" id="database-to-locust" style="stroke:#F0FFF0;stroke-width:1.0;"/><polygon fill="#F0FFF0" points="392.9986,1116.3528,388.3167,1107.6879,389.04,1113.2984,383.4296,1114.0217,392.9986,1116.3528" style="stroke:#F0FFF0;stroke-width:1.0;"/><!--MD5=[902af1716e482b7d656a16962e5ed485]
+reverse link serviceXDocker to DB--><path d="M680,536.9567 C680,537.6736 680,538.3913 680,539.1099 C680,540.5469 680,541.9871 680,543.4301 C680,554.9737 680,566.6947 680,578.4156 C680,584.2761 680,590.1365 680,595.9748 C680,598.8939 680,601.8075 680,604.7127 C680,605.439 680,606.1648 680,606.8901 " fill="none" id="serviceXDocker-backto-DB" style="stroke:#E0FFFF;stroke-width:1.0;"/><polygon fill="#E0FFFF" points="680,536.9567,676,545.9567,680,541.9567,684,545.9567,680,536.9567" style="stroke:#E0FFFF;stroke-width:1.0;"/><!--MD5=[9c7c20cc1112488f3152edd351a812bd]
+reverse link DB to Locust--><path d="M671.9506,855.848 C671.9303,856.1044 671.9101,856.361 671.8899,856.6179 C671.5666,860.7271 671.25,864.8898 670.9436,869.0831 C669.7181,885.8563 668.6575,903.1181 668,919.4006 C667.1025,941.6256 667.3738,965.2056 668.2928,988.1278 C668.7523,999.5889 669.3738,1010.8855 670.0921,1021.7661 C670.4513,1027.2064 670.8347,1032.5427 671.2341,1037.7435 C671.4338,1040.3439 671.6376,1042.9105 671.8443,1045.4392 C671.896,1046.0714 671.9479,1046.7012 671.9999,1047.3286 " fill="none" id="DB-backto-Locust" style="stroke:#E0FFFF;stroke-width:1.0;"/><polygon fill="#E0FFFF" points="671.9506,855.848,667.2543,864.5051,671.5568,860.8325,675.2294,865.135,671.9506,855.848" style="stroke:#E0FFFF;stroke-width:1.0;"/><!--MD5=[7c4c494fe64b89628c7a3fcf6d3df77b]
+reverse link Locust to selenium_docker--><path d="M688.1114,1215.483 C688.1524,1215.9431 688.1934,1216.4038 688.2345,1216.8652 C688.3167,1217.7879 688.3991,1218.713 688.4817,1219.6404 C688.6469,1221.4953 688.813,1223.3591 688.9796,1225.23 C689.6463,1232.714 690.3231,1240.313 691,1247.9119 C691.6769,1255.5108 692.3538,1263.1096 693.0204,1270.5934 C693.187,1272.4643 693.3531,1274.328 693.5183,1276.1828 C693.6009,1277.1101 693.6833,1278.0353 693.7655,1278.9579 C693.8066,1279.4192 693.8476,1279.8799 693.8886,1280.34 C693.9091,1280.57 693.9296,1280.7999 693.95,1281.0296 " fill="none" id="Locust-backto-selenium_docker" style="stroke:#E0FFFF;stroke-width:1.0;"/><polygon fill="#E0FFFF" points="688.1114,1215.483,684.9257,1224.8024,688.555,1220.4633,692.8941,1224.0926,688.1114,1215.483" style="stroke:#E0FFFF;stroke-width:1.0;"/><!--MD5=[3cdc2744b8f9eff7bdab4a7f55ee9c9d]
+link serviceXDocker to mailhog_docker--><path d="M719.3945,535.7751 C719.772,536.2217 720.153,536.6652 720.5376,537.1055 C722.0761,538.8665 723.6722,540.5755 725.3283,542.2269 C728.6404,545.5298 732.1919,548.6025 736,551.4006 C750.42,561.9906 1365.79,557.5206 1380,568.4006 C1398.1775,582.3131 1411.0419,601.5206 1420.1073,622.5745 C1424.6401,633.1015 1428.2231,644.09 1431.0456,655.1091 C1431.3985,656.4865 1431.7394,657.8644 1432.0688,659.2419 C1432.2335,659.9306 1432.3954,660.6193 1432.5544,661.3077 " fill="none" id="serviceXDocker-to-mailhog_docker" style="stroke:#E0FFFF;stroke-width:1.0;"/><polygon fill="#E0FFFF" points="1432.5544,661.3077,1434.4265,651.6384,1431.4292,656.436,1426.6317,653.4387,1432.5544,661.3077" style="stroke:#E0FFFF;stroke-width:1.0;"/><!--MD5=[eb833aec4129840aa62b4343bc432f0c]
+link serviceXDocker to meilisearch_docker--><path d="M719.4735,535.669 C719.8494,536.1178 720.2288,536.5635 720.6117,537.0059 C722.1436,538.7757 723.7327,540.4942 725.3811,542.1559 C728.6779,545.4794 732.2119,548.5756 736,551.4006 C773.08,579.0606 1114.13,541.8306 1152,568.4006 C1190.795,595.6106 1211.265,644.6056 1222.0513,687.3494 C1223.3995,692.6923 1224.5965,697.9376 1225.659,703.0305 C1225.7255,703.3488 1225.7913,703.6665 1225.8567,703.9836 " fill="none" id="serviceXDocker-to-meilisearch_docker" style="stroke:#E0FFFF;stroke-width:1.0;"/><polygon fill="#E0FFFF" points="1225.8567,703.9836,1227.9574,694.3614,1224.8473,699.0866,1220.1221,695.9765,1225.8567,703.9836" style="stroke:#E0FFFF;stroke-width:1.0;"/><!--MD5=[eb3e5c70535078d27f77c5a0baf74916]
+reverse link mailhog_docker to mailhogNote--><path d="M1440,839.3115 C1440,847.151 1440,855.4523 1440,864.0985 C1440,881.3909 1440,900.0628 1440,919.1794 C1440,995.6456 1440,1079.2256 1440,1110.0806 " fill="none" id="mailhog_docker-backto-mailhogNote" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1440,839.3115,1436,848.3115,1440,844.3115,1444,848.3115,1440,839.3115" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[a94d946ef64b38badb96fc58806acf4a]
+reverse link meilisearch_docker to meilisearchNote--><path d="M1234,829.2971 C1234,829.7604 1234,830.2257 1234,830.693 C1234,831.6276 1234,832.5701 1234,833.5203 C1234,835.4206 1234,837.3516 1234,839.3115 C1234,847.151 1234,855.4523 1234,864.0985 C1234,881.3909 1234,900.0628 1234,919.1794 C1234,995.6456 1234,1079.2256 1234,1110.0806 " fill="none" id="meilisearch_docker-backto-meilisearchNote" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1234,829.2971,1230,838.2971,1234,834.2971,1238,838.2971,1234,829.2971" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[03cad45c9878714faaf9a11c92ce8655]
+reverse link selenium_docker to seleniumNote--><path d="M713.6029,1441.0037 C713.7466,1441.8409 713.8903,1442.6781 714.0339,1443.5146 C715.1826,1450.2066 716.3242,1456.8571 717.4128,1463.1983 C719.59,1475.8806 721.555,1487.3256 722.94,1495.3906 " fill="none" id="selenium_docker-backto-seleniumNote" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="713.6029,1441.0037,711.1831,1450.5506,714.4487,1445.9316,719.0678,1449.1972,713.6029,1441.0037" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9abc43e3e0e3b503cd6d696d68e758d5]
+reverse link api to php_source--><path d="M316.9428,360.8902 C316.87,360.6266 316.7971,360.3613 316.7238,360.0944 C316.5774,359.5605 316.4301,359.02 316.2821,358.473 C315.6898,356.2849 315.0852,353.9926 314.4744,351.6041 C309.5875,332.4956 304.3,307.2269 301.735,279.8756 C296.605,225.1731 302.365,162.1406 344,123.4006 C432.83,40.7506 783.53,65.2006 890,123.4006 C971.78,168.1106 1019.84,271.1706 1042.65,334.3406 " fill="none" id="api-backto-php_source" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="316.9428,360.8902,318.4038,351.1503,315.6124,356.0705,310.6922,353.279,316.9428,360.8902" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="413" y="56.8957">mount</text><!--MD5=[6ae8d35305fc3bf0a56e9239c33be1cd]
+reverse link client to client_source--><path d="M105.2204,269.7845 C105.3342,265.933 105.4576,262.0639 105.5913,258.1906 C107.73,196.2181 112.505,133.1656 123,123.4006 C224.84,28.6406 639.64,37.4206 749,123.4006 C811.82,172.7906 819.47,272.5406 817.49,334.1406 " fill="none" id="client-backto-client_source" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="105.2204,269.7845,109.4845,260.9066,105.3681,264.7867,101.488,260.6703,105.2204,269.7845" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="629" y="56.8957">mount</text><!--MD5=[e53aeea088d9bd5a9f49909343c65895]
+link flyway to postgres--><path d="M225.0593,644.1519 C225.0876,643.8078 225.116,643.464 225.1448,643.1205 C225.2023,642.4336 225.2609,641.748 225.3205,641.064 C225.4398,639.6958 225.5634,638.3336 225.6914,636.9783 C225.9474,634.2677 226.2211,631.5849 226.5136,628.938 C227.0985,623.6442 227.7586,618.4939 228.5023,613.552 C231.4775,593.7844 235.7925,577.3506 242,568.4006 C246.93,561.2906 251.07,561.8406 259.5,559.9006 C297.56,551.1506 924.44,551.1506 962.5,559.9006 C1031.72,575.8206 1060.4,663.5506 1071.85,720.4606 " fill="none" id="flyway-to-postgres" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1072.84,725.5306,1075.0456,715.9319,1071.8841,720.6228,1067.1932,717.4613,1072.84,725.5306" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[68441484f767f37b9b6f85701b02a179]
+reverse link locust_source to master--><path d="M530.95,1075.0606 C578.75,1011.0406 669.92,911.8906 746,963.4006 C784.03,989.1506 799.46,1041.5406 805.72,1079.3706 " fill="none" id="locust_source-backto-master" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="527.86,1079.2306,536.4214,1074.3621,530.8279,1075.2068,529.9832,1069.6134,527.86,1079.2306" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="713" y="933.8957">mount</text><!--MD5=[de003b548cb5cfb4c49a24a1d8473dbf]
+reverse link locust_source to worker--><path d="M531.44,1075.0306 C561.18,1036.6306 608.49,985.8006 664,963.4006 C755.91,926.3206 803.09,910.6606 887,963.4006 C933.72,992.7606 952.75,1059.2906 959.97,1096.6506 " fill="none" id="locust_source-backto-worker" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="528.26,1079.1806,536.9277,1074.504,531.3168,1075.2239,530.5969,1069.613,528.26,1079.1806" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="670" y="933.8957">mount</text><!--MD5=[a0b3d7daf086219bbd9a84a0432e592a]
+@startuml
+title 統合環境概要図
+skinparam rectangle<<aplRectangle>> {
+	roundCorner 25
+}
+sprite $bObject jar:archimate/business-object
+sprite $bProduct jar:archimate/business-product
+sprite $resource jar:archimate/strategy-resource
+sprite $device jar:archimate/device
+!define User actor
+
+node  開発対象 #honeydew{
+    package serviceX #technology{
+        package api {
+            rectangle "PHPScriptSource\n(DDDLaravelDoctrine)\n-Laravel\n-Doctrine" as DDDLaravelDoctrine <<$resource>><<aplRectangle>> #Business
+        }
+        package client{
+            rectangle "Js/TsSource\n(SimpleVueCli)\n-Vue\n-VueX"" as SimpleVueCli <<$resource>><<aplRectangle>> #Business
+        }
+
+    }
+    package database #technology{
+        package flyway{
+            rectangle "DBMigrationSource\n-DDL\n-DML\n-Flyway\n-SpringBoot" as FlyWayTool <<$resource>><<aplRectangle>> #Business
+        }
+    }
+    package locust #technology{
+        rectangle "PythonScript\n(locustシナリオ)\n-locatio" as locust_source <<$resource>><<aplRectangle>> #Business
+    }
+    database-[#honeydew]up->serviceX
+    serviceX-[#honeydew]down->database
+    database-[#honeydew]down->locust
+}
+
+package docker-compose as docker_compose #lightcyan{
+    node serviceX as serviceXDocker{
+
+        package php-docker<$device> as php_docker #lightblue{
+            package "apache<$bObject>" #Business{
+                 package "php8<$bObject>"  #Business{
+                    rectangle "/var/www/html\nphpソース\nport:80\nhost-port:5080" as php_source <<$resource>><<aplRectangle>> #Business{
+                    }
+                 }
+            }
+        }
+        package node-docker<$device> as node_docker #lightblue{
+            package "node<$bObject>"  #Business{
+                    rectangle "/app\nclientソース\nport:18080\nhost-port:18080" as client_source <<$resource>><<aplRectangle>> #Business{
+                    }
+            }
+        }
+    }
+    node DB{
+        package mysql-docker<$device> as mysql_docker #lightblue{
+            rectangle "mysql" <<$bObject>><<aplRectangle>> #Business
+        }
+        package postgres-docker<$device> as postgres_docker #lightblue{
+            rectangle "postgres\nport:5432\nhost-port:5433" as postgres<<$bObject>><<aplRectangle>> #Business
+        }
+        package redis-docker<$device> as redis_docker #lightblue{
+            rectangle "redis\n port:6379" <<$bObject>><<aplRectangle>> #Business
+        }
+    }
+    package meilisearch-docker<$device> as meilisearch_docker #lightblue{
+        rectangle "meilisearch\n port:7700" <<$bObject>><<aplRectangle>> #Business
+    }
+    package mailhog-docker<$device> as mailhog_docker #lightblue{
+        rectangle "mailhog\n port:1025\n port: 8025" <<$bObject>><<aplRectangle>> #Business
+    }
+    package selenium-docker<$device> as selenium_docker #lightblue{
+        rectangle "selenium\n port:1025\n port: 8025" <<$bObject>><<aplRectangle>> #Business
+    }
+
+    node Locust {
+
+        package locust-master-docker<$device> as locust_master_docker #lightblue{
+            rectangle "master\nport:8089\nhost-port:18089" as master<<$bObject>><<aplRectangle>> #Business
+        }
+        package locust-worker-docker<$device> as locust_worker_docker #lightblue{
+            rectangle "worker" <<$bObject>><<aplRectangle>> #Business
+        }
+    }
+    DB -[#lightcyan]up-> serviceXDocker
+    Locust -[#lightcyan]up-> DB
+    selenium_docker -[#lightcyan]up-> Locust
+    serviceXDocker -[#lightcyan]down-> mailhog_docker
+    serviceXDocker -[#lightcyan]down-> meilisearch_docker
+    note as mailhogNote
+        メールサーバ
+    end note
+    mailhogNote -up-> mailhog_docker
+    note as meilisearchNote
+        検索エンジン
+    end note
+    meilisearchNote -up-> meilisearch_docker
+    note as seleniumNote
+       シナリオ試験ツール
+    end note
+    selenium_docker <- - seleniumNote
+
+}
+
+
+api <-right- php_source:mount
+client <-right- client_source:mount
+flyway -right-> postgres
+locust_source <-right- master : mount
+locust_source <-right- worker : mount
+@enduml
+
+@startuml
+title 統合環境概要図
+skinparam rectangle<<aplRectangle>> {
+	roundCorner 25
+}
+sprite $bObject jar:archimate/business-object
+sprite $bProduct jar:archimate/business-product
+sprite $resource jar:archimate/strategy-resource
+sprite $device jar:archimate/device
+
+node  開発対象 #honeydew{
+    package serviceX #technology{
+        package api {
+            rectangle "PHPScriptSource\n(DDDLaravelDoctrine)\n-Laravel\n-Doctrine" as DDDLaravelDoctrine <<$resource>><<aplRectangle>> #Business
+        }
+        package client{
+            rectangle "Js/TsSource\n(SimpleVueCli)\n-Vue\n-VueX"" as SimpleVueCli <<$resource>><<aplRectangle>> #Business
+        }
+
+    }
+    package database #technology{
+        package flyway{
+            rectangle "DBMigrationSource\n-DDL\n-DML\n-Flyway\n-SpringBoot" as FlyWayTool <<$resource>><<aplRectangle>> #Business
+        }
+    }
+    package locust #technology{
+        rectangle "PythonScript\n(locustシナリオ)\n-locatio" as locust_source <<$resource>><<aplRectangle>> #Business
+    }
+    database-[#honeydew]up->serviceX
+    serviceX-[#honeydew]down->database
+    database-[#honeydew]down->locust
+}
+
+package docker-compose as docker_compose #lightcyan{
+    node serviceX as serviceXDocker{
+
+        package php-docker<$device> as php_docker #lightblue{
+            package "apache<$bObject>" #Business{
+                 package "php8<$bObject>"  #Business{
+                    rectangle "/var/www/html\nphpソース\nport:80\nhost-port:5080" as php_source <<$resource>><<aplRectangle>> #Business{
+                    }
+                 }
+            }
+        }
+        package node-docker<$device> as node_docker #lightblue{
+            package "node<$bObject>"  #Business{
+                    rectangle "/app\nclientソース\nport:18080\nhost-port:18080" as client_source <<$resource>><<aplRectangle>> #Business{
+                    }
+            }
+        }
+    }
+    node DB{
+        package mysql-docker<$device> as mysql_docker #lightblue{
+            rectangle "mysql" <<$bObject>><<aplRectangle>> #Business
+        }
+        package postgres-docker<$device> as postgres_docker #lightblue{
+            rectangle "postgres\nport:5432\nhost-port:5433" as postgres<<$bObject>><<aplRectangle>> #Business
+        }
+        package redis-docker<$device> as redis_docker #lightblue{
+            rectangle "redis\n port:6379" <<$bObject>><<aplRectangle>> #Business
+        }
+    }
+    package meilisearch-docker<$device> as meilisearch_docker #lightblue{
+        rectangle "meilisearch\n port:7700" <<$bObject>><<aplRectangle>> #Business
+    }
+    package mailhog-docker<$device> as mailhog_docker #lightblue{
+        rectangle "mailhog\n port:1025\n port: 8025" <<$bObject>><<aplRectangle>> #Business
+    }
+    package selenium-docker<$device> as selenium_docker #lightblue{
+        rectangle "selenium\n port:1025\n port: 8025" <<$bObject>><<aplRectangle>> #Business
+    }
+
+    node Locust {
+
+        package locust-master-docker<$device> as locust_master_docker #lightblue{
+            rectangle "master\nport:8089\nhost-port:18089" as master<<$bObject>><<aplRectangle>> #Business
+        }
+        package locust-worker-docker<$device> as locust_worker_docker #lightblue{
+            rectangle "worker" <<$bObject>><<aplRectangle>> #Business
+        }
+    }
+    DB -[#lightcyan]up-> serviceXDocker
+    Locust -[#lightcyan]up-> DB
+    selenium_docker -[#lightcyan]up-> Locust
+    serviceXDocker -[#lightcyan]down-> mailhog_docker
+    serviceXDocker -[#lightcyan]down-> meilisearch_docker
+    note as mailhogNote
+        メールサーバ
+    end note
+    mailhogNote -up-> mailhog_docker
+    note as meilisearchNote
+        検索エンジン
+    end note
+    meilisearchNote -up-> meilisearch_docker
+    note as seleniumNote
+       シナリオ試験ツール
+    end note
+    selenium_docker <- - seleniumNote
+
+}
+
+
+api <-right- php_source:mount
+client <-right- client_source:mount
+flyway -right-> postgres
+locust_source <-right- master : mount
+locust_source <-right- worker : mount
+@enduml
+
+PlantUML version 1.2021.15(Wed Dec 01 01:45:34 JST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: MS932
+Language: ja
+Country: JP
+--></g></svg>
