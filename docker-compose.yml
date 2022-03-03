@@ -117,6 +117,12 @@ services:
             - postgres-data:/var/lib/postgresql/data
         networks:
             - sail
+    squid-proxy:
+        image: zakihmkc/squid
+        ports:
+            - "18989:8080"
+        networks:
+            - sail
     locust-master:
         image: locustio/locust
         ports:
