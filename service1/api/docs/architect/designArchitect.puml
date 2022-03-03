@@ -59,6 +59,8 @@ Repository .up.> DomainModel:use
 Repository-down->DB:use
 Repository-down->WebAPI:use
 Repository-down->FileSv:use
+Request --> DomainModel: use
+Resource --> DomainModel: use
 TransferInterface-down->Transfer:DI
 TransferInterface-left->DomainModel:use
 Transfer .up.>DomainModel:use

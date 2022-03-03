@@ -27,6 +27,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", host_ip:"127.0.0.1", guest: 5433, host: 5433 # psql2
   config.vm.network "forwarded_port", host_ip:"127.0.0.1", guest: 18080, host: 18080 # node1
   config.vm.network "forwarded_port", host_ip:"127.0.0.1", guest: 18089, host: 18089 # locust
+  config.vm.network "forwarded_port",guest: 18989, host: 18989 # proxyServe
   # デフォルトを無効化し、homeにてアプリケーションを稼働させる
   config.vm.synced_folder ".", "/vagrant", disabled: true,  mount_options: ['dmode=755','fmode=644']
 
