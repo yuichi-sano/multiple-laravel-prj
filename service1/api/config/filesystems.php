@@ -41,6 +41,10 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        'data_migrations' => [
+            'driver' => 'local',
+            'root' => database_path('data_migrations'),
+        ],
 
         's3' => [
             'driver' => 's3',

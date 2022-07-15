@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <embeddable name="packages\domain\model\facility\device\Device" table="sample.devices">
+        <embedded name="deviceId" class="packages\domain\model\facility\device\DeviceId"
+                  use-column-prefix="false"/>
+        <embedded name="deviceName" class="packages\domain\model\facility\device\DeviceName"
+                  use-column-prefix="false"/>
+        <embedded name="deviceLabel" class="packages\domain\model\facility\device\DeviceLabel"
+                  use-column-prefix="false"/>
+        <embedded name="userId" class="packages\domain\model\facility\device\DeviceUserId"
+                  use-column-prefix="false"/>
+        <embedded name="deviceIpAddress" class="packages\domain\model\facility\device\DeviceIpAddress"
+                  use-column-prefix="false"/>
+        <embedded name="deviceLocation" class="packages\domain\model\facility\device\DeviceLocation"
+                  use-column-prefix="false"/>
+        <embedded name="workplace" class="packages\domain\model\facility\workplace\delivery\Workplace"
+                  use-column-prefix="false"/>
+    </embeddable>
+</doctrine-mapping>

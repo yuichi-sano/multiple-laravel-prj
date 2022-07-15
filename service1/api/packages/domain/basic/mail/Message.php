@@ -2,7 +2,6 @@
 
 namespace packages\domain\basic\mail;
 
-
 class Message
 {
     private Subject $subject;
@@ -10,8 +9,8 @@ class Message
 
     public function __construct(Subject $subject, Content $content)
     {
-        $this->subject=$subject;
-        $this->content=$content;
+        $this->subject = $subject;
+        $this->content = $content;
     }
 
     public function getSubject(): Subject
@@ -23,6 +22,4 @@ class Message
     {
         return $this->content;
     }
-
-
 }

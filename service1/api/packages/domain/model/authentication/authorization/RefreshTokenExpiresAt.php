@@ -2,29 +2,46 @@
 
 namespace packages\domain\model\authentication\authorization;
 
+use DateTime;
 use packages\domain\basic\type\DateTimeType;
 
 class RefreshTokenExpiresAt implements DateTimeType
 {
-    private \DateTime $value;
+    private ?DateTime $value;
 
-    public function __construct(string $value = null)
+    public function __construct(DateTime $value = null)
     {
-        $this->value = new \DateTime($value);
+        $this->value = $value;
     }
 
-    public function isEmpty(): bool{
-        return false;
+    public static function create(string $value = null): self
+    {
+        if ($value) {
+            return new self(DateTime::createFromFormat('Y-m-d H:i:s', $value));
+        }
+        return new self();
     }
 
-    public function toLocalDateTime(): \DateTime {
+    public function isEmpty(): bool
+    {
+        return is_null($this->value);
+    }
+
+    public function toLocalDateTime(): DateTime
+    {
         return $this->value;
     }
 
-    public function isExpired(): bool{
-        if($this->value < new \DateTime()){
-            return true;
+    public function getValue(): ?DateTime
+    {
+        return $this->value;
+    }
+
+    public function format(): ?string
+    {
+        if ($this->isEmpty()) {
+            return null;
         }
-        return false;
+        return $this->value->format('Y-m-d H:i:s');
     }
 }

@@ -34,11 +34,11 @@ class ValidationException extends WebAPIException
             [
                 'state' => $this->errorCode,
                 'message' => $this->errorMessage,
-                'result'  => $this->validationMessages,
+                'result' => $this->validationMessages,
             ],
             parent::HTTP_STATUS_BAD_REQUEST,
             [],
-            env('APP_DEBUG') ? JSON_UNESCAPED_UNICODE : 0
+            config('app.debug') ? JSON_UNESCAPED_UNICODE : 0
         );
     }
 }

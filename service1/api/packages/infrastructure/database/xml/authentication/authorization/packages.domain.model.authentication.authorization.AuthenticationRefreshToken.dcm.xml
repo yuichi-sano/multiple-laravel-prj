@@ -8,7 +8,7 @@
         />
         <embedded
             name="userId"
-            class="packages\domain\model\User\UserId"
+            class="packages\domain\model\user\UserId"
             use-column-prefix="false"
         />
         <embedded

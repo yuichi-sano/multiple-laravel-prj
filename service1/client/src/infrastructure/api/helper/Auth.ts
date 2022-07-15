@@ -50,6 +50,14 @@ export default class Auth {
   }
 
   async _errorHandling(error: any): Promise<unknown> {
+    // for NetWorkError
+    if (error.response === undefined) {
+      this.retryCounter.reset();
+      await router.push({name: 'systemerror'}).catch(() => {
+        // @ts-ignore block is empty.
+      });
+      return Promise.reject(error.response);
+    }
     if (401 === error.response.status) {
       await tokenModule.refresh();
       if (tokenModule.authorized) {

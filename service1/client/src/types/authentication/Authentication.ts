@@ -4,6 +4,6 @@ export interface AuthenticationToken {
 }
 
 export interface AuthenticationRequest {
-  accessId: string;
+  userId: string;
   password: string;
 }

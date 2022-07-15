@@ -1,8 +1,27 @@
 <?php
 
 namespace App\Providers;
-use Illuminate\Support\ServiceProvider;
 
+use Illuminate\Support\ServiceProvider;
+use packages\infrastructure\database\doctrine\DoctrineTransactionManager;
+use packages\service\authentication\AccessTokenGetInterface;
+use packages\service\authentication\AccessTokenGetService;
+use packages\service\authentication\AccountAuthenticationInterface;
+use packages\service\authentication\AccountAuthenticationService;
+use packages\service\authentication\RefreshTokenUpdateInterface;
+use packages\service\authentication\RefreshTokenUpdateService;
+use packages\service\helper\TransactionManagerInterface;
+use packages\service\jp\ZipCodeGetInterface;
+use packages\service\jp\ZipCodeGetService;
+use packages\service\jp\ZipCodeMigrationApplyInterface;
+use packages\service\jp\ZipCodeMigrationApplyService;
+use packages\service\merchant\MerchantGetService;
+use packages\service\MerchantGetInterface;
+use packages\service\TestUserGetService;
+use packages\service\UserGetInterface;
+use packages\service\UserGetService;
+use packages\service\yamato\YamatoMigrationApplyInterface;
+use packages\service\yamato\YamatoMigrationApplyService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,44 +36,49 @@ class AppServiceProvider extends ServiceProvider
         $this->registerForInMemory();
     }
 
-    private function registerForInMemory(){
-
+    private function registerForInMemory()
+    {
         $this->app->bind(
-            \packages\service\UserGetInterface::class,
-            \packages\service\UserGetService::class
+            UserGetInterface::class,
+            UserGetService::class
         );
         $this->app->bind(
             \packages\service\merchant\MerchantGetInterface::class,
-            \packages\service\merchant\MerchantGetService::class
+            MerchantGetService::class
         );
         $this->app->bind(
-            \packages\service\authentication\AccessTokenGetInterface::class,
-            \packages\service\authentication\AccessTokenGetService::class
+            AccessTokenGetInterface::class,
+            AccessTokenGetService::class
         );
         $this->app->bind(
-            \packages\service\authentication\RefreshTokenUpdateInterface::class,
-            \packages\service\authentication\RefreshTokenUpdateService::class
+            RefreshTokenUpdateInterface::class,
+            RefreshTokenUpdateService::class
         );
         $this->app->bind(
-            \packages\service\authentication\AccountAuthenticationInterface::class,
-            \packages\service\authentication\AccountAuthenticationService::class
+            AccountAuthenticationInterface::class,
+            AccountAuthenticationService::class
         );
         $this->app->singleton(
-            \packages\service\helper\TransactionManagerInterface::class,
-            \packages\infrastructure\database\doctrine\DoctrineTransactionManager::class
+            TransactionManagerInterface::class,
+            DoctrineTransactionManager::class
         );
-
-    }
-    private function registerForMock(){
-
         $this->app->bind(
-            \packages\service\MerchantGetInterface::class,
-            \packages\service\TestUserGetService::class
+            ZipCodeMigrationApplyInterface::class,
+            ZipCodeMigrationApplyService::class
         );
-
+        $this->app->bind(
+            ZipCodeGetInterface::class,
+            ZipCodeGetService::class
+        );
     }
 
-
+    private function registerForMock()
+    {
+        $this->app->bind(
+            MerchantGetInterface::class,
+            TestUserGetService::class
+        );
+    }
 
     /**
      * Bootstrap any application services.

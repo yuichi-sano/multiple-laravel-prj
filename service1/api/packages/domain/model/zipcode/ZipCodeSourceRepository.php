@@ -1,6 +1,8 @@
 <?php
 
 namespace packages\domain\model\zipcode;
-interface ZipCodeSourceRepository {
+
+interface ZipCodeSourceRepository
+{
     public function get(): ZipCodeSource;
 }

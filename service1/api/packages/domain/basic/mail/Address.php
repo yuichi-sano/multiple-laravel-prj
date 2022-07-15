@@ -4,10 +4,11 @@ namespace packages\domain\basic\mail;
 
 use Egulias\EmailValidator\EmailLexer;
 use Egulias\EmailValidator\Validation\RFCValidation;
+use Exception;
 
 class Address
 {
-    private Mail $mail;
+    protected Mail $mail;
     public string $personal;
     public string $address;
 
@@ -18,16 +19,15 @@ class Address
         $this->toInternetAddress();
     }
 
-    public function toInternetAddress() {
+    public function toInternetAddress()
+    {
         $valid = new RFCValidation();
-        try{
-            $valid->isValid($this->mail->toString(),new EmailLexer());
-        }catch (\Exception $e){
+        try {
+            $valid->isValid($this->mail->toString(), new EmailLexer());
+        } catch (Exception $e) {
             //$valid->getError();
             //$valid->getWarnings();
         }
         $this->address = $this->mail->toString();
     }
-
-
 }

@@ -2,36 +2,20 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import VModal from 'vue-js-modal';
-import VideoPlayer from 'vue-vjs-hls';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-
-// https://github.com/FortAwesome/vue-fontawesome
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {fas} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import Axios from 'axios';
 import DateFormat from '@/filter/DateFormat';
-
+Axios.defaults.baseURL = process.env.VUE_APP_BACKEND_URL;
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
-
-import Axios from 'axios'
-Axios.defaults.baseURL = 'http://localhost:5080';
-
-VideoPlayer.config({
-  youtube: false,
-  switcher: true,
-  hls: true,
-});
-
-// use
-Vue.use(VModal);
-Vue.use(VideoPlayer);
-
-library.add(fas);
-Vue.component('v-icon', FontAwesomeIcon);
-
 Vue.filter('dateFormat', DateFormat);
+import SetInterval from '@/lib/SetInterval';
+Vue.use(SetInterval);
 
 new Vue({
   router,

@@ -106,9 +106,3 @@ else
   echo Unknown OS
 fi
 
-#エイリアス登録
-#touch ~/.bash_profile
-#RS=`grep -c ./vendor/bin ~/.bash_profile`
-#if [ "${RS}" -eq 0 ]; then
-#  echo "export PATH=./vendor/bin:"'$PATH' >> ~/.bash_profile
-#fi

@@ -12,11 +12,9 @@ use packages\domain\basic\mail\Subject;
 
 class SMTPSendRequest
 {
-
     private Header $header;
     private Message $message;
     private Mailable $mailable;
-
 
     /**
      * Create a new message instance.
@@ -27,7 +25,7 @@ class SMTPSendRequest
     {
         $this->header = $header;
         $this->message = $message;
-        $this->mailable =$mailable;
+        $this->mailable = $mailable;
     }
 
     public function getFrom(): Address
@@ -39,6 +37,7 @@ class SMTPSendRequest
     {
         return $this->header->getTo();
     }
+
     public function getCc(): AddressList
     {
         return $this->header->getCc();
@@ -48,10 +47,12 @@ class SMTPSendRequest
     {
         return $this->message->getSubject();
     }
+
     public function getContent(): Content
     {
         return $this->message->getContent();
     }
+
     public function getMailable(): Mailable
     {
         return $this->mailable;

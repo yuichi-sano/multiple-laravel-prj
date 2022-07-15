@@ -3,17 +3,19 @@
 namespace App\Exceptions;
 
 use Exception;
-use \Illuminate\Http\Response;
+use Illuminate\Http\Response;
 
 class WebAPIException extends Exception
 {
     /** Httpステータスコード */
-    const HTTP_STATUS_SUCCESS = 200;
-    const HTTP_STATUS_BAD_REQUEST = 400;
-    const HTTP_STATUS_UN_AUTHORIZED = 401;
-    const HTTP_STATUS_INTERNAL_SERVER_ERROR = 500;
-    const HTTP_STATUS_MAINTENANCE = 503;
-
+    public const HTTP_STATUS_SUCCESS = 200;
+    public const HTTP_STATUS_NO_CONTENT = 204;
+    public const HTTP_STATUS_BAD_REQUEST = 400;
+    public const HTTP_STATUS_UN_AUTHORIZED = 401;
+    public const HTTP_STATUS_FORBIDDEN = 403;
+    public const HTTP_STATUS_NOTFOUND = 404;
+    public const HTTP_STATUS_INTERNAL_SERVER_ERROR = 500;
+    public const HTTP_STATUS_MAINTENANCE = 503;
     /** 例外コード */
     protected $errorCode;
     /** 例外メッセージ */
@@ -52,7 +54,7 @@ class WebAPIException extends Exception
             ],
             $this->statusCode,
             [],
-            env('APP_DEBUG') ? JSON_UNESCAPED_UNICODE : 0
+            config('app.debug') ? JSON_UNESCAPED_UNICODE : 0
         );
     }
 

@@ -32,7 +32,7 @@ fi
 
 # Define environment variables...
 export SERVICE1_APP_PORT=${SERVICE1_APP_PORT:5080}
-export SERVICE1_APP_SERVICE=${SERVICE1_APP_SERVICE:-"service1"}
+export SERVICE1_APP_SERVICE=${SERVICE1_APP_SERVICE:-"sys-maintenance-tool"}
 export DB_PORT=${DB_PORT:-3306}
 export WWWUSER=${WWWUSER:-$UID}
 export WWWGROUP=${WWWGROUP:-$(id -g)}

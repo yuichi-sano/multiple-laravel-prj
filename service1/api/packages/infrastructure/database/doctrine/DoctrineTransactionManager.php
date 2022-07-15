@@ -3,6 +3,7 @@
 namespace packages\infrastructure\database\doctrine;
 
 use Doctrine\DBAL\Connection;
+use Doctrine\ORM\UnitOfWork;
 use Doctrine\Persistence\ManagerRegistry;
 use LaravelDoctrine\ORM\Facades\Registry;
 use LaravelDoctrine\ORM\Facades\EntityManager;
@@ -16,11 +17,11 @@ use packages\service\helper\TransactionManagerInterface;
  */
 class DoctrineTransactionManager implements TransactionManagerInterface
 {
-
     public static function startTransaction(): void
     {
         EntityManager::beginTransaction();
     }
+
     public static function commit(): void
     {
         EntityManager::commit();
@@ -30,20 +31,24 @@ class DoctrineTransactionManager implements TransactionManagerInterface
     {
         return EntityManager::getConnection()->getTransactionNestingLevel();
     }
+
     public static function rollback(): void
     {
         EntityManager::rollBack();
     }
 
-    public static function wrapInTransaction(callable $func): void{
+    public static function wrapInTransaction(callable $func): void
+    {
         EntityManager::wrapInTransaction($func);
     }
 
-    public static function close(): void{
+    public static function close(): void
+    {
         EntityManager::close();
     }
 
     ///以下はDoctorine特有のTransaction管理機能
+
     /**
      * Doctrineコネクションを返却します。
      * @return Connection
@@ -57,18 +62,29 @@ class DoctrineTransactionManager implements TransactionManagerInterface
      * データをDBにflush（書き込み）します。
      * @return void
      */
-    public static function flush(){
+    public static function flush()
+    {
         EntityManager::flush();
     }
 
     /**
      * オブジェクトレベルのトランザクションを返却します
-     * @return \Doctrine\ORM\UnitOfWork
+     * @return UnitOfWork
      */
-    public static function getUnitOfWork(): \Doctrine\ORM\UnitOfWork
+    public static function getUnitOfWork(): UnitOfWork
     {
         return EntityManager::getUnitOfWork();
     }
 
+    public static function reConnect(): void
+    {
+        EntityManager::clear();
+        EntityManager::getConnection()->close();
+        EntityManager::getConnection()->connect();
+    }
 
+    public static function doctrineMemoryClear(): void
+    {
+        EntityManager::clear();
+    }
 }

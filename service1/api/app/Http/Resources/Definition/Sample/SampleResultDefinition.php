@@ -8,21 +8,13 @@ use App\Http\Resources\Definition\Basic\AbstractResultDefinition;
 
 class SampleResultDefinition extends AbstractResultDefinition implements ResultDefinitionInterface
 {
-
-    
     //アクセストークン
     protected string $accessToken;
-       
-
     //リフレッシュトークン
     protected string $refreshToken;
-       
-
     //リフレッシュトークン
     protected SampleResultDefinitionUser $user;
-       
 
-    
     /**
      * @return mixed
      */
@@ -30,7 +22,6 @@ class SampleResultDefinition extends AbstractResultDefinition implements ResultD
     {
         return $this->accessToken;
     }
-    
 
     /**
      * @return mixed
@@ -39,7 +30,6 @@ class SampleResultDefinition extends AbstractResultDefinition implements ResultD
     {
         return $this->refreshToken;
     }
-    
 
     /**
      * @return mixed
@@ -48,34 +38,28 @@ class SampleResultDefinition extends AbstractResultDefinition implements ResultD
     {
         return $this->user;
     }
-    
 
-    
     /**
      * @param mixed accessToken
      */
     public function setAccessToken(string $accessToken): void
     {
-        $this->accessToken = (string) $accessToken;
+        $this->accessToken = (string)$accessToken;
     }
-    
 
     /**
      * @param mixed refreshToken
      */
     public function setRefreshToken(string $refreshToken): void
     {
-        $this->refreshToken = (string) $refreshToken;
+        $this->refreshToken = (string)$refreshToken;
     }
-    
 
     /**
      * @param mixed user
      */
     public function setUser(SampleResultDefinitionUser $user): void
     {
-        $this->user =  $user;
+        $this->user = $user;
     }
-    
-
 }

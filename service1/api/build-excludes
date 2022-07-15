@@ -1,0 +1,11 @@
+build/*
+database/data_migrations/*
+docs
+storage/app/*
+storage/framework/*
+storage/logs/*
+*.git*
+.env.*
+.gradle
+.phpunit.result.*
+.styleci.yml

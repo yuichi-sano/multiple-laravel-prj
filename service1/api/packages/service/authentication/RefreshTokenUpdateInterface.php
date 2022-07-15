@@ -6,5 +6,5 @@ use packages\domain\model\authentication\authorization\RefreshToken;
 
 interface RefreshTokenUpdateInterface
 {
-    public function execute (RefreshToken $refreshToken): RefreshToken;
+    public function execute(RefreshToken $refreshToken): RefreshToken;
 }

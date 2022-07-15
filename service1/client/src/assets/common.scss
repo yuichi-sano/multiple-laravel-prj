@@ -142,62 +142,17 @@ header {
 
 /* ===== OVERLAY ===== */
 #app {
-  .v--modal-box {
-    position: relative;
-    background: $white;
-    border-radius: 5px;
-    overflow: hidden;
-    .modal-card-title {
-      background: $lightGray;
-      color: $white;
-      padding: 5px 10px;
-    }
-    .delete {
-      position: absolute;
-      right: 4px;
-      top: 3px;
-      width: 25px;
-      margin: 0;
-      border-radius: 50%;
-      border: none;
-      background: #ff0000;
-      border: #ffffff solid 2px;
-      box-sizing: border-box;
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        left: 2px;
-        top: calc( 50% - 1.5px );
-        width: calc( 100% - 4px );
-        height: 3px;
-        background: #ffffff;
-        overflow: hidden;
-        transform-origin: center;
-      }
 
-      &::before {
-        transform: rotate(45deg);
-      }
-      &::after {
-        transform: rotate(-45deg);
-      }
-    }
-    .modal-text {
-      display: flex;
-      justify-content: center;
-      padding: 10px 10px;
-    }
-    .modal-btn {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 20px 20px;
-      button {
-        margin: 0;
-        width: 47%;
-      }
-    }
-  }
 }
 
+.div-section {
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  border: 1px solid rgb(200, 200, 200);
+  padding: 30px;
+  margin-bottom: 30px;
+}
 
+.icons:hover {
+  cursor: pointer;
+}
