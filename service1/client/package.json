@@ -14,6 +14,8 @@
     "axios": "^0.19.2",
     "axios-cookiejar-support": "^1.0.0",
     "axios-mock-adapter": "^1.18.2",
+    "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
     "moment": "^2.27.0",
     "regenerator-runtime": "^0.13.7",

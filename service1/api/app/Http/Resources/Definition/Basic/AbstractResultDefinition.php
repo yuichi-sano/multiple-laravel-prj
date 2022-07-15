@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Resources\Definition\Basic;
+
 /**
  * Abstract Class
  * AbstractResultDefinition
@@ -8,8 +9,8 @@ namespace App\Http\Resources\Definition\Basic;
  * @note  interfaceは実装しません
  * @package App\Http\Result\Definition\Basic
  */
-abstract class AbstractResultDefinition {
-
+abstract class AbstractResultDefinition
+{
     /**
      * toArray
      * 階層構造の場合、階層部も生成し詰めなおす
@@ -30,10 +31,10 @@ abstract class AbstractResultDefinition {
      * @param $vals
      * @return array
      */
-    private  function childConvValue(array $vals): array
+    private function childConvValue(array $vals): array
     {
         $value = array();
-        foreach ($vals as $key=> $val){
+        foreach ($vals as $key => $val) {
             $value[$key] = $this->convValue($val);
         }
         return $value;
@@ -44,7 +45,8 @@ abstract class AbstractResultDefinition {
      * @param $val
      * @return mixed
      */
-    private function convValue($val){
+    private function convValue($val)
+    {
         return $val instanceof ResultDefinitionInterface ? $val->toArray() : $val;
     }
 }

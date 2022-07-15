@@ -7,8 +7,6 @@ use packages\domain\model\authentication\authorization\AccessToken;
 use packages\domain\model\authentication\authorization\AccessTokenFactory;
 use packages\domain\model\authentication\authorization\RefreshToken;
 
-
-
 class AccessTokenGetService implements AccessTokenGetInterface
 {
     protected AccessTokenFactory $accessTokenFactory;
@@ -17,9 +15,10 @@ class AccessTokenGetService implements AccessTokenGetInterface
     {
         $this->accessTokenFactory = $accessTokenFactory;
     }
-    public function execute (RefreshToken $refreshToken): AccessToken{
-        $account =  Auth::guard('api')->getProvider()->findByToken($refreshToken);
+
+    public function execute(RefreshToken $refreshToken): AccessToken
+    {
+        $account = Auth::guard('api')->getProvider()->findByToken($refreshToken);
         return $this->accessTokenFactory->create($account);
     }
-
 }

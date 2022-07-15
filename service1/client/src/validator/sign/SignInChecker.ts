@@ -21,7 +21,7 @@ export class SignInChecker {
 
 export const SignInValidator: Validator[] = [
   {
-    name: 'access_id',
+    name: 'pacsystem_user_id',
     constraints: [
       {method: required, message: 'ログインIDを入力してください'},
     ],

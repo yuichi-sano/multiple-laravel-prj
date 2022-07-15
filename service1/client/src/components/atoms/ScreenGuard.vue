@@ -7,13 +7,14 @@
     </div>
   </transition>
 </template>
-<script>
-  import {Vue} from 'vue-property-decorator';
-
+<script lang="ts">
+  import {Component, Vue}  from 'vue-property-decorator';
+  @Component({})
   export default class ScreenGuard extends Vue {
+
   }
 </script>
-<style scoped>
+<style lang="scss" scoped>
   .modal--mask {
     position: fixed;
     z-index: 9998;

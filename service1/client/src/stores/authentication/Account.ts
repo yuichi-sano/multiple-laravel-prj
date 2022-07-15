@@ -28,8 +28,8 @@ class Account extends VuexModule {
     this.clearAccount();
   }
 
-  get accessId(): string {
-    return this.authorizedAccount.accessId;
+  get userId(): string {
+    return this.authorizedAccount.userId;
   }
 
 }

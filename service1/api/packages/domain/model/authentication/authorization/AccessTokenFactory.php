@@ -18,7 +18,8 @@ class AccessTokenFactory
         $this->now = $this->carbon->now();
     }
 
-    public function create(Account $account): AccessToken{
+    public function create(Account $account): AccessToken
+    {
         $customClaims = $this->getJWTCustomClaims($account);
         $payload = JWTFactory::make($customClaims);
         return new AccessToken(JWTAuth::encode($payload)->get());
@@ -29,12 +30,12 @@ class AccessTokenFactory
      *
      * @return object
      */
-    public function getJWTCustomClaims(Account $account) :object
+    public function getJWTCustomClaims(Account $account): object
     {
         $data = [
-            'sub' => $account->getId(),
+            'sub' => $account->getUserId()->getValue(),
             'iat' => $this->now->timestamp,
-            'exp' => $this->now->addMinute(config('jwt.ttl'))->timestamp
+            'exp' => $this->now->addMinutes(config('jwt.ttl'))->timestamp
         ];
 
         return JWTFactory::customClaims($data);

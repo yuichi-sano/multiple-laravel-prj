@@ -35,17 +35,20 @@ class AuthServiceProvider extends ServiceProvider
     /**
      * Doctrineで用意されたUserProviderをさらに拡張したUserProviderを呼び出します。
      */
-    private function registerDoctrineCustom(){
+    private function registerDoctrineCustom()
+    {
         $this->app['auth']->provider('doctrine-custom', function ($app, $config) {
             $entity = $config['model'];
             $em = $app['registry']->getManagerForClass($entity);
             if (!$em) {
                 throw new InvalidArgumentException("No EntityManager is set-up for {$entity}");
             }
+            //TODO repositoryを注入して処理はすべてここに閉じ込めたい
+            //$this->app->make(DomainModel\user\UserRepository::class)
             return new ExtensionDoctrineUserProvider(
                 $app['hash'],
                 $em,
-                $entity
+                $entity,
             );
         });
     }
@@ -69,5 +72,4 @@ class AuthServiceProvider extends ServiceProvider
             return $guard;
         });
     }
-
 }

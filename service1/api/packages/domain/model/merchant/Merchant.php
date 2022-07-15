@@ -1,9 +1,10 @@
 <?php
 
 declare(strict_types=1);
+
 namespace packages\domain\model\merchant;
 
-use packages\domain\model\User\UserList;
+use packages\domain\model\user\UserList;
 
 class Merchant
 {
@@ -16,17 +17,15 @@ class Merchant
     private string $prefCode;
     private string $address;
     private UserList $userList;
-
-    public  array $collectionKeys = [
+    public array $collectionKeys = [
         'merchantId'
     ];
 
     /**
-     * @return Address
+     * @return UserList
      */
     public function getUserList(): UserList
     {
         return $this->userList;
     }
-
 }

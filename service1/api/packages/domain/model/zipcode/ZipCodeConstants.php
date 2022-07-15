@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace packages\domain\model\zipcode;
+
 class ZipCodeConstants
 {
     /* 町域名称（カナ）の処理用正規表現 */

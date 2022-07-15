@@ -1,8 +1,10 @@
 <?php
+
 namespace packages\service;
-use packages\domain\model\User\UserId;
-use packages\domain\model\User\User;
-use packages\domain\model\User\UserRepository;
+
+use packages\domain\model\user\UserId;
+use packages\domain\model\user\User;
+use packages\domain\model\user\UserRepository;
 
 class UserGetService implements UserGetInterface
 {
@@ -15,6 +17,6 @@ class UserGetService implements UserGetInterface
 
     public function execute(UserId $userId): User
     {
-        //return $this->userRepository->findUser(new UserId(1));
+        return $this->userRepository->findUser(new UserId(1));
     }
 }

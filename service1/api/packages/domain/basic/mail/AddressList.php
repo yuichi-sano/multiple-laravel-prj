@@ -3,6 +3,7 @@
 namespace packages\domain\basic\mail;
 
 use Ramsey\Collection\Collection;
+use Traversable;
 
 class AddressList extends Collection
 {
@@ -17,7 +18,7 @@ class AddressList extends Collection
     /**
      * @return Address[]
      */
-    public function getIterator(): \Traversable
+    public function getIterator(): Traversable
     {
         return parent::getIterator();
     }
@@ -28,13 +29,10 @@ class AddressList extends Collection
      */
     public function toArray(): array
     {
-        $toArray=[];
-        foreach ($this->data as $data){
+        $toArray = [];
+        foreach ($this->data as $data) {
             $toArray[$data->personal] = $data->address;
         }
         return $toArray;
     }
-
 }
-
-

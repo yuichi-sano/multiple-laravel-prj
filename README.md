@@ -1,6 +1,6 @@
 # MultipleLaravelPrj
 ### (MultipleWebIntegrationDevelopment)
-複数のWebアプリを開発するための統合開発リポジトリです。  
+複数のWebアプリを開発するための統合開発リポジトリです。
 Webアプリはクライアントとサーバサイドを完全に分離するような思想になっています。  
 この環境上サーバサイド(以下API)は
 
@@ -32,24 +32,34 @@ windowsの場合vagrant環境にも同様の設定が必要ですが、同梱し
 
 ![stack](./docs/softWareStack.svg)
 
+## Submoduleに関して
+様々なロケーションでの活用を想定して、DBに関するリポジトリなどを分離しています。
+git submoduleにて実現していますが、基本的には単一リポジトリが望ましいのは間違いないため。
+必要に応じてサブモジュール管理からすべてを本体で一括のソース管理へ移行いただくとよいかと思います。
+
 # SetUp
 ## git clone
 まずはこのPJをGitClone、または一括でDLしてください
 ### cloneの場合 
-	git clone https://github.com/yuichi-sano/multiple-laravel-prj.git  
+	git clone --recursive https://github.com/yuichi-sano/multiple-laravel-prj.git  
 	# 他のPJで使う場合は下記のようにgit管理を削除
 	rm -rf .git
 
+#### すでにPJをcloneしている場合
+下記のようにサブモジュールを更新
+
+    git submodule update --init "database"
+
 ### DLの場合
-	wget https://github.com/yuichi-sano/multiple-laravel-prj/archive/refs/heads/main.zip
-	unzip main.zip
+	wget https://github.com/yuichi-sano/multiple-laravel-prj/archive/refs/heads/develop.zip
+	unzip develop.zip
 
 ## ForWindows
 ### [Windows環境でのSETUP](./docs/for_win/README.md)  
 本資料では、vagrantに関する記述は上記に留めます  
 vagrantにて仮想環境が起動したら、ssh接続を実施し  
 
-	cd /home/sail-mutiple/service1/api/
+	cd /home/apps/service1/api/
 	sh ./setup_scripts/setup.sh local service1 localhost
 を実行ください。
 ## ForMac
@@ -83,16 +93,33 @@ laravel公式が提供しているsailを少しだけ拡張しています。
 
 にてアプリケーションが起動します。
 ### BundleSailコマンドを登録
-    sudo ln -s /home/sail-mutiple/bin/bundle-sail /usr/bin/bundle-sail
+    sudo ln -s /home/apps/bin/bundle-sail /usr/bin/bundle-sail
 などで登録しておくとよいと思います。  
 ※場所を選ばずに実行可能なスクリプトにしております。
 
-ここまででSETUPが完了します。
-### SETUP-TIPS
-この手順ではDBのmigrationを省いています。 
-
+### DBのSETUP
+下記コマンドにてローカル環境のDBをマグレーションします 
+## 既存でDBが存在し、マスターデータ等のダンプリストアを挟みながらマイグレーションする場合
+    bundle-sail service1 artisan flyway:initMigration
+    bundle-sail exec  -e PGOPTIONS="-c encrypt.enable=off" postgres  pg_restore -v  -U sample -a -d sample /var/dump_datas/dumps.custom
     bundle-sail service1 artisan flyway:develop
-などでマグレーションを実施するとよいです。
+
+## 完全新規の場合
+    bundle-sail service1 artisan flyway:develop
+
+
+### DBの完全な洗い替え
+    bundle-sail down
+    docker rmi apps_postgres
+    docker volume rm postgres-data
+    docker volume create postgres-data
+    bundle-sail up -d
+    ### 上述の既存または新規の場合のmigrationコマンド
+    bundle-sail service1 artisan flyway:initMigration
+    bundle-sail exec  -e PGOPTIONS="-c encrypt.enable=off" postgres  pg_restore -v  -U sample -a -d sample /var/dump_datas/dumps.custom
+    bundle-sail service1 artisan flyway:develop
+
+### 確認
 
 初期設定のserviceの起動が完了すると
 
@@ -185,4 +212,55 @@ bundle-sail に追加用のスクリプトを用意しています。
 ### [CLIENTに関して](./service1/client/README.md)
 
 
+# Commit, Push
+databaseはサブモジュール管理となっています、
+変更のコミット・プッシュは下記要領で行います。
+
+1. ### PJの変更状況確認
+    Git Bashなどで次のコマンドを実行します。
+
+        cd {このREADME.mdのpath}
+        git status
+    次のような結果が出力される場合、databaseに変更があるためサブモジュールへのコミット・プッシュが必要となります。
+
+            modified:   database (modified content)
+
+    ### サブモジュールへのコミット・プッシュ
+    1. #### サブモジュールのディレクトリへ移動
+            cd {このREADME.mdのpath}/database
+        ※サブモジュールの変更状況を確認したい場合、このタイミングでも以下のコマンドを実施してください。
+
+            git status
+
+    1. #### サブモジュールへのコミット
+        通常のコミットコマンドでコミットがおこなえます。  
+        以下に一例を記載しますが、お好みの手順でコミットを実施してください。
+
+            git add {変更対象のファイル名}
+            git commit -m "{コミットコメント}"
+    1. #### サブモジュールへのプッシュ
+            git push origin {ブランチ名}
+    1. #### メインのPJへ再移動
+            cd ..
+    1. #### PJの変更状況を再確認
+            git status
+
+1. ### メインのPJへのコミット
+    以下に一例を記載します。  
+    git add時にサブモジュールを指定する以外特筆事項はないため、サブモジュール同様お好みの手順でコミットを実施してください。
+
+        git add "database"( {メインのPJのコミット対象ファイル})
+        git commit -m "{comment}"
+
+1. ### メインのPJへのプッシュ
+        git push origin {ブランチ名}
+
+# 実装時使用コマンド参考
+### クラスの再読み込み
+最新ソースpull時などに実行
+
+    bundle-sail service1 composer dump-autoload
+
+### PHP UNITのテスト実行
+    bundle-sail service1 artisan test
 

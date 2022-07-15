@@ -4,7 +4,6 @@ namespace packages\domain\model\authentication\authorization;
 
 use Illuminate\Support\Carbon;
 use packages\domain\model\authentication\Account;
-use packages\domain\model\User\UserId;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Facades\JWTFactory;
 
@@ -21,13 +20,16 @@ class RefreshTokenFactory
         $this->refreshTokenRepository = $refreshTokenRepository;
     }
 
-    public function create(Account $account): AuthenticationRefreshToken{
+    public function create(Account $account): AuthenticationRefreshToken
+    {
         $customClaims = $this->getJWTCustomClaims($account);
         $payload = JWTFactory::make($customClaims);
-        $token =  new RefreshToken(JWTAuth::encode($payload)->get());
-        $refreshTokenExpiresAt = new RefreshTokenExpiresAt($this->now->copy()->addMinute(config('jwt.refresh_ttl')));
+        $token = new RefreshToken(JWTAuth::encode($payload)->get());
+        $refreshTokenExpiresAt = new RefreshTokenExpiresAt($this->now->copy()->addMinutes(config('jwt.refresh_ttl')));
         return AuthenticationRefreshToken::create(
-            $token, new UserId($account->getId()),  $refreshTokenExpiresAt
+            $token,
+            $account->getUserId(),
+            $refreshTokenExpiresAt
         );
     }
 
@@ -36,10 +38,11 @@ class RefreshTokenFactory
      * @param RefreshToken $refreshToken
      * @return RefreshToken
      */
-    public function update(RefreshToken $refreshToken): AuthenticationRefreshToken{
+    public function update(RefreshToken $refreshToken): AuthenticationRefreshToken
+    {
         $origin = $this->refreshTokenRepository->findByToken($refreshToken);
-        $period = new RefreshTokenExpiresAt($this->now->copy()->addMinute(config('jwt.refresh_ttl')));
-        return  $origin->update($period);
+        $period = new RefreshTokenExpiresAt($this->now->copy()->addMinutes(config('jwt.refresh_ttl')));
+        return $origin->update($period);
     }
 
     /**
@@ -47,12 +50,12 @@ class RefreshTokenFactory
      *
      * @return object
      */
-    public function getJWTCustomClaims(Account $account) :object
+    public function getJWTCustomClaims(Account $account): object
     {
         $data = [
-            'sub' => $account->getId(),
+            'sub' => $account->getUserId()->getValue(),
             'iat' => $this->now->timestamp,
-            'exp' => $this->now->copy()->addMinute(config('jwt.refresh_ttl'))->timestamp
+            'exp' => $this->now->copy()->addMinutes(config('jwt.refresh_ttl'))->timestamp
         ];
 
         return JWTFactory::customClaims($data);

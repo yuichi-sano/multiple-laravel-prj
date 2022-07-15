@@ -1,40 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="packages\domain\model\User\User">
-
-      <sql-result-set-mappings>
-          <sql-result-set-mapping name="ddd-sample-map">
-              <column-result name="user_id"/>
-              <column-result name="expires_at"/>
-              <column-result name="zip"/>
-              <column-result name="pref_code"/>
-              <column-result name="address"/>
-          </sql-result-set-mapping>
-      </sql-result-set-mappings>
-
-      <embedded
-          name="userId"
-          class="packages\domain\model\User\UserId"
-          use-column-prefix="false"
-      />
-
-      <named-native-queries>
-          <named-native-query name="ddd-sample" result-set-mapping="ddd-sample-map">
-              <query>
-                  SELECT
-                  user_id
-                  ,'' as name
-                  ,password
-                  ,expires_at
-                  ,readonly_flag
-                  ,zip
-                  ,pref_code
-                  ,address
-                  FROM sample.users
-                  JOIN sample.user_addresses USING (user_id)
-
-              </query>
-          </named-native-query>
-      </named-native-queries>
-  </entity>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="packages\domain\model\user\User">
+        <embedded
+                name="userId"
+                class="packages\domain\model\user\UserId"
+                use-column-prefix="false"
+        />
+    </entity>
 </doctrine-mapping>

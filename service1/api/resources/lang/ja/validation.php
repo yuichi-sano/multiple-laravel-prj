@@ -132,4 +132,12 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
+    'half_kana'             => ':attributeは、半角カタカナで入力してください。',
+    'zipcode'             => ':attributeは、7桁数字か3桁数字-4桁数字にて入力してください',
+    'ip_address'             => ':attributeは、IPv4を10進数表記で入力ください',
+    'values'=>[
+        'applyDate' => [
+            'now' => '現在',
+        ],
+    ]
 ];

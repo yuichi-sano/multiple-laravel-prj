@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="システム課ツール開発" default="build">
+    <property name="outputDir" value="./build/result/" override="false"/>
+    <target name="prepare">
+        <echo msg="結果出力DIR作成" />
+        <mkdir dir="./build" />
+        <mkdir dir="./build/result" />
+    </target>
+    <!-- Codeクリーン -->
+    <target name="prettier">
+        <exec command="composer prettier" checkreturn="true"/>
+    </target>
+    <!-- コード解析 -->
+    <target name="phpmd">
+        <exec command="php artisan phpmd app/"  logoutput="true" checkreturn="true"/>
+        <exec command="php artisan phpmd packages/"  logoutput="true" checkreturn="true"/>
+    </target>
+    <!-- コーディング規約チェック -->
+    <target name="phpcs">
+        <exec command="composer sniffer-report-csv" logoutput="true" checkreturn="true"/>
+    </target>
+    <!-- 自動テスト実施 -->
+    <target name="phpunit">
+        <exec command="php artisan test --stop-on-failure"  logoutput="true" checkreturn="true"/>
+    </target>
+    <!-- 実行に必要なすべてのファイルをtarに固める -->
+    <target name="artifact">
+        <exec command="tar -C /var/www/html/ --exclude-from build-excludes -zcvf build/artifact.tar.gz ./ " checkreturn="true"/>
+    </target>
+    <target name="build" depends="prepare, prettier, phpmd, phpcs, phpunit, artifact" />
+</project>

@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Sample-API-Doc",
+        "title": "Devtool-API-Doc",
         "description": "暗号化-復号化は別途定義します\n===\nステータスコード体系\n---\n| 符号|符号(略)|備考|\n|:------|:-------:|:-------|\n|Info|I| 正常|\n|Error|E|エラー|\n|Warning|W|準正常系|\n|Validation|V|入力値エラー|",
         "license": {
             "name": "Apache 2.4",
@@ -13,103 +13,24 @@
         "description": "インターフェイス以外詳細の詳細仕様",
         "url": "--"
     },
-    "host": "sample.com",
-    "basePath": "/",
+    "host": "sample.domain.com",
+    "basePath": "/api",
     "schemes": [
         "https",
         "http"
     ],
     "paths": {
-        "/login": {
-            "post": {
-                "tags": [
-                    "Authentication"
-                ],
-                "security": [],
-                "summary": "ログイン認証",
-                "description": "test",
-                "externalDocs": {
-                    "description": "処理シーケンスはこちら",
-                    "url": ""
-                },
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "LoginRequest",
-                        "in": "body",
-                        "description": "ログイン認証リクエスト",
-                        "schema": {
-                            "$ref": "#/definitions/LoginDefinition"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "ログイン成功時レスポンス",
-                        "schema": {
-                            "$ref": "#/definitions/LoginResource"
-                        }
-                    },
-                    "default": {
-                        "description": "ログイン成功時レスポンス",
-                        "schema": {
-                            "$ref": "#/definitions/AbstractJsonResource"
-                        }
-                    }
-                }
-            }
-        },
-        "/login": {
-            "post": {
-                "tags": [
-                    "Authentication"
-                ],
-                "security": [],
-                "summary": "ログイン認証",
-                "description": "test",
-                "externalDocs": {
-                    "description": "処理シーケンスはこちら",
-                    "url": ""
-                },
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "LoginRequest",
-                        "in": "body",
-                        "description": "ログイン認証リクエスト",
-                        "schema": {
-                            "$ref": "#/definitions/LoginDefinition"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "ログイン成功時レスポンス",
-                        "schema": {
-                            "$ref": "#/definitions/LoginResource"
-                        }
-                    },
-                    "default": {
-                        "description": "ログイン成功時レスポンス",
-                        "schema": {
-                            "$ref": "#/definitions/AbstractJsonResource"
-                        }
-                    }
-                }
-            },
+
+        "/auth": {
             "put": {
                 "tags": [
-                    "Authentication"
+                    "Auth"
                 ],
                 "security": [],
-                "summary": "ログイン認証",
-                "description": "test",
+                "summary":"トークンリフレッシュ",
+                "description": "トークンリフレッシュ",
                 "externalDocs": {
-                    "description": "処理シーケンスはこちら",
+                    "description": "トークンリフレッシュ",
                     "url": ""
                 },
                 "produces": [
@@ -117,42 +38,166 @@
                 ],
                 "parameters": [
                     {
-                        "name": "LoginRequest",
+                        "name": "TokenRefreshRequest",
                         "in": "body",
-                        "description": "ログイン認証リクエスト",
+                        "description": "トークンリフレッシュリクエスト",
                         "schema": {
-                            "$ref": "#/definitions/LoginDefinition"
+                            "$ref": "#/definitions/TokenRefreshDefinition"
+    
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "ログイン成功時レスポンス",
+                        "description": "トークンリフレッシュ成功時レスポンス",
                         "schema": {
-                            "$ref": "#/definitions/LoginResource"
-                        }
-                    },
-                    "default": {
-                        "description": "ログイン成功時レスポンス",
-                        "schema": {
-                            "$ref": "#/definitions/AbstractJsonResource"
+                            "$ref": "#/definitions/TokenRefreshResource"
                         }
                     }
                 }
-            }
-        },
-        "/sample": {
+            },
             "get": {
                 "tags": [
-                    "Sample"
+                    "Auth"
                 ],
-                "security": [
+                "security": [],
+                "summary":"認証チェック",
+                "description": "認証チェック",
+                "externalDocs": {
+                    "description": "認証チェック",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
                     {
-                        "tokenAuth": []
+                        "name": "CertificationCheckRequest",
+                        "in": "body",
+                        "description": "認証チェックリクエスト",
+                        "schema": {
+                            "$ref": "#/definitions/CertificationCheckDefinition"
+                        }
                     }
                 ],
-                "summary": "Sample",
-                "description": "test",
+                "responses": {
+                    "200": {
+                        "description": "認証チェック成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/CommonResource"
+                        }
+                    }
+                }
+            }
+        },
+        "/health_check": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "security": [],
+                "summary":"APIサーバーヘルスチェック",
+                "description": "APIサーバーヘルスチェック",
+                "externalDocs": {
+                    "description": "APIサーバーヘルスチェック",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "APIサーバーヘルスチェック成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/CommonResource"
+                        }
+                    }
+                }
+            }
+        },
+        "/zip_code/yusei/last_update": {
+            "get": {
+                "tags": [
+                    "yusei"
+                ],
+                "security": [],
+                "summary":"郵政郵便番号前回更新情報取得",
+                "description": "郵政郵便番号前回更新情報取得",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "取得成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/YuseiLastUpdateResource"
+                        }
+                    }
+                }
+            }
+        },
+        "/zip_code/ken_all": {
+            "get": {
+                "tags": [
+                    "yusei"
+                ],
+                "security": [],
+                "summary":"郵政郵便番号情報取得",
+                "description": "ken_allのデータを取得し、前回更新時との差分を検査し、郵便番号データの差分をクライアントに返す。",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "取得成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/ZipCodeGetResource"
+                        }
+                    }
+                }
+            }
+        },
+        "/zip_code/yusei/bulk": {
+            "put": {
+                "tags": [
+                    "yusei"
+                ],
+                "security": [],
+                "summary":"郵政郵便番号更新",
+                "description": "郵政郵便番号更新",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "更新成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/CommonResource"
+                        }
+                    }
+                }
+            }
+        },
+        "/zip_code/yusei/search": {
+            "get": {
+                "tags": [
+                    "yusei"
+                ],
+                "security": [],
+                "summary":"郵政郵便番号検索",
+                "description": "郵政郵便番号検索",
                 "externalDocs": {
                     "description": "処理シーケンスはこちら",
                     "url": ""
@@ -162,34 +207,335 @@
                 ],
                 "parameters": [
                     {
-                        "name": "SampleRequest",
+                        "name": "ZipCodeSearchReques",
                         "in": "body",
-                        "description": "Sampleリクエスト",
+                        "description": "郵政郵便番号検索リクエスト",
                         "schema": {
-                            "$ref": "#/definitions/SampleDefinition"
+                            "$ref": "#/definitions/ZipCodeDefinition"
+    
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Sampleレスポンス",
+                        "description": "検索成功時レスポンス",
                         "schema": {
-                            "$ref": "#/definitions/SampleResource"
-                        }
-                    },
-                    "default": {
-                        "description": "ログイン成功時レスポンス",
-                        "schema": {
-                            "$ref": "#/definitions/AbstractJsonResource"
+                            "$ref": "#/definitions/ZipCodeSearchResource"
                         }
                     }
                 }
             }
-        }
+        },
+        "/zip_code/yusei": {
+            "post": {
+                "tags": [
+                    "yusei"
+                ],
+                "security": [],
+                "summary":"郵政郵便番号個別登録",
+                "description": "郵政郵便番号個別登録",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "ZipCodeIndividualRegisterRequest",
+                        "in": "body",
+                        "description": "郵便番号個別登録リクエスト",
+                        "schema": {
+                            "$ref": "#/definitions/ZipCodeIndividualRegisterDefinition"
+    
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "登録成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/CommonResource"
+                        }
+                    }
+                }
+            }
+        },
+        "/zip_code/yusei/{id}": {
+            "put": {
+                "tags": [
+                    "yusei"
+                ],
+                "security": [],
+                "summary":"郵政郵便番号個別更新",
+                "description": "郵政郵便番号個別更新",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "管理ID",
+                        "type": "integer"
+
+                    },
+                    {
+                        "name": "ZipCodeIndividualRegisterRequest",
+                        "in": "body",
+                        "description": "郵政郵便番号個別更新リクエスト",
+                        "schema": {
+                            "$ref": "#/definitions/ZipCodeIndividualUpdateDefinition"
+    
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "更新成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/CommonResource"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "yusei"
+                ],
+                "security": [],
+                "summary":"郵政郵便番号個別削除",
+                "description": "郵政郵便番号個別削除",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "管理ID",
+                        "type": "integer"
+
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "削除成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/CommonResource"
+                        }
+                    }
+                }
+            }
+        },
+        "/prefecture": {
+            "get": {
+                "tags": [
+                    "yusei"
+                ],
+                "security": [],
+                "summary":"都道府県データ",
+                "description": "都道府県データ",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "取得成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/PrefecturResource"
+                        }
+                    }
+                }
+            }
+        },
+
+        "/device": {
+            "get": {
+                "tags": [
+                    "device"
+                ],
+                "security": [],
+                "summary":"端末情報取得",
+                "description": "配送端末情報取得",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "DevicGetRequest",
+                        "in": "body",
+                        "description": "配送端末情報取得リクエスト",
+                        "schema": {
+                            "$ref": "#/definitions/DeviceInfoDefinition"
+    
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "取得成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/DeviceInfoResource"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "device"
+                ],
+                "security": [],
+                "summary":"配送端末情報登録",
+                "description": "配送端末情報登録",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "DeviceRegisterRequest",
+                        "in": "body",
+                        "description": "配送端末情報登録リクエスト",
+                        "schema": {
+                            "$ref": "#/definitions/DeviceRegisterDefinition"
+    
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "登録成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/CommonResource"
+                        }
+                    }
+                }
+            }
+        },
+        "/device/{id}": {
+            "put": {
+                "tags": [
+                    "device"
+                ],
+                "security": [],
+                "summary":"配送端末情報更新",
+                "description": "配送端末情報更新",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "配送端末ID",
+                        "type": "integer"
+
+                    },
+                    {
+                        "name": "DeviceUpdateRequest",
+                        "in": "body",
+                        "description": "配送端末情報更新リクエスト",
+                        "schema": {
+                            "$ref": "#/definitions/DeviceRegisterDefinition"
+    
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "更新成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/CommonResource"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "device"
+                ],
+                "security": [],
+                "summary":"配送端末詳細情報取得",
+                "description": "配送端末詳細情報取得",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "配送端末ID",
+                        "type": "integer"
+
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "取得成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/DeviceDetailResource"
+                        }
+                    }
+                }
+            }
+        },
+        "/facility_code": {
+            "get": {
+                "tags": [
+                    "device"
+                ],
+                "security": [],
+                "summary":"部門コードデータ取得",
+                "description": "部門コードデータ取得",
+                "externalDocs": {
+                    "description": "処理シーケンスはこちら",
+                    "url": ""
+                },
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "取得成功時レスポンス",
+                        "schema": {
+                            "$ref": "#/definitions/FacilityCodeListResource"
+                        }
+                    }
+                }
+            }
+        },
     },
     "definitions": {
-        "AbstractJsonResource": {
-            "description": "API共通レスポンス定義",
+        "YuseiLastUpdateResource": {
             "properties": {
                 "state": {
                     "description": "結果コード",
@@ -200,93 +546,64 @@
                     "type": "string"
                 },
                 "result": {
-                    "description": "API個別",
-                    "type": "object"
-                }
-            },
-            "type": "object"
-        },
-        "LoginDefinition": {
-            "description": "ログイン認証リクエスト定義",
-            "required": [
-                "accessId",
-                "password"
-            ],
-            "properties": {
-                "accessId": {
-                    "description": "ログインID",
-                    "type": "string",
-                    "example": "1111"
-                },
-                "password": {
-                    "description": "ログインPASS",
-                    "type": "string",
-                    "example": "weak-password"
-                }
-            },
-            "type": "object"
-        },
-        "LoginResource": {
-            "properties": {
-                "state": {
-                    "description": "結果コード",
-                    "type": "string"
-                },
-                "message": {
-                    "description": "メッセージ",
-                    "type": "string"
-                },
-                "result": {
-                    "$ref": "#/definitions/LoginResultDefinition"
+                    "$ref": "#/definitions/UpdateInfoResultDefinition"
                 }
             }
         },
-        "LoginResultDefinition": {
+        "UpdateInfoResultDefinition": {
             "type": "object",
-            "description": "ログイン認証",
+            "description": "郵政郵便番号前回更新情報成功時レスポンス",
             "required": [
-                "accessToken",
-                "refreshToken"
+                "bulk_update_date",
+                "bulk__user",
+                "update_date",
+                "_user",
+                "zip_code",
+                "kenmei",
+                "ken_code",
+                "sikumei",
+                "siku_code"
             ],
             "properties": {
-                "accessToken": {
-                    "description": "アクセストークン",
-                    "type": "string",
-                    "example": "***********"
+                "bulk_update_date": {
+                    "description": "前回一括更新日",
+                    "type": "string"
                 },
-                "refreshToken": {
-                    "description": "リフレッシュトークン",
-                    "type": "string",
-                    "example": "***********"
+                "bulk__user": {
+                    "description": "前回一括更新者",
+                    "type": "string"
+                },
+                "add_date": {
+                    "description": "前回個別登録日",
+                    "type": "string"
+                },
+                "_user": {
+                    "description": "前回個別登録者",
+                    "type": "string"
+                },
+                "zip_code": {
+                    "description": "前回個別登録郵便番号",
+                    "type": "string"
+                },
+                "kenmei": {
+                    "description": "前回個別登録都道府県",
+                    "type": "string"
+                },
+                "ken_code": {
+                    "description": "前回個別登録都道府県コード",
+                    "type": "integer"
+                },
+                "sikumei": {
+                    "description": "前回個別登録市区町村",
+                    "type": "string"
+                },
+                "siku_code": {
+                    "description": "前回個別登録市区町村コード",
+                    "type": "integer"
                 }
             }
         },
-        "SampleDefinition": {
-            "description": "Sample",
-            "required": [
-                "accessId",
-                "password"
-            ],
-            "properties": {
-                "accessId": {
-                    "description": "ログインID",
-                    "type": "string",
-                    "example": "1111"
-                },
-                "password": {
-                    "description": "ログインPASS",
-                    "type": "string",
-                    "example": "weak-password"
-                },
-                "hoge": {
-                    "description": "HOGE",
-                    "type": "string",
-                    "example": "HOGE"
-                }
-            },
-            "type": "object"
-        },
-        "SampleResource": {
+        "ZipCodeGetResource": {
             "properties": {
                 "state": {
                     "description": "結果コード",
@@ -297,61 +614,343 @@
                     "type": "string"
                 },
                 "result": {
-                    "$ref": "#/definitions/SampleResultDefinition"
+                    "$ref": "#/definitions/ZipCodeInfoResultDefinition"
                 }
             }
         },
-        "SampleResultDefinition": {
+        "ZipCodeInfoResultDefinition": {
             "type": "object",
-            "description": "SampleResult",
+            "description": "郵政郵便番号情報取得",
             "required": [
-                "accessToken",
-                "refreshToken",
-                "user"
+                "difference_number",
+                "zip_code_list"
             ],
             "properties": {
-                "accessToken": {
-                    "description": "アクセストークン",
-                    "type": "string",
-                    "example": "***********"
+                "difference_number": {
+                    "description": "件数の差分",
+                    "type": "integer"
                 },
-                "refreshToken": {
-                    "description": "リフレッシュトークン",
-                    "type": "string",
-                    "example": "***********"
+                "zip_code_list": {
+                    "description": "リスト",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "zip_code",
+                            "ken_code",
+                            "sikumei",
+                            "sik_code"
+                        ],
+                        "properties": {
+                            "zip_code": {
+                                "description": "更新郵便番号",
+                                "type": "string"
+                            },
+                            "ken_code": {
+                                "description": "都道府県コード",
+                                "type": "integer"
+                            },
+                            "sikumei": {
+                                "description": "市区町村",
+                                "type": "string"
+                            },
+                            "siku_code": {
+                                "description": "市区町村コード",
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "CommonResource": {
+            "properties": {
+                "state": {
+                    "description": "結果コード",
+                    "type": "string"
                 },
-                "user": {
-                    "description": "リフレッシュトークン",
-                    "type": "object",
-                    "required": [
-                        "userId",
-                        "name",
-                        "addressList"
-                    ],
-                    "properties": {
-                        "userId": {
-                            "description": "ユーザーID",
-                            "type": "integer",
-                            "example": 1
-                        },
-                        "name": {
-                            "description": "名前",
-                            "type": "string",
-                            "example": 1
-                        },
-                        "addressList": {
-                            "description": "登録済み住所",
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "required": [
-                                    "address"
-                                ],
-                                "properties": {
-                                    "address": {
-                                        "description": "住所",
-                                        "type": "string",
-                                        "example": "ほげほげ"
+                "message": {
+                    "description": "メッセージ",
+                    "type": "string"
+                }
+            }
+        },
+        "ZipCodeDefinition": {
+            "description": "郵便番号リクエスト定義",
+            "required": [
+                "zip_code"
+            ],
+            "properties": {
+                "zip_code": {
+                    "description": "郵便番号",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ZipCodeSearchResource": {
+            "properties": {
+                "state": {
+                    "description": "結果コード",
+                    "type": "string"
+                },
+                "message": {
+                    "description": "メッセージ",
+                    "type": "string"
+                },
+                "result": {
+                    "$ref": "#/definitions/ZipCodeSerchResultDefinition"
+                }
+            }
+        },
+        "ZipCodeSerchResultDefinition": {
+            "type": "object",
+            "description": "郵便番号検索",
+            "required": [
+                "zip_code_list"
+            ],
+            "properties": {
+                "zip_code_list": {
+                    "description": "リスト",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "id",
+                            "zip_code",
+                            "kenmei",
+                            "ken_code",
+                            "sikumei",
+                            "siku_code"
+                        ],
+                        "properties": {
+                            "id": {
+                                "description": "管理ID",
+                                "type": "integer"
+                            },
+                            "zip_code": {
+                                "description": "更新郵便番号",
+                                "type": "string"
+                            },
+                            "kenmei": {
+                                "description": "都道府県",
+                                "type": "string"
+                            },
+                            "ken_code": {
+                                "description": "都道府県コード",
+                                "type": "integer"
+                            },
+                            "sikumei": {
+                                "description": "市区町村",
+                                "type": "string"
+                            },
+                            "siku_code": {
+                                "description": "市区町村コード",
+                                "type": "integer"
+                            }
+                        }
+                    } 
+                }  
+            }
+        },
+        "ZipCodeIndividualRegisterDefinition": {
+            "description": "郵便番号個別登録リクエスト定義",
+            "required": [
+                "zip_code",
+                "kenmei",
+                "ken_code",
+                "sikumei",
+                "siku_code"
+            ],
+            "properties": {
+                "zip_code": {
+                    "description": "更新郵便番号",
+                    "type": "string"
+                },
+                "kenmei": {
+                    "description": "都道府県",
+                    "type": "string"
+                },
+                "ken_code": {
+                    "description": "都道府県コード",
+                    "type": "integer"
+                },
+                "sikumei": {
+                    "description": "市区町村",
+                    "type": "string"
+                },
+                "siku_code": {
+                    "description": "市区町村コード",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "ZipCodeIndividualUpdateDefinition": {
+            "description": "郵便番号個別更新リクエスト定義",
+            "required": [
+                "zip_code",
+                "kenmei",
+                "ken_code",
+                "sikumei",
+                "siku_code"
+            ],
+            "properties": {
+                "zip_code": {
+                    "description": "更新郵便番号",
+                    "type": "string"
+                },
+                "kenmei": {
+                    "description": "都道府県",
+                    "type": "string"
+                },
+                "ken_code": {
+                    "description": "都道府県コード",
+                    "type": "integer"
+                },
+                "sikumei": {
+                    "description": "市区町村",
+                    "type": "string"
+                },
+                "siku_code": {
+                    "description": "市区町村コード",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "PrefecturResource": {
+            "properties": {
+                "state": {
+                    "description": "結果コード",
+                    "type": "string"
+                },
+                "message": {
+                    "description": "メッセージ",
+                    "type": "string"
+                },
+                "result": {
+                    "$ref": "#/definitions/PrefecturResultDefinition"
+                }
+            }
+        },
+        "PrefecturResultDefinition": {
+            "type": "object",
+            "description": "都道府県データ取得",
+            "required": [
+                "prefecture_list"
+            ],
+            "properties": {
+                "prefecture_list": {
+                    "description": "都道府県リスト",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "prefecture_id",
+                            "prefecture_name"
+                        ],
+                        "properties": {
+                            "prefecture_id": {
+                                "description": "都道府県ID",
+                                "type": "string"
+                            },
+                            "prefecture_name": {
+                                "description": "都道府県名",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "DeviceInfoDefinition": {
+            "description": "配送端末情報取得",
+            "required": [
+                "facility_code",
+                "current_page",
+                "per_page"
+            ],
+            "properties": {
+                "facility_code": {
+                    "description": "部門コード",
+                    "type": "string"
+                },
+                "page": {
+                    "$ref": "#/definitions/PaginationDefinition"
+                }
+            },
+            "type": "object"
+        },
+        "DeviceDetailResource": {
+            "properties": {
+                "state": {
+                    "description": "結果コード",
+                    "type": "string"
+                },
+                "message": {
+                    "description": "メッセージ",
+                    "type": "string"
+                },
+                "result": {
+                    "$ref": "#/definitions/DeviceDetailResultDefinition"
+                }
+            }
+        },
+        "DeviceDetailResultDefinition": {
+            "type": "object",
+            "description": "配送端末情報取得",
+            "required": [
+                "device_list"
+            ],
+            "properties": {
+                "device_list": {
+                    "description": "配送端末情報リスト",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "host_name",
+                            "host_ip",
+                            "factory_name",
+                            "Installation_place",
+                            "device_list"          
+                        ],
+                        "properties": {
+                            "host_name": {
+                                "description": "配送システムホスト端末ホスト名",
+                                "type": "string"
+                            },
+                            "host_ip": {
+                                "description": "IPアドレス",
+                                "type": "string"
+                            },
+                            "factory_name": {
+                                "description": "工場",
+                                "type": "string"
+                            },
+                            "Installation_place": {
+                                "description": "設置場所",
+                                "type": "string"
+                            },
+                            "addressList": {
+                                "description": "配送システムハンディリスト",
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "required": [
+                                        "device_ip",
+                                        "location"  
+                                    ],
+                                    "properties": {
+                                        "device_ip": {
+                                            "description": "配送システムハンディ端末IP",
+                                            "type": "string"
+                                        },
+                                        "location": {
+                                            "description": "配送システムハンディ端末設置場所",
+                                            "type": "string"
+                                        }
                                     }
                                 }
                             }
@@ -359,6 +958,364 @@
                     }
                 }
             }
+        },
+        "DeviceInfoResource": {
+            "properties": {
+                "state": {
+                    "description": "結果コード",
+                    "type": "string"
+                },
+                "message": {
+                    "description": "メッセージ",
+                    "type": "string"
+                },
+                "result": {
+                    "$ref": "#/definitions/DeviceInfoResultDefinition"
+                }
+            }
+        },
+        "DeviceInfoResultDefinition": {
+            "type": "object",
+            "description": "配送端末情報取得",
+            "required": [
+                "device_list"
+            ],
+            "properties": {
+                "page": {
+                    "$ref": "#/definitions/PaginationResultDefinitio"
+                },
+                "device_list": {
+                    "description": "配送端末情報リスト",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "host_name",
+                            "host_ip",
+                            "factory_name",
+                            "Installation_place",
+                            "device_list"          
+                        ],
+                        "properties": {
+                            "host_name": {
+                                "description": "配送システムホスト端末ホスト名",
+                                "type": "string"
+                            },
+                            "host_ip": {
+                                "description": "IPアドレス",
+                                "type": "string"
+                            },
+                            "factory_name": {
+                                "description": "工場",
+                                "type": "string"
+                            },
+                            "Installation_place": {
+                                "description": "設置場所",
+                                "type": "string"
+                            },
+                            "addressList": {
+                                "description": "配送システムハンディリスト",
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "required": [
+                                        "device_ip",
+                                        "location"  
+                                    ],
+                                    "properties": {
+                                        "device_ip": {
+                                            "description": "配送システムハンディ端末IP",
+                                            "type": "string"
+                                        },
+                                        "location": {
+                                            "description": "配送システムハンディ端末設置場所",
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "DeviceRegisterDefinition": {
+            "description": "配送端末情報登録",
+            "required": [
+                "host_name",
+                "host_ip",
+                "factory_name",
+                "Installation_place",
+                "device_list"
+            ],
+            "properties": {
+                "host_name": {
+                    "description": "配送システムホスト端末ホスト名",
+                    "type": "string"
+                },
+                "host_ip": {
+                    "description": "IPアドレス",
+                    "type": "string"
+                },
+                "factory_name": {
+                    "description": "工場",
+                    "type": "string"
+                },
+                "Installation_place": {
+                    "description": "設置場所",
+                    "type": "string"
+                },
+                "device_ip": {
+                    "description": "配送システムハンディ端末リスト",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "device_ip",
+                            "location"
+                        ],
+                        "properties": {
+                            "device_ip": {
+                                "description": "配送システムハンディ端末IP",
+                                "type": "string"
+                            },
+                            "location": {
+                                "description": "配送システムハンディ端末設置場所",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "FacilityCodeListResource": {
+            "properties": {
+                "state": {
+                    "description": "結果コード",
+                    "type": "string"
+                },
+                "message": {
+                    "description": "メッセージ",
+                    "type": "string"
+                },
+                "result": {
+                    "$ref": "#/definitions/FacilityCodeListResultDefinition"
+                }
+            }
+        },
+        "FacilityCodeListResultDefinition": {
+            "type": "object",
+            "description": "部門コード一覧取得",
+            "required": [
+                "facility_code_list"
+            ],
+            "properties": {
+                "facility_code_list": {
+                    "description": "部門コードリスト",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "factory_id",
+                            "factory_name"
+                        ],
+                        "properties": {
+                            "factory_id": {
+                                "description": "工場ID",
+                                "type": "integer"
+                            },
+                            "factory_name": {
+                                "description": "工場名",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
+        "LogInDefinition": {
+            "description": "ログインリクエスト定義",
+            "required": [
+                "access_id",
+                "password"
+            ],
+            "properties": {
+                "access_id": {
+                    "description": "アクセスID",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "パスワード",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LogInResource": {
+            "properties": {
+                "state": {
+                    "description": "結果コード",
+                    "type": "string"
+                },
+                "message": {
+                    "description": "メッセージ",
+                    "type": "string"
+                },
+                "result": {
+                    "$ref": "#/definitions/LogInResultDefinition"
+                }
+            }
+        },
+        "LogInResultDefinition": {
+            "type": "object",
+            "description": "ログイン",
+            "required": [
+                "token"
+            ],
+            "properties": {
+                "token": {
+                    "description": "トークン",
+                    "type": "string"
+                }
+            }
+        },
+        "LogOutDefinition": {
+            "description": "リクエスト定義",
+            "required": [
+                "token"
+            ],
+            "properties": {
+                "token": {
+                    "description": "トークン",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TokenRefreshDefinition": {
+            "description": "トークンリクエスト定義",
+            "required": [
+                "token"
+            ],
+            "properties": {
+                "token": {
+                    "description": "トークン",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "TokenRefreshResource": {
+            "properties": {
+                "state": {
+                    "description": "結果コード",
+                    "type": "string"
+                },
+                "message": {
+                    "description": "メッセージ",
+                    "type": "string"
+                },
+                "result": {
+                    "$ref": "#/definitions/TokenRefreshResultDefinition"
+                }
+            }
+        },
+        "TokenRefreshResultDefinition": {
+            "type": "object",
+            "description": "ログイン",
+            "required": [
+                "token"
+            ],
+            "properties": {
+                "token": {
+                    "description": "トークン",
+                    "type": "string"
+                }
+            }
+        },
+        "CertificationCheckDefinition": {
+            "description": "認証チェックリクエスト定義",
+            "required": [
+                "token"
+            ],
+            "properties": {
+                "token": {
+                    "description": "トークン",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PaginationDefinition": {
+            "description": "ページネーションリクエスト情報",
+            "required": [
+                "current_page",
+                "per_page"
+            ],
+            "properties": {
+                "page": {
+                    "description": "ページ番号",
+                    "type": "integer"
+                },
+                "per_page": {
+                    "description": "表示件数",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "PaginationResultDefinitio":{
+            "type": "object",
+            "description": "ページネーション情報",
+            "required": [
+                "result_count",
+                "total_pages",
+                "previous_page",
+                "current_page",
+                "next_page"
+            ],
+            "properties": {
+                "result_count": {
+                    "description": "取得総件数",
+                    "type": "integer"
+                },
+                "total_pages": {
+                    "description": "総ページ数",
+                    "type": "integer"
+                },
+                "previous_page": {
+                    "description": "前のページ番号",
+                    "type": "integer"
+                },
+                "current_page": {
+                    "description": "現在のページ番号",
+                    "type": "integer"
+                },
+                "next_page": {
+                    "description": "次のページ番号",
+                    "type": "integer"
+                }
+            }
+        },
+        "SortDefinition": {
+            "description": "ソートリクエスト情報",
+            "required": [
+                "sort",
+                "orde"
+            ],
+            "properties": {
+                "sort": {
+                    "description": "項目",
+                    "type": "string"
+                },
+                "orde": {
+                    "description": "順番",
+                    "type": "string"
+                }
+            },
+            "type": "object"
         }
     },
     "securityDefinitions": {
@@ -371,12 +1328,16 @@
     },
     "tags": [
         {
-            "name": "auth",
-            "description": "認証関連API群"
+            "name": "Auth",
+            "description": ""
         },
         {
-            "name": "sample",
-            "description": "sample-グルーピングタグ"
-        }
+            "name": "yusei",
+            "description": "郵政郵便番号メンテナンス関連"
+        },
+        {
+            "name": "device",
+            "description": "端末メンテナンス関連"
+        },
     ]
 }

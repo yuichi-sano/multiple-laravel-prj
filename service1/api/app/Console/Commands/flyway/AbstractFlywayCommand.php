@@ -2,12 +2,12 @@
 
 namespace App\Console\Commands\Flyway;
 
+use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
 
 abstract class AbstractFlywayCommand extends Command
 {
-
     /**
      * Create a new migration command instance.
      * @return void
@@ -17,19 +17,20 @@ abstract class AbstractFlywayCommand extends Command
         parent::__construct();
     }
 
-    protected string $gradleCmd  = './gradlew -i clean ';
+    protected string $gradleCmd = './gradlew -i clean ';
     protected string $processResources = 'processResources';
+    protected bool $isTesting = false;
     /**
      * 入力コマンドをgradlew+flywayで使用可能なコマンドに変換します。
      * @var array|string[]
      */
     protected array $flywayCmd = [
-        'base'   => 'flywayBaseline',
-        'clean'  => 'flywayClean',
-        'info'   => 'flywayInfo',
-        'migrate'=> 'flywayMigrate',
+        'base' => 'flywayBaseline',
+        'clean' => 'flywayClean',
+        'info' => 'flywayInfo',
+        'migrate' => 'flywayMigrate',
         'repair' => 'flywayRepair',
-        'valid'  => 'flywayValidate'
+        'valid' => 'flywayValidate'
     ];
 
     /**
@@ -45,13 +46,14 @@ abstract class AbstractFlywayCommand extends Command
     /**
      * DBコネクションを設定します。
      * testを指定するとユニットテスト用データベースを参照します
-     * @param bool $test
      * @return string
      */
-    protected function transferConnection(bool $test): string
+    protected function transferConnection(): string
     {
-        $databaseName = $test ? env('DB_DATABASE_TEST') : env('DB_DATABASE');
-        return "-Dflyway.url=jdbc:postgresql://". env('DB_HOST').":".env('DB_PORT')."/".$databaseName;
+        $host = $this->getDbConfig('host');
+        $port = $this->getDbConfig('port');
+        $dbname = $this->getDbConfig('database');
+        return "-Dflyway.url=jdbc:postgresql://" . $host . ":" . $port . "/" . $dbname;
     }
 
     /**
@@ -61,40 +63,53 @@ abstract class AbstractFlywayCommand extends Command
      */
     protected function transferLocation(string $location = 'local'): string
     {
-        $trans='-Dflyway.locations=classpath:db/migration';
-        if($location == 'local'){
+        $trans = '-Dflyway.locations=classpath:db/migration';
+        if ($location == 'local') {
             $trans .= ',classpath:develop,classpath:local';
-        }elseif($location == 'stg'){
+        } elseif ($location == 'stg') {
             $trans .= ',classpath:develop';
+        } elseif ($location == 'testing') {
+            $trans .= ',classpath:develop,classpath:local,classpath:testing';
         }
         return $trans;
     }
 
     /**
-     * envからユーザー情報を抜き出しコマンドを生成
+     * 適用versionの指定
+     * @param string|null $version
      * @return string
      */
-    protected function  getDbUser(): string
+    protected function transferVersion(string $version): string
     {
-        $USER = env('DB_USERNAME');
-        return '-Dflyway.user='.$USER;
+        return $trans = '-Dflyway.target=' . $version;
     }
 
     /**
-     * envからパスワードを抜き出しコマンドを生成
+     *configからユーザー情報を抜き出しコマンドを生成
      * @return string
      */
-    protected function  getDbPass(): string
+    protected function getDbUser(): string
     {
-        $USER = env('DB_PASSWORD');
-        return '-Dflyway.password='.$USER;
+        $user = $this->getDbConfig('username');
+        return '-Dflyway.user=' . $user;
+    }
+
+    /**
+     * configからパスワードを抜き出しコマンドを生成
+     * @return string
+     */
+    protected function getDbPass(): string
+    {
+        $password = $this->getDbConfig('password');
+        return '-Dflyway.password=' . $password;
     }
 
     /**
      * 実行dirまで移動
      */
-    protected function cdFlyDir(): void{
-        chdir( './database/flyway/' );
+    protected function cdFlyDir(): void
+    {
+        chdir('./database/flyway/');
     }
 
     /**
@@ -104,24 +119,44 @@ abstract class AbstractFlywayCommand extends Command
      * @param bool $test
      * @return string
      */
-    protected function flywayCmdBuild(string $action, string $location, bool $test = false): string
-    {
+    protected function flywayCmdBuild(
+        string $action,
+        string $location,
+        string $version = null
+    ): string {
         $commands = [$this->gradleCmd];
-        if($action != 'clean'){
+        if ($action != 'clean') {
             $commands[] = $this->processResources;
         }
         $commands[] = $this->transferFlyWayCmd($action);
-        if($action  == 'clean'){
+        if ($action == 'clean') {
             $commands[] = $this->processResources;
         }
-        if($action != 'clean') {
+        if ($action != 'clean') {
             $commands[] = $this->transferLocation($location);
         }
-        $commands[]=$this->transferConnection($test);
-        $commands[]=$this->getDbUser();
-        $commands[]=$this->getDbPass();
-        return  implode(' ',$commands);
+        if ($version) {
+            $commands[] = $this->transferVersion($version);
+        }
+        $commands[] = $this->transferConnection();
+        $commands[] = $this->getDbUser();
+        $commands[] = $this->getDbPass();
+        return implode(' ', $commands);
     }
 
-
+    /**
+     * DBコンフィグを走査
+     * @throws Exception
+     */
+    private function getDbConfig(string $name): string
+    {
+        $defaultDb = config('database.default');
+        $connections = config('database.connections');
+        $connection = $this->isTesting ? config('database.connections.testing') : $connections[$defaultDb];
+        if (array_key_exists($name, $connection)) {
+            return $connection[$name];
+        } else {
+            throw new Exception('指定されたコンフィグ値は存在しませんでした');
+        }
+    }
 }

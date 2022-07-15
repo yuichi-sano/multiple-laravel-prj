@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Authentication;
 
+use App\Exceptions\ErrorCodeConst;
 use App\Exceptions\WebAPIException;
+use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
-
 use App\Http\Requests\Authentication\LoginRequest;
 use App\Http\Resources\Authentication\LoginResource;
 use Illuminate\Support\Facades\Auth;
@@ -19,8 +20,11 @@ class LoginController extends BaseController
     private RefreshTokenFactory $refreshTokenFactory;
     private AccountAuthenticationInterface $accountAuthentication;
 
-    public function __construct(AccessTokenFactory $accessTokenFactory,RefreshTokenFactory $refreshTokenFactory,AccountAuthenticationInterface $accountAuthentication)
-    {
+    public function __construct(
+        AccessTokenFactory $accessTokenFactory,
+        RefreshTokenFactory $refreshTokenFactory,
+        AccountAuthenticationInterface $accountAuthentication
+    ) {
         $this->accessTokenFactory = $accessTokenFactory;
         $this->refreshTokenFactory = $refreshTokenFactory;
         $this->accountAuthentication = $accountAuthentication;
@@ -29,21 +33,18 @@ class LoginController extends BaseController
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      * @throws WebAPIException
      */
     public function login(LoginRequest $request)
     {
-
         //Auth::guard('api')->getProvider()->setHasher(app('md5hash'));
-        if (! Auth::attempt($request->validated())) {
-            throw new WebAPIException('W_0000000',[],500);
+        if (!Auth::attempt($request->validated())) {
+            throw new WebAPIException(ErrorCodeConst::ERROR_401_UNAUTHORIZED, [], 401);
         }
         $account = Auth::getLastAttempted();
         $authedAccount = $this->accountAuthentication->execute($account);
 
-        return LoginResource::buildResult($authedAccount->getAccessToken(),$authedAccount->getRefreshToken());
+        return LoginResource::buildResult($authedAccount->getAccessToken(), $authedAccount->getRefreshToken());
     }
-
-
 }

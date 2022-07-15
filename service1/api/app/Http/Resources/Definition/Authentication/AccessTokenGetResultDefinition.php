@@ -8,17 +8,11 @@ use App\Http\Resources\Definition\Basic\AbstractResultDefinition;
 
 class AccessTokenGetResultDefinition extends AbstractResultDefinition implements ResultDefinitionInterface
 {
-
-    
     //アクセストークン
     protected string $accessToken;
-       
-
     //リフレッシュトークン
     protected string $refreshToken;
-       
 
-    
     /**
      * @return mixed
      */
@@ -26,7 +20,6 @@ class AccessTokenGetResultDefinition extends AbstractResultDefinition implements
     {
         return $this->accessToken;
     }
-    
 
     /**
      * @return mixed
@@ -35,25 +28,20 @@ class AccessTokenGetResultDefinition extends AbstractResultDefinition implements
     {
         return $this->refreshToken;
     }
-    
 
-    
     /**
      * @param mixed accessToken
      */
     public function setAccessToken(string $accessToken): void
     {
-        $this->accessToken = (string) $accessToken;
+        $this->accessToken = (string)$accessToken;
     }
-    
 
     /**
      * @param mixed refreshToken
      */
     public function setRefreshToken(string $refreshToken): void
     {
-        $this->refreshToken = (string) $refreshToken;
+        $this->refreshToken = (string)$refreshToken;
     }
-    
-
 }

@@ -8,7 +8,7 @@ use packages\domain\model\authentication\authorization\AccessToken;
 use packages\domain\model\authentication\authorization\RefreshToken;
 
 
-class AccessTokenGetResource  extends AbstractJsonResource
+class AccessTokenGetResource extends AbstractJsonResource
 {
     public static function buildResult(AccessToken $token, RefreshToken $refreshToken): AccessTokenGetResource
     {

@@ -1,9 +1,11 @@
 <?php
+
 namespace App\Extension\Hasher;
-use \Illuminate\Contracts\Hashing\Hasher;
 
-class SHA256Hasher implements Hasher {
+use Illuminate\Contracts\Hashing\Hasher;
 
+class SHA256Hasher implements Hasher
+{
     // ハッシュ作成
     // $value のハッシュを返す
     // password_hash() に相当する
