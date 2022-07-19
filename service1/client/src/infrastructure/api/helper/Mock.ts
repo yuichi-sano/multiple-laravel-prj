@@ -6,13 +6,13 @@ import { ZipCodeKenAll } from '@/types/zipCodeYusei/ZipCodeKenAll';
 import { ZipCodeYuseiBulk } from '@/types/zipCodeYusei/ZipCodeYuseiBulk';
 import { ZipCodeYuseiSearchResponse } from '@/types/zipCodeYusei/ZipCodeYuseiSearch';
 import { Prefecture } from '@/types/prefecture/Prefecture';
-import { BumonCode } from '@/types/htDevice/BumonCode';
-import { SlipType } from '@/types/htDevice/SlipType';
+import { WorkPlace } from '@/types/Device/WorkPlace';
+import { SlipType } from '@/types/Device/SlipType';
 import { ZipCodeIndividualRegisterResponse } from '@/types/zipCodeYusei/ZipCodeIndividualRegister';
 import { ZipCodeYuseiDeleteResponse } from '@/types/zipCodeYusei/ZipCodeYuseiDelete';
-import { HtDeviceGetResponse } from '@/types/htDevice/htDeviceGet';
-import { HtDeviceUpdateResponse } from '@/types/htDevice/htDeviceUpdate';
-import { HtDeviceDetails } from '@/types/htDevice/HtDeviceDetails';
+import { DeviceGetResponse } from '@/types/Device/DeviceGet';
+import { DeviceUpdateResponse } from '@/types/Device/DeviceUpdate';
+import { DeviceDetails } from '@/types/Device/DeviceDetails';
 
 
 
@@ -140,8 +140,8 @@ export default {
 
     // 配送端末
 
-    mock.onGet('/ht_device').reply((config) => {
-      const data: HtDeviceGetResponse = {
+    mock.onGet('/device').reply((config) => {
+      const data: DeviceGetResponse = {
         page: {
           resultCount: 0,
           totalPages: 0,
@@ -149,18 +149,17 @@ export default {
           currentPage: 1,
           nextPage: 0,
         },
-        htDeviceList: [
+        DeviceList: [
           {
-            htHostId: null,
-            htHostName: '',
-            htHostIp: '',
-            deliveryWorkplaceName: '',
+            HostId: null,
+            HostName: '',
+            HostIp: '',
+            deliveryWorkPlaceName: '',
             facilityCode: '',
             location: '',
-            slipType: '',
             addressList: [
               {
-                htDeviceIp: '',
+                DeviceIp: '',
                 location: '',
               },
             ],
@@ -171,27 +170,26 @@ export default {
       return this.__success(data, config);
     });
 
-    mock.onPut('/ht_device/' + id).reply((config) => {
-      const data: HtDeviceUpdateResponse = {
+    mock.onPut('/device/' + id).reply((config) => {
+      const data: DeviceUpdateResponse = {
 
       };
       // @ts-ignore
       return this.__success(data, config);
     });
 
-    mock.onGet('/ht_device/' + id).reply((config) => {
-      const data: HtDeviceDetails = {
-        htDeviceList: [
+    mock.onGet('/device/' + id).reply((config) => {
+      const data: DeviceDetails = {
+        DeviceList: [
           {
-            htHostName: 'ホスト名',
-            htHostIp: 'ホストIP',
-            deliveryWorkplaceName: '工場',
+            HostName: 'ホスト名',
+            HostIp: 'ホストIP',
+            deliveryWorkPlaceName: '工場',
             facilityCode: '000',
             location: '設置場所',
-            slipType: '伝票種別',
             addressList: [
               {
-                htDeviceIp: '192.0.0.0',
+                DeviceIp: '192.0.0.0',
                 location: 'ロケーション',
               },
             ],
@@ -202,25 +200,12 @@ export default {
       return this.__success(data, config);
     });
 
-    mock.onGet('/bumon_code').reply((config) => {
-      const data: BumonCode = {
+    mock.onGet('/workplace').reply((config) => {
+      const data: WorkPlace = {
         facilityCodeList: [
           {
             facilityCode: '00',
-            deliveryWorkplaceName: '',
-          },
-        ],
-      };
-      // @ts-ignore
-      return this.__success(data, config);
-    });
-
-    mock.onGet('/slip/type').reply((config) => {
-      const data: SlipType = {
-        slipTypeList: [
-          {
-            slipTypeId: 0,
-            slipTypeName: '伝票',
+            deliveryWorkPlaceName: '',
           },
         ],
       };

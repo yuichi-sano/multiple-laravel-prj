@@ -1,13 +1,13 @@
 import {SortOrderRequest} from '@/types/sort/SortOrder';
 
-export interface HtDeviceGetRequest {
+export interface DeviceGetRequest {
     facilityCode: string|null;
     page: number | null;
     perPage: number | null;
     sorts: SortOrderRequest[];
 }
 
-export interface HtDeviceGetResponse {
+export interface DeviceGetResponse {
     page: {
         resultCount: number,
         totalPages: number,
@@ -15,18 +15,17 @@ export interface HtDeviceGetResponse {
         currentPage: number,
         nextPage: number,
     };
-    htDeviceList: [
+    DeviceList: [
         {
-            htHostId: null,
-            htHostName: '',
-            htHostIp: '',
-            deliveryWorkplaceName: '',
+            HostId: null,
+            HostName: '',
+            HostIp: '',
+            deliveryWorkPlaceName: '',
             facilityCode: '',
             location: '',
-            slipType: '',
             addressList: [
                 {
-                    htDeviceIp: '',
+                    DeviceIp: '',
                     location: '',
                 }
             ],
@@ -34,7 +33,7 @@ export interface HtDeviceGetResponse {
     ];
 }
 
-export const EmptyHtDeviceGetResponse: HtDeviceGetResponse = {
+export const EmptyDeviceGetResponse: DeviceGetResponse = {
     page: {
         resultCount: 0,
         totalPages: 0,
@@ -42,18 +41,17 @@ export const EmptyHtDeviceGetResponse: HtDeviceGetResponse = {
         currentPage: 1,
         nextPage: 0,
     },
-    htDeviceList: [
+    DeviceList: [
         {
-            htHostId: null,
-            htHostName: '',
-            htHostIp: '',
-            deliveryWorkplaceName: '',
+            HostId: null,
+            HostName: '',
+            HostIp: '',
+            deliveryWorkPlaceName: '',
             facilityCode: '',
             location: '',
-            slipType: '',
             addressList: [
                 {
-                    htDeviceIp: '',
+                    DeviceIp: '',
                     location: '',
                 },
             ],

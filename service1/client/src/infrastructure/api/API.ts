@@ -4,12 +4,12 @@ import Client from '@/infrastructure/api/helper/Client';
 import {AuthenticationRequest, AuthenticationToken} from '@/types/authentication/Authentication';
 import {AuthorizedAccount} from '@/types/authentication/Account';
 import { ZipCodeIndividualRegisterRequest, ZipCodeIndividualRegisterResponse } from '@/types/zipCodeYusei/ZipCodeIndividualRegister';
-import { HtDeviceGetRequest, HtDeviceGetResponse } from '@/types/htDevice/htDeviceGet';
-import { HtDevicePostRequest, HtDevicePostResponse } from '@/types/htDevice/htDevicePost';
-import { HtDeviceUpdateRequest, HtDeviceUpdateResponse } from '@/types/htDevice/htDeviceUpdate';
-import { BumonCode } from '@/types/htDevice/BumonCode';
-import { HtDeviceDetails } from '@/types/htDevice/HtDeviceDetails';
-import { SlipType } from '@/types/htDevice/SlipType';
+import { DeviceGetRequest, DeviceGetResponse } from '@/types/device/DeviceGet';
+import { DevicePostRequest, DevicePostResponse } from '@/types/device/DevicePost';
+import { DeviceUpdateRequest, DeviceUpdateResponse } from '@/types/device/DeviceUpdate';
+import { WorkPlace } from '@/types/device/WorkPlace';
+import { DeviceDetails } from '@/types/device/DeviceDetails';
+import { SlipType } from '@/types/device/SlipType';
 
 import { ZipCodeYuseiUpdate } from '@/types/zipCodeYusei/ZipCodeYuseiUpdate';
 import { ZipCodeKenAll } from '@/types/zipCodeYusei/ZipCodeKenAll';
@@ -105,39 +105,33 @@ export default {
   },
 
   // 配送端末
-  async getHtDevice(request: HtDeviceGetRequest): Promise<HtDeviceGetResponse> {
+  async getDevice(request: DeviceGetRequest): Promise<DeviceGetResponse> {
     const auth = new Auth();
-    const response = await auth.get('/ht_device', {params: request});
+    const response = await auth.get('/device', {params: request});
     return response.data.result;
   },
 
-  async sendHtDevice(request: HtDevicePostRequest): Promise<HtDevicePostResponse> {
+  async sendDevice(request: DevicePostRequest): Promise<DevicePostResponse> {
     const auth = new Auth();
-    const response = await auth.post('/ht_device', request);
+    const response = await auth.post('/device', request);
     return response.data.result;
   },
 
-  async updateHtDevice(request: HtDeviceUpdateRequest, id: number): Promise<HtDeviceUpdateResponse> {
+  async updateDevice(request: DeviceUpdateRequest, id: number): Promise<DeviceUpdateResponse> {
     const auth = new Auth();
-    const response = await auth.put('/ht_device/' + id, request);
+    const response = await auth.put('/device/' + id, request);
     return response.data.result;
   },
 
-  async getHtDeviceDetails(id: number): Promise<HtDeviceDetails> {
+  async getDeviceDetails(id: number): Promise<DeviceDetails> {
     const auth = new Auth();
-    const response = await auth.get('/ht_device/' + id);
+    const response = await auth.get('/device/' + id);
     return response.data.result;
   },
 
-  async getBumonCode(): Promise<BumonCode> {
+  async getWorkPlace(): Promise<WorkPlace> {
     const auth = new Auth();
-    const response = await auth.get('/bumon_code');
-    return response.data.result;
-  },
-
-  async getSlipType(): Promise<SlipType> {
-    const auth = new Auth();
-    const response = await auth.get('/slip/type');
+    const response = await auth.get('/workplace');
     return response.data.result;
   },
 

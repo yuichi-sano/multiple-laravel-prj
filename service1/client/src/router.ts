@@ -7,9 +7,9 @@ import {AuthorizedAccount} from '@/types/authentication/Account';
 import {RouteConfig} from 'vue-router/types/router';
 // views
 import SignIn from '@/views/sign/SignIn.vue';
-import DeliveryTerminalDetails from '@/views/facility/device/DeliveryTerminalDetails.vue';
-import DeliveryTerminalMaintenance from '@/views/facility/device/DeliveryTerminalMaintenance.vue';
-import DeliveryTerminalRegister from '@/views/facility/device/DeliveryTerminalRegister.vue';
+import DeviceDetails from '@/views/facility/device/DeviceDetails.vue';
+import DeviceMaintenance from '@/views/facility/device/DeviceMaintenance.vue';
+import DeviceRegister from '@/views/facility/device/DeviceRegister.vue';
 import TopMenu from '@/views/TopMenu.vue';
 import ZipCodeMaintenanceMenu from '@/views/zipcode/ZipCodeMaintenanceMenu.vue';
 import YuuseiZipCodeMaintenance from '@/views/zipcode/yusei/YuuseiZipCodeMaintenance.vue';
@@ -82,18 +82,23 @@ const routes: RouteConfig[] = [
     meta: {title: '郵政郵便番号マスタメンテナンス', requiresAuth: true},
   },
 
-
   {
-    path: '/deliveryTerminalMaintenance/details/:id',
-    name: 'DeliveryTerminalDetails',
-    component: DeliveryTerminalDetails,
-    meta: {title: '配送端末情報詳細', requiresAuth: true},
+    path: '/deviceMaintenance',
+    name: 'DeviceDetails',
+    component: DeviceMaintenance,
+    meta: {title: '端末情報詳細', requiresAuth: true},
+  },
+  {
+    path: '/deviceMaintenance/details/:id',
+    name: 'DeviceDetails',
+    component: DeviceDetails,
+    meta: {title: '端末情報詳細', requiresAuth: true},
   },
 
   {
-    path: '/deliveryTerminalMaintenance/register',
-    name: 'DeliveryTerminalRegister',
-    component: DeliveryTerminalRegister,
+    path: '/deviceMaintenance/register',
+    name: 'DeviceRegister',
+    component: DeviceRegister,
     meta: {title: '端末情報新規登録', requiresAuth: true},
   },
 

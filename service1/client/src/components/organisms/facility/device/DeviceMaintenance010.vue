@@ -8,7 +8,7 @@
 
             <!-- 配送端末情報新規登録 -->
             <div class="div-section">
-                <Button class="text-center" variantName="success" buttonText="配送端末情報新規登録" @click="toPage('/deliveryTerminalMaintenance/register')"></Button>
+                <Button class="text-center" variantName="success" buttonText="配送端末情報新規登録" @click="toPage('/deviceMaintenance/register')"></Button>
             </div>
 
            <!-- 配送端末情報検索 -->
@@ -19,23 +19,23 @@
 
                          <FormSelect class="pl-4" name="factory-select"
                                 labelCols="4" labelName="工場（部門コード）" inputClassName=""
-                                v-model="searchHtDeviceRequest.facilityCode"
-                                :options="facilityCodeList.facilityCodeList"
-                                text-field='deliveryWorkplaceName'
-                                value-field='facilityCode'></FormSelect>
+                                v-model="searchDeviceRequest.workPlaceId"
+                                :options="workPlaceList"
+                                text-field='workplaceName'
+                                value-field='workPlaceId'></FormSelect>
                     </b-col>
                     <b-col cols="3">
-                        <Button class="" variantName="info" buttonText="検索" @click="searchHtDevice()"></Button><br>
+                        <Button class="" variantName="info" buttonText="検索" @click="searchDevice()"></Button><br>
                     </b-col>
 
                 </b-row>
                 <div id="table-container" class="mt-3">
-                    <div  class="mt-3" v-if="searchHtDeviceList.htDeviceList.length > 0">
+                    <div  class="mt-3" v-if="searchDeviceList.DeviceList.length > 0">
                     <b-table hover
                              table-variant="info"
                              :bordered="true"
                              responsive
-                             :items="searchHtDeviceList.htDeviceList"
+                             :items="searchDeviceList.DeviceList"
                              :fields="hostDeviceFields"
                              selectable
                              @row-clicked="toDetailPage"
@@ -46,16 +46,16 @@
                         <template #cell(htHostIp)="row">
                             <p>{{row.item.htHostIp}}</p>
                         </template>
-                        <template #cell(deliveryWorkplaceName)="row">
-                            <p>{{row.item.deliveryWorkplaceName}}</p>
+                        <template #cell(deliveryWorkPlaceName)="row">
+                            <p>{{row.item.deliveryWorkPlaceName}}</p>
                         </template>
                         <template #cell(location)="row">
                             <p>{{row.item.location}}</p>
                         </template>
-                        <template #head(htDeviceList)="row">
-                            <b-col cols="12" class="text-center">ハンディ端末</b-col>
+                        <template #head(DeviceList)="row">
+                            <b-col cols="12" class="text-center">端末</b-col>
                             <b-row>
-                            <b-col cols="4" >ハンディIP</b-col>
+                            <b-col cols="4" >IP</b-col>
                             <b-col cols="4" >設置場所</b-col>
                             <b-col cols="4" >
                                 種別<SortColumnIcon v-model="testSortOrder.order"
@@ -66,13 +66,13 @@
 
                         </template>
 
-                        <template #cell(htDeviceList)="row">
+                        <template #cell(DeviceList)="row">
                             <b-table
                                 thead-class="d-none"
                                 table-variant="light"
                                 striped
-                                :items="row.item.htDeviceList"
-                                :fields="htDeviceListField"
+                                :items="row.item.DeviceList"
+                                :fields="DeviceListField"
                                 responsive
                             ></b-table>
                         </template>
@@ -82,16 +82,16 @@
                 <b-row>
                     <b-col offset="4" cols="4">
                     <pagination
-                        :current-page="searchHtDeviceRequest.page"
+                        :current-page="searchDeviceRequest.page"
                         :next-page="nextPage"
-                        :per-page="searchHtDeviceRequest.perPage"
+                        :per-page="searchDeviceRequest.perPage"
                         :previous-page="previousPage"
                         :total="total"
-                        v-model="searchHtDeviceRequest.page"
+                        v-model="searchDeviceRequest.page"
                     ></pagination>
                     </b-col>
                     <b-row cols="2">
-                    <PerPageInput v-model="searchHtDeviceRequest.perPage" :min-per-page="10"/>
+                    <PerPageInput v-model="searchDeviceRequest.perPage" :min-per-page="10"/>
                     件表示
                     </b-row>
                 </b-row>
@@ -112,9 +112,9 @@ import FormInputText from '@/components/atoms/FormInputText.vue';
 import FormSelect from '@/components/atoms/FormSelect.vue';
 import Form from '@/components/molecules/Form.vue';
 import api from '@/infrastructure/api/API';
-import {EmptyBumonCode, BumonCode} from '@/types/htDevice/BumonCode';
-import {EmptySlipType, SlipType} from '@/types/htDevice/SlipType';
-import {EmptyHtDeviceGetResponse, HtDeviceGetRequest, HtDeviceGetResponse} from '@/types/htDevice/htDeviceGet';
+import {EmptyWorkPlace, WorkPlace} from '@/types/device/WorkPlace';
+import {EmptySlipType, SlipType} from '@/types/device/SlipType';
+import {EmptyDeviceGetResponse, DeviceGetRequest, DeviceGetResponse} from '@/types/device/DeviceGet';
 import Pagination from '@/components/atoms/Pagination.vue';
 import PerPageSelector from '@/components/molecules/selector/PerPagesSelector.vue';
 import PerPageInput from '@/components/atoms/PerPageInput.vue';
@@ -134,10 +134,10 @@ import {SortOrder, SortOrderRequest} from '@/types/sort/SortOrder';
       PerPageInput,
   },
 })
-export default class DeliveryTerminalMaintenance010 extends Vue {
+export default class DeviceMaintenance010 extends Vue {
 
   @Prop()
-  facilityCodeList: BumonCode | undefined;
+  facilityCodeList: WorkPlace | undefined;
     testSortOrder: SortOrderRequest = {
         sort: 'test',
         order: SortOrder.NONE,
@@ -150,62 +150,61 @@ export default class DeliveryTerminalMaintenance010 extends Vue {
   nextPage: number | null = null;
   previousPage: number | null = null;
 
-  searchHtDeviceRequest: HtDeviceGetRequest = {
-    facilityCode: null,
+  searchDeviceRequest: DeviceGetRequest = {
+    workPlaceId: null,
     page: 1,
     perPage: 10,
     sorts: [this.testSortOrder],
   };
-  searchHtDeviceList: HtDeviceGetResponse = {...EmptyHtDeviceGetResponse};
+  searchDeviceList: DeviceGetResponse = {...EmptyDeviceGetResponse};
 
   hostDeviceFields = [
       {key: 'htHostName', label: '端末ホスト名'},
       {key: 'htHostIp', label: 'IPアドレス'},
-      {key: 'deliveryWorkplaceName', label: '工場(部門コード)'},
+      {key: 'deliveryWorkPlaceName', label: '工場(部門コード)'},
       {key: 'location', label: '設置場所'},
-      {key: 'htDeviceList', label: 'ハンディ端末'},
+      {key: 'DeviceList', label: '端末'},
   ];
 
-  htDeviceListField = [
-      {key: 'htDeviceIp', label: 'ハンディ端末IPアドレス'},
-      {key: 'location', label: 'ハンディ端末設置場所'},
-      {key: 'slipType', label: '伝票種別'},
+  DeviceListField = [
+      {key: 'DeviceIp', label: '端末IPアドレス'},
+      {key: 'location', label: '端末設置場所'},
   ];
 
   // computed
 
     // watch
-    @Watch('searchHtDeviceRequest.page')
+    @Watch('searchDeviceRequest.page')
     onChangePage() {
-        this.searchHtDevice();
+        this.searchDevice();
     }
     // watch
-    @Watch('searchHtDeviceRequest.perPage')
+    @Watch('searchDeviceRequest.perPage')
     onChangePerPage() {
-        this.searchHtDeviceRequest.page = 1;
-        this.searchHtDevice();
+        this.searchDeviceRequest.page = 1;
+        this.searchDevice();
     }
 
   // method
   async initialize(): Promise<void> {
-      await this.searchHtDevice();
+      await this.searchDevice();
   }
 
-  async searchHtDevice(): Promise<void> {
-        const getHtDeviceList = async (): Promise<void> => {
-            await api.getHtDevice(this.searchHtDeviceRequest)
+  async searchDevice(): Promise<void> {
+        const getDeviceList = async (): Promise<void> => {
+            await api.getDevice(this.searchDeviceRequest)
                 .then((response: any) => {
-                    this.searchHtDeviceList = response;
-                    this.nextPage = this.searchHtDeviceList.page.nextPage;
-                    this.previousPage = this.searchHtDeviceList.page.previousPage;
-                    this.total = this.searchHtDeviceList.page.resultCount;
+                    this.searchDeviceList = response;
+                    this.nextPage = this.searchDeviceList.page.nextPage;
+                    this.previousPage = this.searchDeviceList.page.previousPage;
+                    this.total = this.searchDeviceList.page.resultCount;
                 });
         };
-        await progress(getHtDeviceList);
+        await progress(getDeviceList);
     }
 
   toDetailPage(row: { htHostId: string; }) {
-    const path = '/deliveryTerminalMaintenance/details/' + row.htHostId;
+    const path = '/deviceMaintenance/details/' + row.htHostId;
     this.toPage(path);
   }
   toPage(page: string) {
@@ -214,20 +213,20 @@ export default class DeliveryTerminalMaintenance010 extends Vue {
 
   changeSort(request: SortOrderRequest): void {
 
-      this.searchHtDeviceRequest.sorts
+      this.searchDeviceRequest.sorts
           .filter((sort) => sort.sort !== request.sort)
           .forEach((sort) => sort.order = SortOrder.NONE);
       if (request.order !== SortOrder.NONE) {
-          this.searchHtDeviceRequest.sorts = [request];
+          this.searchDeviceRequest.sorts = [request];
       } else {
-          this.searchHtDeviceRequest.sorts = [];
+          this.searchDeviceRequest.sorts = [];
       }
-      this.searchHtDevice();
+      this.searchDevice();
   }
 
   // lifecycle hooks
   created(): void {
-      this.searchHtDevice();
+      this.searchDevice();
   }
 }
 </script>
