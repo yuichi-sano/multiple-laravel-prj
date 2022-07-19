@@ -54,10 +54,6 @@ class YuseiLargeBusinessYubinBangou
     public array $collectionKeys = ['jis', 'zip_code'];
 
     /* Getter */
-    public function getId(): ZipCodeId
-    {
-        return $this->id;
-    }
 
     public function getJis(): ZipCodeJis
     {

@@ -28,11 +28,9 @@ interface ZipCodeRepository
 
     public function findAddress(ZipCodePostalCode $zipCode): ZipCodeList;
 
-    public function findAddressById(ZipCodeId $id): ZipCode;
-
     public function add(ZipCode $zipCode): void;
 
     public function update(ZipCode $zipCode): void;
 
-    public function delete(ZipCodeId $zipCodeId): void;
+    public function delete(ZipCodePostalCode $zipCodePostalCode): void;
 }

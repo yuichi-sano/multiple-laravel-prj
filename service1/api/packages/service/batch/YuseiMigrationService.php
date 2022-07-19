@@ -9,23 +9,22 @@ use packages\domain\model\batch\MigrationBatchAuditRepository;
 use packages\domain\model\batch\MigrationBatchAuditStatus;
 use packages\domain\model\zipcode\YuseiLargeBusinessYubinBangouRepository;
 use packages\domain\model\zipcode\YuseiYubinBangouRepository;
-use packages\domain\model\zipcode\ZipCodeRepository;
-use packages\domain\model\zipcode\ZipCodeSourceRepository;
+
 
 class YuseiMigrationService
 {
-    private ZipCodeRepository $zipCodeRepository;
+
     private YuseiYubinBangouRepository $yubinBangouRepository;
     private YuseiLargeBusinessYubinBangouRepository $yuseiLargeBusinessYubinBangouRepository;
     private MigrationBatchAuditRepository $migrationBatchAuditRepository;
 
     public function __construct(
-        ZipCodeRepository $zipCodeRepository,
+
         YuseiYubinBangouRepository $yubinBangouRepository,
         YuseiLargeBusinessYubinBangouRepository $yuseiLargeBusinessYubinBangouRepository,
         MigrationBatchAuditRepository $migrationBatchAuditRepository
     ) {
-        $this->zipCodeRepository = $zipCodeRepository;
+
         $this->yubinBangouRepository = $yubinBangouRepository;
         $this->yuseiLargeBusinessYubinBangouRepository = $yuseiLargeBusinessYubinBangouRepository;
         $this->migrationBatchAuditRepository = $migrationBatchAuditRepository;
@@ -60,13 +59,6 @@ class YuseiMigrationService
     public function getMigrationList(): MigrationBatchAuditList
     {
         $migrationList = new MigrationBatchAuditList();
-        $migrationList->add(
-            $this->migrationBatchAuditRepository->migrationTarget(
-                $this->zipCodeRepository->createMigrationCriteria(
-                    MigrationBatchAuditStatus::getWaitingStatus()->toInteger()
-                )
-            )
-        );
         $migrationList->add(
             $this->migrationBatchAuditRepository->migrationTarget(
                 $this->yubinBangouRepository->createMigrationCriteria(

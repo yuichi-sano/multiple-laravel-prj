@@ -8,5 +8,4 @@ interface MergeZipYuseiYubinBangouRepository
 {
     public function findAddress(ZipCodePostalCode $zipCode): MergeZipYuseiYubinBangouList;
 
-    public function findAddressById(ZipCodeId $zipCodeId): MergeZipYuseiYubinBangou;
 }

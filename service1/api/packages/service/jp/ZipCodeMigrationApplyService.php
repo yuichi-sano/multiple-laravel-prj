@@ -31,7 +31,6 @@ class ZipCodeMigrationApplyService implements ZipCodeMigrationApplyInterface
     private ZipCodeSourceRepository $zipCodeSourceRepository;
     private YuseiLargeBusinessZipCodeSourceRepository $yuseiLargeBusinessZipCodeSourceRepository;
     private ZipCodeMigrationSourceRepository $zipCodeMigrationSourceRepository;
-    private ZipCodeRepository $zipCodeRepository;
     private YuseiYubinBangouRepository $yubinBangouRepository;
     private YuseiLargeBusinessYubinBangouRepository $yuseiLargeBusinessYubinBangouRepository;
     private PrefectureRepository $prefectureRepository;
@@ -41,7 +40,6 @@ class ZipCodeMigrationApplyService implements ZipCodeMigrationApplyInterface
         ZipCodeSourceRepository $zipCodeSourceRepository,
         YuseiLargeBusinessZipCodeSourceRepository $yuseiLargeBusinessZipCodeSourceRepository,
         ZipCodeMigrationSourceRepository $zipCodeMigrationSourceRepository,
-        ZipCodeRepository $zipCodeRepository,
         YuseiYubinBangouRepository $yubinBangouRepository,
         YuseiLargeBusinessYubinBangouRepository $yuseiLargeBusinessYubinBangouRepository,
         MigrationBatchAuditRepository $migrationBatchAuditRepository,
@@ -50,7 +48,6 @@ class ZipCodeMigrationApplyService implements ZipCodeMigrationApplyInterface
         $this->zipCodeSourceRepository = $zipCodeSourceRepository;
         $this->yuseiLargeBusinessZipCodeSourceRepository = $yuseiLargeBusinessZipCodeSourceRepository;
         $this->zipCodeMigrationSourceRepository = $zipCodeMigrationSourceRepository;
-        $this->zipCodeRepository = $zipCodeRepository;
         $this->yubinBangouRepository = $yubinBangouRepository;
         $this->yuseiLargeBusinessYubinBangouRepository = $yuseiLargeBusinessYubinBangouRepository;
         $this->migrationBatchAuditRepository = $migrationBatchAuditRepository;
@@ -69,7 +66,6 @@ class ZipCodeMigrationApplyService implements ZipCodeMigrationApplyInterface
             $largeZipMasterSources->toFile()
         );
 
-        $zipDiff = $this->zipCodeMigrationSourceRepository->zipDiff();
         $yuseiYubinBangouDiff = $this->zipCodeMigrationSourceRepository->yuseiYubinBangouDiff();
         $yuseiLargeBusinessYubinBangouDiff = $this->zipCodeMigrationSourceRepository->yuseiLargeBusinessYubinBangouDiff(
         );
@@ -77,14 +73,6 @@ class ZipCodeMigrationApplyService implements ZipCodeMigrationApplyInterface
         $migrationList = new MigrationBatchAuditList();
 
         TransactionManager::startTransaction();
-        $migrationList->add(
-            $this->zipCodeRepository->createMigrationBatch(
-                new MigrationBatchAuditRecordCnt($zipCodeList->count()),
-                new MigrationBatchAuditDiffCnt($zipDiff->count()),
-                $applyDate,
-                $userId
-            )
-        );
 
         $migrationList->add(
             $this->yubinBangouRepository->createMigrationBatch(

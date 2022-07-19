@@ -6,7 +6,6 @@ use App\Http\Requests\Basic\AbstractFormRequest;
 use App\Http\Requests\Definition\Yusei\ZipCodeIndividualRegisterDefinition;
 use packages\domain\model\zipcode\MergeZipYuseiYubinBangou;
 use packages\domain\model\zipcode\ZipCode;
-use packages\domain\model\zipcode\ZipCodeId;
 use packages\domain\model\zipcode\ZipCodeJis;
 use packages\domain\model\zipcode\ZipCodeOldPostalCode;
 use packages\domain\model\zipcode\ZipCodePostalCode;
@@ -31,7 +30,6 @@ class ZipCodeIndividualRegisterRequest extends AbstractFormRequest
     {
         $postalCode = new ZipCodePostalCode($this->zipCode);
         return new ZipCode(
-            new ZipCodeId(),
             new ZipCodeJis($this->sikuCode),
             new ZipCodeOldPostalCode($postalCode->toMostOldStr()),
             $postalCode,
@@ -59,7 +57,6 @@ class ZipCodeIndividualRegisterRequest extends AbstractFormRequest
     {
         $postalCode = new ZipCodePostalCode($this->zipCode);
         return new MergeZipYuseiYubinBangou(
-            new ZipCodeId($id),
             new ZipCodeJis($this->sikuCode),
             new ZipCodeOldPostalCode($postalCode->toMostOldStr()),
             $postalCode,

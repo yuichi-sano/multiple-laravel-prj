@@ -64,15 +64,6 @@ class DatasourceServiceProvider extends ServiceProvider
 
 
         $this->app->bind(
-            DomainModel\zipcode\ZipCodeRepository::class,
-            function ($app) {
-                return new Doctrine\jp\DoctrineZipCodeRepository(
-                    $app['em'],
-                    $app['em']->getClassMetaData(DomainModel\zipcode\ZipCode::class)
-                );
-            }
-        );
-        $this->app->bind(
             DomainModel\zipcode\YuseiYubinBangouRepository::class,
             function ($app) {
                 return new Doctrine\jp\DoctrineYuseiYubinBangouRepository(

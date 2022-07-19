@@ -6,7 +6,6 @@ namespace packages\domain\model\zipcode;
 
 class MergeZipYuseiYubinBangou
 {
-    private ZipCodeId $id;
     private ZipCodeJis $jis;
     private ZipCodeOldPostalCode $zipCode5;
     private ZipCodePostalCode $zipCode;
@@ -27,7 +26,6 @@ class MergeZipYuseiYubinBangou
     private ?ZipCodeAuditDate $auditDate = null;
 
     public function __construct(
-        ZipCodeId $id,
         ZipCodeJis $jis,
         ZipCodeOldPostalCode $zipCode5,
         ZipCodePostalCode $zipCode,
@@ -45,7 +43,6 @@ class MergeZipYuseiYubinBangou
         string $updated,
         string $updateReason
     ) {
-        $this->id = $id;
         $this->jis = $jis;
         $this->zipCode5 = $zipCode5;
         $this->zipCode = $zipCode;
@@ -66,13 +63,6 @@ class MergeZipYuseiYubinBangou
 
     public array $collectionKeys = [];
     /* Getter */
-    /**
-     * @return ZipCodeId
-     */
-    public function getId(): ZipCodeId
-    {
-        return $this->id;
-    }
 
     public function getJis(): ZipCodeJis
     {
@@ -208,7 +198,6 @@ class MergeZipYuseiYubinBangou
     public function transZipCode(): ZipCode
     {
         return new  ZipCode(
-            $this->id,
             $this->jis,
             new ZipCodeOldPostalCode($this->zipCode->toMostOldStr()),
             $this->zipCode,
@@ -231,7 +220,6 @@ class MergeZipYuseiYubinBangou
     public function transYuseiYubinbangou(): YuseiYubinBangou
     {
         return new  YuseiYubinBangou(
-            $this->id,
             $this->jis,
             new ZipCodeOldPostalCode($this->zipCode->toMostOldStr()),
             $this->zipCode,

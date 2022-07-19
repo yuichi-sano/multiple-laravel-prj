@@ -24,7 +24,6 @@ use packages\domain\model\zipcode\YuseiYubinBangou;
 use packages\domain\model\zipcode\YuseiYubinBangouList;
 use packages\domain\model\zipcode\YuseiYubinBangouRepository;
 use packages\domain\model\zipcode\ZipCode;
-use packages\domain\model\zipcode\ZipCodeId;
 use packages\domain\model\zipcode\ZipCodePostalCode;
 use packages\domain\model\zipcode\ZipCodeRepository;
 use packages\infrastructure\database\doctrine\DoctrineRepository;
@@ -74,37 +73,4 @@ class DoctrineMergeZipYuseiYubinBangouRepository extends DoctrineRepository impl
         }
     }
 
-    /**
-     * zipsを一件に絞りこんだうえでのマージ検索
-     * @param ZipCodeId $zipCodeId
-     * @return MergeZipYuseiYubinBangou
-     * @throws BindingResolutionException
-     * @throws NoResultException
-     * @throws NonUniqueResultException
-     */
-    public function findAddressById(ZipCodeId $zipCodeId): MergeZipYuseiYubinBangou
-    {
-        $exactSql = $this->readNativeQueryFile('findExactMatchZipYubinbangouById');
-        $exactQuery = $this->getEntityManager()->createNativeQuery($exactSql, $this->getDefaultRSM());
-        $exactQuery->setParameters([
-            'id' => $zipCodeId->getValue(),
-        ]);
-
-        $sql = $this->readNativeQueryFile('findPartialMatchZipYubinbangouById');
-        $query = $this->getEntityManager()->createNativeQuery($sql, $this->getDefaultRSM());
-        $query->setParameters([
-            'id' => $zipCodeId->getValue(),
-        ]);
-
-        try {
-            if ($exactQuery->getResult()) {
-                $result = $exactQuery->getSingleResult();
-            } else {
-                $result = $query->getSingleResult();
-            }
-            return $result;
-        } catch (NoResultException $e) {
-            throw $e;
-        }
-    }
 }

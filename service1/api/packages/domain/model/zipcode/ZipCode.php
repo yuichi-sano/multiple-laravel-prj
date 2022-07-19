@@ -6,7 +6,6 @@ namespace packages\domain\model\zipcode;
 
 class ZipCode
 {
-    private ZipCodeId $id;
     private ZipCodeJis $jis;
     private ZipCodeOldPostalCode $zipCode5;
     private ZipCodePostalCode $zipCode;
@@ -26,7 +25,6 @@ class ZipCode
     private ?ZipCodeUserId $userId = null;
 
     public function __construct(
-        ZipCodeId $id,
         ZipCodeJis $jis,
         ZipCodeOldPostalCode $zipCode5,
         ZipCodePostalCode $zipCode,
@@ -44,7 +42,6 @@ class ZipCode
         string $updated,
         string $updateReason
     ) {
-        $this->id = $id;
         $this->jis = $jis;
         $this->zipCode5 = $zipCode5;
         $this->zipCode = $zipCode;
@@ -66,11 +63,6 @@ class ZipCode
     public array $collectionKeys = ['id'];
 
     /* Getter */
-    public function getId(): ZipCodeId
-    {
-        return $this->id;
-    }
-
     public function getJis(): ZipCodeJis
     {
         return $this->jis;

@@ -1,4 +1,4 @@
-INSERT INTO sampleaudit.table_batch_audit
+INSERT INTO sample.table_batch_audit
 (target_table_name,
  record_cnt,
  before_record_cnt,

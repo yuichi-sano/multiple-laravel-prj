@@ -4,11 +4,6 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
     <entity name="packages\domain\model\zipcode\MergeZipYuseiYubinBangou">
         <embedded
-                name="id"
-                class="packages\domain\model\zipcode\ZipCodeId"
-                use-column-prefix="false"
-        />
-        <embedded
                 name="jis"
                 class="packages\domain\model\zipcode\ZipCodeJis"
                 use-column-prefix="false"

@@ -1,4 +1,4 @@
 SELECT *
-FROM sampleaudit.table_batch_audit
+FROM sample.table_batch_audit
 WHERE status = '1';
 
