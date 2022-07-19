@@ -42,9 +42,9 @@ class Kernel extends ConsoleKernel
     {
         $list = $this->getMigrationList();
         foreach ($list as $migration) {
-            if ($migration->getTargetTableName() == 'zips' || $migration->getTargetTableName(
-                ) == 'yuseiyubinbangous' || $migration->getTargetTableName(
-                ) == 'yuseiooguchijigyoushoyubinbangous') {
+            if ($migration->getTargetTableName() == 'yuseiyubinbangous'
+                || $migration->getTargetTableName() == 'yuseiooguchijigyoushoyubinbangous')
+            {
                 $applyDate = $migration->getApplyDate()->getValue();
                 $this->batchList['yuseiBatch']['schedule'] = $this->transCronSchedule($applyDate);
             }

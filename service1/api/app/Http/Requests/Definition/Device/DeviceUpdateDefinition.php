@@ -13,19 +13,9 @@ class DeviceUpdateDefinition extends AbstractRequestDefinition implements Defini
      */
 
     //端末Id
-    protected string $deviceId = 'integer';
-    //端末種別
-    protected string $deviceType = 'integer';
+    protected string $id = 'integer';
+
     //端末IP
-    protected string $deviceIp = 'string';
-    //設置場所
-    protected string $location = 'required|string';
+    protected string $ip = 'string';
 
-    /** オーバーライド */
-    public function childDefinition(): array
-    {
-        return [
-
-        ];
-    }
 }

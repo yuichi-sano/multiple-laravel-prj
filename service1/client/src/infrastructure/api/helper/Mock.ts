@@ -6,8 +6,7 @@ import { ZipCodeKenAll } from '@/types/zipCodeYusei/ZipCodeKenAll';
 import { ZipCodeYuseiBulk } from '@/types/zipCodeYusei/ZipCodeYuseiBulk';
 import { ZipCodeYuseiSearchResponse } from '@/types/zipCodeYusei/ZipCodeYuseiSearch';
 import { Prefecture } from '@/types/prefecture/Prefecture';
-import { WorkPlace } from '@/types/Device/WorkPlace';
-import { SlipType } from '@/types/Device/SlipType';
+import { Workplace } from '@/types/device/Workplace';
 import { ZipCodeIndividualRegisterResponse } from '@/types/zipCodeYusei/ZipCodeIndividualRegister';
 import { ZipCodeYuseiDeleteResponse } from '@/types/zipCodeYusei/ZipCodeYuseiDelete';
 import { DeviceGetResponse } from '@/types/Device/DeviceGet';
@@ -138,7 +137,7 @@ export default {
     });
 
 
-    // 配送端末
+    // 端末
 
     mock.onGet('/device').reply((config) => {
       const data: DeviceGetResponse = {
@@ -151,18 +150,11 @@ export default {
         },
         DeviceList: [
           {
-            HostId: null,
-            HostName: '',
-            HostIp: '',
-            deliveryWorkPlaceName: '',
-            facilityCode: '',
-            location: '',
-            addressList: [
-              {
-                DeviceIp: '',
-                location: '',
-              },
-            ],
+            id: null,
+            name: '',
+            ip: '',
+            workplaceName: '',
+            workplaceId: '',
           },
         ],
       };
@@ -182,17 +174,10 @@ export default {
       const data: DeviceDetails = {
         DeviceList: [
           {
-            HostName: 'ホスト名',
-            HostIp: 'ホストIP',
-            deliveryWorkPlaceName: '工場',
-            facilityCode: '000',
-            location: '設置場所',
-            addressList: [
-              {
-                DeviceIp: '192.0.0.0',
-                location: 'ロケーション',
-              },
-            ],
+            name: '端末名',
+            ip: '端末IP',
+            workplaceName: '拠点',
+            workplaceId: 　0,
           },
       ],
       };
@@ -201,14 +186,12 @@ export default {
     });
 
     mock.onGet('/workplace').reply((config) => {
-      const data: WorkPlace = {
-        facilityCodeList: [
+      const data: Array<Workplace> = [
           {
-            facilityCode: '00',
-            deliveryWorkPlaceName: '',
+            workplaceId: 0,
+            workplaceName: '',
           },
-        ],
-      };
+        ];
       // @ts-ignore
       return this.__success(data, config);
     });

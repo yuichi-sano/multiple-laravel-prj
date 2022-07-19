@@ -75,7 +75,7 @@ abstract class DoctrineRepository extends EntityRepository
      * @return array
      * @throws ReflectionException
      */
-    protected function transferAssociativeArray($rowDatas)
+    protected function transferAssociativeArray($rowDatas): array
     {
         $domainReflect = new ReflectionClass($this->getEntityName());
         $groupResults = [];
@@ -112,6 +112,7 @@ abstract class DoctrineRepository extends EntityRepository
 
     /**
      * 渡されたdomainモデルに従い連想配列へトランスします
+     * FIXME オブジェクト入れ子になっていて、互いに参照しあう場合、無限ループに陥る可能性があるので、再帰する深さを制限する必要がある。
      * @param $rowData
      * @param ReflectionClass $domainReflect
      * @param array $parentPrefixes
@@ -124,7 +125,7 @@ abstract class DoctrineRepository extends EntityRepository
         ReflectionClass $domainReflect,
         &$result,
         array $parentPrefixes = []
-    ) {
+    ): void {
         $prefixes = $parentPrefixes;
         $prefixes[] = $this->getBaseClassName($domainReflect->getName());
         foreach ($domainReflect->getProperties() as $property) {

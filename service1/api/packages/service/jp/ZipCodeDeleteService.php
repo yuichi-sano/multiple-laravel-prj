@@ -36,16 +36,13 @@ use packages\domain\model\zipcode\ZipCodeMigrationSourceRepository;
  */
 class ZipCodeDeleteService
 {
-    private ZipCodeRepository $zipCodeRepository;
     private YuseiYubinBangouRepository $yubinBangouRepository;
     private MergeZipYuseiYubinBangouRepository $mergeZipYuseiYubinBangouRepository;
 
     public function __construct(
-        ZipCodeRepository $zipCodeRepository,
         YuseiYubinBangouRepository $yubinBangouRepository,
         MergeZipYuseiYubinBangouRepository $mergeZipYuseiYubinBangouRepository
     ) {
-        $this->zipCodeRepository = $zipCodeRepository;
         $this->yubinBangouRepository = $yubinBangouRepository;
         $this->mergeZipYuseiYubinBangouRepository = $mergeZipYuseiYubinBangouRepository;
     }
@@ -62,7 +59,6 @@ class ZipCodeDeleteService
         $mergeZipYusei = $this->mergeZipYuseiYubinBangouRepository->findAddressById($zipcodeId);
         try {
             $this->yubinBangouRepository->delete($mergeZipYusei);
-            $this->zipCodeRepository->delete($zipcodeId);
         } catch (Exception $e) {
             TransactionManager::rollback();
             Log::erroe($e->getMessage());

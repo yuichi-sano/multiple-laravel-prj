@@ -12,6 +12,7 @@ use packages\domain\model\facility\workplace\WorkplaceId;
 class DeviceCriteria
 {
     public Pageable $pageable;
+    public WorkplaceId $workplaceId;
 
     private function __construct(
         WorkplaceId $workplaceId,

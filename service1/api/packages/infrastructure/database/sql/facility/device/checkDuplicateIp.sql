@@ -1,8 +1,4 @@
 SELECT count(1)
-FROM (SELECT ip_address
-      FROM computers
-      UNION
-      SELECT ip_address
-      FROM ht_devices) AS A
+FROM sample.devices
 WHERE A.ip_address = :ipAddress
 ;

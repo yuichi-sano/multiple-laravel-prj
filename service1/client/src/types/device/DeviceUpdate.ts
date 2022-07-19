@@ -1,14 +1,7 @@
-export interface Device {
-    DeviceTmpId: number|null;
-    DeviceIp: string;
-    location: string;
-}
 export interface DeviceUpdateRequest {
-    HostName: string;
-    HostIp: string;
-    facilityCode: string;
-    location: string;
-    DeviceList: Device[];
+    name: string;
+    ip: string;
+    workplaceId: string;
 }
 
 export interface DeviceUpdateResponse {
@@ -20,9 +13,7 @@ export const EmptyDeviceUpdateResponse: DeviceUpdateResponse = {
 };
 
 export const EmptyDeviceUpdateRequest: DeviceUpdateRequest = {
-    HostName: '',
-    HostIp: '',
-    facilityCode: '',
-    location: '',
-    DeviceList: [],
+    name: '',
+    ip: '',
+    workplaceId: '',
 };

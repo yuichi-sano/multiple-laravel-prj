@@ -1,17 +1,10 @@
 export interface DeviceDetails {
     DeviceList: [
         {
-          HostName: string,
-          HostIp: string,
-          deliveryWorkPlaceName: string,
-          facilityCode: string,
-          location: string,
-          addressList: [
-            {
-              DeviceIp: string,
-              location: string,
-            }
-          ],
+          name: string,
+          ip: string,
+          workplaceName: string,
+          workplaceId: number,
         }
     ];
 }
@@ -19,17 +12,10 @@ export interface DeviceDetails {
 export const EmptyDeviceDetails: DeviceDetails = {
     DeviceList: [
         {
-          HostName: '',
-          HostIp: '',
-          deliveryWorkPlaceName: '',
-          facilityCode: '',
-          location: '',
-          addressList: [
-            {
-              DeviceIp: '',
-              location: '',
-            },
-          ],
+          name: '',
+          ip: '',
+          workplaceName: '',
+          workplaceId: 0,
         },
     ],
 };

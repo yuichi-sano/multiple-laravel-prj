@@ -1,28 +1,28 @@
 <template>
-  <b-container id="delivery-terminal-maintenance-organism" class="mt-5" data-cy="">
+  <b-container id="device-maintenance-organism" class="mt-5" data-cy="">
 
-      <Title title="配送端末情報メンテナンス" class="text-center"></Title><br>
+      <Title title="端末情報メンテナンス" class="text-center"></Title><br>
 
       <b-row>
         <b-col cols="12">
 
-            <!-- 配送端末情報新規登録 -->
+            <!-- 端末情報新規登録 -->
             <div class="div-section">
-                <Button class="text-center" variantName="success" buttonText="配送端末情報新規登録" @click="toPage('/deviceMaintenance/register')"></Button>
+                <Button class="text-center" variantName="success" buttonText="端末情報新規登録" @click="toPage('/deviceMaintenance/register')"></Button>
             </div>
 
-           <!-- 配送端末情報検索 -->
-            <div class="div-section" id="factory-search">
-                <TitleSmall titleSmall="配送端末情報検索" class="text-center"></TitleSmall>
+           <!-- 端末情報検索 -->
+            <div class="div-section" id="workplace-search">
+                <TitleSmall titleSmall="端末情報検索" class="text-center"></TitleSmall>
                 <b-row>
                     <b-col cols="9">
 
-                         <FormSelect class="pl-4" name="factory-select"
-                                labelCols="4" labelName="工場（部門コード）" inputClassName=""
-                                v-model="searchDeviceRequest.workPlaceId"
-                                :options="workPlaceList"
+                         <FormSelect class="pl-4" name="workplace-select"
+                                labelCols="4" labelName="拠点" inputClassName=""
+                                v-model="searchDeviceRequest.workplaceId"
+                                :options="workplaceList"
                                 text-field='workplaceName'
-                                value-field='workPlaceId'></FormSelect>
+                                value-field='workplaceId'></FormSelect>
                     </b-col>
                     <b-col cols="3">
                         <Button class="" variantName="info" buttonText="検索" @click="searchDevice()"></Button><br>
@@ -30,51 +30,24 @@
 
                 </b-row>
                 <div id="table-container" class="mt-3">
-                    <div  class="mt-3" v-if="searchDeviceList.DeviceList.length > 0">
+                    <div  class="mt-3" v-if="searchDeviceList.deviceList.length > 0">
                     <b-table hover
                              table-variant="info"
                              :bordered="true"
                              responsive
-                             :items="searchDeviceList.DeviceList"
-                             :fields="hostDeviceFields"
+                             :items="searchDeviceList.deviceList"
+                             :fields="deviceFields"
                              selectable
                              @row-clicked="toDetailPage"
                              >
-                        <template #cell(htHostName)="row">
-                            <p>{{row.item.htHostName}}</p>
+                        <template #cell(name)="row">
+                            <p>{{row.item.name}}</p>
                         </template>
-                        <template #cell(htHostIp)="row">
-                            <p>{{row.item.htHostIp}}</p>
+                        <template #cell(ip)="row">
+                            <p>{{row.item.ip}}</p>
                         </template>
-                        <template #cell(deliveryWorkPlaceName)="row">
-                            <p>{{row.item.deliveryWorkPlaceName}}</p>
-                        </template>
-                        <template #cell(location)="row">
-                            <p>{{row.item.location}}</p>
-                        </template>
-                        <template #head(DeviceList)="row">
-                            <b-col cols="12" class="text-center">端末</b-col>
-                            <b-row>
-                            <b-col cols="4" >IP</b-col>
-                            <b-col cols="4" >設置場所</b-col>
-                            <b-col cols="4" >
-                                種別<SortColumnIcon v-model="testSortOrder.order"
-                                                  @input="changeSort(testSortOrder)"
-                                                  data-cy="テストソート"></SortColumnIcon>
-                            </b-col>
-                            </b-row>
-
-                        </template>
-
-                        <template #cell(DeviceList)="row">
-                            <b-table
-                                thead-class="d-none"
-                                table-variant="light"
-                                striped
-                                :items="row.item.DeviceList"
-                                :fields="DeviceListField"
-                                responsive
-                            ></b-table>
+                        <template #cell(workplaceId)="row">
+                            <p>{{row.item.workplaceId}}</p>
                         </template>
                     </b-table>
                 </div>
@@ -112,8 +85,7 @@ import FormInputText from '@/components/atoms/FormInputText.vue';
 import FormSelect from '@/components/atoms/FormSelect.vue';
 import Form from '@/components/molecules/Form.vue';
 import api from '@/infrastructure/api/API';
-import {EmptyWorkPlace, WorkPlace} from '@/types/device/WorkPlace';
-import {EmptySlipType, SlipType} from '@/types/device/SlipType';
+import {EmptyWorkplace, Workplace} from '@/types/device/Workplace';
 import {EmptyDeviceGetResponse, DeviceGetRequest, DeviceGetResponse} from '@/types/device/DeviceGet';
 import Pagination from '@/components/atoms/Pagination.vue';
 import PerPageSelector from '@/components/molecules/selector/PerPagesSelector.vue';
@@ -137,39 +109,31 @@ import {SortOrder, SortOrderRequest} from '@/types/sort/SortOrder';
 export default class DeviceMaintenance010 extends Vue {
 
   @Prop()
-  facilityCodeList: WorkPlace | undefined;
+  workplaceIdList: Workplace | undefined;
     testSortOrder: SortOrderRequest = {
         sort: 'test',
         order: SortOrder.NONE,
     };
   // data
   sample = [];
-  inputValue = '';
-  facilityCodeSearchInput = '';
   total: number = 0;
   nextPage: number | null = null;
   previousPage: number | null = null;
 
   searchDeviceRequest: DeviceGetRequest = {
-    workPlaceId: null,
+    workplaceId: null,
     page: 1,
     perPage: 10,
     sorts: [this.testSortOrder],
   };
   searchDeviceList: DeviceGetResponse = {...EmptyDeviceGetResponse};
 
-  hostDeviceFields = [
-      {key: 'htHostName', label: '端末ホスト名'},
-      {key: 'htHostIp', label: 'IPアドレス'},
-      {key: 'deliveryWorkPlaceName', label: '工場(部門コード)'},
-      {key: 'location', label: '設置場所'},
-      {key: 'DeviceList', label: '端末'},
+  deviceFields = [
+      {key: 'name', label: '端末名'},
+      {key: 'ip', label: 'IPアドレス'},
+      {key: 'workplaceId', label: '拠点'},
   ];
 
-  DeviceListField = [
-      {key: 'DeviceIp', label: '端末IPアドレス'},
-      {key: 'location', label: '端末設置場所'},
-  ];
 
   // computed
 
@@ -203,8 +167,8 @@ export default class DeviceMaintenance010 extends Vue {
         await progress(getDeviceList);
     }
 
-  toDetailPage(row: { htHostId: string; }) {
-    const path = '/deviceMaintenance/details/' + row.htHostId;
+  toDetailPage(row: { id: number; }) {
+    const path = '/deviceMaintenance/details/' + row.id;
     this.toPage(path);
   }
   toPage(page: string) {
@@ -212,7 +176,6 @@ export default class DeviceMaintenance010 extends Vue {
   }
 
   changeSort(request: SortOrderRequest): void {
-
       this.searchDeviceRequest.sorts
           .filter((sort) => sort.sort !== request.sort)
           .forEach((sort) => sort.order = SortOrder.NONE);

@@ -13,9 +13,7 @@ class DeviceRegisterDefinition extends AbstractRequestDefinition implements Defi
      */
 
     //端末IP
-    protected string $deviceIp = 'required|ip_address';
-    //設置場所
-    protected string $location = 'required|string';
+    protected string $ip = 'required|ip_address';
 
     /** オーバーライド */
     public function childDefinition(): array

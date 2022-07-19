@@ -1,7 +1,7 @@
 <template>
-  <b-container id="delivery-terminal-register-organism" class="mt-5" data-cy="">
+  <b-container id="device-register-organism" class="mt-5" data-cy="">
 
-    <Title title="配送端末情報新規登録" class="text-center"></Title><br>
+    <Title title="端末情報新規登録" class="text-center"></Title><br>
 
     <b-row>
       <b-col cols="12">
@@ -12,60 +12,20 @@
             <b-row>
               <b-col cols="11">
                 <div class="">
-                  <FormInputText class="ml-5" name="terminal-host-name-input" labelCols="4" labelName="配送端末ホスト名" inputClassName=""
+                  <FormInputText class="ml-5" name="device-name-input" labelCols="4" labelName="端末名" inputClassName=""
                                  type="text" maxLength=""
-                                 v-model="request.htHostName" placeholder=""></FormInputText>
+                                 v-model="request.name" placeholder=""></FormInputText>
                   <FormInputText class="ml-5" name="ip-address-input" labelCols="4" labelName="IPアドレス" inputClassName=""
                                  type="text" maxLength=""
-                                 v-model="request.htHostIp" placeholder=""></FormInputText>
-                  <FormSelect class="ml-5" name="factory-select"
-                              labelCols="4" labelName="工場（部門コード）"
+                                 v-model="request.ip" placeholder=""></FormInputText>
+                  <FormSelect class="ml-5" name="workplace-select"
+                              labelCols="4" labelName="拠点"
                               inputClassName=""
-                              v-model="request.facilityCode"
-                              :options="workplace.facilityCodeList"
-                              text-field="deliveryWorkPlaceName"
-                              value-field="facilityCode"></FormSelect>
-                  <FormInputText class="ml-5" name="location-input" labelCols="4" labelName="設置場所" inputClassName=""
-                                 type="text" maxLength=""
-                                 v-model="request.location" placeholder=""></FormInputText>
+                              v-model="request.workplaceId"
+                              :options="workplaceList"
+                              text-field="workplaceName"
+                              value-field="workplaceId"></FormSelect>
                 </div>
-              </b-col>
-            </b-row>
-            <b-row>
-              <b-col cols="11">
-                <div class="mt-5">
-                  <div class="form-label ml-5 handy-terminal-label font-weight-bold">
-                    端末情報
-                  </div>
-                </div>
-              </b-col>
-            </b-row>
-            <b-row v-for="(deliveryDevice, index) in deliveryDevices" :key="deliveryDevice.DeviceTmpId">
-              <b-col cols="11">
-                <div class="mt-3">
-                  <FormInputText class="ml-5"  name="handy-terminal-IPaddress-input" labelCols="4"
-                                 labelName="端末IPアドレス" inputClassName=""
-                                 type="text" maxLength=""
-                                 v-model="deliveryDevice.DeviceIp"
-                                 placeholder="192.168.21.21">
-
-                  </FormInputText>
-                  <FormInputText class="ml-5"  name="handy-terminal-location-input"
-                                 labelCols="4" labelName="端末設置場所"
-                                 inputClassName="" type="text" maxLength=""
-                                 v-model="deliveryDevice.location"
-                                 placeholder="">
-
-                  </FormInputText>
-                </div>
-                <b-row>
-                  <b-col>
-                    <div class="text-right">
-                      <b-icon  class="h4 icons" icon="plus-circle-fill" variant="info" @click="addDevice"></b-icon>
-                      <b-icon  class="h4 ml-2 icons" icon="dash-circle-fill" variant="danger" @click="deleteDevice(index)"></b-icon>
-                    </div>
-                  </b-col>
-                </b-row>
               </b-col>
             </b-row>
           </div>
@@ -86,7 +46,7 @@
           :show-detail="false"
           ref="deviceRegisterConfirm">
           <template #header>
-            <h5 class="font-weight-bold">配送端末情報新規登録`</h5>
+            <h5 class="font-weight-bold">端末情報新規登録`</h5>
           </template>
           <template #content>
             <div class="h6 font-weight-bold">登録しますか?</div>
@@ -122,11 +82,9 @@ import FormSelect from '@/components/atoms/FormSelect.vue';
 import Form from '@/components/molecules/Form.vue';
 import api from '@/infrastructure/api/API';
 import {EmptyDevicePostRequest, DevicePostRequest} from '@/types/device/DevicePost';
-import {EmptyWorkPlace, WorkPlace} from '@/types/device/WorkPlace';
-import {SlipType} from '@/types/device/SlipType';
+import {EmptyWorkplace, Workplace} from '@/types/device/Workplace';
 import {progress} from '@/infrastructure/script/Progress';
 import ApiError from '@/components/molecules/ApiError.vue';
-import {EmptyZipCodeSagawaRegisterRequest} from '@/types/zipCodeSagawa/ZipCodeSagawaRegister';
 import ConfirmModal from '@/components/molecules/modal/ConfirmModal.vue';
 import SuccessInfoModal from '@/components/molecules/modal/SuccessInfoModal.vue';
 import ErrorInfoModal from '@/components/molecules/modal/ErrorInfoModal.vue';
@@ -148,15 +106,7 @@ export default class DeviceRegister012 extends Vue {
 
   // data
   @Prop()
-  workplace: WorkPlace | undefined;
-
-  deliveryDevices = [
-    {
-      DeviceTmpId : 1,
-      DeviceIp : '',
-      location :  '',
-    },
-  ];
+  workplaceList: Array<Workplace> | undefined;
   apiError: any = null;
   successModalId: string = 'deviceRegisterSuccess';
   errorModalId: string = 'deviceRegisterError';
@@ -169,54 +119,12 @@ export default class DeviceRegister012 extends Vue {
     // await this.getSample();
   }
 
-  addDevice() {
-    const maxTempId = Math.max.apply(null, this.deliveryDevices.map(function(device) {
-      return device.DeviceTmpId;
-    }));
-    this.deliveryDevices.push(
-      {
-        DeviceTmpId : maxTempId + 1,
-        DeviceIp: '',
-        location: '',
-      },
-    );
-  }
-
-  deleteDevice(idx: number) {
-    if (this.deliveryDevices.length > 1) {
-      this.deliveryDevices.splice(idx, 1);
-    } else {
-      alert('ホスト機には必ず1つ以上の端末機が必要です');
-    }
-  }
-
-  async addDevice(): Promise<void> {
-    const sendDevice =  async (): Promise<void> => {
-      const request = this.request;
-      // @ts-ignore
-      request.DeviceList = this.deliveryDevices;
-      await api.sendDevice(request)
-        .then((response: any) => {
-          this.$bvModal.show(this.successModalId);
-        }).catch((error: any): void => {
-          if (error.status === 400) {
-            this.apiError = error;
-            this.$bvModal.show(this.errorModalId);
-          }
-        });
-    };
-    await progress(sendDevice);
-  }
-
   registerConfirm() {
     // @ts-ignore
     this.$refs.deviceRegisterConfirm.showModal(this.request);
   }
 
   async bindConfirm(confirmed: boolean, data: any): Promise<void> {
-    if (confirmed) {
-      await this.addDevice();
-    }
     // @ts-ignore
     this.$refs.deviceRegisterConfirm.hideModal();
   }

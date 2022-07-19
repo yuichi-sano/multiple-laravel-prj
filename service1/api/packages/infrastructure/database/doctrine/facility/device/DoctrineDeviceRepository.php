@@ -40,25 +40,17 @@ class DoctrineDeviceRepository extends DoctrineRepository implements DeviceRepos
     {
         $rsm = new ResultSetMapping();
 
-        $rsm->addScalarResult('id', 'delivery_device_id');
-        $rsm->addScalarResult('computer_name', 'delivery_device_name');
-        $rsm->addScalarResult('label', 'delivery_device_label');
-        $rsm->addScalarResult('ip_address', 'delivery_device_ip_address');
-        $rsm->addScalarResult('location_memo', 'delivery_device_location');
-        $rsm->addScalarResult('job_work_place_id', 'workplace_workplace_id');
-        $rsm->addScalarResult('pacsystem_user_id', 'pacsystem_user_id');
-        $rsm->addScalarResult('delivery_work_place_company_name', 'delivery_workplace_company_name');
-        $rsm->addScalarResult('delivery_work_place_name', 'delivery_workplace_name');
-        $rsm->addScalarResult('delivery_work_place_code', 'delivery_workplace_code');
-        $rsm->addScalarResult('delivery_work_place_code_s', 'delivery_workplace_code_s');
-        $rsm->addScalarResult('ht_device_id', 'h_t_device__h_t_device_id');
-        $rsm->addScalarResult('ht_device_ip_address', 'h_t_device__h_t_device_ip_address');
-        $rsm->addScalarResult('ht_device_location_memo', 'h_t_device__h_t_device_location_memo');
-        $rsm->addScalarResult('ht_device_type', 'h_t_device__h_t_device_type');
+        $rsm->addScalarResult('id', 'device_id');
+        $rsm->addScalarResult('name', 'device_name');
+        $rsm->addScalarResult('ip_address', 'device_ip_address');
+        $rsm->addScalarResult('work_place_id', 'workplace_workplace_id');
+        $rsm->addScalarResult('user_id', 'user_id');
+
 
         $blade = new SqlBladeParams($criteria);
         $sql = $this->readNativeQueryFile('deviceList', $blade->toFormat());
         $query = $this->getEntityManager()->createNativeQuery($sql, $rsm);
+
         try {
             $list = new DeviceList($this->getGroupingResult($query->getResult()));
             return $list->paging($criteria->pageable->getOffset(), $criteria->pageable->getPerPage());
@@ -94,7 +86,6 @@ class DoctrineDeviceRepository extends DoctrineRepository implements DeviceRepos
         $query->setParameters([
             'deviceName' => $device->getDeviceName()->toString(),
             'bumonCode' => $device->getDeliveryWorkplace()->getDeliveryWorkplaceCode()->toString(),
-            'deviceLabel' => $device->getDeviceLabel()->toString(),
             'programName' => $device->getPacsystemUserId()->toString(),
             'deviceIpAddress' => $device->getDeviceIpAddress()->toString(),
             'deviceLocation' => $device->getDeviceLocation()->toString(),
@@ -123,10 +114,8 @@ class DoctrineDeviceRepository extends DoctrineRepository implements DeviceRepos
             'deviceId' => $device->getDeviceId()->toInteger(),
             'deviceName' => $device->getDeviceName()->toString(),
             'bumonCode' => $device->getDeliveryWorkplace()->getDeliveryWorkplaceCode()->toString(),
-            'deviceLabel' => $device->getDeviceLabel()->toString(),
             'programName' => $device->getPacsystemUserId()->toString(),
             'deviceIpAddress' => $device->getDeviceIpAddress()->toString(),
-            'deviceLocation' => $device->getDeviceLocation()->toString(),
             'findDeviceId' => $device->getDeviceId()->toInteger(),
         ]);
 
@@ -146,20 +135,11 @@ class DoctrineDeviceRepository extends DoctrineRepository implements DeviceRepos
     {
         $rsm = new ResultSetMapping();
 
-        $rsm->addScalarResult('id', 'delivery_device_id');
-        $rsm->addScalarResult('computer_name', 'delivery_device_name');
-        $rsm->addScalarResult('label', 'delivery_device_label');
-        $rsm->addScalarResult('ip_address', 'delivery_device_ip_address');
-        $rsm->addScalarResult('location_memo', 'delivery_device_location');
-        $rsm->addScalarResult('pacsystem_user_id', 'pacsystem_user_id');
-        $rsm->addScalarResult('delivery_work_place_company_name', 'delivery_workplace_company_name');
-        $rsm->addScalarResult('delivery_work_place_name', 'delivery_workplace_name');
-        $rsm->addScalarResult('delivery_work_place_code', 'delivery_workplace_code');
-        $rsm->addScalarResult('delivery_work_place_code_s', 'delivery_workplace_code_s');
-        $rsm->addScalarResult('ht_device_id', 'h_t_device__h_t_device_id');
-        $rsm->addScalarResult('ht_device_ip_address', 'h_t_device__h_t_device_ip_address');
-        $rsm->addScalarResult('ht_device_location_memo', 'h_t_device__h_t_device_location_memo');
-        $rsm->addScalarResult('ht_device_type', 'h_t_device__h_t_device_type');
+        $rsm->addScalarResult('id', 'device_id');
+        $rsm->addScalarResult('name', 'device_name');
+        $rsm->addScalarResult('ip_address', 'device_ip_address');
+        $rsm->addScalarResult('user_id', 'user_id');
+        $rsm->addScalarResult('work_place_id', 'workplace_id');
 
         $sql = $this->readNativeQueryFile('findDevice');
         $query = $this->getEntityManager()->createNativeQuery($sql, $rsm);

@@ -1,7 +1,7 @@
 import {SortOrderRequest} from '@/types/sort/SortOrder';
 
 export interface DeviceGetRequest {
-    facilityCode: string|null;
+    workplaceId: string|null;
     page: number | null;
     perPage: number | null;
     sorts: SortOrderRequest[];
@@ -15,20 +15,13 @@ export interface DeviceGetResponse {
         currentPage: number,
         nextPage: number,
     };
-    DeviceList: [
+    deviceList: [
         {
-            HostId: null,
-            HostName: '',
-            HostIp: '',
-            deliveryWorkPlaceName: '',
-            facilityCode: '',
-            location: '',
-            addressList: [
-                {
-                    DeviceIp: '',
-                    location: '',
-                }
-            ],
+            id: null,
+            name: '',
+            ip: '',
+            workplaceName: '',
+            workplaceId: '',
         }
     ];
 }
@@ -41,20 +34,13 @@ export const EmptyDeviceGetResponse: DeviceGetResponse = {
         currentPage: 1,
         nextPage: 0,
     },
-    DeviceList: [
+    deviceList: [
         {
-            HostId: null,
-            HostName: '',
-            HostIp: '',
-            deliveryWorkPlaceName: '',
-            facilityCode: '',
-            location: '',
-            addressList: [
-                {
-                    DeviceIp: '',
-                    location: '',
-                },
-            ],
+            id: null,
+            name: '',
+            ip: '',
+            workplaceName: '',
+            workplaceId: '',
         },
     ],
 };

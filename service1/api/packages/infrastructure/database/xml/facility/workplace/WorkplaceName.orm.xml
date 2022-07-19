@@ -3,6 +3,6 @@
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
     <embeddable name="packages\domain\model\facility\workplace\WorkplaceName">
-        <field name="value" type="string" column="job_work_place_name"/>
+        <field name="value" type="string" column="work_place_name"/>
     </embeddable>
 </doctrine-mapping>

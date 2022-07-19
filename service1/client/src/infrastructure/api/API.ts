@@ -7,9 +7,8 @@ import { ZipCodeIndividualRegisterRequest, ZipCodeIndividualRegisterResponse } f
 import { DeviceGetRequest, DeviceGetResponse } from '@/types/device/DeviceGet';
 import { DevicePostRequest, DevicePostResponse } from '@/types/device/DevicePost';
 import { DeviceUpdateRequest, DeviceUpdateResponse } from '@/types/device/DeviceUpdate';
-import { WorkPlace } from '@/types/device/WorkPlace';
+import { Workplace } from '@/types/device/Workplace';
 import { DeviceDetails } from '@/types/device/DeviceDetails';
-import { SlipType } from '@/types/device/SlipType';
 
 import { ZipCodeYuseiUpdate } from '@/types/zipCodeYusei/ZipCodeYuseiUpdate';
 import { ZipCodeKenAll } from '@/types/zipCodeYusei/ZipCodeKenAll';
@@ -104,7 +103,7 @@ export default {
     return response.data.result;
   },
 
-  // 配送端末
+  // 端末
   async getDevice(request: DeviceGetRequest): Promise<DeviceGetResponse> {
     const auth = new Auth();
     const response = await auth.get('/device', {params: request});
@@ -129,7 +128,7 @@ export default {
     return response.data.result;
   },
 
-  async getWorkPlace(): Promise<WorkPlace> {
+  async getWorkplace(): Promise<Array<Workplace>> {
     const auth = new Auth();
     const response = await auth.get('/workplace');
     return response.data.result;

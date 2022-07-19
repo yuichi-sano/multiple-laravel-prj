@@ -137,11 +137,9 @@ class ZipCodeMigrationApplyService implements ZipCodeMigrationApplyInterface
             $largeZipMasterSources->toFile()
         );
 
-        $this->zipCodeMigrationSourceRepository->zipPut($zipCodeList);
         $this->zipCodeMigrationSourceRepository->yuseiYubinBangouPut($zipCodeList);
         $this->zipCodeMigrationSourceRepository->yuseiLargeBusinessYubinBangouPut($yuseiLargeBusinessYubinBangouList);
 
-        $yuseiZipDiff->add($this->zipCodeMigrationSourceRepository->zipDiff());
         $yuseiZipDiff->add($this->zipCodeMigrationSourceRepository->yuseiYubinBangouDiff());
         //FIXME  一旦事業所差分は無視させてください
         //$yuseiZipDiff->add($this->zipCodeMigrationSourceRepository->yuseiLargeBusinessYubinBangouDiff());
