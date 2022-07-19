@@ -1,5 +1,5 @@
 DELETE
-FROM sampleaudit.yuseiooguchijigyoushoyubinbangous_audit
+FROM sample.yuseiooguchijigyoushoyubinbangous_audit
 WHERE program_name = 'ZipCodeMigrationDataSource';
 
 

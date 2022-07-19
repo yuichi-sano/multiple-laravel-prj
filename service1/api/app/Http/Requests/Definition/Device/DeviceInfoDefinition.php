@@ -13,17 +13,10 @@ class DeviceInfoDefinition extends AbstractRequestDefinition implements Definiti
      */
 
     //設備コード
-    protected string $facilityCode = 'string';
+    protected string $workplaceId = 'integer';
     //ページ
     protected string $page = 'integer';
     //パーページ
     protected string $perPage = 'integer';
 
-    /** オーバーライド */
-    public function childDefinition(): array
-    {
-        return [
-
-        ];
-    }
 }

@@ -10,7 +10,7 @@
         </b-dropdown>
       </b-col>
       <b-col cols="3">
-        <Button className="top-menu-button m-2" size="lg" variantName="outline-info" buttonText="VIEW-010 端末情報マスタメンテナンス" @click="toPage('/deliveryTerminalMaintenance')"></Button><br>
+        <Button className="top-menu-button m-2" size="lg" variantName="outline-info" buttonText="VIEW-010 端末情報マスタメンテナンス" @click="toPage('/deviceMaintenance')"></Button><br>
       </b-col>
     </b-row>
 

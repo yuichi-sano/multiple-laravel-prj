@@ -24,7 +24,7 @@ class DevicGetRequest extends AbstractFormRequest
 
     public function toWorkplaceId(): WorkplaceId
     {
-        return new WorkplaceId($this->facilityCode);
+        return new WorkplaceId($this->workplaceId);
     }
 
     public function toPageable(): Pageable
@@ -37,7 +37,7 @@ class DevicGetRequest extends AbstractFormRequest
     public function toDeviceCriteria(): DeviceCriteria
     {
         return DeviceCriteria::create(
-            $this->facilityCode,
+            $this->workplaceId,
             $this->page,
             $this->perPage
         );

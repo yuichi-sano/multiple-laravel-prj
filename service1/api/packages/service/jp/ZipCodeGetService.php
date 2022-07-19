@@ -34,18 +34,15 @@ use packages\domain\model\zipcode\ZipCodeMigrationSourceRepository;
  */
 class ZipCodeGetService implements ZipCodeGetInterface
 {
-    private ZipCodeRepository $zipCodeRepository;
     private YuseiYubinBangouRepository $yubinBangouRepository;
     private MigrationBatchAuditRepository $migrationBatchAuditRepository;
     private MergeZipYuseiYubinBangouRepository $mergeZipYuseiYubinBangouRepository;
 
     public function __construct(
-        ZipCodeRepository $zipCodeRepository,
         YuseiYubinBangouRepository $yubinBangouRepository,
         MigrationBatchAuditRepository $migrationBatchAuditRepository,
         MergeZipYuseiYubinBangouRepository $mergeZipYuseiYubinBangouRepository,
     ) {
-        $this->zipCodeRepository = $zipCodeRepository;
         $this->yubinBangouRepository = $yubinBangouRepository;
         $this->migrationBatchAuditRepository = $migrationBatchAuditRepository;
         $this->mergeZipYuseiYubinBangouRepository = $mergeZipYuseiYubinBangouRepository;
@@ -69,14 +66,10 @@ class ZipCodeGetService implements ZipCodeGetInterface
     public function findLatestMigration(): MigrationBatchAuditList
     {
         $latestList = new MigrationBatchAuditList();
-        $zipcode = $this->zipCodeRepository->createMigrationCriteria(
-            MigrationBatchAuditStatus::getDoneStatus()->toInteger()
-        );
         $yusei = $this->yubinBangouRepository->createMigrationCriteria(
             MigrationBatchAuditStatus::getDoneStatus()->toInteger()
         );
         try {
-            $latestList->add($this->migrationBatchAuditRepository->latestAchievement($zipcode->targetTableName));
             $latestList->add($this->migrationBatchAuditRepository->latestAchievement($yusei->targetTableName));
         } catch (NoResultException $e) {
             throw new WebAPIException('W_000000000');

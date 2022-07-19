@@ -28,7 +28,7 @@ class DeviceRegisterRequest extends AbstractFormRequest
 
     public function toDevice(): Device
     {
-        $workplaceId = new WorkplaceId(null);
+        $workplaceId = new WorkplaceId($this->workplaceId);
 
         $workplace = new Workplace(
             $workplaceId,
@@ -38,9 +38,9 @@ class DeviceRegisterRequest extends AbstractFormRequest
 
         return new Device(
             new DeviceId(),
-            new DeviceName($this->hostName),
+            new DeviceName($this->name),
             new DeviceUserId($this->getAuthedUser()->getUserId()->getValue()),
-            new DeviceIpAddress($this->hostIp),
+            new DeviceIpAddress($this->ip),
             $workplace,
         );
     }

@@ -35,14 +35,11 @@ use packages\domain\model\zipcode\ZipCodeMigrationSourceRepository;
  */
 class ZipCodeRegisterService
 {
-    private ZipCodeRepository $zipCodeRepository;
     private YuseiYubinBangouRepository $yubinBangouRepository;
 
     public function __construct(
-        ZipCodeRepository $zipCodeRepository,
         YuseiYubinBangouRepository $yubinBangouRepository,
     ) {
-        $this->zipCodeRepository = $zipCodeRepository;
         $this->yubinBangouRepository = $yubinBangouRepository;
     }
 
@@ -56,7 +53,6 @@ class ZipCodeRegisterService
     {
         TransactionManager::startTransaction();
         try {
-            $this->zipCodeRepository->add($zipcode);
             $this->yubinBangouRepository->add($zipcode);
         } catch (ORMException $e) {
             TransactionManager::rollback();

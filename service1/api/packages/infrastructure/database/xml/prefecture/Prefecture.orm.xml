@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="packages\domain\model\prefecture\Prefecture" table="sampleowner.countries">
+    <entity name="packages\domain\model\prefecture\Prefecture" table="sample.countries">
         <embedded
                 name="prefectureCode"
                 class="packages\domain\model\prefecture\PrefectureCode"

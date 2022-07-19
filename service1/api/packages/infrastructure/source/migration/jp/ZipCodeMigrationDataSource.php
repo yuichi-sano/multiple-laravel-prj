@@ -21,30 +21,6 @@ class ZipCodeMigrationDataSource implements ZipCodeMigrationSourceRepository
         $this->files = $files;
     }
 
-    public function zipPut(ZipCodeList $zipCodeList)
-    {
-        try {
-            $stub = $this->files->get(__DIR__ . '/stubs/zip_migration.stub');
-        } catch (FileNotFoundException $e) {
-        }
-        $sqlList = $this->createZipSqlValues($zipCodeList);
-        foreach ($sqlList as $idx => $sql) {
-            $migrationFile = str_replace(
-                ['DUMMY_INSERT_QUERY_STR'],
-                [$sql],
-                $stub
-            );
-            $name = 'zips' . $idx;
-            if (Storage::disk('data_migrations')->exists('jp/zips/' . $name . '.sql')) {
-                Storage::disk('data_migrations')->delete('jp/old/zips/' . $name . '.sql');
-                Storage::disk('data_migrations')->move(
-                    'jp/zips/' . $name . '.sql',
-                    'jp/old/zips/' . $name . '.sql'
-                );
-            }
-            Storage::disk('data_migrations')->put('jp/zips/' . $name . '.sql', $migrationFile);
-        }
-    }
 
     public function yuseiYubinBangouPut(ZipCodeList $zipCodeList)
     {
@@ -108,22 +84,6 @@ class ZipCodeMigrationDataSource implements ZipCodeMigrationSourceRepository
     /**
      * @return array
      */
-    public function zipDiff(): ZipCodeSourceDiffList
-    {
-        $target = 'zips';
-        $list = Storage::disk('data_migrations')->files('jp/' . $target . '/');
-        $result = new ZipCodeSourceDiffList();
-        foreach ($list as $item) {
-            $itemPath = pathinfo($item);
-            $diff = $this->executeDiff($target, $itemPath["filename"]);
-            $result = $result->merge($diff);
-        }
-        return $result;
-    }
-
-    /**
-     * @return array
-     */
     public function yuseiYubinBangouDiff(): ZipCodeSourceDiffList
     {
         $target = 'yuseiyubinbangous';
@@ -153,39 +113,7 @@ class ZipCodeMigrationDataSource implements ZipCodeMigrationSourceRepository
         return $result;
     }
 
-    /**
-     * insert文のvalue値後から作成
-     * @param ZipCodeList $list
-     * @return array
-     */
-    private function createZipSqlValues(ZipCodeList $list): array
-    {
-        $groupList = array_chunk($list->toArray(), config('app.migration_data_chunk_length'));
-        $valuesList = [];
-        foreach ($groupList as $list) {
-            $values = null;
-            $first = true;
-            Log::error(count($list));
-            foreach ($list as $record) {
-                //valueの最初であれば"("のみ
-                $value = $first ? "( " : ",( ";
-                $value .= "'" . $record->getId()->getValue() . "',";
-                $value .= "'" . $record->getZipCode()->getValue() . "',";
-                $value .= "'" . $record->getPrefecture() . "',";
-                $value .= "'" . $record->getCity() . "',";
-                $value .= "'" . $record->getTownArea() . "',";
-                $value .= "'" . $record->getPrefectureCode() . "',";
-                $value .= "'" . class_basename($this) . "'";
-                //value値の終了")"をつける
-                $value .= " )\n";
-                $first = false;
-                $values .= $value;
-            }
-            $values .= ";";
-            $valuesList[] = $values;
-        }
-        return $valuesList;
-    }
+
 
     /**
      * insert文のvalue値後から作成

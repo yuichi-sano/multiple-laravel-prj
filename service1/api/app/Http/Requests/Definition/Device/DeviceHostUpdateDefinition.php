@@ -13,21 +13,10 @@ class DeviceHostUpdateDefinition extends AbstractRequestDefinition implements De
      */
 
     //ホスト端末名
-    protected string $hostName = 'required|string';
+    protected string $name = 'required|string';
     //IPアドレス
-    protected string $hostIp = 'required|ip_address';
+    protected string $ip = 'required|ip_address';
     //設備コード
-    protected string $facilityCode = 'required|string';
-    //設置場所
-    protected string $location = 'string';
-    //子機端末リスト
-    protected string $deviceList = 'required|collectionObject';
+    protected string $workplaceId = 'required|string';
 
-    /** オーバーライド */
-    public function childDefinition(): array
-    {
-        return [
-            'deviceList' => [new DeviceUpdateDefinition()],
-        ];
-    }
 }

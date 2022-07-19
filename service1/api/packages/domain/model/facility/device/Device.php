@@ -14,6 +14,7 @@ class Device
     protected DeviceIpAddress $deviceIpAddress;
     protected Workplace $workplace;
 
+
     public function __construct(
         DeviceId $deviceId,
         DeviceName $deviceName,
@@ -72,4 +73,12 @@ class Device
     public array $collectionKeys = [
         'deviceId'
     ];
+
+    /**
+     * @return Workplace
+     */
+    public function getWorkplace(): Workplace
+    {
+        return $this->workplace;
+    }
 }

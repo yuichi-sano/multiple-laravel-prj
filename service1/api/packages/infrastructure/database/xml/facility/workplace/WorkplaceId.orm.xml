@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
     <embeddable name="packages\domain\model\facility\workplace\WorkplaceId">
 
-        <id name="value" type="integer" column="job_work_place_id"/>
+        <id name="value" type="integer" column="work_place_id"/>
 
     </embeddable>
 </doctrine-mapping>

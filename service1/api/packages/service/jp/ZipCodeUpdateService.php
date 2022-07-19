@@ -35,16 +35,13 @@ use packages\domain\model\zipcode\ZipCodeMigrationSourceRepository;
  */
 class ZipCodeUpdateService
 {
-    private ZipCodeRepository $zipCodeRepository;
     private YuseiYubinBangouRepository $yubinBangouRepository;
     private MergeZipYuseiYubinBangouRepository $mergeZipYuseiYubinBangou;
 
     public function __construct(
-        ZipCodeRepository $zipCodeRepository,
         YuseiYubinBangouRepository $yubinBangouRepository,
         MergeZipYuseiYubinBangouRepository $mergeZipYuseiYubinBangou,
     ) {
-        $this->zipCodeRepository = $zipCodeRepository;
         $this->yubinBangouRepository = $yubinBangouRepository;
         $this->mergeZipYuseiYubinBangou = $mergeZipYuseiYubinBangou;
     }
@@ -60,7 +57,6 @@ class ZipCodeUpdateService
         TransactionManager::startTransaction();
         $before = $this->mergeZipYuseiYubinBangou->findAddressById($zipcode->getId());
         try {
-            $this->zipCodeRepository->update($zipcode->transZipCode());
             $this->yubinBangouRepository->update($zipcode->transZipCode(), $before->transZipCode());
         } catch (Exception $e) {
             TransactionManager::rollback();

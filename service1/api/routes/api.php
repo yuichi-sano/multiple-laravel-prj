@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Device\WorkplaceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Authentication\LoginController;
@@ -43,6 +44,7 @@ Route::group(['middleware' => 'tokenAuth'], function () {
     Route::put('/zip_code/yusei/{id}', [ZipCodeYuseiController::class, 'update']);
     Route::delete('/zip_code/yusei/{id}', [ZipCodeYuseiController::class, 'destroy']);
     Route::get('/prefecture', [PrefectureController::class, 'index']);
+    Route::get('/workplace', [WorkplaceController::class,'index']);
     Route::get('/device', [DeviceController::class,'index']);
     Route::post('/device', [DeviceController::class,'store']);
     Route::put('/device/{id}', [DeviceController::class,'update']);

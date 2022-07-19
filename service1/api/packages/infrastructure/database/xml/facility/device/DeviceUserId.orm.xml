@@ -3,6 +3,6 @@
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
     <embeddable name="packages\domain\model\facility\device\DeviceUserId">
-        <field name="value" type="string" column="program_name"/>
+        <field name="value" type="string" column="user_id"/>
     </embeddable>
 </doctrine-mapping>

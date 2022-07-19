@@ -42,9 +42,7 @@ class YuseiMigrationService
         try {
             foreach ($migrationList as $migration) {
                 TransactionManager::startTransaction();
-                if ($migration->getTargetTableName() == 'zips') {
-                    $this->zipCodeRepository->migration();
-                } elseif ($migration->getTargetTableName() == 'yuseiyubinbangous') {
+                if ($migration->getTargetTableName() == 'yuseiyubinbangous') {
                     $this->yubinBangouRepository->migration();
                 } else {
                     $this->yuseiLargeBusinessYubinBangouRepository->migration();

@@ -10,23 +10,16 @@ use packages\domain\model\facility\device\Device;
 use packages\domain\model\facility\device\DeviceId;
 use packages\domain\model\facility\device\DeviceList;
 use packages\domain\model\facility\device\DeviceRepository;
-use packages\domain\model\facility\device\HTDevice;
-use packages\domain\model\facility\device\HTDeviceRepository;
-use packages\domain\model\facility\device\HTDeviceType;
-use packages\domain\model\facility\device\HTDeviceTypeList;
 use packages\domain\model\user\UserId;
 
 class DeviceGetService
 {
     private DeviceRepository $deviceRepository;
-    private HTDeviceRepository $HTDeviceRepository;
 
     public function __construct(
         DeviceRepository $deviceRepository,
-        HTDeviceRepository $HTDeviceRepository,
     ) {
         $this->deviceRepository = $deviceRepository;
-        $this->HTDeviceRepository = $HTDeviceRepository;
     }
 
     /**
@@ -55,26 +48,6 @@ class DeviceGetService
         return $this->deviceRepository->listCount($criteria);
     }
 
-    /**
-     * ハンディ端末個別追加
-     * @return void
-     */
-    public function addHTDevice(HTDevice $HTDevice): HTDevice
-    {
-        return $this->hTDeviceRepository->add($HTDevice);
-    }
-
-    /**
-     * @return HTDeviceTypeList
-     */
-    public function getHTDeviceTypeList(): HTDeviceTypeList
-    {
-        $htDeviceTypeList = new HTDeviceTypeList();
-        foreach (HTDeviceType::HTDeviceTypeValues as $value) {
-            $htDeviceTypeList->add(HTDeviceType::create($value));
-        }
-        return $htDeviceTypeList;
-    }
 
     /**
      * 配送デバイス詳細取得

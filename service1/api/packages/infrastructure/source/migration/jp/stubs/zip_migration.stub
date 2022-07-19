@@ -1,2 +1,0 @@
-INSERT INTO zips (id,zipcode,kenmei,sikumei,sikuika,ken_code,program_name ) VALUES
-DUMMY_INSERT_QUERY_STR

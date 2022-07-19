@@ -1,8 +1,8 @@
 <template>
-  <div id="delivery-terminal-maintenance" data-cy="配送端末情報メンテナンス">
-      <DeliveryTerminalMaintenance010 :bumon-code-list="bumon">
+  <div id="device-maintenance" data-cy="端末情報メンテナンス">
+      <DeviceMaintenance010 :workplace-code-list="workplace">
           <slot></slot>
-      </DeliveryTerminalMaintenance010>
+      </DeviceMaintenance010>
 
   </div>
 </template>
@@ -10,19 +10,19 @@
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
 import {loginModule} from '@/stores/authentication/Account';
-import DeliveryTerminalMaintenance010 from '@/components/organisms/facility/device/DeliveryTerminalMaintenance010.vue';
+import DeviceMaintenance010 from '@/components/organisms/facility/device/DeviceMaintenance010.vue';
 import api from '@/infrastructure/api/API';
-import {EmptyBumonCode, BumonCode} from '@/types/htDevice/BumonCode';
+import {EmptyWorkplace, Workplace} from '@/types/device/Workplace';
 import {progress} from '@/infrastructure/script/Progress';
 
 @Component({
   components: {
-      DeliveryTerminalMaintenance010,
+      DeviceMaintenance010,
   },
 })
-export default class DeliveryTerminalMaintenance extends Vue {
+export default class DeviceMaintenance extends Vue {
   // data
-  bumon: BumonCode = {...EmptyBumonCode};
+  workplace: Workplace = {...EmptyWorkplace};
 
 
   // computed
@@ -34,16 +34,16 @@ export default class DeliveryTerminalMaintenance extends Vue {
 
   async getBumonList(): Promise<void> {
         const getBumon = async (): Promise<void> => {
-            await api.getBumonCode()
+            await api.getWorkplace()
                 .then((response: any) => {
-                    this.bumon = response;
+                    this.workplace = response;
                 });
         };
         await progress(getBumon);
     }
 
-  toPage(deliveryTerminalRegister: string) {
-      this.$router.push(deliveryTerminalRegister);
+  toPage(deviceRegister: string) {
+      this.$router.push(deviceRegister);
   }
   // lifecycle hooks
   created(): void {
