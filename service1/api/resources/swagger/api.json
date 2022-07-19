@@ -557,7 +557,7 @@
                 "bulk_update_date",
                 "bulk__user",
                 "update_date",
-                "_user",
+                "user",
                 "zip_code",
                 "kenmei",
                 "ken_code",

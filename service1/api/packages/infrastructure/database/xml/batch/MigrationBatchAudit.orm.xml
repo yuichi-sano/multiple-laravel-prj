@@ -42,7 +42,7 @@
         <embedded
                 name="userId"
                 class="packages\domain\model\user\UserId"
-                column-prefix="_"
+                use-column-prefix="false"
         />
 
         <field name="createDate" type="string" column="create_date" nullable="false"></field>

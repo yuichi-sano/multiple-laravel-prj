@@ -49,12 +49,8 @@ class DoctrineWorkplaceRepository extends DoctrineRepository implements Workplac
     private function getGroupingRsm(): ResultSetMapping
     {
         $rsm = new ResultSetMapping();
-        $rsm->addScalarResult('job_work_place_id', 'workplace_id');
-        $rsm->addScalarResult('job_work_place_name', 'workplace_name');
-        $rsm->addScalarResult('meishou1', 'delivery_workplace_company_name');
-        $rsm->addScalarResult('meishou2', 'delivery_workplace_name');
-        $rsm->addScalarResult('bumon_code', 'delivery_workplace_code');
-        $rsm->addScalarResult('bumon_code_s', 'delivery_workplace_code_s');
+        $rsm->addScalarResult('work_place_id', 'workplace_id');
+        $rsm->addScalarResult('work_place_name', 'workplace_name');
         return $rsm;
     }
 }

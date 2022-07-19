@@ -109,7 +109,7 @@ import {SortOrder, SortOrderRequest} from '@/types/sort/SortOrder';
 export default class DeviceMaintenance010 extends Vue {
 
   @Prop()
-  workplaceIdList: Workplace | undefined;
+  workplaceList: Array<Workplace> | undefined;
     testSortOrder: SortOrderRequest = {
         sort: 'test',
         order: SortOrder.NONE,

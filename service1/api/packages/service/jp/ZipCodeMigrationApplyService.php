@@ -103,6 +103,7 @@ class ZipCodeMigrationApplyService implements ZipCodeMigrationApplyInterface
             }
         } catch (Exception $e) {
             TransactionManager::rollback();
+            throw new \Exception($e->getMessage());
         }
         TransactionManager::commit();
 

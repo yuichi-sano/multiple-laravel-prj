@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Resources\Workplace;
+namespace App\Http\Resources\Device;
 
 use App\Http\Resources\Basic\AbstractJsonResource;
-use App\Http\Resources\Definition\Workplace\WorkplaceListResultDefinition;
+use App\Http\Resources\Definition\Device\WorkplaceListResultDefinition;
 use packages\domain\model\facility\workplace\WorkplaceList;
 
 class WorkplaceResource extends AbstractJsonResource
