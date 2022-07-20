@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Device;
 
-use App\Http\Resources\Workplace\WorkplaceResource;
+use App\Http\Resources\Device\WorkplaceResource;
 use Illuminate\Routing\Controller as BaseController;
 use packages\service\facility\FacilityGetService;
 

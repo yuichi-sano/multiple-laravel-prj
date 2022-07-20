@@ -1,4 +1,4 @@
 SELECT *
-FROM sample.countries
+FROM sample.prefectures
 WHERE 1 = 1
-  AND country_id = :prefectureCode;
+  AND id = :prefectureCode;

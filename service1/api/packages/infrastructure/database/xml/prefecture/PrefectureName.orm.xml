@@ -3,6 +3,6 @@
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
     <embeddable name="packages\domain\model\prefecture\PrefectureName">
-        <field name="value" type="string" column="kenmei"/>
+        <field name="value" type="string" column="name"/>
     </embeddable>
 </doctrine-mapping>

@@ -8,8 +8,8 @@ use App\Http\Resources\Yusei\ZipCodeUpdateResource;
 use App\Http\Resources\Yusei\ZipCodeDeleteResource;
 use App\Http\Requests\Yusei\ZipCodeIndividualRegisterRequest;
 use Illuminate\Support\Facades\Auth;
+use packages\domain\model\zipcode\YuseiYubinBangou;
 use packages\domain\model\zipcode\ZipCode;
-use packages\domain\model\zipcode\ZipCodeId;
 use packages\domain\model\zipcode\ZipCodeUserId;
 use packages\service\jp\ZipCodeDeleteService;
 use packages\service\jp\ZipCodeRegisterService;
@@ -61,7 +61,7 @@ class ZipCodeYuseiController extends BaseController
      */
     public function destroy(int $id): ZipCodeDeleteResource
     {
-        $this->zipCodeDeleteService->execute(new ZipCodeId($id));
+        $this->zipCodeDeleteService->execute(new YuseiYubinBangou());
         return ZipCodeDeleteResource::buildResult();
     }
 }

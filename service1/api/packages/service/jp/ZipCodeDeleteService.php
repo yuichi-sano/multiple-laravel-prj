@@ -24,7 +24,6 @@ use packages\domain\model\zipcode\YuseiYubinBangou;
 use packages\domain\model\zipcode\YuseiYubinBangouList;
 use packages\domain\model\zipcode\YuseiYubinBangouRepository;
 use packages\domain\model\zipcode\ZipCode;
-use packages\domain\model\zipcode\ZipCodeId;
 use packages\domain\model\zipcode\ZipCodeList;
 use packages\domain\model\zipcode\ZipCodePostalCode;
 use packages\domain\model\zipcode\ZipCodeRepository;
@@ -49,14 +48,14 @@ class ZipCodeDeleteService
 
     /**
      * ZipCode削除
-     * @param ZipCodeId $zipcodeId
+     * @param ZipCodePostalCode $zipcode
      * @return void
-     * @throws Exception
+     * @throws WebAPIException
      */
-    public function execute(ZipCodeId $zipcodeId)
+    public function execute(ZipCodePostalCode $zipcode)
     {
         TransactionManager::startTransaction();
-        $mergeZipYusei = $this->mergeZipYuseiYubinBangouRepository->findAddressById($zipcodeId);
+        $mergeZipYusei = $this->mergeZipYuseiYubinBangouRepository->findAddressById($zipcode);
         try {
             $this->yubinBangouRepository->delete($mergeZipYusei);
         } catch (Exception $e) {

@@ -23,7 +23,7 @@ class DeviceCriteria
     }
 
     public static function create(
-        ?string $workplaceId,
+        ?int $workplaceId,
         int $page,
         int $perPage
     ): DeviceCriteria {

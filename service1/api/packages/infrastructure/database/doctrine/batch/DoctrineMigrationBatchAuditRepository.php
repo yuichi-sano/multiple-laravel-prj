@@ -94,7 +94,7 @@ class DoctrineMigrationBatchAuditRepository extends DoctrineRepository implement
             'diff_cnt' => $migrationBatchAudit->getDiffCnt()->toInteger(),
             'status' => $migrationBatchAudit->getStatus()->toInteger(),
             'apply_date' => $migrationBatchAudit->getApplyDate()->toLocalDateTime(),
-            '_user_id' => $migrationBatchAudit->getUserId()->toString()
+            'user_id' => $migrationBatchAudit->getUserId()->toString()
         ]);
 
         try {

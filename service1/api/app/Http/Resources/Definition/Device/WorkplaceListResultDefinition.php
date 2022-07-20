@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\Definition\Workplace;
+namespace App\Http\Resources\Definition\Device;
 
 use App\Http\Resources\Definition\Basic\PageableResultDefinition;
 use App\Http\Resources\Definition\Basic\ResultDefinitionInterface;
@@ -31,10 +31,13 @@ class WorkplaceListResultDefinition extends AbstractResultDefinition implements 
     /**
      * @param mixed workplaceList
      */
-    public function setWorkplaceList(array $workplaceList): void
+    public function setWorkplaceList($workplaceList): void
     {
         foreach ($workplaceList as $unit) {
-            $this->addWorkplaceList($unit);
+            $workPlace = new WorkplaceResultDefinition();
+            $workPlace->setWorkplaceId($unit->getWorkplaceId()->getValue());
+            $workPlace->setWorkplaceName($unit->getWorkplaceName()->getValue());
+            $this->addWorkplace($workPlace);
         }
     }
 

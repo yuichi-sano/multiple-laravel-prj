@@ -1,12 +1,10 @@
 SELECT *
-FROM sampleaudit.table_batch_audit @isset($criteria)
+FROM sample.table_batch_audit @isset($criteria)
 WHERE
-    @isset($criteria-
-    >targetTableName)
+    @isset($criteria->targetTableName)
     target_table_name='{{$criteria->targetTableName}}'
     @endisset
-    @isset($criteria-
-    >targetTableName)
+    @isset($criteria->targetTableName)
   AND status='{{$criteria->status->getValue()}}'
     @endisset
 

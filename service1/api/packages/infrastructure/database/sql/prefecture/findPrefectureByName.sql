@@ -1,4 +1,4 @@
 SELECT *
-FROM sample.countries
+FROM sample.prefectures
 WHERE 1 = 1
-  AND kenmei = :prefectureName;
+  AND name = :prefectureName;

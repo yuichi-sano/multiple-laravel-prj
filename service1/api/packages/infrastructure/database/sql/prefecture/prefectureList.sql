@@ -1,2 +1,2 @@
 SELECT *
-FROM sample.countries;
+FROM sample.prefectures;

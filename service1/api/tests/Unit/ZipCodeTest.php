@@ -17,11 +17,11 @@ class ZipCodeTest extends TestCase
         //  前回一括更新日 (string*)
         $bulk_update_date = '';
         //  前回一括更新者 (string*)
-        $bulk__user = '';
+        $bulk_user = '';
         //  前回個別登録日 (string)
         $add_date = '';
         //  前回個別登録者 (string*)
-        $_user = '';
+        $user = '';
         //  前回個別登録郵便番号 (string*)
         $zip_code = '';
         //  前回個別登録都道府県 (string*)

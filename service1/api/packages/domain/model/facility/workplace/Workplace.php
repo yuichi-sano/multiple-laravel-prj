@@ -30,4 +30,14 @@ class Workplace
         return $this->workplaceId;
     }
 
+    public function getWorkplaceName(): WorkplaceName
+    {
+        return $this->workplaceName;
+    }
+
+
+    public array $collectionKeys = [
+        'workplaceId'
+    ];
+
 }

@@ -1,9 +1,7 @@
 <template>
   <div id="device-maintenance" data-cy="端末情報メンテナンス">
-      <DeviceMaintenance010 :workplace-code-list="workplace">
-          <slot></slot>
+      <DeviceMaintenance010 :workplace-list="workplaceList">
       </DeviceMaintenance010>
-
   </div>
 </template>
 
@@ -22,7 +20,7 @@ import {progress} from '@/infrastructure/script/Progress';
 })
 export default class DeviceMaintenance extends Vue {
   // data
-  workplace: Workplace = {...EmptyWorkplace};
+  workplaceList: Array<Workplace> = [{...EmptyWorkplace}];
 
 
   // computed
@@ -36,7 +34,7 @@ export default class DeviceMaintenance extends Vue {
         const getBumon = async (): Promise<void> => {
             await api.getWorkplace()
                 .then((response: any) => {
-                    this.workplace = response;
+                    this.workplaceList = response.workplaceList;
                 });
         };
         await progress(getBumon);

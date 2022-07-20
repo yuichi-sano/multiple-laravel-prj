@@ -6,7 +6,6 @@ namespace packages\domain\model\zipcode;
 
 class YuseiYubinBangou
 {
-    private ZipCodeId $id;
     private ZipCodeJis $jis;
     private ZipCodeOldPostalCode $zipCode5;
     private ZipCodePostalCode $zipCode;
@@ -27,7 +26,6 @@ class YuseiYubinBangou
     private ?ZipCodeAuditDate $auditDate = null;
 
     public function __construct(
-        ZipCodeId $id,
         ZipCodeJis $jis,
         ZipCodeOldPostalCode $zipCode5,
         ZipCodePostalCode $zipCode,
@@ -67,11 +65,6 @@ class YuseiYubinBangou
     public array $collectionKeys = ['id'];
 
     /* Getter */
-    public function getId(): ZipCodeId
-    {
-        return $this->id;
-    }
-
     public function getJis(): ZipCodeJis
     {
         return $this->jis;

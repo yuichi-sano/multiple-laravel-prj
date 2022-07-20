@@ -1,11 +1,11 @@
-INSERT INTO sampleaudit.table_batch_audit
+INSERT INTO sample.table_batch_audit
 (target_table_name,
  record_cnt,
  before_record_cnt,
  diff_cnt,
  status,
  apply_date,
- _user_id,
+ user_id,
  create_date)
 VALUES (:target_table_name,
         :record_cnt,
@@ -13,6 +13,6 @@ VALUES (:target_table_name,
         :diff_cnt,
         :status,
         :apply_date,
-        :_user_id,
+        :user_id,
         now());
 
