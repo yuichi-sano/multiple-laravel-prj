@@ -16,31 +16,15 @@ class DeviceDetailResource extends AbstractJsonResource
         //$definition = new DeviceDetailResultDefinition();
 
         $deviceHostInfoResult = new DeviceDetailResultDefinition();
-        $deviceHostInfoResult->setHostId($device->getDeviceId()->getValue());
-        $deviceHostInfoResult->setHostName($device->getDeviceName()->getValue());
-        $deviceHostInfoResult->setHostIp($device->getDeviceIpAddress()->getValue());
+        $deviceHostInfoResult->setId($device->getDeviceId()->getValue());
+        $deviceHostInfoResult->setName($device->getDeviceName()->getValue());
+        $deviceHostInfoResult->setIp($device->getDeviceIpAddress()->getValue());
         $deviceHostInfoResult->setWorkplaceName(
             $device->getWorkplace()->getWorkplaceName()->getValue()
         );
-        $deviceHostInfoResult->setFacilityCode(
-            $device->getWorkplace()->getWorkplaceCode()->getValue()
+        $deviceHostInfoResult->setWorkplaceId(
+            $device->getWorkplace()->getWorkplaceId()->getValue()
         );
-        $deviceHostInfoResult->setLocation($device->getDeviceLocation()->getValue());
-
-        foreach ($device->getDeviceList() as $hTDevice) {
-            if ($hTDevice->getDeviceId()->getValue()) {//エラーガード
-                $deviceResult = new DeviceInfoResultDefinitionDeviceListAddressList();
-                $deviceResult->setDeviceId($hTDevice->getDeviceId()->getValue());
-                $deviceResult->setDeviceIp($hTDevice->getDeviceIpAddress()->getValue());
-                $deviceResult->setLocation($hTDevice->getDeviceLocationMemo()->getValue());
-                $deviceResult->setSlipType($hTDevice->getDeviceType()->getValue());
-
-                $deviceHostInfoResult->addDeviceList($deviceResult);
-            }
-        }
-
-        //$definition->addDeviceList($deviceHostInfoResult);
-
 
         return new DeviceInfoResource($deviceHostInfoResult);
     }

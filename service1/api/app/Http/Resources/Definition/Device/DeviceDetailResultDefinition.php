@@ -9,97 +9,78 @@ use App\Http\Resources\Definition\Basic\AbstractResultDefinition;
 class DeviceDetailResultDefinition extends AbstractResultDefinition implements ResultDefinitionInterface
 {
     //システム端末ホストID
-    protected int $hostId;
+    protected int $id;
     //システム端末ホスト名
-    protected string $hostName;
+    protected string $name;
     //IPアドレス
-    protected ?string $hostIp;
+    protected ?string $ip;
     //工場
-    protected string $facilityCode;
-    protected string $workplaceName;
-    //設置場所
-    protected ?string $location;
-    //システム子機リスト
-    protected array $deviceList;
+    protected string $workplaceId;
+    protected ?string $workplaceName;
 
     /**
      * @return mixed
      */
-    public function getHostId()
+    public function getId()
     {
-        return $this->hostId;
+        return $this->id;
     }
 
     /**
      * @return mixed
      */
-    public function getHostName()
+    public function getName()
     {
-        return $this->hostName;
+        return $this->name;
     }
 
     /**
      * @return mixed
      */
-    public function getHostIp()
+    public function getIp()
     {
-        return $this->hostIp;
+        return $this->ip;
+    }
+
+
+    /**
+     * @param mixed name
+     */
+    public function setId(int $id): void
+    {
+        $this->id = (int)$id;
     }
 
     /**
-     * @return mixed
+     * @param mixed name
      */
-    public function getLocation()
+    public function setName(string $name): void
     {
-        return $this->location;
+        $this->name = (string)$name;
     }
 
     /**
-     * @return mixed
+     * @param mixed ip
      */
-    public function getDeviceList()
+    public function setIp(?string $ip): void
     {
-        return $this->deviceList;
-    }
-
-    /**
-     * @param mixed hostName
-     */
-    public function setHostId(int $hostId): void
-    {
-        $this->hostId = (int)$hostId;
-    }
-
-    /**
-     * @param mixed hostName
-     */
-    public function setHostName(string $hostName): void
-    {
-        $this->hostName = (string)$hostName;
-    }
-
-    /**
-     * @param mixed hostIp
-     */
-    public function setHostIp(?string $hostIp): void
-    {
-        $this->hostIp = (string)$hostIp;
+        $this->ip = (string)$ip;
     }
 
     /**
      * @return string
      */
-    public function getFacilityCode(): string
+    public function getWorkplaceId(): string
     {
-        return $this->facilityCode;
+        return $this->workplaceId;
     }
 
     /**
-     * @param string $facilityCode
+     * @param string $workplaceId
      */
-    public function setFacilityCode(string $facilityCode): void
+    public function setWorkplaceId(string $workplaceId): void
     {
-        $this->facilityCode = $facilityCode;
+        $this->workplaceId = $workplaceId;
     }
 
     /**
@@ -113,34 +94,8 @@ class DeviceDetailResultDefinition extends AbstractResultDefinition implements R
     /**
      * @param string $workplaceName
      */
-    public function setWorkplaceName(string $workplaceName): void
+    public function setWorkplaceName(?string $workplaceName): void
     {
         $this->workplaceName = $workplaceName;
-    }
-
-    /**
-     * @param mixed location
-     */
-    public function setLocation(?string $location): void
-    {
-        $this->location = (string)$location;
-    }
-
-    /**
-     * @param mixed deviceList
-     */
-    public function addDeviceList(DeviceInfoResultDefinitionDeviceListAddressList $deviceList): void
-    {
-        $this->deviceList[] = $deviceList;
-    }
-
-    /**
-     * @param mixed deviceList
-     */
-    public function setDeviceList(array $deviceList): void
-    {
-        foreach ($deviceList as $unit) {
-            $this->addDeviceList($unit);
-        }
     }
 }

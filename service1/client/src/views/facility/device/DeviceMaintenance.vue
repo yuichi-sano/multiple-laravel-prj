@@ -1,9 +1,7 @@
 <template>
   <div id="device-maintenance" data-cy="端末情報メンテナンス">
       <DeviceMaintenance010 :workplace-list="workplaceList">
-          <slot></slot>
       </DeviceMaintenance010>
-
   </div>
 </template>
 
