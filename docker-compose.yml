@@ -33,15 +33,18 @@ services:
             - 'host.docker.internal:host-gateway'
         ports:
             - '18080:18080'
+            -  '5993:5993'
         volumes:
-            - './service1/client:/app/'
+            - './service1/client:/app'
             - 'service1-cli-node-modules:/app/node_modules'
+
         networks:
             - sail
         stdin_open: true
         tty: true
         environment:
             - CHOKIDAR_USEPOLLING=true
+            - JAVA_OPTS=-server -Xms1024M -Xmx1024M -XX:MetaspaceSize=128m -Xss3m
         #depends_on:
         #    - selenium
     #mysql:
@@ -158,6 +161,26 @@ services:
         image: willwill/wait-for-it:latest
         networks:
             - sail
+    service1-swagger:
+        image: swaggerapi/swagger-ui
+        ports:
+            - 18000:8080
+        volumes:
+            - ./service1/api/resources/swagger/api.json:/api.json
+        environment:
+            SWAGGER_JSON: /api.json
+        networks:
+            - sail
+    service1-swagger-merge:
+        build: ./swagger/auto-merge
+        volumes:
+            - ./swagger/auto-merge:/app
+            - ./swagger/service1:/src
+            - ./service1/api/resources/swagger/api.json:/docs/api.json
+            - swagger-node-modules:/app/node_modules
+        working_dir: /app
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
@@ -175,4 +198,6 @@ volumes:
     postgres-data:
         external: true
     service1-cli-node-modules:
+        driver: local
+    swagger-node-modules:
         driver: local

@@ -26,6 +26,8 @@
     <!-- 除外ディレクトリ -->
     <exclude-pattern>app/Console/Commands/SwaggerCodeGenCommand.php</exclude-pattern>
     <exclude-pattern>app/Http/Controllers/Sample/SampleController.php</exclude-pattern>
+    <exclude-pattern>packages/infrastructure/database/sql/</exclude-pattern>
+    <exclude-pattern>packages/infrastructure/database/xml/</exclude-pattern>
     <exclude-pattern>/bootstrap/</exclude-pattern>
     <exclude-pattern>/config/</exclude-pattern>
     <exclude-pattern>/database/</exclude-pattern>

@@ -43,7 +43,7 @@
                         "description": "トークンリフレッシュリクエスト",
                         "schema": {
                             "$ref": "#/definitions/TokenRefreshDefinition"
-    
+
                         }
                     }
                 ],
@@ -212,7 +212,7 @@
                         "description": "郵政郵便番号検索リクエスト",
                         "schema": {
                             "$ref": "#/definitions/ZipCodeDefinition"
-    
+
                         }
                     }
                 ],
@@ -248,7 +248,7 @@
                         "description": "郵便番号個別登録リクエスト",
                         "schema": {
                             "$ref": "#/definitions/ZipCodeIndividualRegisterDefinition"
-    
+
                         }
                     }
                 ],
@@ -291,7 +291,7 @@
                         "description": "郵政郵便番号個別更新リクエスト",
                         "schema": {
                             "$ref": "#/definitions/ZipCodeIndividualUpdateDefinition"
-    
+
                         }
                     }
                 ],
@@ -370,7 +370,7 @@
                 ],
                 "security": [],
                 "summary":"端末情報取得",
-                "description": "配送端末情報取得",
+                "description": "端末情報取得",
                 "externalDocs": {
                     "description": "処理シーケンスはこちら",
                     "url": ""
@@ -382,10 +382,10 @@
                     {
                         "name": "DevicGetRequest",
                         "in": "body",
-                        "description": "配送端末情報取得リクエスト",
+                        "description": "端末情報取得リクエスト",
                         "schema": {
                             "$ref": "#/definitions/DeviceInfoDefinition"
-    
+
                         }
                     }
                 ],
@@ -403,8 +403,8 @@
                     "device"
                 ],
                 "security": [],
-                "summary":"配送端末情報登録",
-                "description": "配送端末情報登録",
+                "summary":"端末情報登録",
+                "description": "端末情報登録",
                 "externalDocs": {
                     "description": "処理シーケンスはこちら",
                     "url": ""
@@ -416,10 +416,10 @@
                     {
                         "name": "DeviceRegisterRequest",
                         "in": "body",
-                        "description": "配送端末情報登録リクエスト",
+                        "description": "端末情報登録リクエスト",
                         "schema": {
                             "$ref": "#/definitions/DeviceRegisterDefinition"
-    
+
                         }
                     }
                 ],
@@ -439,8 +439,8 @@
                     "device"
                 ],
                 "security": [],
-                "summary":"配送端末情報更新",
-                "description": "配送端末情報更新",
+                "summary":"端末情報更新",
+                "description": "端末情報更新",
                 "externalDocs": {
                     "description": "処理シーケンスはこちら",
                     "url": ""
@@ -452,17 +452,17 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "配送端末ID",
+                        "description": "端末ID",
                         "type": "integer"
 
                     },
                     {
                         "name": "DeviceUpdateRequest",
                         "in": "body",
-                        "description": "配送端末情報更新リクエスト",
+                        "description": "端末情報更新リクエスト",
                         "schema": {
                             "$ref": "#/definitions/DeviceRegisterDefinition"
-    
+
                         }
                     }
                 ],
@@ -480,8 +480,8 @@
                     "device"
                 ],
                 "security": [],
-                "summary":"配送端末詳細情報取得",
-                "description": "配送端末詳細情報取得",
+                "summary":"端末詳細情報取得",
+                "description": "端末詳細情報取得",
                 "externalDocs": {
                     "description": "処理シーケンスはこちら",
                     "url": ""
@@ -493,7 +493,7 @@
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "配送端末ID",
+                        "description": "端末ID",
                         "type": "integer"
 
                     }
@@ -514,8 +514,8 @@
                     "device"
                 ],
                 "security": [],
-                "summary":"部門コードデータ取得",
-                "description": "部門コードデータ取得",
+                "summary":"拠点データ取得",
+                "description": "拠点データ取得",
                 "externalDocs": {
                     "description": "処理シーケンスはこちら",
                     "url": ""
@@ -865,7 +865,7 @@
             }
         },
         "DeviceInfoDefinition": {
-            "description": "配送端末情報取得",
+            "description": "端末情報取得",
             "required": [
                 "facility_code",
                 "current_page",
@@ -873,7 +873,7 @@
             ],
             "properties": {
                 "facility_code": {
-                    "description": "部門コード",
+                    "description": "拠点",
                     "type": "string"
                 },
                 "page": {
@@ -899,61 +899,35 @@
         },
         "DeviceDetailResultDefinition": {
             "type": "object",
-            "description": "配送端末情報取得",
+            "description": "端末情報取得",
             "required": [
                 "device_list"
             ],
             "properties": {
                 "device_list": {
-                    "description": "配送端末情報リスト",
+                    "description": "端末情報リスト",
                     "type": "array",
                     "items": {
                         "type": "object",
                         "required": [
-                            "host_name",
-                            "host_ip",
-                            "factory_name",
-                            "Installation_place",
-                            "device_list"          
+                            "name",
+                            "ip",
+                            "workplace_id"
                         ],
                         "properties": {
-                            "host_name": {
-                                "description": "配送システムホスト端末ホスト名",
+                            "name": {
+                                "description": "端末名",
                                 "type": "string"
                             },
-                            "host_ip": {
+                            "ip": {
                                 "description": "IPアドレス",
                                 "type": "string"
                             },
-                            "factory_name": {
-                                "description": "工場",
+                            "workplace_id": {
+                                "description": "拠点ID",
                                 "type": "string"
                             },
-                            "Installation_place": {
-                                "description": "設置場所",
-                                "type": "string"
-                            },
-                            "addressList": {
-                                "description": "配送システムハンディリスト",
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "required": [
-                                        "device_ip",
-                                        "location"  
-                                    ],
-                                    "properties": {
-                                        "device_ip": {
-                                            "description": "配送システムハンディ端末IP",
-                                            "type": "string"
-                                        },
-                                        "location": {
-                                            "description": "配送システムハンディ端末設置場所",
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
+
                         }
                     }
                 }
@@ -976,7 +950,7 @@
         },
         "DeviceInfoResultDefinition": {
             "type": "object",
-            "description": "配送端末情報取得",
+            "description": "端末情報取得",
             "required": [
                 "device_list"
             ],
@@ -985,107 +959,53 @@
                     "$ref": "#/definitions/PaginationResultDefinitio"
                 },
                 "device_list": {
-                    "description": "配送端末情報リスト",
+                    "description": "端末情報リスト",
                     "type": "array",
                     "items": {
                         "type": "object",
                         "required": [
-                            "host_name",
-                            "host_ip",
-                            "factory_name",
-                            "Installation_place",
-                            "device_list"          
+                            "name",
+                            "ip",
+                            "workplace_name"
                         ],
                         "properties": {
-                            "host_name": {
-                                "description": "配送システムホスト端末ホスト名",
+                            "name": {
+                                "description": "システムホスト端末ホスト名",
                                 "type": "string"
                             },
-                            "host_ip": {
+                            "ip": {
                                 "description": "IPアドレス",
                                 "type": "string"
                             },
-                            "factory_name": {
-                                "description": "工場",
+                            "workplace_name": {
+                                "description": "拠点",
                                 "type": "string"
                             },
-                            "Installation_place": {
-                                "description": "設置場所",
-                                "type": "string"
-                            },
-                            "addressList": {
-                                "description": "配送システムハンディリスト",
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "required": [
-                                        "device_ip",
-                                        "location"  
-                                    ],
-                                    "properties": {
-                                        "device_ip": {
-                                            "description": "配送システムハンディ端末IP",
-                                            "type": "string"
-                                        },
-                                        "location": {
-                                            "description": "配送システムハンディ端末設置場所",
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
                         }
                     }
                 }
             }
         },
         "DeviceRegisterDefinition": {
-            "description": "配送端末情報登録",
+            "description": "端末情報登録",
             "required": [
-                "host_name",
-                "host_ip",
-                "factory_name",
-                "Installation_place",
-                "device_list"
+                "name",
+                "ip",
+                "workplace_name"
             ],
             "properties": {
-                "host_name": {
-                    "description": "配送システムホスト端末ホスト名",
+                "name": {
+                    "description": "システムホスト端末ホスト名",
                     "type": "string"
                 },
-                "host_ip": {
+                "ip": {
                     "description": "IPアドレス",
                     "type": "string"
                 },
-                "factory_name": {
-                    "description": "工場",
+                "workplace_name": {
+                    "description": "拠点",
                     "type": "string"
                 },
-                "Installation_place": {
-                    "description": "設置場所",
-                    "type": "string"
-                },
-                "device_ip": {
-                    "description": "配送システムハンディ端末リスト",
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "required": [
-                            "device_ip",
-                            "location"
-                        ],
-                        "properties": {
-                            "device_ip": {
-                                "description": "配送システムハンディ端末IP",
-                                "type": "string"
-                            },
-                            "location": {
-                                "description": "配送システムハンディ端末設置場所",
-                                "type": "string"
-                            }
-                        }
-                    }
-                }
             },
             "type": "object"
         },
@@ -1106,27 +1026,27 @@
         },
         "FacilityCodeListResultDefinition": {
             "type": "object",
-            "description": "部門コード一覧取得",
+            "description": "拠点一覧取得",
             "required": [
-                "facility_code_list"
+                "workplace_list"
             ],
             "properties": {
-                "facility_code_list": {
-                    "description": "部門コードリスト",
+                "workplace_list": {
+                    "description": "拠点リスト",
                     "type": "array",
                     "items": {
                         "type": "object",
                         "required": [
-                            "factory_id",
-                            "factory_name"
+                            "workplace_id",
+                            "workplace_name"
                         ],
                         "properties": {
-                            "factory_id": {
-                                "description": "工場ID",
+                            "workplace_id": {
+                                "description": "拠点ID",
                                 "type": "integer"
                             },
-                            "factory_name": {
-                                "description": "工場名",
+                            "workplace_name": {
+                                "description": "拠点名",
                                 "type": "string"
                             }
                         }

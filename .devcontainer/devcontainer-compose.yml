@@ -1,0 +1,32 @@
+
+version: '3'
+services:
+    service1-cli-dev:
+        build:
+            context: ../service1/client/docker
+            dockerfile: Dockerfile
+        image: 'service1-cli'
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        ports:
+            - '28080:18080'
+        volumes:
+            - '/home/apps/service1/client:/app'
+            - 'service1-cli-dev-node-modules:/app/node_modules'
+        networks:
+            - dev
+        stdin_open: true
+        tty: true
+        environment:
+            - CHOKIDAR_USEPOLLING=true
+            - JAVA_OPTS=-server -Xms1024M -Xmx1024M -XX:MetaspaceSize=128m -Xss3m
+networks:
+    dev:
+        driver: bridge
+    default:
+        external:
+            name: bridge
+volumes:
+    service1-cli-dev-node-modules:
+        driver: local
+
