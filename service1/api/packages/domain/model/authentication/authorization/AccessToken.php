@@ -13,15 +13,24 @@ class AccessToken implements StringType
         $this->value = $value;
     }
 
-    public function isEmpty(): bool{
-        if(!$this->value){
+    public function isEmpty(): bool
+    {
+        if (!$this->value) {
             return true;
         }
         return false;
     }
 
-    public function toString(): string {
-        if ($this->isEmpty()) return "";
+    public function toString(): string
+    {
+        if ($this->isEmpty()) {
+            return "";
+        }
+        return $this->value;
+    }
+
+    public function getValue(): ?string
+    {
         return $this->value;
     }
 }

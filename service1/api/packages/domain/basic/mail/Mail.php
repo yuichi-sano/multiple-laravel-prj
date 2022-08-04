@@ -2,10 +2,9 @@
 
 namespace packages\domain\basic\mail;
 
-
 class Mail
 {
-    private string $value;
+    protected string $value;
 
     public function __construct(string $value)
     {
@@ -14,13 +13,11 @@ class Mail
 
     public function isEmpty(): bool
     {
-       return empty($this->value);
+        return empty($this->value);
     }
 
     public function toString(): string
     {
         return (string)$this->value;
     }
-
-
 }

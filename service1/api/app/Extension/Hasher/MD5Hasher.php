@@ -1,12 +1,16 @@
 <?php
+
 namespace App\Extension\Hasher;
-use \Illuminate\Contracts\Hashing\Hasher;
 
-class MD5Hasher implements Hasher {
+use Illuminate\Contracts\Hashing\Hasher;
 
-    public function info($hashedValue){
+class MD5Hasher implements Hasher
+{
+    public function info($hashedValue)
+    {
         return $hashedValue;
     }
+
     public function make($value, array $options = []): string
     {
         return md5($value);

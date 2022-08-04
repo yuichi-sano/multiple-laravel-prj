@@ -11,7 +11,6 @@ use packages\domain\model\authentication\authorization\RefreshToken;
 use packages\domain\model\authentication\authorization\RefreshTokenFactory;
 use packages\domain\model\authentication\authorization\RefreshTokenRepository;
 
-
 class AccountAuthenticationService implements AccountAuthenticationInterface
 {
     protected AccessTokenFactory $accessTokenFactory;
@@ -22,18 +21,17 @@ class AccountAuthenticationService implements AccountAuthenticationInterface
         AccessTokenFactory $accessTokenFactory,
         RefreshTokenFactory $refreshTokenFactory,
         RefreshTokenRepository $refreshTokenRepository
-    )
-    {
+    ) {
         $this->accessTokenFactory = $accessTokenFactory;
         $this->refreshTokenFactory = $refreshTokenFactory;
         $this->refreshTokenRepository = $refreshTokenRepository;
-
     }
-    public function execute (Account $account): Account{
+
+    public function execute(Account $account): Account
+    {
         $token = $this->accessTokenFactory->create($account);
         $authenticationRefreshToken = $this->refreshTokenFactory->create($account);
         $this->refreshTokenRepository->save($authenticationRefreshToken);
         return $account->authenticationAccount($token, $authenticationRefreshToken->getRefreshToken());
     }
-
 }

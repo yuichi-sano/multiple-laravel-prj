@@ -40,10 +40,17 @@ export default class Client {
   }
 
   async _errorHandling(error: any): Promise<unknown> {
-    if (401 === error.response.status) {
-      await router.push({name: 'expire'}).catch(() => {
+    // for NetWorkError
+    if (error.response === undefined) {
+      await router.push({name: 'systemerror'}).catch(() => {
         // @ts-ignore block is empty.
       });
+      return Promise.reject(error.response);
+    }
+    if (401 === error.response.status) {
+      // await router.push({name: 'expire'}).catch(() => {
+        // @ts-ignore block is empty.
+      // });
       return Promise.reject(error.response);
     }
 

@@ -6,5 +6,5 @@ use packages\domain\model\authentication\Account;
 
 interface AccountAuthenticationInterface
 {
-    public function execute (Account $account): Account;
+    public function execute(Account $account): Account;
 }

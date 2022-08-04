@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Requests\Basic;
+
 use App\Exceptions\ValidationException;
 use App\Http\Requests\Definition\Basic\DefinitionInterface;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Support\Facades\Auth;
+use packages\domain\model\authentication\Account;
 
 abstract class AbstractFormRequest extends FormRequest
 {
@@ -18,7 +20,6 @@ abstract class AbstractFormRequest extends FormRequest
     {
         $this->definition = $definition;
     }
-
 
     /**
      * 無加工なHTTPリクエストプロパティを配列で返却します。
@@ -87,7 +88,7 @@ abstract class AbstractFormRequest extends FormRequest
     {
         $this->validationMessage = $validator->errors()->toArray();
         logger($validator->errors()->toJson());
-        throw new ValidationException('V_0000000',$this->validationMessage);
+        throw new ValidationException('V_0000000', $this->validationMessage);
     }
 
     public function messages(): array
@@ -95,6 +96,11 @@ abstract class AbstractFormRequest extends FormRequest
         return $this->validationMessage;
     }
 
+    /**
+     * @return Account
+     */
+    public function getAuthedUser(): Account
+    {
+        return Auth::user();
+    }
 }
-
-

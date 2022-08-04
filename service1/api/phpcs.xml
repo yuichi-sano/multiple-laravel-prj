@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<ruleset name="PSR12/Laravel">
+    <description>PSR12 compliant rules and settings for Laravel</description>
+
+    <arg name="extensions" value="php" />
+
+    <!-- 適用コーディング規約の指定 -->
+    <rule ref="PSR12" />
+    <rule ref="Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase">
+        <!-- BC -->
+        <exclude-pattern>packages/domain/basic/sort/SortOrderType.php</exclude-pattern>
+        <exclude-pattern>packages/domain/model/facility/device/HTDeviceType.php</exclude-pattern>
+    </rule>
+    <rule ref="Generic.Files.LineLength.TooLong">
+        <!-- BC -->
+        <exclude-pattern>app/Extension/Provider/CustomValidatorServiceProvider.php</exclude-pattern>
+    </rule>
+
+
+    <!-- 出力に色を適用 -->
+    <arg name="colors" />
+
+    <!-- オプション p:進捗表示  s:エラー表示時にルールを表示 -->
+    <arg value="ps" />
+
+    <!-- 除外ディレクトリ -->
+    <exclude-pattern>app/Console/Commands/SwaggerCodeGenCommand.php</exclude-pattern>
+    <exclude-pattern>app/Http/Controllers/Sample/SampleController.php</exclude-pattern>
+    <exclude-pattern>packages/infrastructure/database/sql/</exclude-pattern>
+    <exclude-pattern>packages/infrastructure/database/xml/</exclude-pattern>
+    <exclude-pattern>/bootstrap/</exclude-pattern>
+    <exclude-pattern>/config/</exclude-pattern>
+    <exclude-pattern>/database/</exclude-pattern>
+    <exclude-pattern>/node_modules/</exclude-pattern>
+    <exclude-pattern>/public/</exclude-pattern>
+    <exclude-pattern>/resources/</exclude-pattern>
+    <exclude-pattern>/routes/</exclude-pattern>
+    <exclude-pattern>/storage/</exclude-pattern>
+    <exclude-pattern>/vendor/</exclude-pattern>
+    <exclude-pattern>/server.php</exclude-pattern>
+    <exclude-pattern>/app/Console/Kernel.php</exclude-pattern>
+    <exclude-pattern>/tests/</exclude-pattern>
+</ruleset>

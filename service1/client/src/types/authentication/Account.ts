@@ -1,9 +1,9 @@
 export interface AuthorizedAccount {
-  accessId: string;
+  userId: string;
   name: string;
 }
 
 export const EmptyAuthorizedAccount: AuthorizedAccount = {
-  accessId: '',
+  userId: '',
   name: '',
 };

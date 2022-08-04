@@ -1,11 +1,24 @@
 import MockAdapter from 'axios-mock-adapter';
 import {AxiosInstance} from 'axios';
 import moment from 'moment';
+import { ZipCodeYuseiUpdate } from '@/types/zipCodeYusei/ZipCodeYuseiUpdate';
+import { ZipCodeKenAll } from '@/types/zipCodeYusei/ZipCodeKenAll';
+import { ZipCodeYuseiBulk } from '@/types/zipCodeYusei/ZipCodeYuseiBulk';
+import { ZipCodeYuseiSearchResponse } from '@/types/zipCodeYusei/ZipCodeYuseiSearch';
+import { Prefecture } from '@/types/prefecture/Prefecture';
+import { Workplace } from '@/types/device/Workplace';
+import { ZipCodeIndividualRegisterResponse } from '@/types/zipCodeYusei/ZipCodeIndividualRegister';
+import { ZipCodeYuseiDeleteResponse } from '@/types/zipCodeYusei/ZipCodeYuseiDelete';
+import { DeviceGetResponse } from '@/types/Device/DeviceGet';
+import { DeviceUpdateResponse } from '@/types/Device/DeviceUpdate';
+import { DeviceDetails } from '@/types/Device/DeviceDetails';
+
 
 
 export default {
   run(axios: AxiosInstance): void {
     const mock = new MockAdapter(axios);
+    const id = 10;
 
 
 
@@ -22,7 +35,170 @@ export default {
         isFastForwarding: false,
       },
     );
+
+
+    // 郵政
+
+    mock.onGet('/zip_code/yusei/last_update').reply((config) => {
+      const data: ZipCodeYuseiUpdate = {
+        bulkUpdateDate: '2022/04/04',
+        bulkUser: 'test user',
+        addDate: '2022/04/04',
+        user: 'test user',
+        zipCode: '1000000',
+        kenmei: '県名',
+        kenCode: 10 ,
+        sikumei: '市区名',
+        sikuCode: 10,
+      };
+      // @ts-ignore
+      return this.__success(data, config);
+    });
+
+    mock.onGet('/zip_code/ken_all').reply((config) => {
+      const data: ZipCodeKenAll = {
+        differenceNumber: 1,
+        zipCodeList: [
+          {
+            old: 'old',
+            new: 'new',
+          },
+        ],
+        yuseiList: [
+          {
+            old: 'old',
+            new: 'new',
+          },
+        ],
+      };
+      // @ts-ignore
+      return this.__success(data, config);
+    });
+
+    mock.onPut('/zip_code/yusei/bulk').reply((config) => {
+      const data: ZipCodeYuseiBulk = {
+
+      };
+      // @ts-ignore
+      return this.__success(data, config);
+    });
+
+
+    mock.onGet('/zip_code/yusei/search').reply((config) => {
+      const data: ZipCodeYuseiSearchResponse = {
+        zipCodeList: [
+          {
+            id: 0,
+            zipCode: '1000000',
+            kenmei: '県名',
+            kenCode: 0,
+            sikumei: '市区名',
+            sikuCode: 0,
+          },
+        ],
+      };
+      // @ts-ignore
+      return this.__success(data, config);
+    });
+
+    mock.onPost('/zip_code/yusei').reply((config) => {
+      const data: ZipCodeIndividualRegisterResponse = {
+
+      };
+      // @ts-ignore
+      return this.__success(data, config);
+    });
+
+    mock.onPut('/zip_code/yusei/' + id).reply((config) => {
+      const data: ZipCodeIndividualRegisterResponse = {
+
+      };
+      // @ts-ignore
+      return this.__success(data, config);
+    });
+
+    mock.onDelete('/zip_code/yusei/' + id).reply((config) => {
+      const data: ZipCodeYuseiDeleteResponse = {
+
+      };
+      // @ts-ignore
+      return this.__success(data, config);
+    });
+
+    mock.onGet('/prefecture').reply((config) => {
+      const data: Prefecture = {
+
+            prefectureId: '001',
+            prefectureName: 'prefecture',
+
+      };
+      // @ts-ignore
+      return this.__success(data, config);
+    });
+
+
+    // 端末
+
+    mock.onGet('/device').reply((config) => {
+      const data: DeviceGetResponse = {
+        page: {
+          resultCount: 0,
+          totalPages: 0,
+          previousPage: 0,
+          currentPage: 1,
+          nextPage: 0,
+        },
+        DeviceList: [
+          {
+            id: null,
+            name: '',
+            ip: '',
+            workplaceName: '',
+            workplaceId: '',
+          },
+        ],
+      };
+      // @ts-ignore
+      return this.__success(data, config);
+    });
+
+    mock.onPut('/device/' + id).reply((config) => {
+      const data: DeviceUpdateResponse = {
+
+      };
+      // @ts-ignore
+      return this.__success(data, config);
+    });
+
+    mock.onGet('/device/' + id).reply((config) => {
+      const data: DeviceDetails = {
+        DeviceList: [
+          {
+            name: '端末名',
+            ip: '端末IP',
+            workplaceName: '拠点',
+            workplaceId: 　0,
+          },
+      ],
+      };
+      // @ts-ignore
+      return this.__success(data, config);
+    });
+
+    mock.onGet('/workplace').reply((config) => {
+      const data: Array<Workplace> = [
+          {
+            workplaceId: 0,
+            workplaceName: '',
+          },
+        ];
+      // @ts-ignore
+      return this.__success(data, config);
+    });
+
   },
+
+
 
   route(path = ''): RegExp {
     return new RegExp(path.replace(/:\w+/g, '[^/]+'));

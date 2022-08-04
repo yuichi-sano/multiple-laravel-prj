@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Extension\Provider;
+
 //use Illuminate\Database\MigrationServiceProvider;
 use Illuminate\Foundation\Providers\ArtisanServiceProvider;
 use Illuminate\Foundation\Providers\ComposerServiceProvider;
 use Illuminate\Foundation\Providers\ConsoleSupportServiceProvider;
+
 class CustomConsoleServiceProvider extends ConsoleSupportServiceProvider
 {
     /**
@@ -17,5 +19,4 @@ class CustomConsoleServiceProvider extends ConsoleSupportServiceProvider
         //MigrationServiceProvider::class,
         ComposerServiceProvider::class,
     ];
-
 }

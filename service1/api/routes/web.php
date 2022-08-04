@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    //FIXME ある程度数のメンバが慣れるまでは一応残しておきます
     return view('welcome');
 });

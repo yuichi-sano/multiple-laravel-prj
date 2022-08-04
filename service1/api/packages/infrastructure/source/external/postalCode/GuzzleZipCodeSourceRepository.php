@@ -9,7 +9,7 @@ use packages\domain\model\zipcode\ZipCodeSourceRepository;
 
 class GuzzleZipCodeSourceRepository implements ZipCodeSourceRepository
 {
-    public function  get(): ZipCodeSource
+    public function get(): ZipCodeSource
     {
         // 重複しない保存先を取得 /tmp
         $tempName = tempnam(sys_get_temp_dir(), 'postal_cd_');
@@ -30,5 +30,4 @@ class GuzzleZipCodeSourceRepository implements ZipCodeSourceRepository
 
         //return $response;
     }
-
 }

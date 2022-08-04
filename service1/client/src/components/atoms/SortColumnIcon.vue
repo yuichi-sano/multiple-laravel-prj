@@ -1,15 +1,15 @@
 <template>
   <a v-if="isASC"
      @click="desc()">
-    <v-icon icon="caret-up"/>
+      <b-icon icon="caret-up-fill"></b-icon>
   </a>
   <a v-else-if="isDESC"
      @click="none()">
-    <v-icon icon="caret-down"/>
+      <b-icon icon="caret-down-fill"></b-icon>
   </a>
   <a v-else
      @click="asc()">
-    <v-icon icon="sort"/>
+      <b-icon icon="chevron-expand"></b-icon>
   </a>
 </template>
 

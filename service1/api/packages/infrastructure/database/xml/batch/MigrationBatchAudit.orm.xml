@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="packages\domain\model\batch\MigrationBatchAudit" table="sampleaudit.table_batch_audit">
+        <embedded
+                name="id"
+                class="packages\domain\model\batch\MigrationBatchAuditId"
+                use-column-prefix="false"
+        />
+        <field name="targetTableName" type="string" column="target_table_name" length="255" nullable="false"></field>
+        <embedded
+                name="recordCnt"
+                class="packages\domain\model\batch\MigrationBatchAuditRecordCnt"
+                use-column-prefix="false"
+        />
+        <embedded
+                name="beforeRecordCnt"
+                class="packages\domain\model\batch\MigrationBatchAuditBeforeRecordCnt"
+                use-column-prefix="false"
+        />
+        <embedded
+                name="diffCnt"
+                class="packages\domain\model\batch\MigrationBatchAuditDiffCnt"
+                use-column-prefix="false"
+        />
+        <embedded
+                name="status"
+                class="packages\domain\model\batch\MigrationBatchAuditStatus"
+                use-column-prefix="false"
+        />
+        <embedded
+                name="applyDate"
+                class="packages\domain\model\batch\MigrationBatchAuditApplyDate"
+                use-column-prefix="false"
+        />
+        <embedded
+                name="implementationDate"
+                class="packages\domain\model\batch\MigrationBatchAuditImplementationDate"
+                use-column-prefix="false"
+        />
+        <embedded
+                name="userId"
+                class="packages\domain\model\user\UserId"
+                use-column-prefix="false"
+        />
+
+        <field name="createDate" type="string" column="create_date" nullable="false"></field>
+        <field name="auditDate" type="string" column="audit_date" nullable="false"></field>
+    </entity>
+</doctrine-mapping>

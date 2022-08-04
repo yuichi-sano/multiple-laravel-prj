@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import api from '@/infrastructure/api/API';
 import Header from '@/components/organisms/Header.vue';
 import ScreenGuard from '@/components/atoms/ScreenGuard.vue';
 import {processModule} from '@/stores/process/Process';
@@ -21,8 +22,10 @@ import {processModule} from '@/stores/process/Process';
   },
 })
 export default class App extends Vue {
+  healthChecker: number | null | undefined;
   created(): void {
     this.incompatibleRedirect();
+    this.startHealthCheck();
   }
   // computed
   get isProcessing(): boolean {
@@ -37,6 +40,23 @@ export default class App extends Vue {
       location.href = 'https://google.com';
     }
   }
+  startHealthCheck() {
+    // @ts-ignore @FIXME
+      this.healthChecker = this.$setInterval(() => {
+          this.healthCheck();
+      }, 5000);
+  }
+
+  async healthCheck(): Promise<void> {
+    const id = this.healthChecker;
+    await api.healthCheck()
+    .then((response: any) => {
+    }).catch((reason) => {
+        // @ts-ignore @FIXME
+      this.$clearInterval(id);
+    });
+  }
+
 }
 </script>
 

@@ -3,8 +3,12 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Throwable;
 use Illuminate\Auth\AuthenticationException;
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -15,7 +19,6 @@ class Handler extends ExceptionHandler
     protected $dontReport = [
         //
     ];
-
     /**
      * A list of the inputs that are never flashed for validation exceptions.
      *
@@ -43,19 +46,18 @@ class Handler extends ExceptionHandler
      * guardによる認証エラージの挙動修正
      * @param $request
      * @param AuthenticationException $exception
-     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return JsonResponse|RedirectResponse|Response
      */
     protected function unauthenticated($request, AuthenticationException $exception)
     {
-        return  response()->json(
-        [
-            'state' => 'E_0000001',
-            'message' => $exception->getMessage(),
-        ],
-        401,
-        [],
-        env('APP_DEBUG') ? JSON_UNESCAPED_UNICODE : 0
-    );
-
+        return response()->json(
+            [
+                'state' => ErrorCodeConst::ERROR_401_UNAUTHORIZED,
+                'message' => $exception->getMessage(),
+            ],
+            401,
+            [],
+            config('app.debug') ? JSON_UNESCAPED_UNICODE : 0
+        );
     }
 }
