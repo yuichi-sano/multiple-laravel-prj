@@ -1,0 +1,18 @@
+{
+	"name": "Sample App",
+	// コンテナ起動に使用するDocker Composeファイル
+	"dockerComposeFile": "devcontainer-compose.yml",
+	// Dev containerとして起動するDocker Composeサービス
+	"service": "service1-cli-dev",
+	// ワークスペースディレクトリ
+	"workspaceFolder": "/app",
+	// インストールする拡張機能
+	"extensions": [
+		"ms-ceintl.vscode-language-pack-ja",
+		"dsznajder.es7-react-js-snippets",
+		"foxundermoon.next-js",
+		"pulkitgangwar.nextjs-snippets"
+	],
+	// コンテナ作成後にGitをインストール
+	"postCreateCommand": "apt-get update && apt-get install -y git"
+}
