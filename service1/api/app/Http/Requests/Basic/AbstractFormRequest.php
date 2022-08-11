@@ -12,7 +12,7 @@ use packages\domain\model\authentication\Account;
 abstract class AbstractFormRequest extends FormRequest
 {
     public array $validationMessage = [];
-    protected DefinitionInterface $definition;
+    protected ?DefinitionInterface $definition;
 
     abstract protected function transform(array $attrs);
 
@@ -28,7 +28,7 @@ abstract class AbstractFormRequest extends FormRequest
     public function attrs()
     {
         $attrs = array_filter($this->all(), function ($k) {
-            return 0 !== strpos($k, '_');
+            return !str_starts_with($k, '_');
         }, ARRAY_FILTER_USE_KEY);
 
         if ($this->definition === null) {
@@ -41,7 +41,7 @@ abstract class AbstractFormRequest extends FormRequest
      * requestでは認証回りは扱わない
      * @return bool
      */
-    public function authorize(): bool
+    final public function authorize(): bool
     {
         return true;
     }
@@ -83,6 +83,7 @@ abstract class AbstractFormRequest extends FormRequest
      * バリデーションのルールに沿わなかった場合に呼び出されるメソッド
      * エラーメッセージを配列で返却します。
      * TODO Exception要
+     * @throws ValidationException
      */
     protected function failedValidation(Validator $validator)
     {
