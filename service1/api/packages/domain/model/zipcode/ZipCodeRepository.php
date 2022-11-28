@@ -15,22 +15,22 @@ interface ZipCodeRepository
         MigrationBatchAuditRecordCnt $recordCnt,
         MigrationBatchAuditDiffCnt $diffCnt,
         MigrationBatchAuditApplyDate $applyDate,
-        UserId $userId
     ): MigrationBatchAudit;
 
     public function createMigrationCriteria(
         int $status,
         string $applyDate = null,
-        string $userId = null
     ): MigrationBatchAuditCriteria;
 
     public function migration();
 
     public function findAddress(ZipCodePostalCode $zipCode): ZipCodeList;
 
+    public function findAddressById(ZipCodeId $id): ZipCode;
+
     public function add(ZipCode $zipCode): void;
 
     public function update(ZipCode $zipCode): void;
 
-    public function delete(ZipCodePostalCode $zipCodePostalCode): void;
+    public function delete(ZipCodeId $zipCodeId): void;
 }
