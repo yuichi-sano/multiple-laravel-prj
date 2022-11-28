@@ -2,17 +2,18 @@
 
 namespace packages\infrastructure\database\doctrine;
 
-use Doctrine\DBAL\Exception\DatabaseObjectNotFoundException;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
-use Doctrine\ORM\Mapping\MappingException;
+use Doctrine\ORM\Mapping\ClassMetadataInfo;
+use Doctrine\ORM\Mapping\ReflectionEmbeddedProperty;
 use Doctrine\ORM\Query\ResultSetMappingBuilder;
 use Doctrine\Persistence\Mapping\RuntimeReflectionService;
-use ErrorException;
+use Doctrine\Persistence\Reflection\TypedNoDefaultReflectionProperty;
 use Exception;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Str;
 use Illuminate\View\FileViewFinder;
+use Ramsey\Collection\Collection;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionProperty;
@@ -33,18 +34,186 @@ abstract class DoctrineRepository extends EntityRepository
     protected static string $basicTypeNameSpace = 'packages\domain\basic\type';
 
     /**
+     * @param ClassMetadata $classMetadata
+     * @param array $rowDataList
+     * @param string $columnPrefix
+     * @param string|null $parentKey
+     * @return Array<object>
+     * @throws Exception
+     */
+    public function getResultDomainList(ClassMetadata $classMetadata, array $rowDataList, string $columnPrefix = '', string $parentKey = null): array
+    {
+        $EntityDomainList = [];
+        foreach($rowDataList as $rowData){
+            $key = $this->getCollectionKeyValueStr($classMetadata, $rowData ,$columnPrefix);
+            $entityDomain = $this->getResultDomain($classMetadata, $rowData, $rowDataList, $columnPrefix, null, $key);
+            if($parentKey){
+                $EntityDomainList[$parentKey][$key] = $entityDomain;
+            }else{
+                $EntityDomainList[$key] = $entityDomain;
+            }
+        }
+        return $EntityDomainList;
+    }
+
+    /**
+     * classMetaの情報からドメインモデルを生成します
+     * @note 自身を再帰的に呼び出します。
+     * @param ClassMetadata $classMetadata 対象ドメインのメタデータ
+     * @param array $rowData 処理対象rowデータ（一次元,一行）
+     * @param string $columnPrefix
+     * @param mixed|null $columnResult この引数が指定されている場合、rowDataのからは取得しません
+     * @param string|null $key 配列キー
+     * @param array $rowDataList 処理対象rowデータ（一次元,複数行）
+     * @return object
+     * @throws Exception
+     */
+    public function getResultDomain(
+        ClassMetadata $classMetadata, array $rowData,array $rowDataList,
+        string $columnPrefix = '', mixed $columnResult = null,
+        string $key = null,
+    ): object {
+        $entityDomain = $classMetadata->newInstance();
+        foreach($classMetadata->fieldMappings as $map) {
+            $col = $columnPrefix.$map['columnName'];
+            $columnData = $columnResult ?: isset($rowData[$col]) ?? null;
+            if (isset($map['declaredField'])) {
+                $fieldNameFirst = current($this->splitFieldNames($map['fieldName']));
+                if(!is_null($classMetadata->getFieldValue($entityDomain, $fieldNameFirst))){
+                    continue;
+                }
+                $childName = $this->getFieldClassName($classMetadata, $fieldNameFirst);
+                $childMeta = $this->getEntityManager()->getRepository($childName)->getClassMetadata();
+                $field = current($this->splitFieldNames($map['declaredField']));
+                $data = $this->getResultDomain($childMeta, $rowData, $rowDataList, $columnPrefix, $columnData, $key );
+            }else{
+                $field = $map['fieldName'];
+                $data = $columnData;
+            }
+            $classMetadata->setFieldValue($entityDomain, $field, $data);
+        }
+
+        foreach ($classMetadata->getAssociationMappings() as $associationMapping){
+            if($associationMapping['inversedBy']){
+                continue;
+            }
+            $associationDomain = $this->getAssociationResultDomain($classMetadata, $associationMapping, $rowDataList);
+            $classMetadata->setFieldValue(
+                $entityDomain,
+                $associationMapping['fieldName'],
+                $associationDomain
+            );
+        }
+        return $entityDomain;
+    }
+
+    /**
+     * @param ClassMetadata $classMetadata
+     * @param $associationMapping
+     * @param $rowDataList
+     * @return Collection
+     * @throws Exception
+     */
+    public function getAssociationResultDomain(ClassMetadata $classMetadata, $associationMapping, $rowDataList): Collection
+    {
+        $assocClassMetadata = $this->getEntityManager()->getRepository(
+            $associationMapping['targetEntity']
+        )->getClassMetadata();
+        $assocDomainDataList = $this->getResultDomainList($assocClassMetadata, $rowDataList, $associationMapping['mappedBy'].'_', $key);
+        $assocDomainClassName = $this->getFieldClassName($classMetadata, $associationMapping['fieldName']);
+        $associationDomain = new ($assocDomainClassName)($assocDomainDataList[$key]);
+        if(!isset($associationDomain)){
+            throw new \Exception('コレクションオブジェクトが定義されていません');
+        }
+        return $associationDomain;
+    }
+
+    /**
+     * @param ClassMetadata $classMetadata
+     * @param string $fieldName
+     * @return string|void
+     */
+    private function getFieldClassName(ClassMetadata $classMetadata, string $fieldName){
+        $propertyType = $classMetadata->getReflectionProperty($fieldName)->getType();
+        if(method_exists($propertyType,'getName')){
+            return $propertyType->getName();
+        }
+        foreach ($propertyType->getTypes() as $type){
+            if($this->isCollectionObject($type->getName())){
+                return $type->getName();
+            };
+        }
+    }
+
+
+    /**
+     * フィールド名をピリオドで区切り配列に変換
+     * @param $fieldName
+     * @return array
+     */
+    private function splitFieldNames($fieldName): array
+    {
+        return explode('.', $fieldName);
+    }
+
+    /**
+     * ドメインをコレクションする際の配列キーを生成
+     * @param $classMetadata
+     * @param array $rowData
+     * @param $columnPrefix
+     * @return string
+     */
+    public function getCollectionKeyValueStr($classMetadata, array $rowData, $columnPrefix = ''): string
+    {
+        $collectionKeyColumns = $classMetadata->getIdentifierColumnNames();
+        $collectionKeyValues = [];
+        foreach($collectionKeyColumns as $collectionKeyColumn){
+            $collectionKeyValues[] = $rowData[$columnPrefix . $collectionKeyColumn] ?? null;
+        }
+        return implode('_',$collectionKeyValues);
+    }
+
+    /**
+     * @param $rowDatas
+     * @return object[]
+     */
+    public function getResultByNativeQuery($rowDatas): array
+    {
+        try {
+            return $this->getResultDomainList($this->getClassMetadata(), $rowDatas);
+        } catch (Exception $e) {
+        }
+    }
+
+    /**
+     * @param $rowDatas
+     * @return object|bool
+     * @throws Exception
+     */
+    public function getSingleResultByNativeQuery($rowDatas): object|bool
+    {
+        $result = $this->getResultDomainLis($rowDatas);
+        if(count($result) > 1){
+            throw new \Exception('一件引きのはずが複数件ヒットしています');
+        }
+        return current($result);
+    }
+
+
+    /**
      * Collectionを伴うドメインモデルへ注入
      * @note many to one ,one to many, many to many を使う際のN+1問題の回避策
      * @param array $rowDatas
      * @return object $domain
      * @throws ReflectionException|ErrorException
      */
-    public function getSingleGroupingResult(array $rowDatas) : object
+    public function getSingleGroupingResult(array $rowDatas): object
     {
         $transferAssociativeArray = $this->transferAssociativeArray($rowDatas);
         if (count($transferAssociativeArray) > 1) {
             throw new Exception('一件引きのはずが複数レコード取得されています');
         }
+
         $reflect = new ReflectionClass($this->getEntityName());
         $domain = $this->getClassMetadata()->newInstance();
         foreach ($transferAssociativeArray as $associateArray) {
@@ -60,7 +229,7 @@ abstract class DoctrineRepository extends EntityRepository
      * @return object[] $results
      * @throws ReflectionException|ErrorException
      */
-    public function getGroupingResult($rowDatas) :array
+    public function getGroupingResult($rowDatas): array
     {
         $results = [];
         $transferAssociativeArray = $this->transferAssociativeArray($rowDatas);
@@ -70,6 +239,7 @@ abstract class DoctrineRepository extends EntityRepository
             $this->executeMapping($reflect, $associateArray, $domain);
             $results[] = $domain;
         }
+
         return $results;
     }
 
@@ -103,7 +273,7 @@ abstract class DoctrineRepository extends EntityRepository
     {
         $collectionKeys = $domainReflect->getProperty(self::$collectionKeyName)->getDefaultValue();
         $collectionKeyValues = [];
-        $prefixes =$this->mergePrefixes($this->getBaseClassName($domainReflect->getName()), $parentPrefixes);
+        $prefixes = $this->mergePrefixes($this->getBaseClassName($domainReflect->getName()), $parentPrefixes);
 
         foreach ($collectionKeys as $collectionKey) {
             $collectionKeyValues[] = $this->getColumnResult($rowData, $collectionKey, $prefixes);
@@ -129,7 +299,7 @@ abstract class DoctrineRepository extends EntityRepository
         &$result,
         array $parentPrefixes = []
     ): void {
-        $prefixes = $this->mergePrefixes($this->getBaseClassName($domainReflect->getName()),$parentPrefixes);
+        $prefixes = $this->mergePrefixes($this->getBaseClassName($domainReflect->getName()), $parentPrefixes);
         foreach ($domainReflect->getProperties() as $property) {
             if (in_array($property->getName(), self::$ignoreProperties, true)) {
                 continue;
@@ -149,6 +319,7 @@ abstract class DoctrineRepository extends EntityRepository
                 );
             } else {
                 $childDomainReflect = new ReflectionClass($property->getType()->getName());
+
                 $this->transferDomainModelAssociativeArray(
                     $rowData,
                     $childDomainReflect,
@@ -198,8 +369,8 @@ abstract class DoctrineRepository extends EntityRepository
                     $domain,
                     $transferedArrayData
                 );
-            }catch (ErrorException $e){
-                throw new ErrorException($e->getMessage()."\n"."処理対象ドメイン:".$domainReflect->getName()."\n処理対象プロパティ:".$property);
+            } catch (ErrorException $e) {
+                throw new ErrorException($e->getMessage() . "\n" . "処理対象ドメイン:" . $domainReflect->getName() . "\n処理対象プロパティ:" . $property);
             }
         }
     }
@@ -227,17 +398,16 @@ abstract class DoctrineRepository extends EntityRepository
             $resultKey = Str::snake($baseClassName);
             $field = end($classMeta->reflFields);
             if (array_key_exists($resultKey, $transferedArrayData)) {
-                $classMeta->setFieldValue($instance, $field->getName(), $transferedArrayData[$resultKey]);
+                $value = $transferedArrayData[$resultKey];
             } else {
                 $value = $transferedArrayData[Str::snake($propertyName)];
-                if( $this->isBasicTypeObject($className)){
-                    if($classMeta->getFieldMapping('value')['type'] == 'datetime'){
-                        $value = \DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s',strtotime($value)));
+                if ($this->isBasicTypeObject($className)) {
+                    if ($classMeta->getFieldMapping('value')['type'] == 'datetime') {
+                        $value = \DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s', strtotime($value)));
                     };
                 };
-                $classMeta->setFieldValue($instance, $field->getName(), $value);
             }
-
+            $classMeta->setFieldValue($instance, $field->getName(), $value);
             return $instance;
         }
         $reflect = new ReflectionClass($className);
@@ -251,8 +421,8 @@ abstract class DoctrineRepository extends EntityRepository
                     $isCollectionChild,
                     $propertyName
                 );
-            }catch (ErrorException $e){
-                throw new \ErrorException($e->getMessage()."\n"."処理対象ドメイン:".$className."\n処理対象プロパティ:".$property);
+            } catch (ErrorException $e) {
+                throw new \ErrorException($e->getMessage() . "\n" . "処理対象ドメイン:" . $className . "\n処理対象プロパティ:" . $property);
             }
         }
         return $instance;
@@ -284,9 +454,9 @@ abstract class DoctrineRepository extends EntityRepository
             return;
         }
         if (!class_exists($propType)) {
-            if($isCollectionChild || $propertyName == ''){
+            if ($isCollectionChild || $propertyName == '') {
                 $classMeta->setFieldValue($domain, $property->getName(), $transferedArrayData[Str::snake($property->getName())]);
-            }else{
+            } else {
                 $classMeta->setFieldValue($domain, $property->getName(), $transferedArrayData[Str::snake($baseClassName)][Str::snake($property->getName())]);
             }
             return;
@@ -306,56 +476,60 @@ abstract class DoctrineRepository extends EntityRepository
         if ($this->isCollectionObject($reflectProp->getType()->getName())) {
             $collectionClassName = $reflectProp->getType()->getName();
             $collection = new $collectionClassName();
-            foreach ($transferedArrayData[Str::snake($reflectProp->getName())] as $item) {
-                try {
-                    $collection->add(
-                        $this->setChildProperty(
-                            $collection->getType(),
-                            $item,
-                            true,
-                            $property->getName()
-                        )
-                    );
-                }catch(\Doctrine\Persistence\Mapping\MappingException $e ){
-                    //TODO LoggerでMapping出来なかった旨を吐き出す
-                    //@caution 子要素ドメインに注入出来なかった場合は処理を続行します
+            if(array_key_exists(Str::snake($reflectProp->getName()), $transferedArrayData)) {
+                foreach ($transferedArrayData[Str::snake($reflectProp->getName())] as $item) {
+                    try {
+                        $collection->add(
+                            $this->setChildProperty(
+                                $collection->getType(),
+                                $item,
+                                true,
+                                $property->getName()
+                            )
+                        );
+                    } catch (\Doctrine\Persistence\Mapping\MappingException $e) {
+                        //TODO LoggerでMapping出来なかった旨を吐き出す
+                        //@caution 子要素ドメインに注入出来なかった場合は処理を続行します
+                    }
                 }
             }
             $addedObj = $collection;
             $classMeta->setFieldValue($domain, $property->getName(), $addedObj);
         } elseif ($this->isBasicTypeObject($propType)) {
-            $data=$transferedArrayData;
+            $data = $transferedArrayData;
             if (array_key_exists(Str::snake($propertyName), $transferedArrayData)) {
-                $data=$transferedArrayData[Str::snake($propertyName)];
+                $data = $transferedArrayData[Str::snake($propertyName)];
             }
             if ($isCollectionChild) {
-                $data=$transferedArrayData;
+                $data = $transferedArrayData;
             }
             $addedObj = $this->setChildProperty(
                 $propType,
                 $data,
                 false,
-                $property->getName());
+                $property->getName()
+            );
             $classMeta->setFieldValue($domain, $property->getName(), $addedObj);
-        }else{
+        } else {
 
             if (!array_key_exists(Str::snake($propertyName), $transferedArrayData)) {
-                $data=$transferedArrayData;
-            }else{
-                $data=$transferedArrayData[Str::snake($propertyName)];
+                $data = $transferedArrayData;
+            } else {
+                $data = $transferedArrayData[Str::snake($propertyName)];
             }
-            try{
+            try {
                 $addedObj = $this->setChildProperty(
                     $propType,
                     $data,
                     false,
-                    $property->getName());
+                    $property->getName()
+                );
                 $classMeta->setFieldValue($domain, $property->getName(), $addedObj);
-            }catch(\Doctrine\Persistence\Mapping\MappingException $e){
+            } catch (\Doctrine\Persistence\Mapping\MappingException $e) {
                 //TODO LOGでマッピングできなかった旨を吐き出す
                 //@caution 子要素ドメインに注入出来なかった場合は処理を続行します
+                var_dump($e);
             }
-
         }
     }
 
@@ -386,7 +560,6 @@ abstract class DoctrineRepository extends EntityRepository
         }
         return in_array($this->getBaseClassName(get_parent_class($className)), self::$baseCollectionClassNames, true);
     }
-
     /**
      * DomainのBasicなinterfaceを実装したクラスであるか（IntegerType等など）
      * @param $className
@@ -436,7 +609,7 @@ abstract class DoctrineRepository extends EntityRepository
      * @param array $parentPrefixes
      * @return array
      */
-    private function mergePrefixes(string $prefix, array $parentPrefixes=[]): array
+    private function mergePrefixes(string $prefix, array $parentPrefixes = []): array
     {
         $prefixes = $parentPrefixes;
         $prefixes[] = $prefix;
@@ -452,17 +625,7 @@ abstract class DoctrineRepository extends EntityRepository
      */
     public function readNativeQueryFile(string $queryName, array $bladeParams = []): string
     {
-        $app = app();
-        $view = view();
-        $orgFinder = $view->getFinder();
-        $sqlPath = native_query_path($this->getParentDir());
-        $newFinder = new FileViewFinder($app['files'], [$sqlPath]);
-        $view->setFinder($newFinder);
-        $view->addExtension('sql', 'blade');
-        $obj = $view->make($queryName, $bladeParams);
-        $result = $obj->render();
-        $view->setFinder($orgFinder);
-        return $result;
+        return $this->readSqlFile($queryName, native_query_path($this->getParentDir()), $bladeParams);
     }
 
     /**
@@ -474,18 +637,26 @@ abstract class DoctrineRepository extends EntityRepository
      */
     public function readMigrationFile(string $migrationName, array $bladeParams = []): string
     {
+        return $this->readSqlFile($migrationName, data_migrations_path(), $bladeParams);
+    }
+
+    /**
+     * @throws BindingResolutionException
+     */
+    public function readSqlFile(string $name, string $path, array $bladeParams = []): string
+    {
         $app = app();
         $view = view();
         $orgFinder = $view->getFinder();
-        $sqlPath = data_migrations_path();
-        $newFinder = new FileViewFinder($app['files'], [$sqlPath]);
+        $newFinder = new FileViewFinder($app['files'], [$path]);
         $view->setFinder($newFinder);
         $view->addExtension('sql', 'blade');
-        $obj = $view->make($migrationName, $bladeParams);
+        $obj = $view->make($name, $bladeParams);
         $result = $obj->render();
         $view->setFinder($orgFinder);
         return $result;
     }
+
 
     /**
      * @return ResultSetMappingBuilder
