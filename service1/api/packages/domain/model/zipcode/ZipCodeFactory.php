@@ -18,6 +18,7 @@ class ZipCodeFactory
     public function create(int $id, array $row): ZipCode
     {
         return new ZipCode(
+            new ZipCodeId($id),
             new ZipCodeJis($row[ZipCodeConstants::IDX_JIS]),
             new ZipCodeOldPostalCode($row[ZipCodeConstants::IDX_ZIPCODE5]),
             new ZipCodePostalCode($row[ZipCodeConstants::IDX_ZIPCODE]),
