@@ -17,6 +17,9 @@ import Expire from '@/views/Expire.vue';
 import Maintenance from '@/views/Maintenance.vue';
 import SystemError from '@/views/SystemError.vue';
 import NotFound from '@/views/NotFound.vue';
+import TestMenu from '@/views/TestMenu.vue';
+import MasterMenu1 from '@/views/managements/MasterMenu.vue';
+import MasterMenu2 from '@/views/managements/NoAuthenticationMasterMenu.vue';
 
 
 Vue.use(Router);
@@ -62,10 +65,29 @@ const routes: RouteConfig[] = [
     redirect: '/menu',
   },
   {
+    path:'/testMenu',
+    name:'testMenu',
+    component: TestMenu,
+    meta: {title: 'テストメニュー',requiresAuth :true},
+  },
+  {
     path: '/menu',
     name: 'menu',
     component: TopMenu,
     meta: {title: 'メニュー', requiresAuth: true},
+  },
+
+  {
+    path:'/masterMenu1',
+    name:'masterMenu1',
+    component: MasterMenu1,
+    meta: {title: 'マスターメニュー1',requiresAuth :true},
+  },
+  {
+    path:'/masterMenu2',
+    name:'masterMenu2',
+    component: MasterMenu2,
+    meta: {title: 'マスターメニュー2',requiresAuth :false},
   },
 
   {
