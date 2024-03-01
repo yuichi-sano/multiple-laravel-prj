@@ -24,6 +24,7 @@ class YuseiYubinBangou
     private string $updated;
     private string $updateReason;
     private ?ZipCodeAuditDate $auditDate = null;
+    private ?ZipCodeUserId $userId = null;
 
     public function __construct(
         ZipCodeId $id,

@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:16.13.1-buster
 #working directory
 WORKDIR /app
 ENV PROJDIR=/app/
